@@ -14,8 +14,15 @@
   		<param-name>contextConfigLocation</param-name>
   		<param-value>
   			classpath:applicationContext.xml <!-- 공통설정 (한번 설정 후 절대 수정하지 말것)-->
+  			
+  			<!-- 우영 -->
   			classpath:applicationController.xml <!-- controller ,service -->
 			classpath:applicationBean.xml <!-- repository, service -->
+			<!-- 도완 -->
+			classpath:applicationBean1.xml
+			classpath:applicationController1.xml
+			<!-- 지혜 -->
+			
   		</param-value>
   	</init-param>
   </servlet>

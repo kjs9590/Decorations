@@ -12,32 +12,25 @@ import Repository.MemberSessionRepository;
 
 
 public class MemberService {
-//	String memberId, String memberPw, String memberTell, String memberGender, String memberMail,
-//	String memberAdd, String memberArea, Date memberDate, Date passChangeDate, Date memberLastDate,
-//	String mailConfrim) {
-	
-//	private String id;
-//	private String passward;
-//	private String email;
-//	private String gender;
-//	private int [] tell;
-//	private String addredd;
-//	private String detailAddress;
-//	private String checkbox;
 	
 	@Autowired
 	private MemberSessionRepository memberSessionRepository;	
-	
+
 	//MemberInsert 메소드
 	public Integer Memberinsert(MemberRegisterCommend mCommend,Model model) {
 		Integer result = 0;
-        String tell;
-        String area=mCommend.getAddress().substring(0, 2);
-        
-        tell=mCommend.getTell()[0]+mCommend.getTell()[1]+mCommend.getTell()[2];
-		MemberDTO mDto = new MemberDTO(mCommend.getId(),mCommend.getPassward(),tell,mCommend.getGender(),
-				                       mCommend.getEmail(),mCommend.getAddress(),area,mCommend.getMailConfrim(),mCommend.getName());
+		//배열로 받아온 커맨드객체 tell을 받기위한 변수
+		String tell;
 		
+		//커맨드객체 Address에서 지역 부문 데이터만 추출하기위한 변수
+		String area=mCommend.getAddress().substring(0, 2);
+
+		//커맨드객체에 저장된 데이터값을 MemberDTO에 저장
+		tell=mCommend.getTell()[0]+mCommend.getTell()[1]+mCommend.getTell()[2];
+		MemberDTO mDto = new MemberDTO(mCommend.getId(),mCommend.getPassward(),tell,mCommend.getGender(),
+				mCommend.getEmail(),mCommend.getAddress(),area,mCommend.getMailConfrim(),mCommend.getName());
+
+		//데이터가 저장이 완료된 MemberDTO를 인자값으로 memberSessionRepository.insertMember에 전달함
 		result =memberSessionRepository.insertMember(mDto);
 
 		model.addAttribute("mDto",mDto);
