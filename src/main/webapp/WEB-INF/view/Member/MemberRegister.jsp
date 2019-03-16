@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <th colspan="2">
-                            <p>이벤트메일링수신동의여부<input type="checkbox" class="checkbox" name="mailConfrim"></p>
+                            <p>이벤트메일링수신동의여부<input type="checkbox" class="checkbox" name="mailConfrim" value="O"></p>
                         </th>
                     </tr>
 

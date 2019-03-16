@@ -9,7 +9,7 @@ private String gender;
 private String [] tell;
 private String address;
 private String detailAddress;
-private String checkbox;
+private String mailConfrim;
 private String name;
 public String getId() {
 	return id;
@@ -53,11 +53,11 @@ public String getDetailAddress() {
 public void setDetailAddress(String detailAddress) {
 	this.detailAddress = detailAddress;
 }
-public String getCheckbox() {
-	return checkbox;
+public String getMailConfrim() {
+	return mailConfrim;
 }
-public void setCheckbox(String checkbox) {
-	this.checkbox = checkbox;
+public void setMailConfrim(String mailConfrim) {
+	this.mailConfrim = mailConfrim;
 }
 public String getName() {
 	return name;
@@ -65,8 +65,6 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-
-
 
 
 }

@@ -15,7 +15,7 @@ public class MemberSessionRepository {
 
 	
 	public Integer insertMember(MemberDTO mDto) {
-		
+		System.out.println(mDto.getMailConfrim()+mDto.getMemberAdd()+mDto.getMemberGender());
 		return sqlSession.insert("CommentMapper.insertMember", mDto);
 	}
 	

@@ -6,13 +6,12 @@
 	<cache />
 	
 	<insert id="insertMember" parameterType="MemberDTO">
-		insert into MEMBER (member_id,member_pw,member_tell,member_gender,member_mail
-		,member_add,member_area,member_date,member_name,mail_confrim
+		insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_TELL,MEMBER_GENDER,MEMBER_MAIL
+		,MEMBER_ADD,MEMBER_AREA,MEMBER_DATE,MAIL_CONFRIM,MEMBER_NAME
 		)
 		values(#{memberId},#{memberPw},#{memberTell},#{memberGender},#{memberMail},
-		#{memberAdd},#{memberArea},sysdate,#{memberName},#{mailConfrim})
+		#{memberAdd},#{memberArea},sysdate,#{mailConfrim},#{memberName})
 	</insert>
 	
 
-	
 </mapper>

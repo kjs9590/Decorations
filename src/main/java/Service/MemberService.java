@@ -36,7 +36,7 @@ public class MemberService {
         
         tell=mCommend.getTell()[0]+mCommend.getTell()[1]+mCommend.getTell()[2];
 		MemberDTO mDto = new MemberDTO(mCommend.getId(),mCommend.getPassward(),tell,mCommend.getGender(),
-				                       mCommend.getEmail(),mCommend.getAddress(),area,mCommend.getCheckbox(),mCommend.getName());
+				                       mCommend.getEmail(),mCommend.getAddress(),area,mCommend.getMailConfrim(),mCommend.getName());
 		
 		result =memberSessionRepository.insertMember(mDto);
 
