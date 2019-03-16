@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommentMapper">
+	<cache />
+	
+	<insert id="insertMember" parameterType="MemberDTO">
+		insert into MEMBER (member_id,member_pw,member_tell,member_gender,member_mail
+		,member_add,member_area,member_date,member_name,mail_confrim
+		)
+		values(#{memberId},#{memberPw},#{memberTell},#{memberGender},#{memberMail},
+		#{memberAdd},#{memberArea},sysdate,#{memberName},#{mailConfrim})
+	</insert>
+	
+
+	
+</mapper>
