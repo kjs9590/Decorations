@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, Model.FestivalDTO" %>
+	<%List<FestivalDTO> list = (List)request.getAttribute("arr"); %> 
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <!--제목 설정-->
-<title>샘플(변경하세요)</title>
+<title>축제</title>
 
 <!-- 기본 설정  => 여기서부터 -->
 <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0 minimum-scale = 1.0">
@@ -54,7 +56,7 @@
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <form method="get">
-<div id="festival_main_view"><img src="img/Festival_main.png"></div>
+<div id="festival_main_view"><img src="../images/Festival_main.png"></div>
 		<div id="festival_title"><h3>지역축제</h3></div>
 		<div id="area_info">
 			<ul>
@@ -66,71 +68,23 @@
 			</ul>
 
 		</div>
+		<c:forEach items="${arr}" var="festivallist">
 		<div class="festival_infobox">
-			<div id="festival_infoview"><img src="img/festival1.jpg"></div>
+			<div id="festival_infoview"><img src="../images/festival1.jpg"></div>
 			<div id="festival_info">
-					<p id="info"><strong>한림공원 매화축제 2019</strong></span>
-				<p>새 봄! 봄의 전령사 매화를 만나보자. </p>
+					<p id="info"><strong>${festivallist.getFestivalName() }</strong></span>
+				<p style="color: red; font-size: 12px;">※ 자세한 사항은 해당 축제의 제목을 클릭하세요. </p>
 				<p>
-					기간: 2019. 3. 7. ~ 10.<br>
-					장소: 제주도 제주시<br>
-					문의: 한림공원 064-796-0001~4
+					기간: ${festivallist.getFestivalDate() }<br>
+					장소: ${festivallist.getFestivalPlace()}<br>
+					문의: ${festivallist.getFestivalNumber() }
 				</p>
 				</p>
 			</div>
 		</div>
-		<div class="festival_infobox">
-				<div id="festival_infoview"><img src="img/festival2.jpg"></div>
-				<div id="festival_info">
-				<p id="info"><strong>한림공원 매화축제 2019</strong>
-					<p>새 봄! 봄의 전령사 매화를 만나보자. </p>
-					<p>
-						기간: 2019. 3. 7. ~ 10.<br>
-						장소: 제주도 제주시<br>
-						문의: 한림공원 064-796-0001~4
-					</p>
-				</p>	
-				</div>
-			</div>
-			<div class="festival_infobox">
-					<div id="festival_infoview"><img src="img/festival3.jpg"></div>
-					<div id="festival_info">
-					<p id="info"><strong>한림공원 매화축제 2019</strong>
-						<p>새 봄! 봄의 전령사 매화를 만나보자. </p>
-						<p>
-							기간: 2019. 3. 7. ~ 10.<br>
-							장소: 제주도 제주시<br>
-							문의: 한림공원 064-796-0001~4
-						</p>
-					</p>
-					</div>
-				</div>
-				<div class="festival_infobox">
-						<div id="festival_infoview"><img src="img/festival4.jpg"></div>
-						<div id="festival_info">
-						<p id="info"><strong>한림공원 매화축제 2019</strong>
-							<p>새 봄! 봄의 전령사 매화를 만나보자. </p>
-							<p>
-								기간: 2019. 3. 7. ~ 10.<br>
-								장소: 제주도 제주시<br>
-								문의: 한림공원 064-796-0001~4
-							</p>
-						</p>
-						</div>
-					</div>
-					<div class="festival_infobox">
-							<div id="festival_infoview"><img src="img/movie2.JPG"></div>
-							<div id="festival_info">
-							<p id="info"><strong>한림공원 매화축제 2019</strong>
-								<p>새 봄! 봄의 전령사 매화를 만나보자. </p>
-								<p>
-									기간: 2019. 3. 7. ~ 10.<br>
-									장소: 제주도 제주시<br>
-									문의: 한림공원 064-796-0001~4
-								</p>
-							</p>
-							</div>
-						</div>
+		</c:forEach>
+		
+					
 		<div id="paging_box">
 			<a href="#">1</a>
 			<a href="#">2</a>
