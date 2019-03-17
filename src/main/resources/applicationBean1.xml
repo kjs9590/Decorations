@@ -5,6 +5,10 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
 <!-- 권도완 -->
+<bean id="FestivalListService" class="Service.FestivalListService" />
 
+
+
+<bean id="FestivalRepository" class="Repository.FestivalRepository" />
 
 </beans>

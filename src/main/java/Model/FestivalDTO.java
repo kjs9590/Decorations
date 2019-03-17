@@ -1,33 +1,98 @@
 package Model;
 
 public class FestivalDTO {
-	private String FestivalName; 	//축제이름
-	private String FestivalDate;	//축제날짜
-	private String FestivalPlace;	//축제장소
-	private String FestivalNumber;	//축제번호
+	private String FESTIVALNUM;
+	private String PRODUCTNUM;
+	private String CATEGORYNUM;
+	private String FESTIVALADD;
+	private String FESTIVALTERM;
+	private String FESTIVALINFORM;
+	private String FESTIVALKING;
+	private String FESTIVALSTARTDATE;
+	private String FESTIVALTELL;
+	private String FESTIVALFARE;
+	private String FESTIVALNAME;
+	private String FESTIVALAREA;
+	private String FESTIVALIMG;
 	
-	public String getFestivalName() {
-		return FestivalName;
+	public String getFESTIVALNUM() {
+		return FESTIVALNUM;
 	}
-	public void setFestivalName(String festivalName) {
-		FestivalName = festivalName;
+	public void setFESTIVALNUM(String fESTIVALNUM) {
+		FESTIVALNUM = fESTIVALNUM;
 	}
-	public String getFestivalDate() {
-		return FestivalDate;
+	public String getPRODUCTNUM() {
+		return PRODUCTNUM;
 	}
-	public void setFestivalDate(String festivalDate) {
-		FestivalDate = festivalDate;
+	public void setPRODUCTNUM(String pRODUCTNUM) {
+		PRODUCTNUM = pRODUCTNUM;
 	}
-	public String getFestivalPlace() {
-		return FestivalPlace;
+	public String getCATEGORYNUM() {
+		return CATEGORYNUM;
 	}
-	public void setFestivalPlace(String festivalPlace) {
-		FestivalPlace = festivalPlace;
+	public void setCATEGORYNUM(String cATEGORYNUM) {
+		CATEGORYNUM = cATEGORYNUM;
 	}
-	public String getFestivalNumber() {
-		return FestivalNumber;
+	public String getFESTIVALADD() {
+		return FESTIVALADD;
 	}
-	public void setFestivalNumber(String festivalNumber) {
-		FestivalNumber = festivalNumber;
+	public void setFESTIVALADD(String fESTIVALADD) {
+		FESTIVALADD = fESTIVALADD;
 	}
+	public String getFESTIVALTERM() {
+		return FESTIVALTERM;
+	}
+	public void setFESTIVALTERM(String fESTIVALTERM) {
+		FESTIVALTERM = fESTIVALTERM;
+	}
+	public String getFESTIVALINFORM() {
+		return FESTIVALINFORM;
+	}
+	public void setFESTIVALINFORM(String fESTIVALINFORM) {
+		FESTIVALINFORM = fESTIVALINFORM;
+	}
+	public String getFESTIVALKING() {
+		return FESTIVALKING;
+	}
+	public void setFESTIVALKING(String fESTIVALKING) {
+		FESTIVALKING = fESTIVALKING;
+	}
+	public String getFESTIVALSTARTDATE() {
+		return FESTIVALSTARTDATE;
+	}
+	public void setFESTIVALSTARTDATE(String fESTIVALSTARTDATE) {
+		FESTIVALSTARTDATE = fESTIVALSTARTDATE;
+	}
+	public String getFESTIVALTELL() {
+		return FESTIVALTELL;
+	}
+	public void setFESTIVALTELL(String fESTIVALTELL) {
+		FESTIVALTELL = fESTIVALTELL;
+	}
+	public String getFESTIVALFARE() {
+		return FESTIVALFARE;
+	}
+	public void setFESTIVALFARE(String fESTIVALFARE) {
+		FESTIVALFARE = fESTIVALFARE;
+	}
+	public String getFESTIVALNAME() {
+		return FESTIVALNAME;
+	}
+	public void setFESTIVALNAME(String fESTIVALNAME) {
+		FESTIVALNAME = fESTIVALNAME;
+	}
+	public String getFESTIVALAREA() {
+		return FESTIVALAREA;
+	}
+	public void setFESTIVALAREA(String fESTIVALAREA) {
+		FESTIVALAREA = fESTIVALAREA;
+	}
+	public String getFESTIVALIMG() {
+		return FESTIVALIMG;
+	}
+	public void setFESTIVALIMG(String fESTIVALIMG) {
+		FESTIVALIMG = fESTIVALIMG;
+	}
+	
+	
 }

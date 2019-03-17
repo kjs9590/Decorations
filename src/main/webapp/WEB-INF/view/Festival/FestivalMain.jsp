@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, Model.FestivalDTO" %>
-	<%List<FestivalDTO> list = (List)request.getAttribute("arr"); %> 
+	<%List<FestivalDTO> list = (List)request.getAttribute("dto"); %> 
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
@@ -68,16 +68,16 @@
 			</ul>
 
 		</div>
-		<c:forEach items="${arr}" var="festivallist">
+		<c:forEach items="${dto}" var="festivallist">
 		<div class="festival_infobox">
-			<div id="festival_infoview"><img src="../images/festival1.jpg"></div>
+			<div id="festival_infoview"><img src="../Festival/${festivallist.getFESTIVALIMG() }"></div>
 			<div id="festival_info">
-					<p id="info"><strong>${festivallist.getFestivalName() }</strong></span>
+					<p id="info"><strong>${festivallist.getFESTIVALINFORM() }</strong></span>
 				<p style="color: red; font-size: 12px;">※ 자세한 사항은 해당 축제의 제목을 클릭하세요. </p>
 				<p>
-					기간: ${festivallist.getFestivalDate() }<br>
-					장소: ${festivallist.getFestivalPlace()}<br>
-					문의: ${festivallist.getFestivalNumber() }
+					기간: ${festivallist.getFESTIVALSTARTDATE() }<br>
+					장소: ${festivallist.getFESTIVALADD()}<br>
+					문의: ${festivallist.getFESTIVALTELL() }
 				</p>
 				</p>
 			</div>
