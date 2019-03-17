@@ -15,7 +15,6 @@ import Service.MemberService;
 //회원 등록 컨트롤러
 
 @Controller
-
 public class MemberRegisterController {
 
 	@Autowired
