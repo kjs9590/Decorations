@@ -12,7 +12,7 @@ import Repository.MemberSessionRepository;
 
 
 public class MemberService {
-	
+
 	@Autowired
 	private MemberSessionRepository memberSessionRepository;	
 
@@ -21,7 +21,7 @@ public class MemberService {
 		Integer result = 0;
 		//배열로 받아온 커맨드객체 tell을 받기위한 변수
 		String tell;
-		
+
 		//커맨드객체 Address에서 지역 부문 데이터만 추출하기위한 변수
 		String area=mCommend.getAddress().substring(0, 2);
 
@@ -36,4 +36,21 @@ public class MemberService {
 		model.addAttribute("mDto",mDto);
 		return result;
 	}
+
+	
+	public Integer duplicate(String id,Model model) {
+		Integer result = 0;
+		MemberDTO member =memberSessionRepository.duplicate(id);
+		
+		if(member != null) {
+			result = 1;
+		}else {
+			result = 0;
+		}
+        System.out.println(result+"과연");
+		model.addAttribute("result", result);
+
+		return result;
+	}
+
 }

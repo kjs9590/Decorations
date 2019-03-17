@@ -28,7 +28,7 @@ private String memberArea;
 private String mailConfrim;
 private String memberName;
 
-
+public  MemberDTO() {};
 public MemberDTO(String memberId, String memberPw, String memberTell, String memberGender, String memberMail,
 		String memberAdd, String memberArea, String mailConfrim, String memberName) {
 	super();

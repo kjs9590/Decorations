@@ -18,7 +18,11 @@ html, body {
 #join_auth{
     margin-left: 20px;
 }
-
+#idCheck{
+	height: 20px;
+	margin-left: 105%;
+	width:200%;
+}
 #join_auth tr, #join_auth  td {
 	text-align: left;
 	/* border:1px solid black;  */

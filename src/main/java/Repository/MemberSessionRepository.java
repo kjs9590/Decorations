@@ -11,12 +11,17 @@ import Model.MemberDTO;
 public class MemberSessionRepository {
 	@Autowired
 	private SqlSession sqlSession;
-	private final String namespace = "CommentMapper";
+	private final String namespace = "MemberMapper";
 
 	
 	public Integer insertMember(MemberDTO mDto) {
 		System.out.println(mDto.getMailConfrim()+mDto.getMemberAdd()+mDto.getMemberGender());
-		return sqlSession.insert("CommentMapper.insertMember", mDto);
+		return sqlSession.insert("MemberMapper.insertMember", mDto);
+	}
+	
+	public MemberDTO duplicate(String id) {
+	
+		return sqlSession.selectOne("MemberMapper.selectDuplicate",id);
 	}
 	
 }

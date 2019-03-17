@@ -14,35 +14,68 @@
     <link href="../CSS/MemberRegister.css" rel="stylesheet" type="text/css">
   
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Dacorations/JS/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="Dacorations/JS/jquery.form.js"></script>    
     
     <script src="../JS/MemberRegister.js">
     </script>
 </head>
 
 <body>
+<script type="text/javascript">
 
+	
+	$(function(){
+		$("#id").keyup(function(){
+        var id=$("#id").val();
+			
+		$.ajax({
+		type:"POST",
+		url : "MemberDuplicate",
+		data :"id="+id,
+		dataType: "html",
+		success:function(data){
+			$('#idCheck').html(data)
+		}
+	});
+			
+		});
+	});
+	function check() {
+		 var duplicate=$("#Duplicate").val();
+		
+		if(duplicate==""){
+			alert("아이디 중복체크를 다시해주세요")
+			  return false;
+		}
+	}
+	
+	</script>
+    
     <!-- 헤더 인클루드 하지 말기-->
     <div id="wrap_frm">
         <div id="logo_box">
             <img src="../images/logo.png" id="join_logo" width="300px" height="100px;">
         </div>
-        <form method="post"> 
+      
+        <form method="post" action="MemberJoin" onsubmit="return check()"> 
             <div id="join_auth">
                 <p>회원가입</p>
                 <table>
                     <tr>
                         <th>아이디</th>
-                        <td><input type="text" class="textbox" name="id" placeholder="   아이디"></td>
+                        <td><input id="id" type="text" class="textbox" name="id" placeholder="   아이디"></td>
                     </tr>
+                   <tr>
+                    <td><div id="idCheck"></div></td></tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="text" class="textbox" name="passward" placeholder="   비밀번호"></td>
+                        <td><input type="password" class="textbox" name="passward" placeholder="   비밀번호" style="font-size: 20px"></td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><input type="text" class="textbox" placeholder="   비밀번호확인"></td>
+                        <td><input type="password" class="textbox" placeholder="   비밀번호확인" style="font-size: 20px"></td>
                     </tr>
                     <tr>
                         <th>이메일</th>
