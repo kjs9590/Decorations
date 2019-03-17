@@ -36,12 +36,13 @@
 		<result column="FESTIVAL_IMG" jdbcType="NVARCHAR" property="FESTIVALIMG"/>
 	</resultMap>
 	<select id="selectlist" parameterType="FestivalDTO" resultMap="baseCommentDTO">
-		SELECT
+	SELECT
 	  		<include refid="basecolumn" />
 		FROM FESTIVAL
 	</select>  
 
 
+ 
 
 
 </mapper> 

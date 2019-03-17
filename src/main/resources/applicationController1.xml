@@ -8,4 +8,5 @@
 
 <!-- 축제 -->
 <bean class="Controller.FestivalController.FestivalMainController" />
+<bean class="Controller.FestivalController.FestivalDetailController" />
 </beans>

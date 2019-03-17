@@ -17,6 +17,7 @@ public class FestivalDTO implements Serializable{
 	private String FESTIVALAREA;
 	private String FESTIVALIMG;
 	
+	
 	public String getFESTIVALNUM() {
 		return FESTIVALNUM;
 	}
