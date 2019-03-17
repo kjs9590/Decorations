@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="Model.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="Model.FestivalDTO" alias="FestivalDTO"/>
 	</typeAliases>
 
 </configuration>
