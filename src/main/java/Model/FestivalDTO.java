@@ -1,6 +1,8 @@
 package Model;
 
-public class FestivalDTO {
+import java.io.Serializable;
+
+public class FestivalDTO implements Serializable{
 	private String FESTIVALNUM;
 	private String PRODUCTNUM;
 	private String CATEGORYNUM;
@@ -93,6 +95,5 @@ public class FestivalDTO {
 	public void setFESTIVALIMG(String fESTIVALIMG) {
 		FESTIVALIMG = fESTIVALIMG;
 	}
-	
 	
 }

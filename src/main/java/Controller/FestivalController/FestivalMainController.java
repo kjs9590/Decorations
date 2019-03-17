@@ -13,7 +13,6 @@ import Service.FestivalListService;
 
 
 @Controller
-@RequestMapping("/Festival/Main")
 public class FestivalMainController {
 // 축제 메인 컨트롤러
 	@Autowired
@@ -25,11 +24,10 @@ public class FestivalMainController {
 
 
 
-
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
 	public String form(Model model,FestivalDTO dto) {
-		List<FestivalDTO> Festivallist = festivallistservice.festivallist();
-	model.addAttribute("dto", dto);
+		List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);
+		model.addAttribute("Festivallist", Festivallist);
 		return "Festival/FestivalMain";
 	}
 	

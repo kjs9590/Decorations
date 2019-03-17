@@ -13,9 +13,9 @@ public class FestivalListService {
 	@Autowired
 	private FestivalRepository festivalRepository;
 	
-	public List<FestivalDTO> festivallist() {
+	public List<FestivalDTO> festivallist(FestivalDTO dto) {
 		// TODO Auto-generated method stub
-		List<FestivalDTO> result = festivalRepository.festivallist();
+		List<FestivalDTO> result = festivalRepository.festivallist(dto);
 		return result;
 	}
 

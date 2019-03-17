@@ -14,9 +14,9 @@ public class FestivalRepository {
 	private final String namespace = "FestivalMapper";
 	
 	
-	public List<FestivalDTO> festivallist() {
+	public List<FestivalDTO> festivallist(FestivalDTO dto) {
 		
-		return sqlSession.selectList("FestivalMapper.selectlist");
+		return sqlSession.selectList("FestivalMapper.selectlist",dto);
 	}
 
 }
