@@ -66,13 +66,12 @@
 				<li>경기도</li>
 				<li>서울</li>
 			</ul>
-
 		</div>
 		<c:forEach items="${Festivallist}" var="festivallist">
 		<div class="festival_infobox">
 			<div id="festival_infoview"><img src="../Festival/${festivallist.getFESTIVALIMG()}"></div>
 			<div id="festival_info">
-					<p id="info"><strong>${festivallist.getFESTIVALNAME()}</strong></span>
+					<p id="info"><strong><a href="Detail?fno=${festivallist.getFESTIVALNUM()}">${festivallist.getFESTIVALNAME()}</a></strong></span>
 				<p>입장료 :  <span style="color: red;">${festivallist.getFESTIVALFARE()}</span>원  </p>
 				<p>
 					기간: ${festivallist.getFESTIVALTERM() }<br>

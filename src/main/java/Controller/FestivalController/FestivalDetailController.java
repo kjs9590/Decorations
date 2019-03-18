@@ -7,23 +7,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Model.FestivalDTO;
-import Service.FestivalListService;
+import Service.FestivalDetailService;
+
 
 @Controller
 public class FestivalDetailController {
 	// 축제 디테일 컨트롤러
 		@Autowired
-		private FestivalListService festivallistservice;
-		public FestivalDetailController(FestivalListService festivallistservice) {
-		this.festivallistservice = festivallistservice;
-	}
+		private FestivalDetailService festivalDetailService;
+	
+		public FestivalDetailController(FestivalDetailService festivalDetailService) {
+			this.festivalDetailService = festivalDetailService;
+		}
+
 		@RequestMapping(value="/Festival/Detail", method = RequestMethod.GET )
-		public String form(Model model,FestivalDTO dto) {
-			List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);
-			model.addAttribute("Festivallist", Festivallist);
-			System.out.println("축제명" + dto.getFESTIVALNAME());
+		public String form(Model model,@RequestParam("fno") int num) {
+			FestivalDTO Festivaldetail = festivalDetailService.detail(num);
+			model.addAttribute("Festivaldetail", Festivaldetail);
+
 			return "Festival/FestivalDetail";
 		}
 }

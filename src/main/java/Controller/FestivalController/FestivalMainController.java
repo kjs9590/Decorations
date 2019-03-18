@@ -27,8 +27,19 @@ public class FestivalMainController {
 
 	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
 	public String form(Model model,FestivalDTO dto) {
+		AutoPaging paging = new AutoPaging(3,1,1);
+		Integer count = 0;
+		
+		paging.setListCount(festivallistservice.listcount(count));
+
 		List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);
+		
+		List<FestivalDTO> Festivalpaging = festivallistservice.paging(paging);
+		
 		model.addAttribute("Festivallist", Festivallist);
+		model.addAttribute("paging", paging);
+		model.addAttribute("Festivalpaging",Festivalpaging);
+	
 		return "Festival/FestivalMain";
 	}
 	

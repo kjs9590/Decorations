@@ -6,7 +6,7 @@
 ">
 <!-- 권도완 -->
 <bean id="FestivalListService" class="Service.FestivalListService" />
-
+<bean id="FestivalDetailService" class="Service.FestivalDetailService" />
 
 
 <bean id="FestivalRepository" class="Repository.FestivalRepository" />

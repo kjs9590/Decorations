@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ page import="java.util.*, Model.FestivalDTO" %>
-<%List<FestivalDTO> list = (List)request.getAttribute("Festivallist"); %>
+ <%FestivalDTO detail = (FestivalDTO)request.getAttribute("Festivaldetail"); %> 
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
@@ -61,15 +61,15 @@
 		<table id="festival_info">
 			<tr>
 				<td class="subject">개최지역</td>
-				<td class="info">${list.getFESTIVALAREA }</td>
+				 <td class="info">${Festivaldetail.getFESTIVALAREA() }</td>
 			</tr>
 			<tr>
 				<td class="subject">개최기간</td>
-				<td class="info">${list.getFESTIVALTERM }</td>
+		<td class="info">${Festivaldetail.getFESTIVALTERM() }</td>
 			</tr>
 			<tr>
 				<td class="subject">축제성격</td>
-				<td class="info">${list.getFESTIVALKING }</td>
+			<td class="info">${Festivaldetail.getFESTIVALKING() }</td> 
 			</tr>
 		<!-- 	<tr>
 				<td class="subject">관련 누리집</td>
@@ -77,7 +77,7 @@
 			</tr> -->
 			<tr>
 				<td class="subject">축제장소</td>
-				<td class="info">${list.getFESTIVALADD }</td>
+			<td class="info">${Festivaldetail.getFESTIVALADD() }</td> 
 			</tr>
 			<!-- <tr>
 				<td class="subject">오시는길</td>
@@ -85,7 +85,7 @@
 			</tr> -->
 			<tr>
 				<td class="subject">요금</td>
-				<td class="info">${list.getFESTIVALFARE }원</td>
+				<td class="info">${Festivaldetail.getFESTIVALFARE() }원</td> 
 			</tr>
 			<!-- <tr>
 				<td class="subject">소요시간</td>
@@ -97,21 +97,21 @@
 			</tr> -->
 			<tr>
 				<td class="subject">주최기간</td>
-				<td class="info">${list.getFESTIVALAREA }</td>
+			<td class="info">${Festivaldetail.getFESTIVALAREA() }</td> 
 			</tr>
 			<tr>
 				<td class="subject">문의</td>
-				<td class="info">${list.getFESTIVALTELL }</td>
+			<td class="info">${Festivaldetail.getFESTIVALTELL() }</td> 
 			</tr>
 		</table>
 
 		<div id="festival_contents">
 			
-			${list.getFESTIVALINFORM }
+		${Festivaldetail.getFESTIVALINFORM() }
 		</div>
 		
 		<div id="festival_list">
-			<button type="button">목록</button>
+			<button type="button" onclick="location.href='Main' ">목록</button>
 		</div>
 </div>
 <!-- Content 끝 -->

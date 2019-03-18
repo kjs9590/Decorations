@@ -17,8 +17,18 @@ public class FestivalListService {
 	public List<FestivalDTO> festivallist(FestivalDTO dto) {
 		// TODO Auto-generated method stub
 		List<FestivalDTO> result = festivalRepository.festivallist(dto);
-		System.out.println("서비스축제명" + dto.getFESTIVALNAME());
 		return result;
 	}
+
+	public List<FestivalDTO> paging(AutoPaging paging) {
+		// TODO Auto-generated method stub
+		List<FestivalDTO> result = festivalRepository.paging(paging);
+		return result;
+	}
+
+	public Integer listcount(int count) {
+		return festivalRepository.listcount(count);
+	}
+
 
 }

@@ -40,8 +40,25 @@
 	  		<include refid="basecolumn" />
 		FROM FESTIVAL
 	</select>  
+	
+	<select id="detail"  resultMap="baseCommentDTO" parameterType="int" >
+	SELECT
+	  		<include refid="basecolumn" />
+		FROM FESTIVAL
+		where FESTIVAL_NUM = #{num}
+	</select>  
 
-
+	<select id="paging" parameterType="HashMap" resultMap="baseCommentDTO">
+	SELECT
+		<include refid="basecolumn" />
+		FROM FESTIVAL
+		LIMIT #{minNum}, #{maxNum}
+	</select>
+	<select id="listcount" parameterType="Integer" resultType="FestivalDTO">
+	SELECT
+		count(*) as cnt
+		FROM FESTIVAL
+	</select>
  
 
 
