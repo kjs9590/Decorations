@@ -22,7 +22,8 @@
 			classpath:applicationBean1.xml
 			classpath:applicationController1.xml
 			<!-- 지혜 -->
-			
+			classpath:applicationBean2.xml
+			classpath:applicationController2.xml			
   		</param-value>
   	</init-param>
   </servlet>
