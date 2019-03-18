@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AccomodationMapper">
+	<cache />
+		
+	<insert id="insertAccomodation" parameterType="AccomodationDTO">
+		insert into ACCOMODATION(ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD,ACCOMODATION_AREA,ACCOMODATION_KIND
+		,ACCOMODATION_TELL,ACCOMODATION_IMG,ACCOMODATION_IMGSTORE,ACCOMODATION_INFORM)
+		values((select nvl(max(ACCOMODATION_NUM),0) +1 from ACCOMODATION),#{accomodationName},#{accomodationAdd},#{accmodationArea},#{accmodationKind},
+		#{accmodationTell},#{accmodationImg},#{accmodationImgstore},#{accomodationInform})
+	</insert>
+
+	
+	<select id="listAccomodation"  resultMap="listAccomodation">
+		select ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD, ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL, ACCOMODATION_IMGSTORE,ACCOMODATION_INFORM from ACCOMODATION
+		
+	</select>
+	
+   <resultMap type="AccomodationDTO" id="listAccomodation">
+		<id column="ACCOMODATION_NUM" jdbcType="BIGINT" property="accomodationNum"/>
+		<result column="ACCOMODATION_NAME" jdbcType="VARCHAR" property="accomodationName"/>
+		<result column="ACCOMODATION_ADD" jdbcType="VARCHAR" property="accomodationAdd"/>
+		<result column="ACCOMODATION_AREA" jdbcType="VARCHAR" property="accmodationArea"/>
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR" property="accmodationKind"/>
+		<result column="ACCOMODATION_TELL" jdbcType="VARCHAR" property="accmodationTell"/>
+		<result column="ACCOMODATION_INFORM" jdbcType="VARCHAR" property="accomodationInform"/>
+		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR" property="accmodationImgstore"/>
+		
+	</resultMap>	
+	
+	<select id="listAccomodationCount"  resultMap="listAccomodationCount">
+		select  ACCOMODATION_KIND, count(ACCOMODATION_KIND) as cnt
+		from ACCOMODATION
+		group by ACCOMODATION_KIND
+	</select>
+	
+	<resultMap type="AccomodationDTO" id="listAccomodationCount">
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR" property="accmodationKind"/>
+		<result column="cnt" jdbcType="BIGINT" property="count"/>
+		
+	</resultMap>	
+</mapper>

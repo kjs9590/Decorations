@@ -4,8 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
-	
+<!-- Sevice	 -->
 <bean id="memberService" class="Service.MemberService"/> 
+<bean id="accomodationService" class="Service.AccomodationService"/> 
+
+<!-- Repository	 -->
 <bean id="memberSessionRepository" class="Repository.MemberSessionRepository"/>	
+<bean id="accomodationRepository" class="Repository.AccomodationRepository"/>	
 </beans>
 
