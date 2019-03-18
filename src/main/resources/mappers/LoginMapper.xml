@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LoginMapper">
+	<cache />
+
+	<select id="login" parameterType="string" resultMap="login">
+		SELECT
+		member_id, member_pw, member_mail, member_gender, member_tell,member_add
+		FROM MEMBER
+		WHERE member_id = #{id}
+	</select>
+	
+	
+	
+	<resultMap type="MemberDTO" id="login">
+		<id column="MEMBER_ID" jdbcType="BIGINT" property="memberId" />
+		<result column="MEMBER_PW" jdbcType="VARCHAR" property="memberPw"/>
+		<result column="MEMBER_MAIL" jdbcType="VARCHAR" property="memberMail"/>
+		<result column="MEMBER_GENDER" jdbcType="VARCHAR" property="memberGender"/>
+		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>
+		<result column="MEMBER_ADD" jdbcType="VARCHAR" property="memberAdd"/>
+	</resultMap>
+</mapper>
