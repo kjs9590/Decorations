@@ -96,7 +96,7 @@
 			<version>1.2.17</version>
 		</dependency>
 		
-
+	
   	<!-- Test -->
     <dependency>
       <groupId>junit</groupId>
@@ -106,7 +106,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>mybatis-spring</finalName>
+    <finalName>Dacorations</finalName>
     <plugins>
 		<plugin>
 			<artifactId>maven-compiler-plugin</artifactId>
