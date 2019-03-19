@@ -44,5 +44,12 @@ public class FestivalRepository {
 	}
 
 
+	public List<FestivalDTO> area(String FESTIVALAREA) {
+		// TODO Auto-generated method stub
+		System.out.println("festivalarea값 ="+FESTIVALAREA); 
+		return sqlSession.selectList("FestivalMapper.selectfestivalarea",FESTIVALAREA);
+	}
+
+
 
 }

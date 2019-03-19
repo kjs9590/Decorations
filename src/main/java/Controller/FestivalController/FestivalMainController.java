@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.PagingCommand;
 import Model.FestivalDTO;
@@ -28,17 +29,20 @@ public class FestivalMainController {
 
 
 	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
-	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command) {
-		 if(command.getPage()==0) {
+	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command,@RequestParam(value="festivalarea", required=false) String FESTIVALAREA) {
+		
+		if(command.getPage()==0) {
              command.setPage(1);
            }
+		List<FestivalDTO> area = festivallistservice.area(FESTIVALAREA);
 		AutoPaging paging = new AutoPaging(command.getPage(),2,3);
 		paging.setListCount(festivallistservice.listCount());
-		System.out.println(command.getPage());
+
 	/*	List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);*/
 		List<FestivalDTO> listpaging = festivallistservice.listpaging(paging);
 		model.addAttribute("Festivallist", listpaging);
 		model.addAttribute("paging", paging);
+		model.addAttribute("area", area);
 		return "Festival/FestivalMain";
 	}
 	

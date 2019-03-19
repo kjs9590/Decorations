@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import Model.FestivalDTO;
 import Repository.FestivalRepository;
@@ -27,6 +28,10 @@ public class FestivalListService {
 	public List<FestivalDTO> listpaging(AutoPaging paging) {
 		// TODO Auto-generated method stub
 		return festivalRepository.paging(paging);
+	}
+
+	public List<FestivalDTO> area(String FESTIVALAREA) {
+		return  festivalRepository.area(FESTIVALAREA);
 	}
 
 
