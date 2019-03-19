@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="Model.*"%>
-<% MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
+<% 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
+	ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -29,15 +30,16 @@
                 <li>
                     <ul id="h_menu">
 
-						<%if(memberDTO==null){ %>
+						
+                        <% if( chargerDTO != null){ %>
                         <li><a href="">상품등록하기</a></li><!--담당자 로그인떄만 보여지게-->
                         <%} %>
-                        <%if(memberDTO==null){ %>
+                        <%if(memberDTO==null ||chargerDTO == null){ %>
                         <li><a href="Login"> LOGIN </a></li>
                         <li><a href="CLogin"> CHARGER LOGIN </a></li>
                         <li><a href="Member/MemberRegister"> SIGN UP </a></li>
                         <%} %>
-                        <%if(memberDTO!=null){ %>
+                        <%if(memberDTO!=null || chargerDTO != null){ %>
                         <li><a href="Logout"> LOGOUT </a></li>
                         <%} %>
                         

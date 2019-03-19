@@ -10,9 +10,7 @@
 
 <bean class="Controller.LoginController.LoginController" />
 <bean class="Controller.MainController.MainController" />
-
-<!-- 
-<bean class="Controller.FestivalController.FestivalDetailController" /> -->
+<bean class="Controller.MemberController.MainListController" />
 
 
 </beans>
