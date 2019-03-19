@@ -4,10 +4,10 @@
 <%@ page import="java.util.*"%>
 <%@ page import="Model.MemberDTO"%>
 <%
-ArrayList<MemberDTO> members = null;
-if(request.getAttribute("members")!=null){
-	members =(ArrayList<MemberDTO>)request.getAttribute("members");
-}
+	ArrayList<MemberDTO> members = null;
+	if (request.getAttribute("members") != null) {
+		members = (ArrayList<MemberDTO>) request.getAttribute("members");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,8 +20,8 @@ if(request.getAttribute("members")!=null){
 	rel="stylesheet">
 <!--폰트-->
 <!--body { font-family: "Jua", sans-serif;} -->
-<link href="../CSS/member_list.css"
-	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/member_list.css" 	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/header.css"	rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -39,26 +39,33 @@ if(request.getAttribute("members")!=null){
 				<td id="agree">메일수신</td>
 				<td id="date">가입일</td>
 			</tr>
-			<%if(members.size()==0){ %>
+			<%
+				if (members.size() == 0) {
+			%>
 			<tr>
 				<td colspan="8" style="text-align: center">회원이 존재하지 않습니다.</td>
 			</tr>
-			<% } else{
-				for(int a = 0; a<members.size();a++){		
+			<%
+				} else {
+					for (int a = 0; a < members.size(); a++) {
 			%>
 			<tr>
-				<td id="name"><%=members.get(a).getMemberName() %></td>
-				<td id="id"><%=members.get(a).getMemberId() %></td>
-				<td id="email"><%=members.get(a).getMemberMail() %></td>
-				<td id="gender"><%=members.get(a).getMemberGender() %></td>
-				<td id="phone"><%=members.get(a).getMemberTell() %></td>
-				<td id="addr"><%=members.get(a).getMemberArea() %></td>
-				<td id="agree"><%=members.get(a).getMailConfrim() %></td>
-				<td id="date"><%=members.get(a).getMemberDate() %></td>
+				<td id="name"><%=members.get(a).getMemberName()%></td>
+				<td id="id"><%=members.get(a).getMemberId()%></td>
+				<td id="email"><%=members.get(a).getMemberMail()%></td>
+				<td id="gender"><%=members.get(a).getMemberGender()%></td>
+				<td id="phone"><%=members.get(a).getMemberTell()%></td>
+				<td id="addr"><%=members.get(a).getMemberArea()%></td>
+				<td id="agree"><%=members.get(a).getMailConfrim()%></td>
+				<td id="date"><%=members.get(a).getMemberDate()%></td>
 			</tr>
-			<%} %>
+			<%
+				}
+			%>
 
-			<%} %>
+			<%
+				}
+			%>
 		</table>
 	</div>
 </body>
