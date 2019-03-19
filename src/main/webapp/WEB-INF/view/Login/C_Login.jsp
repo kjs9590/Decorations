@@ -18,7 +18,7 @@
 
 <body>
 	<!-- 헤더 인클루드 하지 말기-->
-	<form action="Login" method="post">
+	<form action="CLogin" method="post">
 		<div class="wrap_login">
 			<a href="">
 				<div id="log_logo">

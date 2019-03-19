@@ -53,9 +53,8 @@ public class LoginController {
 	@RequestMapping(value="/CLogin", method=RequestMethod.POST)
 	public String logintrytry(Model model,LoginCommand loginCommand, HttpSession session) {
 
-
 		loginService.c_chkLogin( loginCommand , model,session);
-		
+		System.out.println("로그인아이디 : "+loginCommand.getId());
 		return "redirect:/Main";
 	}
 }

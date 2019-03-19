@@ -30,7 +30,7 @@
 		<result column="MEMBER_ADD" jdbcType="VARCHAR" property="memberAdd"/>
 	</resultMap>
 	
-		<resultMap type="MemberDTO" id="clogin">
+		<resultMap type="ChargerDTO" id="clogin">
 		<id column="CHARGE_NUM" jdbcType="BIGINT" property="chargeNum" />
 		<result column="CHARGE_ID" jdbcType="VARCHAR" property="chargeId"/>
 		<result column="CHARGE_PW" jdbcType="VARCHAR" property="chargePw"/>

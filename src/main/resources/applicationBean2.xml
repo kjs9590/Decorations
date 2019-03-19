@@ -8,11 +8,12 @@
 
 
 <bean id="LoginService" class="Service.LoginService" />
-
+<bean id="MemberListService" class="Service.MemberListService" />
 
 
 
 
 <bean id="LoginRepository" class="Repository.LoginRepository" />
+<bean id="MemberListRepository" class="Repository.MemberListRepository" />
 
 </beans>
