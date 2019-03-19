@@ -50,6 +50,22 @@
 
 </head>
 <body>
+<script type="text/javascript">
+$(function(){
+	$(".festivalarea").click(function(){
+    var id=$(".festivalarea").val();
+	$.ajax({
+		type:"POST",
+		url : "Main",
+		data :"id="+id,
+
+		
+	});
+		
+	
+});
+
+</script>
 <!-- Header 시작 -->
 <jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
@@ -60,11 +76,11 @@
 		<div id="festival_title"><h3>지역축제</h3></div>
 		<div id="area_info">
 			<ul>
-				<li><a id="1" href="#">영등포구</a></li>
-				<li><a id="2" href="#">용산구</a></li>
-				<li><a id="3" href="#">강북구</a></li>
-				<li><a id="4" href="#">중랑구</a></li>
-				<li><a id="5" href="#">동대문구</a></li>
+				<li>영등포구</li>
+				<li class="FESTIVALAREA">용산구</li>
+				<li><a href="#">강북구</a></li>
+				<li><a href="#">중랑구</a></li>
+				<li><a href="#">동대문구</a></li>
 			</ul>
 		</div>
 		<c:forEach items="${Festivallist}" var="festivallist">

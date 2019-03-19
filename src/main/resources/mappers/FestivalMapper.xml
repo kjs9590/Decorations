@@ -76,4 +76,10 @@
 		FESTIVAL
 	</select>
 
+	<!-- 지역별 축제 에이작스-->
+	<select id="selectfestivalarea" parameterType="FestivalDTO" resultMap="baseCommentDTO">
+		select <include refid="basecolumn" />
+		FROM FESTIVAL
+		where FESTIVAL_AREA = '용산구'
+	</select>
 </mapper> 
