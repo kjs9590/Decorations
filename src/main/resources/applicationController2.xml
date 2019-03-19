@@ -10,7 +10,7 @@
 
 <bean class="Controller.LoginController.LoginController" />
 <bean class="Controller.MainController.MainController" />
-<bean class="Controller.MemberController.MainListController" />
+<bean class="Controller.MemberController.MemberListController" />
 
 
 </beans>

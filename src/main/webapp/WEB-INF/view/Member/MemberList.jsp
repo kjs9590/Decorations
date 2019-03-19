@@ -20,7 +20,7 @@ if(request.getAttribute("members")!=null){
 	rel="stylesheet">
 <!--폰트-->
 <!--body { font-family: "Jua", sans-serif;} -->
-<link href="${pageContext.request.contextPath }/CSS/member_list.css"
+<link href="../CSS/member_list.css"
 	rel="stylesheet" type="text/css">
 </head>
 
