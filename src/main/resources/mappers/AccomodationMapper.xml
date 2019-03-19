@@ -4,41 +4,114 @@
 
 <mapper namespace="AccomodationMapper">
 	<cache />
-		
+
 	<insert id="insertAccomodation" parameterType="AccomodationDTO">
-		insert into ACCOMODATION(ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD,ACCOMODATION_AREA,ACCOMODATION_KIND
+		insert into
+		ACCOMODATION(ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD,ACCOMODATION_AREA,ACCOMODATION_KIND
 		,ACCOMODATION_TELL,ACCOMODATION_IMG,ACCOMODATION_IMGSTORE,ACCOMODATION_INFORM)
-		values((select nvl(max(ACCOMODATION_NUM),0) +1 from ACCOMODATION),#{accomodationName},#{accomodationAdd},#{accmodationArea},#{accmodationKind},
+		values((select nvl(max(ACCOMODATION_NUM),0) +1 from
+		ACCOMODATION),#{accomodationName},#{accomodationAdd},#{accmodationArea},#{accmodationKind},
 		#{accmodationTell},#{accmodationImg},#{accmodationImgstore},#{accomodationInform})
 	</insert>
 
-	
-	<select id="listAccomodation"  resultMap="listAccomodation">
-		select ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD, ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL, ACCOMODATION_IMGSTORE,ACCOMODATION_INFORM from ACCOMODATION
-		
+	<select id="listAccomodation" resultMap="listAccomodation">
+		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION
+
 	</select>
-	
-   <resultMap type="AccomodationDTO" id="listAccomodation">
-		<id column="ACCOMODATION_NUM" jdbcType="BIGINT" property="accomodationNum"/>
-		<result column="ACCOMODATION_NAME" jdbcType="VARCHAR" property="accomodationName"/>
-		<result column="ACCOMODATION_ADD" jdbcType="VARCHAR" property="accomodationAdd"/>
-		<result column="ACCOMODATION_AREA" jdbcType="VARCHAR" property="accmodationArea"/>
-		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR" property="accmodationKind"/>
-		<result column="ACCOMODATION_TELL" jdbcType="VARCHAR" property="accmodationTell"/>
-		<result column="ACCOMODATION_INFORM" jdbcType="VARCHAR" property="accomodationInform"/>
-		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR" property="accmodationImgstore"/>
-		
-	</resultMap>	
-	
-	<select id="listAccomodationCount"  resultMap="listAccomodationCount">
-		select  ACCOMODATION_KIND, count(ACCOMODATION_KIND) as cnt
+
+	<resultMap type="AccomodationDTO" id="listAccomodation">
+		<id column="ACCOMODATION_NUM" jdbcType="BIGINT"
+			property="accomodationNum" />
+		<result column="ACCOMODATION_NAME" jdbcType="VARCHAR"
+			property="accomodationName" />
+		<result column="ACCOMODATION_ADD" jdbcType="VARCHAR"
+			property="accomodationAdd" />
+		<result column="ACCOMODATION_AREA" jdbcType="VARCHAR"
+			property="accmodationArea" />
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR"
+			property="accmodationKind" />
+		<result column="ACCOMODATION_TELL" jdbcType="VARCHAR"
+			property="accmodationTell" />
+		<result column="ACCOMODATION_INFORM" jdbcType="VARCHAR"
+			property="accomodationInform" />
+		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
+			property="accmodationImgstore" />
+	</resultMap>
+
+	<select id="listAccomodationCount" resultMap="listAccomodationCount">
+		select ACCOMODATION_KIND, count(ACCOMODATION_KIND) as cnt
 		from ACCOMODATION
 		group by ACCOMODATION_KIND
 	</select>
-	
+
 	<resultMap type="AccomodationDTO" id="listAccomodationCount">
-		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR" property="accmodationKind"/>
-		<result column="cnt" jdbcType="BIGINT" property="count"/>
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR"
+			property="accmodationKind" />
+		<result column="cnt" jdbcType="BIGINT" property="count" />
+	</resultMap>
+
+   <select id="listEachAccomodationCount" parameterType="String" resultMap="listAccomodation">
+		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION where ACCOMODATION_KIND =#{kind} 
+   </select>
+
+<select id="AccomodationCount" parameterType="String" resultMap="AccomodationCount">
+		select count(*) as cnt
+		from ACCOMODATION where ACCOMODATION_KIND =#{kind} 
 		
-	</resultMap>	
+	</select>
+
+	<resultMap type="AccomodationDTO" id="AccomodationCount">
+		<result column="cnt" jdbcType="BIGINT" property="count"/>
+	</resultMap>
+<select id="AccomodationRoom" parameterType="int" resultMap="AccomodationRoom">
+		
+		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION where ACCOMODATION_NUM =#{num} 
+
+	</select>
+
+	<resultMap type="AccomodationDTO" id="AccomodationRoom">
+		<id column="ACCOMODATION_NUM" jdbcType="BIGINT"
+			property="accomodationNum" />
+		<result column="ACCOMODATION_NAME" jdbcType="VARCHAR"
+			property="accomodationName" />
+		<result column="ACCOMODATION_ADD" jdbcType="VARCHAR"
+			property="accomodationAdd" />
+		<result column="ACCOMODATION_AREA" jdbcType="VARCHAR"
+			property="accmodationArea" />
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR"
+			property="accmodationKind" />
+		<result column="ACCOMODATION_TELL" jdbcType="VARCHAR"
+			property="accmodationTell" />
+		<result column="ACCOMODATION_INFORM" jdbcType="VARCHAR"
+			property="accomodationInform" />
+		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
+			property="accmodationImgstore" />
+	</resultMap>
+	
+	<select id="DateProductNum" resultType="long">
+		select nvl(max(PRODUCT_NUM),0) +1 from
+		DATEPRODUCT
+	</select>
+	
+	<insert id="DateProduct" parameterType="AccomodationRegisterDTO">
+		insert into DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM, PRODUCT_NAME)
+		values(#{roomNum},3,#{roomKind})
+    </insert>
+	
+	<insert id="AccomodationRegister" parameterType="AccomodationRegisterDTO">
+       	insert into DATEROOM(ROOM_NUM, ACCOMODATION_NUM, PRODUCT_NUM, CATEGORY_NUM, ROOM_PRICE,
+       	ROOM_AD, ROOM_EX, ROOM_KIND, ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)
+		values((select nvl(max(ROOM_NUM),0) +1 from DATEROOM),#{accomodationNum},#{roomNum},3,#{roomPrice}
+		,#{roomAd},#{roomEx},#{roomKind},#{roomImgstore},#{roomImg},#{roomCount}
+		)
+	</insert>
+	
+	
+
 </mapper>

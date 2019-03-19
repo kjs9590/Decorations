@@ -38,12 +38,13 @@
 				<td id="addr">회원 지역</td>
 				<td id="agree">메일수신</td>
 				<td id="date">가입일</td>
+				<td id="last_date">마지막접속일</td>
 			</tr>
 			<%
 				if (members.size() == 0) {
 			%>
 			<tr>
-				<td colspan="8" style="text-align: center">회원이 존재하지 않습니다.</td>
+				<td colspan="9" style="text-align: center">회원이 존재하지 않습니다.</td>
 			</tr>
 			<%
 				} else {
@@ -58,6 +59,7 @@
 				<td id="addr"><%=members.get(a).getMemberArea()%></td>
 				<td id="agree"><%=members.get(a).getMailConfrim()%></td>
 				<td id="date"><%=members.get(a).getMemberDate()%></td>
+				<td id="last_date"><%=members.get(a).getMemberLastDate()%></td>
 			</tr>
 			<%
 				}

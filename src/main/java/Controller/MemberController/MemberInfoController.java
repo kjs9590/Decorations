@@ -1,0 +1,52 @@
+package Controller.MemberController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import Commend.MemberUpdateCommand;
+import Model.MemberDTO;
+import Service.MemberInfoService;
+
+@Controller
+public class MemberInfoController {
+
+	@Autowired
+	private MemberInfoService memberInfoService;
+
+	public void setMemberInfoService(MemberInfoService memberInfoService) {
+		this.memberInfoService = memberInfoService;
+	}
+	
+	@RequestMapping(value="Member/MemberInfo", method=RequestMethod.GET)
+	public String info(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		MemberDTO mem  = (MemberDTO) session.getAttribute("memberDTO");
+		String id = mem.getMemberId();
+		System.out.println(id);
+		memberInfoService.info(id); 
+
+		System.out.println(mem.getMemberName()+"멤버이름");
+		model.addAttribute("mem",mem);
+		
+		
+		return "Member/MemberInfo";
+	}
+	
+	@RequestMapping(value= "Member/MemberUpdate", method=RequestMethod.GET)
+	public String update() {
+		
+		return "Member/MemberUpdate";
+	}
+	@RequestMapping(value= "Member/MemberUpdate", method=RequestMethod.POST)
+	public String info_update(MemberUpdateCommand upCommand, Model model ) {
+		
+		memberInfoService.update(upCommand,model);
+		return "Member/MemberUpdate";
+	}
+}

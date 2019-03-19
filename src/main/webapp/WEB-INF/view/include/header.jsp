@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Jua|Play" rel="stylesheet">
     <!--폰트-->
     <!--body { font-family: "Jua", sans-serif;} -->
-    <link href="../CSS/header.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/CSS/header.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -32,15 +32,21 @@
 
 						
                         <% if( chargerDTO != null){ %>
-                        <li><a href="">상품등록하기</a></li><!--담당자 로그인떄만 보여지게-->
+                        <li><a href="Reg_Link">상품등록하기</a></li><!--담당자 로그인때만 보여지게-->
                         <%} %>
-                        <%if(memberDTO==null ||chargerDTO == null){ %>
+                        <%if(memberDTO==null && chargerDTO==null){ %>
                         <li><a href="Login"> LOGIN </a></li>
                         <li><a href="CLogin"> CHARGER LOGIN </a></li>
                         <li><a href="Member/MemberRegister"> SIGN UP </a></li>
                         <%} %>
                         <%if(memberDTO!=null || chargerDTO != null){ %>
                         <li><a href="Logout"> LOGOUT </a></li>
+                        <%} %>
+                        <%if(memberDTO != null){ %>
+                        <li><a href="Member/MemberInfo"> MY PAGE </a></li>
+                        <%} %>
+                        <%if(chargerDTO != null){ %>
+                        <li><a href="memberList"> MEMBERLIST </a></li>
                         <%} %>
                         
                         <li><a href="#"> CUSTOMERSERVICE </a></li>
@@ -50,8 +56,8 @@
                     <ul id="mainmenu">
                         <li><a href="#"> MOVIE </a></li>
                         <li><a href="#"> RESTAURANT </a></li>
-                        <li><a href="#"> FESTIVAL </a></li>
-                        <li><a href="#"> ACCOMMODATION </a></li>
+                        <li><a href="Festival/Main"> FESTIVAL </a></li>
+                        <li><a href="Accomodation/AccomodationMain"> ACCOMMODATION </a></li>
                     </ul>
                 </li>
             </ul>

@@ -24,12 +24,10 @@
 
 <body>
 <script type="text/javascript">
-
-	
-	$(function(){
+     
+     $(function(){
 		$("#id").keyup(function(){
         var id=$("#id").val();
-			
 		$.ajax({
 		type:"POST",
 		url : "MemberDuplicate",
@@ -50,7 +48,6 @@
 			  return false;
 		}
 	}
-	
 	</script>
     
     <!-- 헤더 인클루드 하지 말기-->

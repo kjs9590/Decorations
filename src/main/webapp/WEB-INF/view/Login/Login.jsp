@@ -17,7 +17,7 @@
 
 	<form action="Login" method="post">
 		<div class="wrap_login">
-			<a href="">
+			<a href="Main">
 				<div id="log_logo">
 					<img src="images/dc1.png" alt="" width="100%" height="300px">
 				</div>
@@ -28,8 +28,8 @@
 					type="password" name="password" id="password" placeholder="비밀번호">
 			</div>
 			<div class="login_info">
-				<a href="">아이디 찾기</a> <span>|</span> <a href="">비밀번호 찾기</a> <span>|</span>
-				<a href="">회원가입</a>
+				<a href="Find_Id">아이디 찾기</a> <span>|</span> <a href="Find_Pw">비밀번호 찾기</a> <span>|</span>
+				<a href="Member/MemberRegister">회원가입</a>
 			</div>
 			<div id="btn">
 				<button type="submit" id="login_btn">

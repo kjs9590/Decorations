@@ -12,11 +12,12 @@
     <!--폰트-->
     <!--body { font-family: "Jua", sans-serif;} -->
     <link href="${pageContext.request.contextPath }/CSS/main.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath }/CSS/header.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath }/CSS/jquery-sakura.css" rel="stylesheet">
     <style></style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath }/JS/jquery-sakura.js"></script>
+    
+    <link href="${pageContext.request.contextPath }/CSS/header.css" rel="stylesheet" type="text/css">
 
  
 </head>

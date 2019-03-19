@@ -22,8 +22,7 @@ public class MemberRegisterController {
 	
 	@RequestMapping(value="/Member/MemberRegister" ,method=RequestMethod.GET)
 	public String form() {
-		System.out.println("aaaa");
-		String a;
+	
 		return "Member/MemberRegister";
 	}
 	

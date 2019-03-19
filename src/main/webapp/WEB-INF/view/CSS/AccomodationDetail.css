@@ -28,6 +28,9 @@
     height: 350px;
    
 }
+a{
+	text-decoration: none;
+}
 .roomInfo span {
 	margin-right: 1%;
 	background-color: #ff5146;
