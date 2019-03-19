@@ -27,6 +27,7 @@ private String memberAdd;
 private String memberArea;
 private String mailConfrim;
 private String memberName;
+private Date   MEMBER_DATE;
 
 public  MemberDTO() {};
 public MemberDTO(String memberId, String memberPw, String memberTell, String memberGender, String memberMail,

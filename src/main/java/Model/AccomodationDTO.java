@@ -26,8 +26,7 @@ private String accmodationTell;
 private String accmodationImg;
 private String accmodationImgstore;
 private String accomodationInform;
-private int count;
-
+private Integer count;
 
 
 public AccomodationDTO() {}
@@ -43,13 +42,14 @@ public AccomodationDTO( String accomodationName, String accomodationAdd, String 
 	this.accmodationImgstore = accmodationImgstore;
   this.accomodationInform=accomodationInform;}
 
-public int getCount() {
+
+
+public Integer getCount() {
 	return count;
 }
-public void setCount(int count) {
+public void setCount(Integer count) {
 	this.count = count;
 }
-
 public String getAccomodationInform() {
 	return accomodationInform;
 }

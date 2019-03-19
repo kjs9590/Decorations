@@ -8,6 +8,7 @@
 		<typeAlias type="Model.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="Model.FestivalDTO" alias="FestivalDTO"/>
 		<typeAlias type="Model.AccomodationDTO" alias="AccomodationDTO"/>
+		<typeAlias type="Model.ChargerDTO" alias="ChargerDTO"/>
 	</typeAliases>
 
 </configuration>
