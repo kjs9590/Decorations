@@ -27,7 +27,8 @@ private String memberAdd;
 private String memberArea;
 private String mailConfrim;
 private String memberName;
-private Date   MEMBER_DATE;
+private Date   memberDate;   
+
 
 public  MemberDTO() {};
 public MemberDTO(String memberId, String memberPw, String memberTell, String memberGender, String memberMail,
@@ -42,6 +43,12 @@ public MemberDTO(String memberId, String memberPw, String memberTell, String mem
 	this.memberArea = memberArea;
 	this.mailConfrim = mailConfrim;
 	this.memberName = memberName;
+}
+public Date getMemberDate() {
+	return memberDate;
+}
+public void setMemberDate(Date memberDate) {
+	this.memberDate = memberDate;
 }
 public String getMemberId() {
 	return memberId;
