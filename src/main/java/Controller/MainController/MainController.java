@@ -11,5 +11,9 @@ public class MainController {
 	public String main() {
 		return "Main/Main";
 	}
-
+	
+	@RequestMapping(value="/Reg_Link",method=RequestMethod.GET)
+	public String link() {
+		return "Main/Reg_Link";
+	}
 }

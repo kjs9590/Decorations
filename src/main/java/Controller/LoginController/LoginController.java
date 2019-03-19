@@ -20,7 +20,7 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping(value="/Login", method=RequestMethod.GET)
+	@RequestMapping(value="/Login", method=RequestMethod.GET)//회원로그인
 	public String login() {
 		return "Login/Login";
 	}
@@ -36,7 +36,7 @@ public class LoginController {
 
 	
 	
-	@RequestMapping(value="/Logout", method=RequestMethod.GET)
+	@RequestMapping(value="/Logout", method=RequestMethod.GET)//로그아웃
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
@@ -44,7 +44,7 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping(value="/CLogin", method=RequestMethod.GET)
+	@RequestMapping(value="/CLogin", method=RequestMethod.GET)//담당자 로그인
 	public String Clogin() {
 		return "Login/C_Login";
 	}

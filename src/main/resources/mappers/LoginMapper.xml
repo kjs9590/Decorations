@@ -7,7 +7,7 @@
 
 	<select id="login" parameterType="string" resultMap="login">
 		SELECT
-		member_id, member_pw, member_mail, member_gender, member_tell,member_add
+		member_id, member_pw, member_name, member_mail, member_gender, member_tell, member_add
 		FROM MEMBER
 		WHERE member_id = #{id}
 	</select>
@@ -24,6 +24,7 @@
 	<resultMap type="MemberDTO" id="login">
 		<id column="MEMBER_ID" jdbcType="BIGINT" property="memberId" />
 		<result column="MEMBER_PW" jdbcType="VARCHAR" property="memberPw"/>
+		<result column="MEMBER_NAME" jdbcType="VARCHAR" property="memberName"/>
 		<result column="MEMBER_MAIL" jdbcType="VARCHAR" property="memberMail"/>
 		<result column="MEMBER_GENDER" jdbcType="VARCHAR" property="memberGender"/>
 		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>

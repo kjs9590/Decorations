@@ -11,13 +11,13 @@ import Model.MemberDTO;
 import Repository.LoginRepository;
 
 public class LoginService {
-	
+
 	@Autowired
 	private LoginRepository loginRepository;
-	
 
-	
-	
+
+
+
 
 	public void chkLogin(LoginCommand loginCommand, Model model,HttpSession session) {
 
@@ -30,17 +30,12 @@ public class LoginService {
 		else if(!logindto.getMemberPw().equals(loginCommand.getPassword())) {
 			System.out.println(logindto.getMemberPw()+"비밀번호가 일치하지 않습니다."+loginCommand.getPassword());
 			result=1;
-			
+
 		}
 		else {
 			result=2;	
-			MemberDTO memberDTO = new MemberDTO();
-			memberDTO.setMemberId(loginCommand.getId());
-			memberDTO.setMemberPw(loginCommand.getPassword());
-			System.out.println("loginCommand"+loginCommand.getId());
-			
-			session.setAttribute("memberDTO", memberDTO);
-		
+			session.setAttribute("memberDTO", logindto);
+
 		}
 		model.addAttribute("result",result );
 	}
@@ -58,7 +53,7 @@ public class LoginService {
 		else if(!logindto.getChargePw().equals(loginCommand.getPassword())) {
 			System.out.println(logindto.getChargePw()+"비밀번호가 일치하지 않습니다."+loginCommand.getPassword());
 			result=1;
-			
+
 		}
 		else {
 			result=2;	
@@ -66,12 +61,12 @@ public class LoginService {
 			chargerDTO.setChargeId(loginCommand.getId());
 			chargerDTO.setChargePw(loginCommand.getPassword());
 			System.out.println("loginCommand"+loginCommand.getId());
-			
+
 			session.setAttribute("chargerDTO", chargerDTO);
-		
+
 		}
 		model.addAttribute("result",result );
-		
+
 	}
 
 
