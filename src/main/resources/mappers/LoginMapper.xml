@@ -12,6 +12,13 @@
 		WHERE member_id = #{id}
 	</select>
 	
+	<select id="clogin" parameterType="string" resultMap="clogin">
+		SELECT
+		charge_num, charge_id, charge_pw, charge_tell
+		FROM CHARGER
+		WHERE charge_id = #{id}
+	</select>	
+	
 	
 	
 	<resultMap type="MemberDTO" id="login">
@@ -21,5 +28,12 @@
 		<result column="MEMBER_GENDER" jdbcType="VARCHAR" property="memberGender"/>
 		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>
 		<result column="MEMBER_ADD" jdbcType="VARCHAR" property="memberAdd"/>
+	</resultMap>
+	
+		<resultMap type="MemberDTO" id="clogin">
+		<id column="CHARGE_NUM" jdbcType="BIGINT" property="chargeNum" />
+		<result column="CHARGE_ID" jdbcType="VARCHAR" property="chargeId"/>
+		<result column="CHARGE_PW" jdbcType="VARCHAR" property="chargePw"/>
+		<result column="CHARGE_TELL" jdbcType="VARCHAR" property="chargeTell"/>
 	</resultMap>
 </mapper>
