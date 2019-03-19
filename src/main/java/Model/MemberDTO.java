@@ -28,6 +28,7 @@ private String memberArea;
 private String mailConfrim;
 private String memberName;
 private Date   memberDate;   
+private Date memberLastDate;
 
 
 public  MemberDTO() {};
@@ -43,6 +44,13 @@ public MemberDTO(String memberId, String memberPw, String memberTell, String mem
 	this.memberArea = memberArea;
 	this.mailConfrim = mailConfrim;
 	this.memberName = memberName;
+}
+
+public Date getMemberLastDate() {
+	return memberLastDate;
+}
+public void setMemberLastDate(Date memberLastDate) {
+	this.memberLastDate = memberLastDate;
 }
 public Date getMemberDate() {
 	return memberDate;
