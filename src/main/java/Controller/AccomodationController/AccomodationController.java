@@ -57,10 +57,10 @@ public class AccomodationController {
 		return "Accomodation/RoomForm";
 	}
 	@RequestMapping(value="/Accomodation/RoomRegister",method=RequestMethod.POST)
-	public String roomRegister(Model model,AccomodationRoomRegisterCommend aRcommend ) {
+	public String roomRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request ) {
 		
-		accomodationService.AccomodationRegister(model,aRcommend);
-		return "Accomodation/RoomForm";
+		String path=accomodationService.AccomodationRegister(model,aRcommend,request);
+		return path;
 	}
 	
 	@RequestMapping(value="/Accomodation/RoomList" ,method=RequestMethod.GET)

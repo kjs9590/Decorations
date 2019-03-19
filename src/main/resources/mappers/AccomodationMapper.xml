@@ -93,5 +93,25 @@
 		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
 			property="accmodationImgstore" />
 	</resultMap>
+	
+	<select id="DateProductNum" resultType="long">
+		select nvl(max(PRODUCT_NUM),0) +1 from
+		DATEPRODUCT
+	</select>
+	
+	<insert id="DateProduct" parameterType="AccomodationRegisterDTO">
+		insert into DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM, PRODUCT_NAME)
+		values(#{roomNum},3,#{roomKind})
+    </insert>
+	
+	<insert id="AccomodationRegister" parameterType="AccomodationRegisterDTO">
+       	insert into DATEROOM(ROOM_NUM, ACCOMODATION_NUM, PRODUCT_NUM, CATEGORY_NUM, ROOM_PRICE,
+       	ROOM_AD, ROOM_EX, ROOM_KIND, ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)
+		values((select nvl(max(ROOM_NUM),0) +1 from DATEROOM),#{accomodationNum},#{roomNum},3,#{roomPrice}
+		,#{roomAd},#{roomEx},#{roomKind},#{roomImgstore},#{roomImg},#{roomCount}
+		)
+	</insert>
+	
+	
 
 </mapper>

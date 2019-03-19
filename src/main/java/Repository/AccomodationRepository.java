@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.AccomodationDTO;
+import Model.AccomodationRegisterDTO;
 import Model.MemberDTO;
 
 public class AccomodationRepository {
@@ -45,5 +46,24 @@ public class AccomodationRepository {
 	}
 	
 	
+	public Long DateProductNum() {
+       System.out.println("1번째");
+		return sqlSession.selectOne("AccomodationMapper.DateProductNum");
 
+	}
+	
+	public int DateProduct(AccomodationRegisterDTO aRdto) {
+		   System.out.println(aRdto.getRoomNum()+"2번째");
+		return sqlSession.insert("AccomodationMapper.DateProduct",aRdto);
+
+	}
+
+	public int RoomRegister(AccomodationRegisterDTO aRdto) {
+		   System.out.println("3번째");
+		return sqlSession.insert("AccomodationMapper.AccomodationRegister",aRdto);
+
+	}
+	
+	
+	
 }

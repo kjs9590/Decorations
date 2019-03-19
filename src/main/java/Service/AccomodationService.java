@@ -16,6 +16,7 @@ import Commend.AccomodationRegisterCommend;
 import Commend.AccomodationRoomRegisterCommend;
 import Commend.MemberRegisterCommend;
 import Model.AccomodationDTO;
+import Model.AccomodationRegisterDTO;
 import Model.MemberDTO;
 import Repository.AccomodationRepository;
 import Repository.MemberSessionRepository;
@@ -25,7 +26,11 @@ public class AccomodationService {
 	private String originalFile = null;
 	private String originalFileExtension = null;
 	private String storeFile = null;
-	private String fileSize = null;
+	private String time1;
+	private String time2;
+	private String originalFiles = "";
+	private String storeFiles = "";
+	private String filesSize = "";
 	
 	@Autowired
 	private AccomodationRepository accomodationRepository;	
@@ -88,12 +93,69 @@ public class AccomodationService {
         model.addAttribute("aDto",aDto);	
 	
 	}
-	public void AccomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend) {
+	public String AccomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request) {
+		
+	
+		String path = null;
+		
+	
+		
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile1\\";
+		MultipartFile[] reports = aRcommend.getBoardFile();
+		
+
+		int i = 1;
+		for(MultipartFile report : reports) {
+			originalFile = report.getOriginalFilename();
+			  System.out.println(originalFile+" originalFile");
+			originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
+			System.out.println(originalFileExtension+" originalFileExtension ");
+			storeFile = UUID.randomUUID().toString().replaceAll("-", "");
+			System.out.println(storeFile+" storeFile");
+			storeFile = storeFile + originalFileExtension;
+			System.out.println(storeFile+" storeFile");
+			file = new File(filePath+storeFile); 
+			System.out.println(filePath+storeFile+" filePath+storeFile");
+			try {
+				report.transferTo(file);
+				System.out.println(originalFile +" originalFile");
+				originalFiles += originalFile +"-";
+				storeFiles += storeFile + "-";
+	
+			}catch(Exception e) {	
+				e.printStackTrace();
+			}
+			
+		}
+		time1=aRcommend.getProAdTime1()+" "+aRcommend.getProAdTime2()+":"+aRcommend.getProAdTime3();
+        time2=aRcommend.getProExTime1()+" "+aRcommend.getProExTime2()+":"+aRcommend.getProExTime3();
+
+		System.out.println(originalFiles+"originalFiles 끝");
+		
+		AccomodationRegisterDTO aRDTO =new AccomodationRegisterDTO(aRcommend.getNum(),aRcommend.getaProPrice(),time1,time2,aRcommend.getaProKind(),aRcommend.getCount(),originalFiles,storeFiles);
+		Integer i1;
+		
+		aRDTO.setRoomNum(accomodationRepository.DateProductNum());
+		accomodationRepository.DateProduct(aRDTO);
+		i1=accomodationRepository.RoomRegister(aRDTO);
+		originalFiles="";
+		storeFiles="";
+		if(i1 > 0) {  
+		return	path ="redirect:AccomodationListEach";
+		}else {
+			String[] fileNames = storeFiles.split("-");
+			for(String fileName : fileNames) {
+				File f = new File(filePath+fileName);
+				if(f.exists()) 
+					{	
+						f.delete(); 
+					}
+			}
+		return path = "report/submissionForm";
+		}
 		
 		
-		AccomodationDTO aDto=accomodationRepository.AccomodationRoom(nume);
+	}
 		
-        model.addAttribute("aDto",aDto);	
 	
 	}
-}
