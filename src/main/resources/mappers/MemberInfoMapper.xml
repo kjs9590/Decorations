@@ -5,6 +5,8 @@
 	<mapper namespace="MemberInfoMapper">
 	<cache />
 
+
+
 	<select id="memberInfo" resultMap="memberInfo">
 		SELECT  member_id, member_name, member_mail, member_gender, member_tell, member_area
 		FROM member 
@@ -18,6 +20,13 @@
 		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>
 		<result column="MEMBER_AREA" jdbcType="VARCHAR" property="memberArea"/>
 	</resultMap>
+	
+	<update id="memberUpdate" parameterType="MemberDTO">
+		UPDATE member SET 
+		member_id = #{memberId}, member_name = #{memberName}, member_pw = #{memberPw}, member_mail = #{memberMail},
+		 member_tell = #{memberTell}, member_area = #{memberArea}, mail_confrim = #{mailConfrim}
+		 WHERE  member_id = #{memberId}
+	</update>
 
 
 </mapper>

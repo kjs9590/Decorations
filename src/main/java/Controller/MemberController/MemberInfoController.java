@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import Commend.MemberUpdateCommand;
 import Model.MemberDTO;
 import Service.MemberInfoService;
 
@@ -42,5 +43,10 @@ public class MemberInfoController {
 		
 		return "Member/MemberUpdate";
 	}
-	
+	@RequestMapping(value= "Member/MemberUpdate", method=RequestMethod.POST)
+	public String info_update(MemberUpdateCommand upCommand, Model model ) {
+		
+		memberInfoService.update(upCommand,model);
+		return "Member/MemberUpdate";
+	}
 }
