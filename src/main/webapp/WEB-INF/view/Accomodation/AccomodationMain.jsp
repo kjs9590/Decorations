@@ -16,7 +16,14 @@
 <link href="../CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
 </head>
 
+    <link href="../CSS/header.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!-- 헤더 인클루드 밑에 헤더 지우기-->
+
 <body>
+	<jsp:include page="../include/header.jsp" />
 	<div id="mainHeader">
 
 		<div id="mainHeaderContent">
