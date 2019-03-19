@@ -1,17 +1,17 @@
 @charset "UTF-8";
   #mainHeader{
-
+     margin-top:173px;
     width: 101%;
     height: 280px;
     background-color: rgb(245, 244, 244);
    padding-top: 2%;
-   margin: -5px;
+  
   }
   #mainHeaderContent{
       margin: auto;
       width: 80%;
       height: 200px;
-
+      
   }
   #mainHeaderMent{
      

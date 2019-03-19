@@ -13,21 +13,37 @@ public class AccomodationRepository {
 	private SqlSession sqlSession;
 	private final String namespace = "AccomodationMapper";
 
-	
+
 	public Integer insertAccomodation(AccomodationDTO aDto) {
-		
+
 		return sqlSession.insert("AccomodationMapper.insertAccomodation", aDto);
 	}
-public List<AccomodationDTO> listAccomodation() {
+	public List<AccomodationDTO> listAccomodation() {
+
+		return sqlSession.selectList("AccomodationMapper.listAccomodation");
+
+	}
+	public List<AccomodationDTO> listAccomodationCount() {
+
+		return sqlSession.selectList("AccomodationMapper.listAccomodationCount");
+
+	}
+	public List<AccomodationDTO> listEachAccomodation(String kind) {
+
+		return sqlSession.selectList("AccomodationMapper.listEachAccomodationCount",kind);
 		
-		
-	return sqlSession.selectList("AccomodationMapper.listAccomodation");
+	}
+	public AccomodationDTO AccomodationCount(String kind) {
+
+		return sqlSession.selectOne("AccomodationMapper.AccomodationCount",kind);
+
+	}
+	public AccomodationDTO AccomodationRoom(int num) {
+
+		return sqlSession.selectOne("AccomodationMapper.AccomodationRoom",num);
+
+	}
 	
-}
-public List<AccomodationDTO> listAccomodationCount() {
 	
-	
-	return sqlSession.selectList("AccomodationMapper.listAccomodationCount");
-	
-}
+
 }

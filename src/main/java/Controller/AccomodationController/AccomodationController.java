@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.AccomodationRegisterCommend;
+import Commend.AccomodationRoomRegisterCommend;
 import Service.AccomodationService;
 
 @Controller
@@ -41,10 +43,32 @@ public class AccomodationController {
 	}
 	
 	@RequestMapping(value="/Accomodation/AccomodationListEach" ,method=RequestMethod.GET)
-	public String detail(Model model) {
+	public String detail(Model model,@RequestParam(value="kind") String kind) {
 		
-		accomodationService.AccomodationList(model);
+		accomodationService.AccomodationEachList(model,kind);
+		
 		return "Accomodation/AccomodationList";
+	}
+	
+	@RequestMapping(value="/Accomodation/RoomForm",method=RequestMethod.GET)
+	public String roomForm(Model model,@RequestParam(value="num") int num) {
+		
+		model.addAttribute("num", num);
+		return "Accomodation/RoomForm";
+	}
+	@RequestMapping(value="/Accomodation/RoomRegister",method=RequestMethod.POST)
+	public String roomRegister(Model model,AccomodationRoomRegisterCommend aRcommend ) {
+		
+		accomodationService.AccomodationRegister(model,aRcommend);
+		return "Accomodation/RoomForm";
+	}
+	
+	@RequestMapping(value="/Accomodation/RoomList" ,method=RequestMethod.GET)
+	public String roomList(Model model,@RequestParam(value="num") int num ) {
+		
+		accomodationService.AccomodationRoom(model,num);
+		
+		return "Accomodation/AccomodationDetail";
 	}
 	
 }

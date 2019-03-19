@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!doctype html>
-<html lang="ko">
+<html lang="UTF-8">
 
 <head>
     <meta charset="UTF-8">
     <title>MAIN</title>
   
-<link href="../CSS/AccomodationMainDetail.css" rel="stylesheet" type="text/css">
-    
+<link href="../CSS/AccomodationDetail.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../JS/AccomodationDetail.js"></script>    
 </head>
 
 <body>
     <div id="roomMain">
     <div class="mainRoomHeader">
-        <img src=".\img\rooms.jpg" width="100%" height="327px">
+        <img src="../images\rooms.jpg" width="100%" height="327px">
     
     </div>
     <div id="roomPage">1/20</div>
@@ -23,38 +23,39 @@
    
     <div id="mainContent">
     <div class="roomInfo">
-   <h2>΄λΈν Έ®Α¶Ζ®</h2>
-   <h4>Ό­Ώο °³ΖχµΏ 2µΏ ΈνΎΟΈ®</h4>
-   <p>ΐΜΏλ°΅΄ΙΗΡ °΄½ΗΌφ:5½Η</p>
-   <h4><span>΄ηΐΟΏΉΎΰΓλΌÒ°΅΄Ι</span><span>ΗφΐεΐϋΈ³</span><span>ΓΦΐϊ°΅ΊΈ»σ</span></h4></li>
-   <p><img src=".\img\v.PNG">ΉΜΈ®ΏΉΎΰ½Γ 1% ΐϋΈ³</li></p>
-   <p><img src=".\img\v.PNG">΄ηΐΟΏΉΎΰ °Η ΐΤ½Η 3½Γ°£ ΐό±ξΑφ 100% Θ―ΊÒ°΅΄Ι</li></p>
-   <p><img src=".\img\v.PNG">Α¤ΊΈΑ¦°ψ</li></p>
+   <h2>${aDto.accomodationName} ${aDto.accmodationKind}(${aDto.accmodationArea})<a href="#" onclick="roomRegister(${aDto.accomodationNum})">κ°μ‹¤λ“±λ΅ν•κΈ°</a></h2>
+   <h4>${aDto.accomodationAdd}</h4>
+   <h4>μ™μ† μ „ν™”λ²νΈ: ${aDto.accmodationTell}</h4>
+   <p>μ΄μ©κ°€λ¥ν• κ°μ‹¤μ:5μ‹¤</p>
+   <h4><span>λ‹ΉμΌμμ•½μ·¨μ†κ°€λ¥</span><span>ν„μ¥μ λ¦½</span><span>μµμ €κ°€λ³΄μƒ</span></h4></li>
+   <p><img src="../images\v.PNG">λ―Έλ¦¬μμ•½μ‹ 1% μ λ¦½</li></p>
+   <p><img src="../images\v.PNG">λ‹ΉμΌμμ•½ κ±΄ μ…μ‹¤ 3μ‹κ°„ μ „κΉμ§€ 100% ν™λ¶κ°€λ¥</li></p>
+   <p><img src="../images\v.PNG">μ •λ³΄μ κ³µ</li></p>
 
     </div>
   
   
     <div class="chekinChekout">
-    <div id="chekin">ΓΌΕ©ΐΞ<input type="date"></div>   
-    <div id="chekout">ΓΌΕ©ΎΖΏτ<input type="date"></div>   
+    <div id="chekin">μ²΄ν¬μΈ<input type="date"></div>   
+    <div id="chekout">μ²΄ν¬μ•„μ›ƒ<input type="date"></div>   
 
 </div>
  <div class="room">
- <div class="roomImg"><img src=".\img\rooms.jpg" alt=""></div>
- <div class="roomInfos"> <h2>DELUXS</h2><h4>±βΑΨ2Έν/ΓΦ΄λ 5Έν</h4> <h4>ΐΤ½Η:20:00 Επ½Η :17:00</h4>
-<h1>70000Ώψ</h1>
+ <div class="roomImg"><img src="../images\rooms.jpg" alt=""></div>
+ <div class="roomInfos"> <h2>DELUXS</h2><h4>κΈ°μ¤€2λª…/μµλ€ 5λª…</h4> <h4>μ…μ‹¤:20:00 ν‡΄μ‹¤ :17:00</h4>
+<h1>70000μ›</h1>
 </div>
  </div>  
  <div class="room">
-        <div class="roomImg"><img src=".\img\rooms.jpg" alt=""></div>
-        <div class="roomInfos"> <h2>DELUXS</h2><h4>±βΑΨ2Έν/ΓΦ΄λ 5Έν</h4> <h4>ΐΤ½Η:20:00 Επ½Η :17:00</h4>
-       <h1>70000Ώψ</h1>
+        <div class="roomImg"><img src="../images\rooms.jpg" alt=""></div>
+        <div class="roomInfos"> <h2>DELUXS</h2><h4>κΈ°μ¤€2λª…/μµλ€ 5λª…</h4> <h4>μ…μ‹¤:20:00 ν‡΄μ‹¤ :17:00</h4>
+       <h1>70000μ›</h1>
        </div>
         </div>  
         <div class="room">
-                <div class="roomImg"><img src=".\img\rooms.jpg" alt=""></div>
-                <div class="roomInfos"> <h2>DELUXS</h2><h4>±βΑΨ2Έν/ΓΦ΄λ 5Έν</h4> <h4>ΐΤ½Η:20:00 Επ½Η :17:00</h4>
-               <h1>70000Ώψ</h1>
+                <div class="roomImg"><img src="../images\rooms.jpg" alt=""></div>
+                <div class="roomInfos"> <h2>DELUXS</h2><h4>κΈ°μ¤€2λª…/μµλ€ 5λª…</h4> <h4>μ…μ‹¤:20:00 ν‡΄μ‹¤ :17:00</h4>
+               <h1>70000μ›</h1>
                </div>
                 </div>          
 

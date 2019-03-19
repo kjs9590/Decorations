@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import Commend.AccomodationRegisterCommend;
+import Commend.AccomodationRoomRegisterCommend;
 import Commend.MemberRegisterCommend;
 import Model.AccomodationDTO;
 import Model.MemberDTO;
@@ -66,5 +67,33 @@ public class AccomodationService {
 		System.out.println(listCount.get(0).getCount()+listCount.get(1).getAccmodationKind());
 		model.addAttribute("list",list);
 		model.addAttribute("AccomodationCount",listCount);
+	}
+	
+	public void AccomodationEachList(Model model,String kind) {
+		
+		List<AccomodationDTO> list=accomodationRepository.listEachAccomodation(kind);
+		AccomodationDTO aDto=accomodationRepository.AccomodationCount(kind);
+		
+		Integer count=aDto.getCount();
+		model.addAttribute("list",list);
+		model.addAttribute("kind",kind);
+		model.addAttribute("count",count);
+		
+	}
+	public void AccomodationRoom(Model model,int nume) {
+		
+	
+		AccomodationDTO aDto=accomodationRepository.AccomodationRoom(nume);
+		
+        model.addAttribute("aDto",aDto);	
+	
+	}
+	public void AccomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend) {
+		
+		
+		AccomodationDTO aDto=accomodationRepository.AccomodationRoom(nume);
+		
+        model.addAttribute("aDto",aDto);	
+	
 	}
 }

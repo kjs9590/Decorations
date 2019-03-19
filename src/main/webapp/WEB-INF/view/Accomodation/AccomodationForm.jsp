@@ -11,7 +11,8 @@
 <script src="../JS/Accomodation.js"></script>
 </head>
 
-<form method="post" enctype="multipart/form-data" action="AccomodationRegister">
+<form method="post" enctype="multipart/form-data"
+	action="AccomodationRegister">
 	<div id="accomodation">
 		<h2>숙박 등록</h2>
 
@@ -21,7 +22,7 @@
 			<input name="bFacilityName" id="name" type="text" size="10"
 				maxlength="10" value="" />
 		</div>
-	
+
 		<div class="addreses">
 			<p>숙박시설 주소</p>
 			<input class="address" type="text" id="sample6_postcode"
@@ -33,39 +34,40 @@
 				class="address" type="text" id="sample6_detailAddress"
 				placeholder="상세주소" name="addressDetail">
 		</div>
-		
+
 		<div>
-		<p>숙박시설 종류</p>
-		<select name="AccomodationKind" class="kind">
-                                <option value="모텔" selected="selected">모텔</option>
-                                <option value="호텔">호텔</option>
-                                <option value="리조트">리조트</option>
-                                <option value="펜션">펜션</option>
-                            </select> 
+			<p>숙박시설 종류</p>
+			<select name="AccomodationKind" class="kind">
+				<option value="모텔" selected="selected">모텔</option>
+				<option value="호텔">호텔</option>
+				<option value="리조트">리조트</option>
+				<option value="펜션">펜션</option>
+			</select>
 		</div>
-		
+
 		<div>
-		<p>숙박시설장 연락처</p>
-		<select name="tell" class="phone_text">
-                                <option value="010" selected="selected">010</option>
-                                <option value="011">011</option>
-                                <option value="016">016</option>
-                                <option value="017">017</option>
-                                <option value="018">018</option>
-                                <option value="019">019</option>
-                                <option value="0139">0139</option>
-                            </select> <span>&nbsp-</span> <input type="text" class="phone_text" name="tell">
-                            - <input type="text" class="phone_text" name="tell">
+			<p>숙박시설장 연락처</p>
+			<select name="tell" class="phone_text">
+				<option value="010" selected="selected">010</option>
+				<option value="011">011</option>
+				<option value="016">016</option>
+				<option value="017">017</option>
+				<option value="018">018</option>
+				<option value="019">019</option>
+				<option value="0139">0139</option>
+			</select> <span>&nbsp-</span> <input type="text" class="phone_text"
+				name="tell"> - <input type="text" class="phone_text"
+				name="tell">
 		</div>
 		<div>
 			<p>숙박시설 정보</p>
 			<textarea name="bFacilityImform" cols="67" rows="15"></textarea>
 		</div>
-
 		<div>
 			<p>파일 첨부</p>
 			<input name="boardFile" type="file" />
 		</div>
+		 
 		<input type="submit" value="전송">
 
 	</div>
