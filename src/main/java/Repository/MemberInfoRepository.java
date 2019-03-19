@@ -17,4 +17,9 @@ public class MemberInfoRepository {
 		return sqlSession.selectOne("MemberInfoMapper.memberInfo", id);
 	}
 
+	public Integer update(MemberDTO mdto) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("MemberInfoMapper.memberUpdate", mdto);
+	}
+
 }
