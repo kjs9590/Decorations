@@ -72,19 +72,27 @@
 		<div id="accomodationList">
 			<div class="accmodation">
 				<img src="../images/hotel.jpg"><a href="AccomodationListEach">호텔</a>
-				<p><%=accomodationCount.get(0).getCount() %>개 호텔</p>
+			    <p>
+				<%if(accomodationCount.get(1).getCount()!=null) {%>
+				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 호텔</p>
 			</div>
 			<div class="accmodation">
 				<img src="../images/motel.jpg"><a href="AccomodationListEach">모텔</a>
-				<p><%=accomodationCount.get(3).getCount() %>개 모텔</p>
+				  <p>
+				<%if(accomodationCount.get(1).getCount()!=null) {%>
+				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 모텔</p>
 			</div>
 			<div class="accmodation">
 				<img src="../images/pension.jpg"><a href="AccomodationListEach">펜션</a>
-				<p><%=accomodationCount.get(0).getCount() %>개 펜션</p>
+				  <p>
+				<%if(accomodationCount.get(1).getCount()!=null) {%>
+				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 펜션</p>
 			</div>
 			<div class="accmodation">
 				<img src="../images/resort.jpg"><a href="AccomodationListEach">리조트</a>
-				<p><%=accomodationCount.get(2).getCount() %>개 리조트</p>
+				  <p>
+				<%if(accomodationCount.get(1).getCount()!=null) {%>
+				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 리조트</p>
 			</div>
 		</div>
 		<div id="accomodationList1">
