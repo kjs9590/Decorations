@@ -69,7 +69,6 @@ public class AccomodationService {
 		
 		List<AccomodationDTO> list=accomodationRepository.listAccomodation();
 		List<AccomodationDTO> listCount=accomodationRepository.listAccomodationCount();
-		System.out.println(listCount.get(0).getCount()+listCount.get(1).getAccmodationKind());
 		model.addAttribute("list",list);
 		model.addAttribute("AccomodationCount",listCount);
 	}
@@ -89,9 +88,10 @@ public class AccomodationService {
 		
 	
 		AccomodationDTO aDto=accomodationRepository.AccomodationRoom(nume);
-		
-        model.addAttribute("aDto",aDto);	
-	
+		List<AccomodationRegisterDTO> list=accomodationRepository.AccomodationRoomList(nume);
+        System.out.println(list.get(1).getRoomCount()+"뭐야");
+		model.addAttribute("aDto",aDto);	
+        model.addAttribute("list",list);	
 	}
 	public String AccomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request) {
 		
@@ -141,7 +141,7 @@ public class AccomodationService {
 		originalFiles="";
 		storeFiles="";
 		if(i1 > 0) {  
-		return	path ="redirect:AccomodationListEach";
+		return	path ="redirect:Accomodation/RoomList?num=2";
 		}else {
 			String[] fileNames = storeFiles.split("-");
 			for(String fileName : fileNames) {

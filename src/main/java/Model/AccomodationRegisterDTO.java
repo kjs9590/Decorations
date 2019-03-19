@@ -1,6 +1,8 @@
 package Model;
 
-public class AccomodationRegisterDTO {
+import java.io.Serializable;
+
+public class AccomodationRegisterDTO implements Serializable{
 // 데이터베이스	
 	/*ROOM_NUM --객실번호
 	ACCOMODATION_NUM --숙박번호

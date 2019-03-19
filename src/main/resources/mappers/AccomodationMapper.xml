@@ -111,7 +111,20 @@
 		,#{roomAd},#{roomEx},#{roomKind},#{roomImgstore},#{roomImg},#{roomCount}
 		)
 	</insert>
-	
-	
+	<select id="AccomodationRoomList" parameterType="int" resultMap="AccomodationRoomList">
+		
+		select ROOM_NUM,ROOM_PRICE,ROOM_AD, ROOM_EX, ROOM_KIND, ROOM_IMGSTORE,
+		 ROOM_COUNT from DATEROOM where ACCOMODATION_NUM =#{num} 
+
+	</select>
+		<resultMap type="AccomodationRegisterDTO" id="AccomodationRoomList">
+		<id column="ROOM_NUM" jdbcType="BIGINT" property="roomNum" />
+		<result column="ROOM_PRICE" jdbcType="BIGINT" property="roomPrice" />
+		<result column="ROOM_AD" jdbcType="VARCHAR" property="roomAd" />
+		<result column="ROOM_EX" jdbcType="VARCHAR" property="roomEx" />
+		<result column="ROOM_KIND" jdbcType="VARCHAR" property="roomKind" />
+		<result column="ROOM_IMGSTORE" jdbcType="VARCHAR" property="roomImgstore" />
+		<result column=" ROOM_COUNT" jdbcType="BIGINT" property="roomCount" />
+	</resultMap>
 
 </mapper>

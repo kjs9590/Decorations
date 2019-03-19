@@ -45,6 +45,13 @@ public class AccomodationRepository {
 
 	}
 	
+	public List<AccomodationRegisterDTO> AccomodationRoomList(int num) {
+
+		return sqlSession.selectList("AccomodationMapper.AccomodationRoomList",num);
+
+	}
+	
+	
 	
 	public Long DateProductNum() {
        System.out.println("1번째");

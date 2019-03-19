@@ -77,7 +77,7 @@
 	<div id="mainContent">
 		<div id="listMention">4가지 종류의 숙소를 골라보세요!</div>
 		<div id="accomodationList">
-			
+		
 			<div class="accmodation">
 				<img src="../images/hotel.jpg"><a href="AccomodationListEach?kind=호텔">호텔</a>
 			    <p>
@@ -88,8 +88,8 @@
 			<div class="accmodation">
 				<img src="../images/motel.jpg"><a href="AccomodationListEach?kind=모텔" >모텔</a>
 				  <p>
-				<%if(accomodationCount.get(3).getCount()!=null) {%>
-				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 모텔</p>
+				<%if(accomodationCount.get(2).getCount()!=null) {%>
+				<%=accomodationCount.get(2).getCount()%><%}else{%>0<% } %>개 모텔</p>
 			</div>
 			
 			<div class="accmodation">
@@ -102,8 +102,8 @@
 			<div class="accmodation">
 				<img src="../images/resort.jpg"><a href="AccomodationListEach?kind=리조트" >리조트</a>
 				  <p>
-				<%if(accomodationCount.get(2).getCount()!=null) {%>
-				<%=accomodationCount.get(2).getCount()%><%}else{%>0<% } %>개 리조트</p>
+				<%if(accomodationCount.get(3).getCount()!=null) {%>
+				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 리조트</p>
 			</div>
 		</div>
 		
