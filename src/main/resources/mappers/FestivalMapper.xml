@@ -35,11 +35,11 @@
 		<result column="FESTIVAL_AREA" jdbcType="NVARCHAR" property="FESTIVALAREA"/>
 		<result column="FESTIVAL_IMG" jdbcType="NVARCHAR" property="FESTIVALIMG"/>
 	</resultMap>
-	<select id="selectlist" parameterType="FestivalDTO" resultMap="baseCommentDTO">
+  <!-- <select id="selectlist" parameterType="FestivalDTO" resultMap="baseCommentDTO">
 	SELECT
 	  		<include refid="basecolumn" />
 		FROM FESTIVAL
-	</select>  
+	</select>    -->
 	
 	<select id="detail"  resultMap="baseCommentDTO" parameterType="int" >
 	SELECT
@@ -48,18 +48,32 @@
 		where FESTIVAL_NUM = #{num}
 	</select>  
 
-	<select id="paging" parameterType="HashMap" resultMap="baseCommentDTO">
-	SELECT
-		<include refid="basecolumn" />
-		FROM FESTIVAL
-		LIMIT #{minNum}, #{maxNum}
-	</select>
-	<select id="listcount" parameterType="Integer" resultType="FestivalDTO">
-	SELECT
-		count(*) as cnt
-		FROM FESTIVAL
-	</select>
- 
 
+ 	<!-- 페이징 -->
+ 	<select id="paging" resultMap="baseCommentDTO" parameterType="HashMap" >
+ 	SELECT 
+          rnum, <include refid="basecolumn"/>
+       FROM
+       (SELECT
+          rownum as rnum, <include refid="basecolumn"/>
+       FROM
+      (SELECT
+         <include refid="basecolumn"/>
+       FROM 
+          FESTIVAL
+       ORDER BY 
+       FESTIVAL_NUM asc
+       ) WHERE 
+          rownum &lt;= #{maxNum}
+       )
+       WHERE
+          rnum &gt;= #{minNum}    
+ 	</select>
+	<select id="listcount" resultType="Integer">
+	SELECT
+		count(*)
+	FROM
+		FESTIVAL
+	</select>
 
 </mapper> 

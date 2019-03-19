@@ -4,9 +4,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import Commend.PagingCommand;
 import Model.FestivalDTO;
 import Service.FestivalListService;
 import other.AutoPaging;
@@ -26,20 +28,17 @@ public class FestivalMainController {
 
 
 	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
-	public String form(Model model,FestivalDTO dto) {
-		AutoPaging paging = new AutoPaging(3,1,1);
-		Integer count = 0;
-		
-		paging.setListCount(festivallistservice.listcount(count));
-
-		List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);
-		
-		List<FestivalDTO> Festivalpaging = festivallistservice.paging(paging);
-		
-		model.addAttribute("Festivallist", Festivallist);
+	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command) {
+		 if(command.getPage()==0) {
+             command.setPage(1);
+           }
+		AutoPaging paging = new AutoPaging(command.getPage(),2,3);
+		paging.setListCount(festivallistservice.listCount());
+		System.out.println(command.getPage());
+	/*	List<FestivalDTO> Festivallist = festivallistservice.festivallist(dto);*/
+		List<FestivalDTO> listpaging = festivallistservice.listpaging(paging);
+		model.addAttribute("Festivallist", listpaging);
 		model.addAttribute("paging", paging);
-		model.addAttribute("Festivalpaging",Festivalpaging);
-	
 		return "Festival/FestivalMain";
 	}
 	

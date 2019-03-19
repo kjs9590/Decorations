@@ -110,6 +110,7 @@ public class AutoPaging {
 	private AutoPaging setAutoMaxPage() {
 		// TODO Auto-generated method stub
 		maxPage = (int)(((double)listCount/limit)+0.95);
+		//listcount 3 / limit 1 / = 3 -2
 		return endMaxisBig();
 	}
 	//MaxPage가 EndPage보다 작을 때

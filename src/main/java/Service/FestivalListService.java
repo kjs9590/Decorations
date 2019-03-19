@@ -14,20 +14,19 @@ public class FestivalListService {
 	@Autowired
 	private FestivalRepository festivalRepository;
 	
-	public List<FestivalDTO> festivallist(FestivalDTO dto) {
+	/*public List<FestivalDTO> festivallist(FestivalDTO dto) {
+		// TODO Auto-generated method stu
+		return festivalRepository.festivallist(dto);
+	}*/
+
+	public int listCount() {
 		// TODO Auto-generated method stub
-		List<FestivalDTO> result = festivalRepository.festivallist(dto);
-		return result;
+		return festivalRepository.ListCount();
 	}
 
-	public List<FestivalDTO> paging(AutoPaging paging) {
+	public List<FestivalDTO> listpaging(AutoPaging paging) {
 		// TODO Auto-generated method stub
-		List<FestivalDTO> result = festivalRepository.paging(paging);
-		return result;
-	}
-
-	public Integer listcount(int count) {
-		return festivalRepository.listcount(count);
+		return festivalRepository.paging(paging);
 	}
 
 

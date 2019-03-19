@@ -51,7 +51,7 @@
 </head>
 <body>
 <!-- Header 시작 -->
-<%-- <jsp:include page="Header.jsp" /> --%>
+<jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
@@ -60,11 +60,11 @@
 		<div id="festival_title"><h3>지역축제</h3></div>
 		<div id="area_info">
 			<ul>
-				<li>제주도</li>
-				<li>부산</li>
-				<li>평양</li>
-				<li>경기도</li>
-				<li>서울</li>
+				<li><a id="1" href="#">영등포구</a></li>
+				<li><a id="2" href="#">용산구</a></li>
+				<li><a id="3" href="#">강북구</a></li>
+				<li><a id="4" href="#">중랑구</a></li>
+				<li><a id="5" href="#">동대문구</a></li>
 			</ul>
 		</div>
 		<c:forEach items="${Festivallist}" var="festivallist">
@@ -85,16 +85,15 @@
 		
 					
 		<div id="paging_box">
-			<a href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">6</a>
-			<a href="#">7</a>
-			<a href="#">8</a>
-			<a href="#">9</a>
-			<a href="#">10</a>
+		<%--  <c:set var="page" value="${paging.page}"/> 
+         <c:if test="${paging.prev}"><a href="?page=1">◀◀</a><a href="?page=${paging.startPage-1}">◀</a></c:if> --%>
+
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+						<a href="?page=${i}">${i}</a>
+			</c:forEach>
+		
+	<%-- 	<c:if test="${paging.next}"><a href="?page=${paging.endPage+1}">▶</a><a href="?page=${paging.maxPage}">▶▶</a></c:if> --%>
+		
 		</div>
 		</form>
 </div>

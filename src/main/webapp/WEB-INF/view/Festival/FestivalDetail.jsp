@@ -51,11 +51,11 @@
 </head>
 <body>
 <!-- Header 시작 -->
-<%-- <jsp:include page="Header.jsp" /> --%>
+<jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
-<div id="festival_title">한림공원 매화축제2019</div>
+<div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
 		<div id="festival_img_box"><img src="../images/festival_detail1.jpg"></div>
 		
 		<table id="festival_info">
