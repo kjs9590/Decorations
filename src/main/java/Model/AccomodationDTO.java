@@ -14,6 +14,7 @@ public class AccomodationDTO implements Serializable{
      ACCOMODATION_IMG --숙소 오리지날 이미지
      ACCOMODATION_IMGSTORE --숙소 스토어 이미지
      ACCOMODATION_INFORM --숙소정보
+     ACCOMODATION_AVG--객실평균가격
  */
 
 	//AccomodationDTO
@@ -26,12 +27,13 @@ private String accmodationTell;
 private String accmodationImg;
 private String accmodationImgstore;
 private String accomodationInform;
+private int accomodationAvg;
 private Integer count;
 
 
 public AccomodationDTO() {}
 public AccomodationDTO( String accomodationName, String accomodationAdd, String accmodationArea,
-		String accmodationKind, String accmodationTell, String accmodationImg, String accmodationImgstore ,String accomodationInform) {
+		String accmodationKind, String accmodationTell, String accmodationImg, String accmodationImgstore ,String accomodationInform,int accomodationAvg) {
 	super();
 	this.accomodationName = accomodationName;
 	this.accomodationAdd = accomodationAdd;
@@ -40,9 +42,15 @@ public AccomodationDTO( String accomodationName, String accomodationAdd, String 
 	this.accmodationTell = accmodationTell;
 	this.accmodationImg = accmodationImg;
 	this.accmodationImgstore = accmodationImgstore;
-  this.accomodationInform=accomodationInform;}
+    this.accomodationInform=accomodationInform;
+    this.accomodationAvg=accomodationAvg;}
 
-
+public int getAccomodationAvg() {
+	return accomodationAvg;
+}
+public void setAccomodationAvg(int accomodationAvg) {
+	this.accomodationAvg = accomodationAvg;
+}
 
 public Integer getCount() {
 	return count;

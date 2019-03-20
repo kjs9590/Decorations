@@ -3,10 +3,10 @@ package Commend;
 import org.springframework.web.multipart.MultipartFile;
 
 public class AccomodationRoomRegisterCommend {
-	private int num;
+	private Long num;
 	private String aProKind;
-	private int aProPrice;
-	private int count;
+	private Long aProPrice;
+	private Long count;
 	private String proAdTime1; 
 	private String proAdTime2; 
 	private String proAdTime3; 
@@ -15,10 +15,10 @@ public class AccomodationRoomRegisterCommend {
 	private String proExTime3;
 	private MultipartFile[] boardFile;
 	
-	public int getNum() {
+	public Long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(Long num) {
 		this.num = num;
 	}
 	public String getaProKind() {
@@ -27,16 +27,16 @@ public class AccomodationRoomRegisterCommend {
 	public void setaProKind(String aProKind) {
 		this.aProKind = aProKind;
 	}
-	public int getaProPrice() {
+	public Long getaProPrice() {
 		return aProPrice;
 	}
-	public void setaProPrice(int aProPrice) {
+	public void setaProPrice(Long aProPrice) {
 		this.aProPrice = aProPrice;
 	}
-	public int getCount() {
+	public Long getCount() {
 		return count;
 	}
-	public void setCount(int count) {
+	public void setCount(Long count) {
 		this.count = count;
 	}
 	public String getProAdTime1() {

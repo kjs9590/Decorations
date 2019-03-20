@@ -88,8 +88,8 @@
 			<div class="accmodation">
 				<img src="../images/motel.jpg"><a href="AccomodationListEach?kind=모텔" >모텔</a>
 				  <p>
-				<%if(accomodationCount.get(2).getCount()!=null) {%>
-				<%=accomodationCount.get(2).getCount()%><%}else{%>0<% } %>개 모텔</p>
+				<%if(accomodationCount.get(3).getCount()!=null) {%>
+				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 모텔</p>
 			</div>
 			
 			<div class="accmodation">
@@ -102,8 +102,8 @@
 			<div class="accmodation">
 				<img src="../images/resort.jpg"><a href="AccomodationListEach?kind=리조트" >리조트</a>
 				  <p>
-				<%if(accomodationCount.get(3).getCount()!=null) {%>
-				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 리조트</p>
+				<%if(accomodationCount.get(2).getCount()!=null) {%>
+				<%=accomodationCount.get(2).getCount()%><%}else{%>0<% } %>개 리조트</p>
 			</div>
 		</div>
 		

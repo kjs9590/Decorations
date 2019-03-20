@@ -5,6 +5,9 @@
 <mapper namespace="AccomodationMapper">
 	<cache />
 
+	                    <!-- Accomodation -->
+
+	<!-- 숙박을 등록하기위한 -->
 	<insert id="insertAccomodation" parameterType="AccomodationDTO">
 		insert into
 		ACCOMODATION(ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD,ACCOMODATION_AREA,ACCOMODATION_KIND
@@ -13,14 +16,19 @@
 		ACCOMODATION),#{accomodationName},#{accomodationAdd},#{accmodationArea},#{accmodationKind},
 		#{accmodationTell},#{accmodationImg},#{accmodationImgstore},#{accomodationInform})
 	</insert>
-
+	 <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	
+	<!--등록된 숙박을 리스트로 출력하기위한 -->
 	<select id="listAccomodation" resultMap="listAccomodation">
-		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
-		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
-		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION
-
+		select ACCOMODATION_NUM,
+		ACCOMODATION_NAME ,ACCOMODATION_ADD,
+		ACCOMODATION_AREA,
+		ACCOMODATION_KIND, ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE,
+		ACCOMODATION_INFORM from ACCOMODATION
 	</select>
-
+    
+	
 	<resultMap type="AccomodationDTO" id="listAccomodation">
 		<id column="ACCOMODATION_NUM" jdbcType="BIGINT"
 			property="accomodationNum" />
@@ -39,42 +47,59 @@
 		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
 			property="accmodationImgstore" />
 	</resultMap>
-
-	<select id="listAccomodationCount" resultMap="listAccomodationCount">
+   <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	
+	<!-- 종류별로 등록된 숙박수를 메인에서 확인하기위한 -->
+	<select id="listAccomodationCount"
+		resultMap="listAccomodationCount">
 		select ACCOMODATION_KIND, count(ACCOMODATION_KIND) as cnt
 		from ACCOMODATION
 		group by ACCOMODATION_KIND
 	</select>
 
 	<resultMap type="AccomodationDTO" id="listAccomodationCount">
-		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR"
-			property="accmodationKind" />
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR" property="accmodationKind" />
 		<result column="cnt" jdbcType="BIGINT" property="count" />
 	</resultMap>
-
-   <select id="listEachAccomodationCount" parameterType="String" resultMap="listAccomodation">
-		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
-		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
-		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION where ACCOMODATION_KIND =#{kind} 
-   </select>
-
-<select id="AccomodationCount" parameterType="String" resultMap="AccomodationCount">
-		select count(*) as cnt
-		from ACCOMODATION where ACCOMODATION_KIND =#{kind} 
-		
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	
+	<!-- 종류별로 숙박 리스트를 출력하기위한 -->
+	<select id="listEachAccomodationCount" parameterType="String" resultMap="listAccomodation">
+		select ACCOMODATION_NUM, ACCOMODATION_NAME
+		,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND,
+		ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from
+		ACCOMODATION where ACCOMODATION_KIND =#{kind}
+	</select>
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	
+	<!-- 종류별로 등록된 숙박수를 디테일 페이지에서 확인하기위한 -->
+	<select id="AccomodationCount" parameterType="String"
+		resultMap="AccomodationCount">
+		select count(*) as cnt from ACCOMODATION where
+		ACCOMODATION_KIND =#{kind}
 	</select>
 
 	<resultMap type="AccomodationDTO" id="AccomodationCount">
-		<result column="cnt" jdbcType="BIGINT" property="count"/>
+		<result column="cnt" jdbcType="BIGINT" property="count" />
 	</resultMap>
-<select id="AccomodationRoom" parameterType="int" resultMap="AccomodationRoom">
-		
-		select ACCOMODATION_NUM, ACCOMODATION_NAME ,ACCOMODATION_ADD,
-		ACCOMODATION_AREA, ACCOMODATION_KIND, ACCOMODATION_TELL,
-		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from ACCOMODATION where ACCOMODATION_NUM =#{num} 
+                 
+                  <!-- AccomodationDetail -->
 
+	<!-- 디테일페이지에서 선택된 숙박의 정보를 출력하기위해서 -->
+	<select id="AccomodationRoom" parameterType="long"
+		resultMap="AccomodationRoom">
+
+		select ACCOMODATION_NUM, ACCOMODATION_NAME
+		,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND,
+		ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from
+		ACCOMODATION where
+		ACCOMODATION_NUM =#{num}
 	</select>
-
+   
 	<resultMap type="AccomodationDTO" id="AccomodationRoom">
 		<id column="ACCOMODATION_NUM" jdbcType="BIGINT"
 			property="accomodationNum" />
@@ -93,38 +118,68 @@
 		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
 			property="accmodationImgstore" />
 	</resultMap>
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
 	
+   <!--객실이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해  -->
 	<select id="DateProductNum" resultType="long">
-		select nvl(max(PRODUCT_NUM),0) +1 from
+		select
+		nvl(max(PRODUCT_NUM),0) +1 from
 		DATEPRODUCT
 	</select>
-	
+     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+     
+     <!--객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해  -->
 	<insert id="DateProduct" parameterType="AccomodationRegisterDTO">
-		insert into DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM, PRODUCT_NAME)
+		insert into
+		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM, PRODUCT_NAME)
 		values(#{roomNum},3,#{roomKind})
-    </insert>
-	
-	<insert id="AccomodationRegister" parameterType="AccomodationRegisterDTO">
-       	insert into DATEROOM(ROOM_NUM, ACCOMODATION_NUM, PRODUCT_NUM, CATEGORY_NUM, ROOM_PRICE,
-       	ROOM_AD, ROOM_EX, ROOM_KIND, ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)
-		values((select nvl(max(ROOM_NUM),0) +1 from DATEROOM),#{accomodationNum},#{roomNum},3,#{roomPrice}
+	</insert>
+      <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<!-- 객실상품을을 등록하기위해 -->
+	<insert id="AccomodationRegister"
+		parameterType="AccomodationRegisterDTO">
+		insert into DATEROOM(ROOM_NUM, ACCOMODATION_NUM,
+		PRODUCT_NUM, CATEGORY_NUM,
+		ROOM_PRICE,
+		ROOM_AD, ROOM_EX, ROOM_KIND,
+		ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)
+		values((select nvl(max(ROOM_NUM),0)
+		+1 from
+		DATEROOM),#{accomodationNum},#{roomNum},3,#{roomPrice}
 		,#{roomAd},#{roomEx},#{roomKind},#{roomImgstore},#{roomImg},#{roomCount}
 		)
 	</insert>
-	<select id="AccomodationRoomList" parameterType="int" resultMap="AccomodationRoomList">
-		
-		select ROOM_NUM,ROOM_PRICE,ROOM_AD, ROOM_EX, ROOM_KIND, ROOM_IMGSTORE,
-		 ROOM_COUNT from DATEROOM where ACCOMODATION_NUM =#{num} 
+	 <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<!-- 등록된 객실상품을 리스트로 출력하기위해 -->
+	<select id="AccomodationRoomList" parameterType="long"
+		resultMap="AccomodationRoomList">
+
+		select ROOM_NUM,ROOM_PRICE,ROOM_AD, ROOM_EX, ROOM_KIND,
+		ROOM_IMGSTORE,
+		ROOM_COUNT from DATEROOM where ACCOMODATION_NUM = #{num}
 
 	</select>
-		<resultMap type="AccomodationRegisterDTO" id="AccomodationRoomList">
+	<resultMap type="AccomodationRegisterDTO"
+		id="AccomodationRoomList">
 		<id column="ROOM_NUM" jdbcType="BIGINT" property="roomNum" />
-		<result column="ROOM_PRICE" jdbcType="BIGINT" property="roomPrice" />
+		<result column="ROOM_PRICE" jdbcType="BIGINT"
+			property="roomPrice" />
 		<result column="ROOM_AD" jdbcType="VARCHAR" property="roomAd" />
 		<result column="ROOM_EX" jdbcType="VARCHAR" property="roomEx" />
-		<result column="ROOM_KIND" jdbcType="VARCHAR" property="roomKind" />
-		<result column="ROOM_IMGSTORE" jdbcType="VARCHAR" property="roomImgstore" />
-		<result column=" ROOM_COUNT" jdbcType="BIGINT" property="roomCount" />
+		<result column="ROOM_KIND" jdbcType="VARCHAR"
+			property="roomKind" />
+		<result column="ROOM_IMGSTORE" jdbcType="VARCHAR"
+			property="roomImgstore" />
+		<result column="ROOM_COUNT" jdbcType="BIGINT"
+			property="roomCount" />
 	</resultMap>
+   <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<select id="AccomodationAvg" resultType="int">
+		select
+nvl(max(PRODUCT_NUM),0) +1 from
+		DATEPRODUCT
+	</select>
+
 
 </mapper>

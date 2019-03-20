@@ -17,12 +17,12 @@ public class AccomodationRegisterDTO implements Serializable{
 	*/
 	
 	private Long roomNum;
-	private int accomodationNum;
-	private int roomPrice;
+	private Long accomodationNum;
+	private Long roomPrice;
 	private String roomAd;
 	private String roomEx;
 	private String roomKind;
-	private int roomCount;
+	private Long roomCount;
 	private String roomImg;
 	private String roomImgstore;
 	
@@ -30,8 +30,8 @@ public class AccomodationRegisterDTO implements Serializable{
 
 	
 	
-	public AccomodationRegisterDTO(int accomodationNum, int roomPrice, String roomAd, String roomEx, String roomKind,
-			int roomCount, String roomImg, String roomImgstore) {
+	public AccomodationRegisterDTO(Long accomodationNum, Long roomPrice, String roomAd, String roomEx, String roomKind,
+			Long roomCount, String roomImg, String roomImgstore) {
 		super();
 		this.accomodationNum = accomodationNum;
 		this.roomPrice = roomPrice;
@@ -53,19 +53,19 @@ public class AccomodationRegisterDTO implements Serializable{
 		this.roomNum = roomNum;
 	}
 
-	public int getAccomodationNum() {
+	public Long getAccomodationNum() {
 		return accomodationNum;
 	}
 
-	public void setAccomodationNum(int accomodationNum) {
+	public void setAccomodationNum(Long accomodationNum) {
 		this.accomodationNum = accomodationNum;
 	}
 
-	public int getRoomPrice() {
+	public Long getRoomPrice() {
 		return roomPrice;
 	}
 
-	public void setRoomPrice(int roomPrice) {
+	public void setRoomPrice(Long roomPrice) {
 		this.roomPrice = roomPrice;
 	}
 
@@ -93,11 +93,11 @@ public class AccomodationRegisterDTO implements Serializable{
 		this.roomKind = roomKind;
 	}
 
-	public int getRoomCount() {
+	public Long getRoomCount() {
 		return roomCount;
 	}
 
-	public void setRoomCount(int roomCount) {
+	public void setRoomCount(Long roomCount) {
 		this.roomCount = roomCount;
 	}
 
