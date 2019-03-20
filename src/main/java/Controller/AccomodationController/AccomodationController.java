@@ -50,6 +50,16 @@ public class AccomodationController {
 		return "Accomodation/AccomodationList";
 	}
 	
-
+	@RequestMapping(value="/Accomodation/AccomodationKind" ,method=RequestMethod.POST)
+	public String detailArea(Model model,@RequestParam(value="area") String area,
+			@RequestParam(value="kind") String kind
+			) {
+		System.out.println(area+"제발");
+		accomodationService.accomodationArea(model,area,kind);
+		
+		return "Accomodation/AccomodationList";
+	}
+	
+	
 	
 }

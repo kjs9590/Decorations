@@ -47,6 +47,11 @@
     padding: 10px;
     border-radius: 4px;
 }
+.detailSearch h2{
+	cursor: pointer;
+	margin-top: 85px;
+	margin-bottom: 50px;
+}
 .accomodationList img{
  width: 30%;
  height: 180px;

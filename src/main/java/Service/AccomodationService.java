@@ -63,7 +63,6 @@ public class AccomodationService {
 		AccomodationDTO aDto = new AccomodationDTO(aCommend.getbFacilityName(),address,area,aCommend.getAccomodationKind(),tell,originalFile,storeFile,aCommend.getbFacilityImform());
 		
 		result=accomodationRepository.insertAccomodation(aDto);
-		
 		return result;
 	}
 	public void accomodationList(Model model) {
@@ -85,7 +84,14 @@ public class AccomodationService {
 		model.addAttribute("count",count);
 		
 	}
-	
+public void accomodationArea(Model model,String area,String kind) {
 		
+		List<AccomodationDTO> list=accomodationRepository.accomodationArea(area,kind);
+		
+		
+		model.addAttribute("list",list);
+		
+	}
+	
 	
 	}

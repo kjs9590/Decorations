@@ -11,7 +11,10 @@
     <meta charset="UTF-8">
     <title>accomodation</title>
 <link href="../CSS/AccomodationList.css" rel="stylesheet" type="text/css">
- 
+  <script type="text/javascript" src="Dacorations/JS/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="Dacorations/JS/jquery.form.js"></script>    
+    
+    
 </head>
 
 <body>
@@ -21,44 +24,65 @@
     <div class="detailSearch">
 
 <div id="mainSearch">검색</div>
-<p>숙소지역</p>
-<select>
-        <option>서울</option>   
+<h1>숙소지역</h1>
+<select  style="height: 45px" onchange="area(this.value)">	
+    <option>서울</option>  
+    <option>경기</option>  
+    <option>인천</option>  
+    <option>강원</option>  
+    <option>제주</option>  
+    <option>대전</option>  
+    <option>세종</option>  
+    <option>충북</option>  
+    <option>충남</option>  
+    <option>부산</option>  
+    <option>울산</option>  
+    <option>경남</option>  
+    <option>대구</option>
+    <option>경북</option>  
+    <option>광주</option>  
+    <option>전남</option>
+    <option>전북</option>  
+     
        </select>
-<p>숙소 종류</p>
-<select>
-        <option>호텔</option>   
-       </select>
-<p>객실수</p>
-       <select>
-        <option>10명</option>   
-       </select>
-
-       <p>체크인 날짜</p>
-<input type="date">
-<p>체크아웃 날짜</p>
-<input type="date"><br>
-<button>검색하기</button>
+<h2>높은 가격순</h2>
+<h2>낮은 가격순</h2>
 </div>
+<script>
+function area(val){
+	var val=val;
+	alert(val);
+	$.ajax({
+		type : "POST",
+		url : "AccomodationKind",
+		data : "area=" + val+"&kind="+<%=kind%>,
+		datatype : "html",
+		success : function(data){
+			$("#ajax").html(data);
+		}
+});
+}
+
+</script>
 
 <div id="detailList">
 
 <div id="detailMention">인천: 검색된 <%=kind %> <%=count%>개</div>
 
-<div id="optionList"><div class="option">지역</div><div class="option">높은가격순</div><div class="option">낮은가격순</div><div class="option">후기순</div></div>
-
+<div id="ajax">
 <c:forEach items="${list}" var="list">
 <div class="accomodationList"> <img src="./upfile/${list.accmodationImgstore}" />
 <div class="detailContent">
     <h3><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName }(${list.accmodationArea })</a></h3>
     <p>주소: ${list.accomodationAdd }</p>  
     <p>숙소 번호: ${list.accmodationTell }</p> 
+    <p>객실 평균 가격: ${list.accomodationAvg }원</p> 
     <b>${list.accomodationInform}</b>
 </div>
 </div>
 </c:forEach>
 </div>
-             
+ </div> 
 </div>
 
 </div>

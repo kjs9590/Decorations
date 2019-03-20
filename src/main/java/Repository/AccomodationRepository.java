@@ -1,5 +1,6 @@
 package Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -37,13 +38,15 @@ public class AccomodationRepository {
 		return sqlSession.selectOne("AccomodationMapper.AccomodationCount",kind);
 
 	}
-    //각각의 숙소의 평균 객실 가격을 가져오기위한
-	public int accomodationAvg(Long nume) {
-		return sqlSession.selectOne("AccomodationMapper.AccomodationAvg",nume);
+	public List<AccomodationDTO> accomodationArea(String area,String kind) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("area", area);
+		map.put("kind", kind);
+		
+		return sqlSession.selectList("AccomodationMapper.AccomodationArea",map);
 
 	}
-
-
+	
 
 
 }

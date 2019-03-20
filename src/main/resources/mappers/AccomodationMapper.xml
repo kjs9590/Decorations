@@ -25,7 +25,8 @@
 		ACCOMODATION_AREA,
 		ACCOMODATION_KIND, ACCOMODATION_TELL,
 		ACCOMODATION_IMGSTORE,
-		ACCOMODATION_INFORM from ACCOMODATION
+		ACCOMODATION_INFORM ,ACCOMODATION_AVG 
+		from ACCOMODATION
 	</select>
     
 	
@@ -46,6 +47,9 @@
 			property="accomodationInform" />
 		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
 			property="accmodationImgstore" />
+		<result column="ACCOMODATION_AVG" jdbcType="BIGINT"
+			property="accomodationAvg" />
+	
 	</resultMap>
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	
@@ -69,11 +73,21 @@
 		,ACCOMODATION_ADD,
 		ACCOMODATION_AREA, ACCOMODATION_KIND,
 		ACCOMODATION_TELL,
-		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM from
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM, ACCOMODATION_AVG from
 		ACCOMODATION where ACCOMODATION_KIND =#{kind}
 	</select>
     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-	
+	<!-- 지역별로 숙박 리스트를 출력하기위한 -->
+	<select id="AccomodationArea" parameterType="HashMap" resultMap="listAccomodation">
+		select ACCOMODATION_NUM, ACCOMODATION_NAME
+		,ACCOMODATION_ADD,
+		ACCOMODATION_AREA, ACCOMODATION_KIND,
+		ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE, ACCOMODATION_INFORM, ACCOMODATION_AVG from
+		ACCOMODATION where ACCOMODATION_KIND =#{kind} and ACCOMODATION_AREA=#{area}
+	</select>
+	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
 	<!-- 종류별로 등록된 숙박수를 디테일 페이지에서 확인하기위한 -->
 	<select id="AccomodationCount" parameterType="String"
 		resultMap="AccomodationCount">
@@ -175,11 +189,15 @@
 			property="roomCount" />
 	</resultMap>
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-	<select id="AccomodationAvg" resultType="int">
-		select
-nvl(max(PRODUCT_NUM),0) +1 from
-		DATEPRODUCT
+	<select id="AccomodationAvg" parameterType="long" resultType="long">
+		select nvl(avg(ROOM_PRICE),0) from DATEROOM where ACCOMODATION_NUM=#{num} 
+
 	</select>
 
-
+   <insert id="AccomodationAvgInser" parameterType="HashMap">
+		UPDATE ACCOMODATION SET
+		ACCOMODATION_AVG=#{avg} WHERE ACCOMODATION_NUM =#{num}
+   </insert>
+  
+   
 </mapper>

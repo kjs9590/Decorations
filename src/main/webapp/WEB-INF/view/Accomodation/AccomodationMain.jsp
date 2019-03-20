@@ -118,11 +118,11 @@
 							<img src="./upfile/${list.accmodationImgstore}" />
 							<div class="mention" style="line-height: 2em">
 
-								<h2>${list.accomodationName}(${list.accmodationKind})</h2>
+								<h2>${list.accomodationName} ${list.accmodationKind}</h2>
 
 								<h3>${list.accomodationInform}</h3>
 							</div>
-
+                                <h6>객실 평균 가격: ${list.accomodationAvg}원</h6>
 						</div></li>
                    </c:forEach>
 				

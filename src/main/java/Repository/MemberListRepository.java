@@ -15,7 +15,11 @@ public class MemberListRepository {
 	
 	public List<MemberDTO> memberList() {
 		// TODO Auto-generated method stub
+		
+		
 		return sqlSession.selectList("MemberListMapper.memberList");
+		
+		
 	}
 
 }

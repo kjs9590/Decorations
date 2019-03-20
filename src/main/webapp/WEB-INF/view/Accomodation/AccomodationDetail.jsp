@@ -61,7 +61,7 @@
                  <div class="imgBox">
                  <%for(int a=0; a<img.length; a++){ %>
 		         
-		          <div class="imgBoxs"><img src="./upfile1/<%=img[a]%>" value="dd" style="height: 50px; width: 60px;" onclick="changImg(<%=count%>,this.src)" ></div>
+		          <div class="imgBoxs"><img src="./upfile1/<%=img[a]%>" value="dd" style="height: 50px; width: 50px;" onclick="changImg(<%=count%>,this.src)" ></div>
 		      
 		         <%} %> 
 		         
