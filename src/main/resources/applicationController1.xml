@@ -9,4 +9,11 @@
 <!-- 축제 -->
 <bean class="Controller.FestivalController.FestivalMainController" />
 <bean class="Controller.FestivalController.FestivalDetailController" />
+
+<!-- 고객센터 -->
+<bean class="Controller.CustomerserviceController.CustomerserviceController" />
+<bean class="Controller.CustomerserviceController.NoticeDetailController" />
+<bean class="Controller.CustomerserviceController.NoticeWriteController" />
+<bean class="Controller.CustomerserviceController.QnADetailController" />
+<bean class="Controller.CustomerserviceController.QnAWriteController" />
 </beans>

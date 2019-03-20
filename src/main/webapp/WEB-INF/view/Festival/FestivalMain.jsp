@@ -51,24 +51,6 @@
 </head>
 <body>
 <script type="text/javascript">
-/* $(function(){
-	$(".festivalarea").click(function(){
-		
-		 var area= $(".festivalarea").html();
-		 alert(area)
-		 $.ajax({
-				type:"POST",
-				url : "Main",
-				data :"area="+area,
-				dataType: "html",
-				success:function(data){
-					$('.festivalarea1111').html(data)
-				}
-			});
-	});	
-
-}); */
-
 function areaClick(area){
  	$.ajax({
 		type:"POST",
@@ -128,7 +110,7 @@ function areaClick(area){
 						</div>
 					</div>
 				</c:forEach>
-		</div>
+		
 	
 		<div id="paging_box">
 			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
@@ -136,6 +118,7 @@ function areaClick(area){
 			</c:forEach>
 	
 		</div>
+	</div>	
 		</form>
 </div>
 <!-- Content 끝 -->

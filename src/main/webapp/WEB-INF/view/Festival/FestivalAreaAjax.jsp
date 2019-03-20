@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="festivalarea1111">
 	<c:forEach items="${area}" var="arealist">
 		<div class="festival_infobox">
 			<div id="festival_infoview"><img src="../Festival/${arealist.getFESTIVALIMG()}"></div>
@@ -24,7 +25,14 @@
 				</p>
 			</div>
 		</div>
-		</c:forEach>
+	</c:forEach>
 		
+		<div id="paging_box">
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+						<a href="?page=${i}">${i}</a>
+			</c:forEach>
+		</div>	
+	
+</div>
 </body>
 </html>
