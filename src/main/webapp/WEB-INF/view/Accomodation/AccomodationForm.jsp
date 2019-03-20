@@ -67,7 +67,7 @@
 			<p>파일 첨부</p>
 			<input name="boardFile" type="file" />
 		</div>
-		 
+		
 		<input type="submit" value="전송">
 
 	</div>

@@ -23,10 +23,10 @@ public class AccomodationController {
 	@RequestMapping(value="/Accomodation/AccomodationMain" ,method=RequestMethod.GET)
 	public String main(Model model) {
 		
-		accomodationService.AccomodationList(model);
+		accomodationService.accomodationList(model);
 		return "Accomodation/AccomodationMain";
 	}
-	
+
 	
 	//숙박 등록 메소드
 	@RequestMapping(value="/Accomodation/AccomodationForm" ,method=RequestMethod.GET)
@@ -38,37 +38,18 @@ public class AccomodationController {
 	@RequestMapping(value="/Accomodation/AccomodationRegister" ,method=RequestMethod.POST)
 	public String submit( AccomodationRegisterCommend aCommend,HttpServletRequest request) {
 		
-		accomodationService.Accomodationinsert(aCommend,request);
+		accomodationService.accomodationinsert(aCommend,request);
 		return "redirect:AccomodationMain";
 	}
 	
 	@RequestMapping(value="/Accomodation/AccomodationListEach" ,method=RequestMethod.GET)
 	public String detail(Model model,@RequestParam(value="kind") String kind) {
 		
-		accomodationService.AccomodationEachList(model,kind);
+		accomodationService.accomodationEachList(model,kind);
 		
 		return "Accomodation/AccomodationList";
 	}
 	
-	@RequestMapping(value="/Accomodation/RoomForm",method=RequestMethod.GET)
-	public String roomForm(Model model,@RequestParam(value="num") int num) {
-		
-		model.addAttribute("num", num);
-		return "Accomodation/RoomForm";
-	}
-	@RequestMapping(value="/Accomodation/RoomRegister",method=RequestMethod.POST)
-	public String roomRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request ) {
-		
-		String path=accomodationService.AccomodationRegister(model,aRcommend,request);
-		return path;
-	}
-	
-	@RequestMapping(value="/Accomodation/RoomList" ,method=RequestMethod.GET)
-	public String roomList(Model model,@RequestParam(value="num") int num ) {
-		
-		accomodationService.AccomodationRoom(model,num);
-		
-		return "Accomodation/AccomodationDetail";
-	}
+
 	
 }

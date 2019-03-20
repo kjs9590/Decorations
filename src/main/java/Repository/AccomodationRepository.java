@@ -13,64 +13,37 @@ public class AccomodationRepository {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String namespace = "AccomodationMapper";
-
-
+   
+	//숙박을 등록하기위한 
 	public Integer insertAccomodation(AccomodationDTO aDto) {
-
 		return sqlSession.insert("AccomodationMapper.insertAccomodation", aDto);
 	}
+    //등록된 숙박을 리스트로 출력하기위한
 	public List<AccomodationDTO> listAccomodation() {
-
 		return sqlSession.selectList("AccomodationMapper.listAccomodation");
-
-	}
+    }
+    //종류별로 등록된 숙박수를 메인에서 확인하기위한
 	public List<AccomodationDTO> listAccomodationCount() {
-
 		return sqlSession.selectList("AccomodationMapper.listAccomodationCount");
 
 	}
+	//종류별로 숙박 리스트를 출력하기위한
 	public List<AccomodationDTO> listEachAccomodation(String kind) {
-
 		return sqlSession.selectList("AccomodationMapper.listEachAccomodationCount",kind);
-		
-	}
-	public AccomodationDTO AccomodationCount(String kind) {
 
+	}
+	//종류별로 등록된 숙박수를 디테일 페이지에서 확인하기위한
+	public AccomodationDTO accomodationCount(String kind) {
 		return sqlSession.selectOne("AccomodationMapper.AccomodationCount",kind);
 
 	}
-	public AccomodationDTO AccomodationRoom(int num) {
-
-		return sqlSession.selectOne("AccomodationMapper.AccomodationRoom",num);
-
-	}
-	
-	public List<AccomodationRegisterDTO> AccomodationRoomList(int num) {
-
-		return sqlSession.selectList("AccomodationMapper.AccomodationRoomList",num);
-
-	}
-	
-	
-	
-	public Long DateProductNum() {
-       System.out.println("1번째");
-		return sqlSession.selectOne("AccomodationMapper.DateProductNum");
-
-	}
-	
-	public int DateProduct(AccomodationRegisterDTO aRdto) {
-		   System.out.println(aRdto.getRoomNum()+"2번째");
-		return sqlSession.insert("AccomodationMapper.DateProduct",aRdto);
+    //각각의 숙소의 평균 객실 가격을 가져오기위한
+	public int accomodationAvg(int num) {
+		return sqlSession.selectOne("AccomodationMapper.AccomodationAvg",num);
 
 	}
 
-	public int RoomRegister(AccomodationRegisterDTO aRdto) {
-		   System.out.println("3번째");
-		return sqlSession.insert("AccomodationMapper.AccomodationRegister",aRdto);
 
-	}
-	
-	
-	
+
+
 }

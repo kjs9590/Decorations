@@ -7,9 +7,12 @@
 <!-- Sevice	 -->
 <bean id="memberService" class="Service.MemberService"/> 
 <bean id="accomodationService" class="Service.AccomodationService"/> 
+<bean id="accomodationDetailServiceService" class="Service.AccomodationDetailService"/> 
 
 <!-- Repository	 -->
 <bean id="memberSessionRepository" class="Repository.MemberSessionRepository"/>	
 <bean id="accomodationRepository" class="Repository.AccomodationRepository"/>	
+<bean id="accomodationDetailRepository" class="Repository.AccomodationDetailRepository"/>	
+
 </beans>
 

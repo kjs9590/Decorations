@@ -41,6 +41,21 @@ a{
 	color: white;
 	font-size: 17px;
 }
+.imgBox{
+	height: 60px;
+	width: 100%;
+	
+}
+.imgBoxs img{
+	cursor: pointer;
+}
+.imgBoxs{
+	border:solid 2px red;
+	height: 50px;
+    width: 13.5%;
+    float: left;
+	
+}
 .roomInfo p{
     margin: 0;
     font-size: 12px;
@@ -73,7 +88,7 @@ height: 70px;
 }     
 
 .room{
-    height: 180px;
+    height: 220px;
     width: 96%;
     border-bottom: solid 0.5px;
     padding-bottom: 2%;

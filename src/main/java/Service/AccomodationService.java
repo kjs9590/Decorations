@@ -22,7 +22,9 @@ import Repository.AccomodationRepository;
 import Repository.MemberSessionRepository;
 
 public class AccomodationService {
-    private File file = null;
+	@Autowired
+	private AccomodationRepository accomodationRepository;	
+	private File file = null;
 	private String originalFile = null;
 	private String originalFileExtension = null;
 	private String storeFile = null;
@@ -32,10 +34,8 @@ public class AccomodationService {
 	private String storeFiles = "";
 	private String filesSize = "";
 	
-	@Autowired
-	private AccomodationRepository accomodationRepository;	
 	//AccomodationInsert 메소드
-	public Integer Accomodationinsert(AccomodationRegisterCommend aCommend,HttpServletRequest request) {
+	public Integer accomodationinsert(AccomodationRegisterCommend aCommend,HttpServletRequest request) {
 		
 		Integer result = 0;
 		String area=aCommend.getAddress().substring(0,2);
@@ -59,13 +59,15 @@ public class AccomodationService {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-        System.out.println(aCommend.getbFacilityImform()+"정보");
+      
+		accomodationRepository.accomodationAvg();
 		AccomodationDTO aDto = new AccomodationDTO(aCommend.getbFacilityName(),address,area,aCommend.getAccomodationKind(),tell,originalFile,storeFile,aCommend.getbFacilityImform());
 	     
 		result=accomodationRepository.insertAccomodation(aDto);
+		accomodationRepository.accomodationAvg(aDto.getAccomodationNum());
 		return result;
 	}
-	public void AccomodationList(Model model) {
+	public void accomodationList(Model model) {
 		
 		List<AccomodationDTO> list=accomodationRepository.listAccomodation();
 		List<AccomodationDTO> listCount=accomodationRepository.listAccomodationCount();
@@ -73,10 +75,10 @@ public class AccomodationService {
 		model.addAttribute("AccomodationCount",listCount);
 	}
 	
-	public void AccomodationEachList(Model model,String kind) {
+	public void accomodationEachList(Model model,String kind) {
 		
 		List<AccomodationDTO> list=accomodationRepository.listEachAccomodation(kind);
-		AccomodationDTO aDto=accomodationRepository.AccomodationCount(kind);
+		AccomodationDTO aDto=accomodationRepository.accomodationCount(kind);
 		
 		Integer count=aDto.getCount();
 		model.addAttribute("list",list);
@@ -84,78 +86,7 @@ public class AccomodationService {
 		model.addAttribute("count",count);
 		
 	}
-	public void AccomodationRoom(Model model,int nume) {
-		
 	
-		AccomodationDTO aDto=accomodationRepository.AccomodationRoom(nume);
-		List<AccomodationRegisterDTO> list=accomodationRepository.AccomodationRoomList(nume);
-        System.out.println(list.get(1).getRoomCount()+"뭐야");
-		model.addAttribute("aDto",aDto);	
-        model.addAttribute("list",list);	
-	}
-	public String AccomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request) {
-		
-	
-		String path = null;
-		
-	
-		
-		String filePath = request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile1\\";
-		MultipartFile[] reports = aRcommend.getBoardFile();
-		
-
-		int i = 1;
-		for(MultipartFile report : reports) {
-			originalFile = report.getOriginalFilename();
-			  System.out.println(originalFile+" originalFile");
-			originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
-			System.out.println(originalFileExtension+" originalFileExtension ");
-			storeFile = UUID.randomUUID().toString().replaceAll("-", "");
-			System.out.println(storeFile+" storeFile");
-			storeFile = storeFile + originalFileExtension;
-			System.out.println(storeFile+" storeFile");
-			file = new File(filePath+storeFile); 
-			System.out.println(filePath+storeFile+" filePath+storeFile");
-			try {
-				report.transferTo(file);
-				System.out.println(originalFile +" originalFile");
-				originalFiles += originalFile +"-";
-				storeFiles += storeFile + "-";
-	
-			}catch(Exception e) {	
-				e.printStackTrace();
-			}
-			
-		}
-		time1=aRcommend.getProAdTime1()+" "+aRcommend.getProAdTime2()+":"+aRcommend.getProAdTime3();
-        time2=aRcommend.getProExTime1()+" "+aRcommend.getProExTime2()+":"+aRcommend.getProExTime3();
-
-		System.out.println(originalFiles+"originalFiles 끝");
-		
-		AccomodationRegisterDTO aRDTO =new AccomodationRegisterDTO(aRcommend.getNum(),aRcommend.getaProPrice(),time1,time2,aRcommend.getaProKind(),aRcommend.getCount(),originalFiles,storeFiles);
-		Integer i1;
-		
-		aRDTO.setRoomNum(accomodationRepository.DateProductNum());
-		accomodationRepository.DateProduct(aRDTO);
-		i1=accomodationRepository.RoomRegister(aRDTO);
-		originalFiles="";
-		storeFiles="";
-		if(i1 > 0) {  
-		return	path ="redirect:Accomodation/RoomList?num=2";
-		}else {
-			String[] fileNames = storeFiles.split("-");
-			for(String fileName : fileNames) {
-				File f = new File(filePath+fileName);
-				if(f.exists()) 
-					{	
-						f.delete(); 
-					}
-			}
-		return path = "report/submissionForm";
-		}
-		
-		
-	}
 		
 	
 	}

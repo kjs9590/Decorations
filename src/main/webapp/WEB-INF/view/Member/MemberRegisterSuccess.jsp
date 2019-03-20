@@ -32,7 +32,7 @@
         </div>
         <div id="link">
            <ul>
-               <li><a href="">로그인하기</a></li>
+               <li><a href="Login">로그인하기</a></li>
            </ul>
         </div>
     </div>

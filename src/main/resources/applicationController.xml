@@ -6,4 +6,8 @@
 	   		>
 	<bean class="Controller.MemberController.MemberRegisterController" />
 	<bean class="Controller.AccomodationController.AccomodationController" />
+	<bean class="Controller.AccomodationController.AccomodationDetailController" />
+	
+	
+	
 </beans>

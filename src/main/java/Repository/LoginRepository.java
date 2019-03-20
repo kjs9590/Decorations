@@ -14,7 +14,6 @@ public class LoginRepository {
 	private final String namespace = "LoginMapper";
 	
 	public MemberDTO login(String id) {
-		System.out.println(id);
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("LoginMapper.login", id);
 	}
@@ -22,6 +21,12 @@ public class LoginRepository {
 	public ChargerDTO clogin(String id) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("LoginMapper.clogin", id);
+	}
+
+	
+	public MemberDTO last(String id) {
+		return sqlSession.selectOne("LoginMapper.last", id);
+		
 	}
 
 

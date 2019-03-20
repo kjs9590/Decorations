@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import com.sun.mail.iap.Response;
+
 import Commend.LoginCommand;
 import Model.ChargerDTO;
 import Model.MemberDTO;
@@ -23,6 +25,7 @@ public class LoginService {
 
 		Integer result = 0;
 		MemberDTO logindto = loginRepository.login(loginCommand.getId());
+		
 		if(logindto == null	) {
 			System.out.println("아이디가 존재하지 않습니다.");
 			result=0;
@@ -33,8 +36,14 @@ public class LoginService {
 
 		}
 		else {
-			result=2;	
+			
+			loginRepository.last(loginCommand.getId());
+			System.out.println(logindto.getMemberLastDate());
+			System.out.println(logindto.getMemberTell());
+			
+
 			session.setAttribute("memberDTO", logindto);
+			result=2;	
 
 		}
 		model.addAttribute("result",result );
