@@ -51,21 +51,42 @@
 </head>
 <body>
 <script type="text/javascript">
-$(function(){
+/* $(function(){
 	$(".festivalarea").click(function(){
-    var id=$(".festivalarea").val();
-	$.ajax({
-		type:"POST",
-		url : "Main",
-		data :"id="+id,
+		
+		 var area= $(".festivalarea").html();
+		 alert(area)
+		 $.ajax({
+				type:"POST",
+				url : "Main",
+				data :"area="+area,
+				dataType: "html",
+				success:function(data){
+					$('.festivalarea1111').html(data)
+				}
+			});
+	});	
 
-		
+}); */
+
+function areaClick(area){
+ 	$.ajax({
+		type:"POST",
+		url : "areaSelect",
+		data :"area="+area,
+		dataType: "html",
+		success:function(data){
+			$('.festivalarea1111').html(data)
+		}
 	});
-		
-	
-});
+}
 
 </script>
+
+
+
+
+
 <!-- Header 시작 -->
 <jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
@@ -76,40 +97,44 @@ $(function(){
 		<div id="festival_title"><h3>지역축제</h3></div>
 		<div id="area_info">
 			<ul>
-				<li>영등포구</li>
-				<li class="FESTIVALAREA">용산구</li>
-				<li><a href="#">강북구</a></li>
-				<li><a href="#">중랑구</a></li>
-				<li><a href="#">동대문구</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('');">전체</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('영등포구');">영등포구</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('용산구');">용산구</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('강북구');">강북구</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('중랑구');">중랑구</a></li>
+				<li class="festivalarea"><a href="javascript:areaClick('동대문구');">동대문구</a></li>
 			</ul>
 		</div>
-		<c:forEach items="${Festivallist}" var="festivallist">
-		<div class="festival_infobox">
-			<div id="festival_infoview"><img src="../Festival/${festivallist.getFESTIVALIMG()}"></div>
-			<div id="festival_info">
-					<p id="info"><strong><a href="Detail?fno=${festivallist.getFESTIVALNUM()}">${festivallist.getFESTIVALNAME()}</a></strong></span>
-				<p>입장료 :  <span style="color: red;">${festivallist.getFESTIVALFARE()}</span>원  </p>
-				<p>
-					기간: ${festivallist.getFESTIVALTERM() }<br>
-					장소: ${festivallist.getFESTIVALAREA()}<br>
-					문의: ${festivallist.getFESTIVALTELL()}
-				</p>
-				</p>
-			</div>
-		</div>
-		</c:forEach>
 		
-					
+		<div class="festivalarea1111">
+				<c:forEach items="${Festivallist}" var="festivallist">
+					<div class="festival_infobox">
+						<div id="festival_infoview">
+							<img src="../Festival/${festivallist.getFESTIVALIMG()}">
+						</div>
+						<div id="festival_info">
+							<p id="info">
+								<strong><a
+									href="Detail?fno=${festivallist.getFESTIVALNUM()}">${festivallist.getFESTIVALNAME()}</a></strong></span>
+							<p>
+								입장료 : <span style="color: red;">${festivallist.getFESTIVALFARE()}</span>원
+							</p>
+							<p>
+								기간: ${festivallist.getFESTIVALTERM() }<br> 장소:
+								${festivallist.getFESTIVALAREA()}<br> 문의:
+								${festivallist.getFESTIVALTELL()}
+							</p>
+							</p>
+						</div>
+					</div>
+				</c:forEach>
+		</div>
+	
 		<div id="paging_box">
-		<%--  <c:set var="page" value="${paging.page}"/> 
-         <c:if test="${paging.prev}"><a href="?page=1">◀◀</a><a href="?page=${paging.startPage-1}">◀</a></c:if> --%>
-
 			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
 						<a href="?page=${i}">${i}</a>
 			</c:forEach>
-		
-	<%-- 	<c:if test="${paging.next}"><a href="?page=${paging.endPage+1}">▶</a><a href="?page=${paging.maxPage}">▶▶</a></c:if> --%>
-		
+	
 		</div>
 		</form>
 </div>

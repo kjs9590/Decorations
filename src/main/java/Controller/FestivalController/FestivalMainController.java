@@ -29,12 +29,11 @@ public class FestivalMainController {
 
 
 	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
-	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command,@RequestParam(value="festivalarea", required=false) String FESTIVALAREA) {
+	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command) {
 		
 		if(command.getPage()==0) {
              command.setPage(1);
            }
-		List<FestivalDTO> area = festivallistservice.area(FESTIVALAREA);
 		AutoPaging paging = new AutoPaging(command.getPage(),2,3);
 		paging.setListCount(festivallistservice.listCount());
 
@@ -42,8 +41,22 @@ public class FestivalMainController {
 		List<FestivalDTO> listpaging = festivallistservice.listpaging(paging);
 		model.addAttribute("Festivallist", listpaging);
 		model.addAttribute("paging", paging);
-		model.addAttribute("area", area);
 		return "Festival/FestivalMain";
+	}
+	
+	@RequestMapping(value="/Festival/areaSelect", method = RequestMethod.POST )
+		public String areaSelect(Model model,@RequestParam(value="area", required=false) String FESTIVALAREA,@ModelAttribute PagingCommand command) {
+		if(command.getPage()==0) {
+            command.setPage(1);
+          }
+		AutoPaging paging = new AutoPaging(command.getPage(),1,3);
+		paging.setListCount(festivallistservice.arealistCount());
+		List<FestivalDTO> areapaging = festivallistservice.areapaging(paging);
+		List<FestivalDTO> area = festivallistservice.area(FESTIVALAREA);
+		model.addAttribute("area", area);
+		model.addAttribute("areapaging", areapaging);
+		return "Festival/FestivalAreaAjax";
+		
 	}
 	
 }

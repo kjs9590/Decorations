@@ -77,9 +77,38 @@
 	</select>
 
 	<!-- 지역별 축제 에이작스-->
-	<select id="selectfestivalarea" parameterType="FestivalDTO" resultMap="baseCommentDTO">
+	<select id="selectfestivalarea" parameterType="hashmap" resultMap="baseCommentDTO">
 		select <include refid="basecolumn" />
 		FROM FESTIVAL
-		where FESTIVAL_AREA = '용산구'
+		<if test="festivalarea != null">
+			where FESTIVAL_AREA = #{festivalarea}
+		</if>
+	</select>
+	
+	<select id="areapaging" resultMap="baseCommentDTO" parameterType="HashMap" >
+ 	SELECT 
+          rnum, <include refid="basecolumn"/>
+       FROM
+       (SELECT
+          rownum as rnum, <include refid="basecolumn"/>
+       FROM
+      (SELECT
+         <include refid="basecolumn"/>
+       FROM 
+          FESTIVAL
+       ORDER BY 
+       FESTIVAL_NUM asc
+       ) WHERE 
+          rownum &lt;= #{maxNum}
+       )
+       WHERE
+          rnum &gt;= #{minNum}    
+ 	</select>
+	
+	<select id="paginglistcount" resultType="Integer">
+	SELECT
+		count(*)
+	FROM
+		FESTIVAL
 	</select>
 </mapper> 

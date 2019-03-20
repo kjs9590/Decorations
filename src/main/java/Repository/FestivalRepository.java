@@ -46,8 +46,25 @@ public class FestivalRepository {
 
 	public List<FestivalDTO> area(String FESTIVALAREA) {
 		// TODO Auto-generated method stub
-		System.out.println("festivalarea값 ="+FESTIVALAREA); 
-		return sqlSession.selectList("FestivalMapper.selectfestivalarea",FESTIVALAREA);
+		Map <String, String> map = new HashMap<String, String>();
+		map.put("festivalarea", FESTIVALAREA);
+		return sqlSession.selectList("FestivalMapper.selectfestivalarea",map);
+	}
+
+
+	public List<FestivalDTO> areapaging(AutoPaging paging) {
+		Integer minNum = ((paging.getPage()-1)*paging.getLimit())+1;
+		Integer maxNum = minNum+paging.getLimit()-1;
+		HashMap<String, Object> areamapping = new HashMap<String, Object>();
+		areamapping.put("minNum", minNum);
+		areamapping.put("maxNum", maxNum);
+		return sqlSession.selectList("FestivalMapper.areapaging",areamapping);
+	}
+
+
+	public int pagingListCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("FestivalMapper.paginglistcount");
 	}
 
 

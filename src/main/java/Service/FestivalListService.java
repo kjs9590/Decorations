@@ -31,7 +31,18 @@ public class FestivalListService {
 	}
 
 	public List<FestivalDTO> area(String FESTIVALAREA) {
+		if(FESTIVALAREA.equals("")) FESTIVALAREA=null;
 		return  festivalRepository.area(FESTIVALAREA);
+	}
+
+	public List<FestivalDTO> areapaging(AutoPaging paging) {
+		// TODO Auto-generated method stub
+		return festivalRepository.areapaging(paging);
+	}
+
+	public int arealistCount() {
+		// TODO Auto-generated method stub
+		return festivalRepository.pagingListCount();
 	}
 
 
