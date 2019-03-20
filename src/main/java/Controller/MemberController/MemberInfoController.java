@@ -29,10 +29,12 @@ public class MemberInfoController {
 		MemberDTO mem  = (MemberDTO) session.getAttribute("memberDTO");
 		String id = mem.getMemberId();
 		System.out.println(id);
-		memberInfoService.info(id); 
-
+		MemberDTO mm = memberInfoService.info(id); 
+		
+		System.out.println(mm.getPassChangeDate());
+		
 		System.out.println(mem.getMemberName()+"멤버이름");
-		model.addAttribute("mem",mem);
+		model.addAttribute("mem",mm);
 		
 		
 		return "Member/MemberInfo";

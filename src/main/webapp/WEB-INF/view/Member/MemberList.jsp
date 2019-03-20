@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.*"%>
 <%@ page import="Model.MemberDTO"%>
 <%
@@ -58,7 +59,7 @@
 				<td id="phone"><%=members.get(a).getMemberTell()%></td>
 				<td id="addr"><%=members.get(a).getMemberArea()%></td>
 				<td id="agree"><%=members.get(a).getMailConfrim()%></td>
-				<td id="date"><%=members.get(a).getMemberDate()%></td>
+				<td id="date"><fmt:formatDate pattern="yy/MM/dd" value="<%=members.get(a).getMemberDate()%>"/> </td>
 				<td id="last_date"><%=members.get(a).getMemberLastDate()%></td>
 			</tr>
 			<%

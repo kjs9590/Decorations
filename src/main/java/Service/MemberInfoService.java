@@ -31,14 +31,18 @@ public class MemberInfoService {
 		mdto.setMemberId(upCommand.getId());
 		mdto.setMemberName(upCommand.getName());
 		mdto.setMemberPw(upCommand.getPassword());
+		
+		System.out.println("upCommand.getPassword : "+upCommand.getPassword());
 		mdto.setMemberMail(upCommand.getEmail());
 		mdto.setMemberTell(tell);
 		mdto.setMemberAdd(upCommand.getAddress());
 		mdto.setMemberArea(area);
 		mdto.setMailConfrim(upCommand.getMailConfrim());
-		
 		result = memberInfoRepository.update(mdto);
-		
+
+		//System.out.println("왜 널이 뜨는 거니 왜왜왜왜오애ㅗ애ㅙ"+mdto.getPassChangeDate());
+
+		model.addAttribute("mdto",mdto);
 		return result;
 	}
 

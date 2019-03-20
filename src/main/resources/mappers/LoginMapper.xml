@@ -7,7 +7,7 @@
 
 	<select id="login" parameterType="string" resultMap="login">
 		SELECT
-		member_id, member_pw, member_name, member_mail, member_gender, member_tell, member_add
+		member_id, member_pw, member_name, member_mail, member_gender, member_tell, member_add, member_last_date
 		FROM MEMBER
 		WHERE member_id = #{id}
 	</select>
@@ -19,6 +19,12 @@
 		WHERE charge_id = #{id}
 	</select>	
 	
+	<update id="last" parameterType="string">
+		UPDATE member SET 
+		member_last_date = sysdate 
+		WHERE member_id = #{id}
+	</update>
+	
 	
 	
 	<resultMap type="MemberDTO" id="login">
@@ -29,9 +35,10 @@
 		<result column="MEMBER_GENDER" jdbcType="VARCHAR" property="memberGender"/>
 		<result column="MEMBER_TELL" jdbcType="VARCHAR" property="memberTell"/>
 		<result column="MEMBER_ADD" jdbcType="VARCHAR" property="memberAdd"/>
+		<result column="MEMBER_LAST_DATE" jdbcType="VARCHAR" property="memberLastDate"/>
 	</resultMap>
 	
-		<resultMap type="ChargerDTO" id="clogin">
+	<resultMap type="ChargerDTO" id="clogin">
 		<id column="CHARGE_NUM" jdbcType="BIGINT" property="chargeNum" />
 		<result column="CHARGE_ID" jdbcType="VARCHAR" property="chargeId"/>
 		<result column="CHARGE_PW" jdbcType="VARCHAR" property="chargePw"/>
