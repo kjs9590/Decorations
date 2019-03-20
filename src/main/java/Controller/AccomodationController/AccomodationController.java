@@ -46,7 +46,7 @@ public class AccomodationController {
 	public String detail(Model model,@RequestParam(value="kind") String kind) {
 		
 		accomodationService.accomodationEachList(model,kind);
-		
+		System.out.println("음");
 		return "Accomodation/AccomodationList";
 	}
 	
