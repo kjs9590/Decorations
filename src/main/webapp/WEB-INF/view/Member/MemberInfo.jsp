@@ -4,7 +4,9 @@
 <%@ page import="Model.MemberDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <% 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
+	MemberDTO mem = (MemberDTO)request.getAttribute("mem");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,27 +41,31 @@
 				<table>
 					<tr>
 						<td id="sub">아이디</td>
-						<td id="con"><%=memberDTO.getMemberId() %></td>
+						<td id="con"><%=mem.getMemberId() %></td>
 					</tr>
 					<tr>
 						<td id="sub">이름</td>
-						<td id="con"><%=memberDTO.getMemberName() %></td>
+						<td id="con"><%=mem.getMemberName() %></td>
 					</tr>
 					<tr>
 						<td id="sub">이메일</td>
-						<td id="con"><%=memberDTO.getMemberMail() %></td>
+						<td id="con"><%=mem.getMemberMail() %></td>
 					</tr>
 					<tr>
 						<td id="sub">성별</td>
-						<td id="con"><%=memberDTO.getMemberGender()%></td>
+						<td id="con"><%=mem.getMemberGender()%></td>
 					</tr>
 					<tr>
 						<td id="sub">연락처</td>
-						<td id="con"><%=memberDTO.getMemberTell() %></td>
+						<td id="con"><%=mem.getMemberTell() %></td>
 					</tr>
 					<tr>
 						<td id="sub">주소</td>
 						<td id="con"><%=memberDTO.getMemberAdd() %></td>
+					</tr>
+					<tr>
+						<td id="sub">비밀번호 변경일</td>
+						<td id="con"><fmt:formatDate pattern="yy/MM/dd" value="<%=mem.getPassChangeDate()%>"/></td>
 					</tr>
 				</table>
 				<div id="btn">

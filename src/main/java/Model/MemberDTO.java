@@ -28,7 +28,8 @@ private String memberArea;
 private String mailConfrim;
 private String memberName;
 private Date   memberDate;   
-private Date memberLastDate;
+private String memberLastDate;
+private Date   passChangeDate;
 
 
 public  MemberDTO() {};
@@ -46,10 +47,17 @@ public MemberDTO(String memberId, String memberPw, String memberTell, String mem
 	this.memberName = memberName;
 }
 
-public Date getMemberLastDate() {
+ 
+public Date getPassChangeDate() {
+	return passChangeDate;
+}
+public void setPassChangeDate(Date passChangeDate) {
+	this.passChangeDate = passChangeDate;
+}
+public String getMemberLastDate() {
 	return memberLastDate;
 }
-public void setMemberLastDate(Date memberLastDate) {
+public void setMemberLastDate(String memberLastDate) {
 	this.memberLastDate = memberLastDate;
 }
 public Date getMemberDate() {
