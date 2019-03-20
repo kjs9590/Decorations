@@ -34,7 +34,8 @@ public class AccomodationDetailService {
 	public void accomodationRoom(Model model,Long nume) {
         AccomodationDTO aDto=accomodationDetailRepository.accomodationRoom(nume);
 		List<AccomodationRegisterDTO> list=accomodationDetailRepository.accomodationRoomList(nume);
-        model.addAttribute("aDto",aDto);	
+		accomodationDetailRepository.accomodationAvg(nume);
+		model.addAttribute("aDto",aDto);	
 		model.addAttribute("list",list);	
 		
 	}

@@ -38,8 +38,8 @@ public class AccomodationRepository {
 
 	}
     //각각의 숙소의 평균 객실 가격을 가져오기위한
-	public int accomodationAvg(int num) {
-		return sqlSession.selectOne("AccomodationMapper.AccomodationAvg",num);
+	public int accomodationAvg(Long nume) {
+		return sqlSession.selectOne("AccomodationMapper.AccomodationAvg",nume);
 
 	}
 

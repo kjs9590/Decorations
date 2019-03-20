@@ -33,7 +33,7 @@ private Integer count;
 
 public AccomodationDTO() {}
 public AccomodationDTO( String accomodationName, String accomodationAdd, String accmodationArea,
-		String accmodationKind, String accmodationTell, String accmodationImg, String accmodationImgstore ,String accomodationInform,int accomodationAvg) {
+		String accmodationKind, String accmodationTell, String accmodationImg, String accmodationImgstore ,String accomodationInform) {
 	super();
 	this.accomodationName = accomodationName;
 	this.accomodationAdd = accomodationAdd;
@@ -42,8 +42,7 @@ public AccomodationDTO( String accomodationName, String accomodationAdd, String 
 	this.accmodationTell = accmodationTell;
 	this.accmodationImg = accmodationImg;
 	this.accmodationImgstore = accmodationImgstore;
-    this.accomodationInform=accomodationInform;
-    this.accomodationAvg=accomodationAvg;}
+    this.accomodationInform=accomodationInform;}
 
 public int getAccomodationAvg() {
 	return accomodationAvg;

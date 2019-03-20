@@ -59,12 +59,11 @@ public class AccomodationService {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-      
-		accomodationRepository.accomodationAvg();
+		
 		AccomodationDTO aDto = new AccomodationDTO(aCommend.getbFacilityName(),address,area,aCommend.getAccomodationKind(),tell,originalFile,storeFile,aCommend.getbFacilityImform());
-	     
+		
 		result=accomodationRepository.insertAccomodation(aDto);
-		accomodationRepository.accomodationAvg(aDto.getAccomodationNum());
+		
 		return result;
 	}
 	public void accomodationList(Model model) {
