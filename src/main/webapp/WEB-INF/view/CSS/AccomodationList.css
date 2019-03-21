@@ -26,11 +26,13 @@
     margin-right: -40px;
 }
 #detailMention{
-    width: 100%;
+    width: 99%;
     height: 40px;
     padding-top: 1%;
     font-size: 20px;
     font-weight: bold;
+    border:solid 2px;
+    text-align: center;
 }
 #optionList{
     width: 99%;
@@ -60,6 +62,12 @@
     height: 175px;
     width: 69%;
     float:right;
+}
+#b{
+	color: green;
+}
+a{
+	text-decoration: none;
 }
 .detailContent h3{
     margin: 0;

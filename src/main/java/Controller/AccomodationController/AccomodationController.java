@@ -57,7 +57,7 @@ public class AccomodationController {
 		System.out.println(area+"제발");
 		accomodationService.accomodationArea(model,area,kind);
 		
-		return "Accomodation/AccomodationList";
+		return "Accomodation/AccomodationAjax";
 	}
 	
 	
