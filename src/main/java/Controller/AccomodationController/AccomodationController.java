@@ -60,6 +60,20 @@ public class AccomodationController {
 		return "Accomodation/AccomodationAjax";
 	}
 	
+	@RequestMapping(value="/Accomodation/AccomodationPrice" ,method=RequestMethod.POST)
+	public String accomodationPrice(Model model,@RequestParam(value="kind") String kind
+			) {
+		accomodationService.accomodationPrice(model,kind);
+		
+		return "Accomodation/AccomodationAjax";
+	}
+	@RequestMapping(value="/Accomodation/AccomodationLowPrice" ,method=RequestMethod.POST)
+	public String accomodatioLowPrice(Model model,@RequestParam(value="kind") String kind
+			) {
+		accomodationService.accomodationLowPrice(model,kind);
+		
+		return "Accomodation/AccomodationAjax";
+	}
 	
 	
 }
