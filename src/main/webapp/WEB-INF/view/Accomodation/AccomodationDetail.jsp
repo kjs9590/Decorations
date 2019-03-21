@@ -4,7 +4,7 @@
 <%@page import="Model.AccomodationRegisterDTO,java.util.*"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <% List <AccomodationRegisterDTO>aRlist=(List)request.getAttribute("list"); %>
-<%int count=3; %>
+<%int count=4; %>
 <!doctype html>
 <html lang="UTF-8">
 
@@ -14,6 +14,7 @@
 
 <link href="../CSS/AccomodationDetail.css" rel="stylesheet"
 	type="text/css">
+<link href="../CSS/header.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../JS/AccomodationDetail.js"></script>
 <script type="text/javascript">
 
@@ -22,24 +23,23 @@
 </head>
 
 <body>
+	<jsp:include page="../include/header.jsp" />
 	<div id="roomMain">
+		<div id="mainTitle"><b>${aDto.accomodationName}
+					${aDto.accmodationKind}(${aDto.accmodationArea})</b><a href="#" id="a"
+						onclick="roomRegister(${aDto.accomodationNum})">객실등록하기</a></div>
 		<div class="mainRoomHeader">
-			<img src="../images\rooms.jpg" width="100%" height="327px">
+			<img src="../images\rooms.jpg" width="100%" height="311px">
        </div>
-		<div id="roomPage">1/20</div>
 		<div id="mainContent">
 			<div class="roomInfo">
-				<h2>${aDto.accomodationName}
-					${aDto.accmodationKind}(${aDto.accmodationArea})<a href="#"
-						onclick="roomRegister(${aDto.accomodationNum})">객실등록하기</a>
-				</h2>
-				<h4>${aDto.accomodationAdd}</h4>
+		        <h4>${aDto.accomodationAdd}</h4>
 				<h4>숙소 전화번호: ${aDto.accmodationTell}</h4>
-				<p>이용가능한 객실수:5실</p>
+				<h4>이용가능한 객실수: 5실</h4>
 				<h4><span>당일예약취소가능</span><span>현장적립</span><span>최저가보상</span></h4>
-				<p><img src="../images\v.PNG">미리예약시 1% 적립</p>
-				<p><img src="../images\v.PNG">당일예약 건 입실 3시간 전까지 100% 환불가능</p>
-				<p><img src="../images\v.PNG">정보제공</p>
+				<p><img src="../images\v.PNG" style="height: 20px;">미리예약시 1% 적립</p>
+				<p><img src="../images\v.PNG" style="height: 20px;">당일예약 건 입실 3시간 전까지 100% 환불가능</p>
+				<p><img src="../images\v.PNG "style="height: 20px;">정보제공</p>
 
 			</div>
 

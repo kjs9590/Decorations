@@ -3,14 +3,36 @@
     height: auto;
     width: 100%;
     background-color: #f2f2f2;
+    margin-top:10.2%;
 }
 .mainRoomHeader{
     width: 60%;
     height: 300px;
     background-color:white;
     margin: auto;
+    margin-top: 0.1%;
 }
- 
+#mainTitle{
+	border:solid 1px;
+	height: 37px;
+	width: 60%;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+	padding-top: 8px;
+	border-radius: 5px;
+	
+} 
+b{
+	font-size: 20px;
+	margin-left: 15%;
+}
+#a{
+	float: right;
+	color: coral;
+	font-weight: bold;
+	margin-right: 1%;
+}
 #mainContent{
     margin: auto;
     height: auto;
@@ -25,9 +47,10 @@
 }
 .roomInfo{
     width: 100%;
-    height: 350px;
+    height: 210px;
    
 }
+
 a{
 	text-decoration: none;
 }
@@ -39,7 +62,7 @@ a{
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff4143",
 		endColorstr="#ff1764", GradientType=0);
 	color: white;
-	font-size: 17px;
+	font-size: 14px;
 }
 .imgBox{
 	height: 60px;
@@ -58,9 +81,16 @@ a{
 }
 .roomInfo p{
     margin: 0;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
+    margin-top: -10px;
 }   
+.roomInfo h4{
+	font-size: 11px;
+}
+.roomInfo img{
+	margin-top:1%;
+}
 .chekinChekout{
     width: 100%;
     height: 70px;

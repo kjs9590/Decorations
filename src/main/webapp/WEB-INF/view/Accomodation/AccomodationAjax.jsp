@@ -12,10 +12,10 @@
 <c:forEach items="${list}" var="list">
 <div class="accomodationList"> <img src="./upfile/${list.accmodationImgstore}" />
 <div class="detailContent">
-    <h3><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName } <b id="c">-${list.accmodationArea }-</b></a></h3>
+    <h1><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName } <b id="c">-${list.accmodationArea }-</b></a></h1>
     <p>주소: ${list.accomodationAdd }</p>  
     <p>숙소 번호: ${list.accmodationTell }</p> 
-    <p>객실 평균 가격:<b id="b"> ${list.accomodationAvg }</b>원</p> 
+    <p>객실 평균 가격: <b id="b">${list.accomodationAvg }</b>원</p> 
     <b>${list.accomodationInform}</b>
 </div>
 </div>
