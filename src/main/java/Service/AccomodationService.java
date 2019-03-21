@@ -33,10 +33,10 @@ public class AccomodationService {
 	private String originalFiles = "";
 	private String storeFiles = "";
 	private String filesSize = "";
-	
+
 	//AccomodationInsert 메소드
 	public Integer accomodationinsert(AccomodationRegisterCommend aCommend,HttpServletRequest request) {
-		
+
 		Integer result = 0;
 		String area=aCommend.getAddress().substring(0,2);
 		String address=aCommend.getAddress()+" "+aCommend.getAddressDetail();
@@ -44,7 +44,7 @@ public class AccomodationService {
 		System.out.println(request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile\\");
 		String filePath = request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile\\";
 		MultipartFile report = aCommend.getBoardFile();
-        originalFile = report.getOriginalFilename();
+		originalFile = report.getOriginalFilename();
 		System.out.println(originalFile);
 		originalFileExtension =originalFile.substring(originalFile.lastIndexOf("."));
 		storeFile = UUID.randomUUID().toString().replaceAll("-", "");
@@ -59,39 +59,48 @@ public class AccomodationService {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		AccomodationDTO aDto = new AccomodationDTO(aCommend.getbFacilityName(),address,area,aCommend.getAccomodationKind(),tell,originalFile,storeFile,aCommend.getbFacilityImform());
-		
+
 		result=accomodationRepository.insertAccomodation(aDto);
 		return result;
 	}
 	public void accomodationList(Model model) {
-		
+
 		List<AccomodationDTO> list=accomodationRepository.listAccomodation();
 		List<AccomodationDTO> listCount=accomodationRepository.listAccomodationCount();
 		model.addAttribute("list",list);
 		model.addAttribute("AccomodationCount",listCount);
 	}
-	
+
 	public void accomodationEachList(Model model,String kind) {
-		
+
 		List<AccomodationDTO> list=accomodationRepository.listEachAccomodation(kind);
 		AccomodationDTO aDto=accomodationRepository.accomodationCount(kind);
-		
+
 		Integer count=aDto.getCount();
 		model.addAttribute("list",list);
 		model.addAttribute("kind",kind);
 		model.addAttribute("count",count);
-		
+
 	}
-public void accomodationArea(Model model,String area,String kind) {
-		
+	public void accomodationArea(Model model,String area,String kind) {
+
 		List<AccomodationDTO> list=accomodationRepository.accomodationArea(area,kind);
-		
-		
 		model.addAttribute("list",list);
-		
+
 	}
-	
-	
+	public void accomodationPrice(Model model,String kind) {
+
+		List<AccomodationDTO> list=accomodationRepository.accomodationPrice(kind);
+		model.addAttribute("list",list);
+
 	}
+	public void accomodationLowPrice(Model model,String kind) {
+
+		List<AccomodationDTO> list=accomodationRepository.accomodationLowPrice(kind);
+		model.addAttribute("list",list);
+
+	}	
+	
+}

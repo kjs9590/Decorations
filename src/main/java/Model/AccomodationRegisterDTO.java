@@ -15,7 +15,7 @@ public class AccomodationRegisterDTO implements Serializable{
 	ROOM_IMGSTORE --객실 스토어 이미지
 	*
 	*/
-	
+
 	private Long roomNum;
 	private Long accomodationNum;
 	private Long roomPrice;

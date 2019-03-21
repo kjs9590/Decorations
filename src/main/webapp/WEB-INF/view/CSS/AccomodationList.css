@@ -65,9 +65,15 @@
 }
 #b{
 	color: green;
+	font-size: 17px;
+}
+#c{
+	color:blue;
+	font-size: 17px;
 }
 a{
 	text-decoration: none;
+	color: black;
 }
 .detailContent h3{
     margin: 0;

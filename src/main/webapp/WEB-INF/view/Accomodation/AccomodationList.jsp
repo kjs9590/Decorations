@@ -45,8 +45,8 @@
     <option>전북</option>  
      
        </select>
-<h2>높은 가격순</h2>
-<h2>낮은 가격순</h2>
+<h2 onclick="hightPrice()">높은 가격순</h2>
+<h2 onclick="lowPrice()">낮은 가격순</h2>
 </div>
 <script>
 function area(val){
@@ -55,6 +55,32 @@ function area(val){
 		type : "POST",
 		url : "AccomodationKind",
 		data : "area=" + val+"&kind=<%=kind%>",
+		datatype : "html",
+		success : function(data){
+			$("#ajax").html(data);
+		}
+});
+}
+
+function hightPrice(){
+	var val=val;
+	$.ajax({
+		type : "POST",
+		url : "AccomodationPrice",
+		data : "kind=<%=kind%>",
+		datatype : "html",
+		success : function(data){
+			$("#ajax").html(data);
+		}
+});
+}
+
+function lowPrice(){
+	var val=val;
+	$.ajax({
+		type : "POST",
+		url : "AccomodationLowPrice",
+		data : "kind=<%=kind%>",
 		datatype : "html",
 		success : function(data){
 			$("#ajax").html(data);
@@ -72,7 +98,7 @@ function area(val){
 <c:forEach items="${list}" var="list">
 <div class="accomodationList"> <img src="./upfile/${list.accmodationImgstore}" />
 <div class="detailContent">
-    <h3><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName }-${list.accmodationArea }</a></h3>
+    <h3><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName } <b id="c">-${list.accmodationArea }-</b></a></h3>
     <p>주소: ${list.accomodationAdd }</p>  
     <p>숙소 번호: ${list.accmodationTell }</p> 
     <p>객실 평균 가격: <b id="b">${list.accomodationAvg }</b>원</p> 
