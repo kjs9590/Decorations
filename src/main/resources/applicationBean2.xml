@@ -18,6 +18,6 @@
 <bean id="LoginRepository" class="Repository.LoginRepository" />
 <bean id="MemberListRepository" class="Repository.MemberListRepository" />
 <bean id="MemberInfoRepository" class="Repository.MemberInfoRepository" />
-<bean id="RestauranRepository" class="Repository.RestauranRepository" />
+<bean id="RestaurantRepository" class="Repository.RestaurantRepository" />
 
 </beans>

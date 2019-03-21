@@ -10,7 +10,7 @@ public class RestaurantRegisterCommand {
 	private MultipartFile restaurantImage;
 	private String[] restaurantTell;
 	private String restaurantInfo; 
-	private Long tableCount;
+	private int tableCount;
 	public String getRestaurantName() {
 		return restaurantName;
 	}
@@ -53,10 +53,10 @@ public class RestaurantRegisterCommand {
 	public void setRestaurantInfo(String restaurantInfo) {
 		this.restaurantInfo = restaurantInfo;
 	}
-	public Long getTableCount() {
+	public int getTableCount() {
 		return tableCount;
 	}
-	public void setTableCount(Long tableCount) {
+	public void setTableCount(int tableCount) {
 		this.tableCount = tableCount;
 	}
 	

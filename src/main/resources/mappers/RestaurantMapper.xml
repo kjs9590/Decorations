@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="RestaurantMapper">
+	<cache />
+	
+	<insert id="insertRestaurant" parameterType="RestaurantDTO">
+		INSERT INTO
+		restaurant (RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA, 
+					RESTAURANT_IMAGE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
+		values((select nvl(max(RESTAURANT_NUM),0) +1 from
+		restaurant), #{restaurantName},#{restaurantKind},#{restaurantAdd},#{restaurantArea},
+		#{restaurantImage},#{restaurantTell},#{restaurantInfo},#{tableCount})
+	</insert>
+
+</mapper>
+
+
