@@ -12,8 +12,5 @@
 
 <!-- 고객센터 -->
 <bean class="Controller.CustomerserviceController.CustomerserviceController" />
-<bean class="Controller.CustomerserviceController.NoticeDetailController" />
-<bean class="Controller.CustomerserviceController.NoticeWriteController" />
-<bean class="Controller.CustomerserviceController.QnADetailController" />
-<bean class="Controller.CustomerserviceController.QnAWriteController" />
+<bean class="Controller.CustomerserviceController.CustomerserviceBoardController" />
 </beans>

@@ -65,12 +65,7 @@
                     구분
                 </td>
                 <td><select name="kind">
-                        <option value="영화" selected="selected">영화</option>
-                        <option value="레스토랑">레스토랑</option>
-                        <option value="축제">축제</option>
-                        <option value="숙박">숙박</option>
-                        <option value="결제/취소/환불">결제/취소/환불</option>
-                        <option value="회원">회원</option>
+                        <option value="공지사항">공지사항</option>
                     </select>
                 </td>
  
