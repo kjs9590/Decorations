@@ -26,11 +26,10 @@ public class RestaurantDTO {
 	
 	
 	public RestaurantDTO() {}
-	public RestaurantDTO(int restaurantNum, String restaurantName, String restaurantKind, String restaurantAdd,
+	public RestaurantDTO(String restaurantName, String restaurantKind, String restaurantAdd,
 			String restaurantArea, String restaurantImage, String restaurantTell, String restaurantInfo,
 			int tableCount) {
 		super();
-		this.restaurantNum = restaurantNum;
 		this.restaurantName = restaurantName;
 		this.restaurantKind = restaurantKind;
 		this.restaurantAdd = restaurantAdd;

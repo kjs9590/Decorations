@@ -1,0 +1,64 @@
+body {
+    font-family: "Jua", sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+.wrap_contents {
+    width: 1000px;
+    margin: 200px auto;
+}
+
+.hotplace {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.sub {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.sub h3 {
+    margin-top: 30px;
+    font-size: 35px;
+}
+.list_m{
+    
+    margin: 0 auto;
+    width: 900px
+}
+.list {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.res_list {
+    list-style: none;
+    padding: 0;
+}
+
+.res_list img {}
+
+#kind {
+    color: gray;
+}
+
+#name {
+    font-size: 28px;
+}
+
+#loc {
+    color: gray;
+}
