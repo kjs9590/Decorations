@@ -49,7 +49,7 @@ public class FestivalMainController {
 		if(command.getPage()==0) {
             command.setPage(1);
           }
-		AutoPaging paging = new AutoPaging(command.getPage(),1,3);
+		AutoPaging paging = new AutoPaging(command.getPage(),1,10);
 		paging.setListCount(festivallistservice.arealistCount());
 		List<FestivalDTO> areapaging = festivallistservice.areapaging(paging);
 		List<FestivalDTO> area = festivallistservice.area(FESTIVALAREA);
