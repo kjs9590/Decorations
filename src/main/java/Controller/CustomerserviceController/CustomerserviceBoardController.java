@@ -2,9 +2,11 @@ package Controller.CustomerserviceController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import Model.CustomerserviceDTO;
 import Service.CustomerServiceBoardService;
 
 @Controller
@@ -19,8 +21,9 @@ public class CustomerserviceBoardController {
 		
 		//공지사항 글쓰기
 		@RequestMapping(value="Customer/NoticeWrite", method = RequestMethod.GET)
-		public String notice() {
-			
+		public String notice(CustomerserviceDTO dto, Model model) {
+			Integer result = customerserviceboardservice.insert(dto);
+			model.addAttribute("result", result);
 			return "Notice/NoticeWrite";
 
 		}

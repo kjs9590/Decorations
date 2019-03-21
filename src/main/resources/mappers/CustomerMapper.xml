@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="CustomerMapper">
+	<cache />
+	
+	<insert id="cinsert" parameterType="CustomerserviceDTO">
+		insert into COUNTER (BOARD_NUM,MEMBER_ID,CHARGE_NUM,BOARD_CONTENT,BOARD_DATE,BOARD_ANSWER,BOARD_KIND,BOARD_TITLE)
+		values((select nvl(max(BOARD_NUM),0) +1 from COUNTER)),#{MemberId},#{ChargeNum},#{BoardContent},sysdate,#{BoardAnswer},#{BoardKind},#{BoardTitle}))
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</mapper> 
