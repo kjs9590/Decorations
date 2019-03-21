@@ -21,10 +21,16 @@ public class CustomerserviceBoardController {
 		
 		//공지사항 글쓰기
 		@RequestMapping(value="Customer/NoticeWrite", method = RequestMethod.GET)
-		public String notice(CustomerserviceDTO dto, Model model) {
-			Integer result = customerserviceboardservice.insert(dto);
-			model.addAttribute("result", result);
+		public String notice() {
+	
 			return "Notice/NoticeWrite";
+
+		}
+		@RequestMapping(value="Customer/NoticeWrite", method = RequestMethod.POST)
+		public String notice(CustomerserviceDTO dto) {
+			Integer result = customerserviceboardservice.insert(dto);
+			System.out.println("ㅇㅇ"+dto.getBoardTitle());
+			return "redirect:/Customer/Main";
 
 		}
 		

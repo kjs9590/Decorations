@@ -3,7 +3,7 @@
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,13 +69,14 @@
                         <th id="date">작성일</th>
                     </tr>
                 </thead>
+                <c:forEach items="${customerservice}" var="list">
                 <tr>
-                    <th id="num"><a href="">1</a></th>
-                    <th id="sub"><a href="">adad</a></th>
+                    <th id="num"><a href="">${list.getBoardNum() }</a></th>
+                    <th id="sub"><a href="">${list.getBoardTitle() }</a></th>
                     <th id="writer">adad</th>
-                    <th id="date">2019.03.06</th>
+                    <th id="date">${list.getBoardDate() }</th>
                 </tr>
-                
+                </c:forEach>
             </table>
 
             <div class="paging">

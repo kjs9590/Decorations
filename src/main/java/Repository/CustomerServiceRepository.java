@@ -1,5 +1,7 @@
 package Repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +15,16 @@ public class CustomerServiceRepository {
 
 	public Integer insert(CustomerserviceDTO dto) {
 		// TODO Auto-generated method stub
+		System.out.println("아이디"+dto.getMemberId());
+		System.out.println("옵션"+dto.getBoardKind());
+		System.out.println("내용"+dto.getBoardContent());
+		System.out.println("제목"+dto.getBoardTitle());
 		return sqlSession.insert("CustomerMapper.cinsert", dto);
+	}
+
+	public List<CustomerserviceDTO> alllist(CustomerserviceDTO dto) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("CustomerMapper.alllist", dto);
 	}
 
 }
