@@ -10,7 +10,7 @@
 		<typeAlias type="Model.AccomodationDTO" alias="AccomodationDTO"/>
 		<typeAlias type="Model.AccomodationRegisterDTO" alias="AccomodationRegisterDTO"/>
 		<typeAlias type="Model.ChargerDTO" alias="ChargerDTO"/>
-		
+		<typeAlias type="Model.RestaurantDTO" alias="RestaurantDTO"/>
 	</typeAliases>
 
 </configuration>

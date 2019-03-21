@@ -10,6 +10,7 @@
 <bean id="LoginService" class="Service.LoginService" />
 <bean id="MemberListService" class="Service.MemberListService" />
 <bean id="MemberInfoService" class="Service.MemberInfoService" />
+<bean id="RestaurantService" class="Service.RestaurantService" />
 
 
 
@@ -17,5 +18,6 @@
 <bean id="LoginRepository" class="Repository.LoginRepository" />
 <bean id="MemberListRepository" class="Repository.MemberListRepository" />
 <bean id="MemberInfoRepository" class="Repository.MemberInfoRepository" />
+<bean id="RestauranRepository" class="Repository.RestauranRepository" />
 
 </beans>
