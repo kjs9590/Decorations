@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CustomerserviceDTO {
+public class CustomerserviceDTO implements Serializable{
 	private Long BoardNum;	//글번호
 	private String MemberId; //회원아이디
 	private Long ChargeNum; // 담당자번호

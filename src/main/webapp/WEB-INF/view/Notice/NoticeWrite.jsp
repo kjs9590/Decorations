@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
-<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <!DOCTYPE html>
@@ -52,6 +52,7 @@
 <%-- <jsp:include page="Header.jsp" /> --%>
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
+<form:form method="post">
  <div class="contents">
 
         <table>
@@ -64,7 +65,7 @@
                 <td id="tdsub">
                     구분
                 </td>
-                <td><select name="kind">
+                <td><select name="BoardKind">
                         <option value="공지사항">공지사항</option>
                     </select>
                 </td>
@@ -73,7 +74,7 @@
                     제 목
                 </td>
                 <td>
-                    <input name="subject" id="subject" type="text" maxlength="100" value="" />
+                    <input name="BoardTitle" id="subject" type="text" maxlength="100" value="" />
                 </td>
             </tr>
             <tr>
@@ -81,26 +82,27 @@
                     내 용
                 </td>
                 <td colspan="3">
-                    <textarea name="content" cols="76" rows="15"></textarea>
+                    <textarea name="BoardContent" cols="76" rows="15"></textarea>
                 </td>
             </tr>
-            <tr>
+       <!--      <tr>
                 <td colspan="3" id="tdsub">
                     파일 첨부
                 </td>
                 <td>
                     <input name="file" type="file" multiple="multiple" />
                 </td>
-            </tr>
+            </tr> -->
 
             <tr>
                 <td colspan="5" align="center">
-                    <input type="submit" name="submit" value="등록" />
-                    <input type="reset" name="reset" value="초기화" />
+                    <input type="submit" value="등록" />
+                    <input type="reset"/>
                 </td>
             </tr>
         </table>
     </div>
+</form:form>
 <!-- Content 끝 -->
 <!-- Footer 시작 -->
 <%-- <jsp:include page="Footer.jsp" /> --%>
