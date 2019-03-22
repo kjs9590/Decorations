@@ -43,7 +43,7 @@
                         <li><a href="Logout"> LOGOUT </a></li>
                         <%} %>
                         <%if(memberDTO != null){ %>
-                        <li><a href="Member/MemberInfo"> MY PAGE </a></li>
+                        <li><a href="MemberInfo"> MY PAGE </a></li>
                         <%} %>
                         <%if(chargerDTO != null){ %>
                         <li><a href="memberList"> MEMBERLIST </a></li>
