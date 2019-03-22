@@ -90,12 +90,12 @@ public class RestaurantRegisterController {
 		return "Restaurant/FoodRegister";
 	}
 	
-/*	@RequestMapping(value="FoodRegister", method=RequestMethod.POST)
+	@RequestMapping(value="FoodRegister", method=RequestMethod.POST)
 	public String insert(Model model, HttpServletRequest request, FoodCommand fCommand) {
 		
 		String path=restaurantService.foodInsert(model,fCommand,request);
 		return path;
-	}*/
+	}
 	
 
 	

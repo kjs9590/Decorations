@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Model.FoodDTO;
 import Model.RestaurantDTO;
 
 public class RestaurantRepository {
@@ -55,6 +56,26 @@ public class RestaurantRepository {
 	public List<RestaurantDTO> newRestaurant(String kind) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("RestaurantMapper.newRestaurant", kind);
+	}
+
+
+//음식이 등록 될 때 부모테이블인 데이트 상품 넘버 값을 가져오기 위해
+	public Long dateProductNum() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("RestaurantMapper.DateProductNum");
+	}
+
+
+
+	public int dateProduct(FoodDTO fdto) {
+		return sqlSession.insert("RestaurantMapper.DateProduct",fdto);
+		
+	}
+
+
+
+	public int foodInsert(FoodDTO fdto) {
+		return sqlSession.insert("RestaurantMapper.foodInsert",fdto);
 	}
 
 }

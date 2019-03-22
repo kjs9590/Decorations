@@ -17,12 +17,10 @@
 
 <body>
 	<div class="wrap_food_reg">
-		<form action="" enctype="multipart/form-data" method="POST">
+		<form action="FoodRegister" enctype="multipart/form-data" method="POST">
 			<p id="sub">음식 등록</p>
 			<table class="table">
-				<tr>
-					<td colspan="2" id="td"><a href="RestaurantMain">음식등록하지않기</a></td>
-				</tr>
+
 				<tr>
 					<td>음식 이름</td>
 					<td><input type="text" name="foodName" class="textbox" placeholder="    음식 이름"></td>
@@ -46,7 +44,7 @@
 				</tr>
 				<tr>
 					<td>음식 이미지</td>
-					<td><input name="file" name="foodImage" type="file" multiple="multiple" /></td>
+					<td><input  type="file" name="foodImage" multiple="multiple" /></td>
 				</tr>
 				<tr>
 					<td>음식 정보</td>
@@ -55,6 +53,7 @@
 			</table>
 			<p></p>
 			<p>
+			<input type="hidden" value="${num}" name="num">
 				<input type="submit" id="regist_success" value="완료">
 			</p>
 		</form>

@@ -26,7 +26,7 @@ public class RestaurantService {
 	private String originalFile = null;
 	private String originalFileExtension = null;
 	private String storeFile = null;
-
+	private String path = null;
 
 	public Integer restaurantRegist(RestaurantRegisterCommand reCommand, HttpServletRequest request, Model model) {
 		Integer result = 0;
@@ -68,35 +68,8 @@ public class RestaurantService {
 		model.addAttribute("list",list);
 
 	}
-/*
-	//음식 등록
-	public Integer foodInsert(FoodCommand fCommand, HttpServletRequest request, Model model) {
-		Integer result = 0;
-
-		String filePath = request.getRealPath("/WEB-INF/view/")+"Restaurant\\upfile\\";
-		MultipartFile report = fCommand.getFoodImage();
-		originalFile = report.getOriginalFilename();
-		originalFileExtension =originalFile.substring(originalFile.lastIndexOf(".")); 
-		storeFile = UUID.randomUUID().toString().replaceAll("-", "");
-		storeFile = storeFile + originalFileExtension;
-		file = new File(filePath+storeFile);
-		try {
-			report.transferTo(file);
-
-		} catch (IllegalStateException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		FoodDTO fdto = new FoodDTO(fCommand.getFoodName(), fCommand.getFoodType(), fCommand.getFoodPrice(),fCommand.getFoodInform(),originalFile,storeFile);
 
 
-
-		return result; 
-	}*/
 
 	//디테일...럼홍ㄴ;ㅏㅓ로마언
 	public void restaurantDetail(Model model, Long num) {
@@ -129,6 +102,46 @@ public class RestaurantService {
 
 	}
 
+
+	public String foodInsert(Model model, FoodCommand fCommand, HttpServletRequest request) {
+
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Restaurant\\upfile\\";
+		MultipartFile report = fCommand.getFoodImage();
+
+		System.out.println(fCommand.getFoodImage());
+		originalFile = report.getOriginalFilename();
+		originalFileExtension =originalFile.substring(originalFile.lastIndexOf(".")); 
+		storeFile = UUID.randomUUID().toString().replaceAll("-", "");
+		storeFile = storeFile + originalFileExtension;
+		file = new File(filePath+storeFile);
+		try {
+			report.transferTo(file);
+
+		} catch (IllegalStateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		FoodDTO fdto = new FoodDTO(fCommand.getNum(),fCommand.getFoodPrice(),originalFile,storeFile,fCommand.getFoodInform(),
+				fCommand.getFoodName(),fCommand.getFoodType());
+
+		Integer i1;
+
+
+		fdto.setFoodNum(restaurantRepository.dateProductNum());
+		restaurantRepository.dateProduct(fdto);
+
+		i1=restaurantRepository.foodInsert(fdto);
+
+
+		return	path ="redirect:RestaurantMain";
+
+
+
+	}
 
 
 }

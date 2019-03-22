@@ -3,12 +3,19 @@ package Commend;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FoodCommand {
+	private Long num;
 	private String foodName;
 	private String foodType;
 	private String foodPrice;
 	private MultipartFile foodImage;
 	private String foodInform;
 	
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
+	}
 	
 	public String getFoodName() {
 		return foodName;

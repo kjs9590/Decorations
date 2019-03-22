@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class FoodDTO implements Serializable{
-	/*	RESTAURANT_NUM
+	/*	RESTAURANT_NUM 
 	FOOD_NUM -- 
 	PRODUCT_NUM
 	CATEGORY_NUM
@@ -14,8 +14,8 @@ public class FoodDTO implements Serializable{
 	FOOD_NAME
 	FOOD_TYPE*/
 	
-	private int restaurantNum;
-	private int foodNum;
+	private Long restaurantNum;
+	private Long foodNum;
 
 	private String foodPrice;
 	private String foodImage;
@@ -29,11 +29,10 @@ public class FoodDTO implements Serializable{
 	
 	
 	
-	public FoodDTO(int restaurantNum, int foodNum, String foodPrice, String foodImage,
+	public FoodDTO(Long restaurantNum,  String foodPrice, String foodImage,
 			String foodImgStore, String foodInfo, String foodName, String foodType) {
 		super();
 		this.restaurantNum = restaurantNum;
-		this.foodNum = foodNum;
 		this.foodPrice = foodPrice;
 		this.foodImage = foodImage;
 		this.foodImgStore = foodImgStore;
@@ -45,16 +44,16 @@ public class FoodDTO implements Serializable{
 
 
 
-	public int getRestaurantNum() {
+	public Long getRestaurantNum() {
 		return restaurantNum;
 	}
-	public void setRestaurantNum(int restaurantNum) {
+	public void setRestaurantNum(Long restaurantNum) {
 		this.restaurantNum = restaurantNum;
 	}
-	public int getFoodNum() {
+	public Long getFoodNum() {
 		return foodNum;
 	}
-	public void setFoodNum(int foodNum) {
+	public void setFoodNum(Long foodNum) {
 		this.foodNum = foodNum;
 	}
 
