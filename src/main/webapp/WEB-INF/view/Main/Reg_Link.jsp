@@ -23,7 +23,7 @@
 				<p>영화 등록</p> </a>
 		</div>
 		<div class="restaurant">
-			<a href=""><img src="images/restaurant.jpg" alt="" width="400" height="500">
+			<a href="RestaurantRegister"><img src="images/restaurant.jpg" alt="" width="400" height="500">
 				<p>레스토랑 등록</p> </a>
 		</div>
 		<div class="accommodation">

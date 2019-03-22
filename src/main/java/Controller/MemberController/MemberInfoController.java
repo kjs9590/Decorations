@@ -23,7 +23,7 @@ public class MemberInfoController {
 		this.memberInfoService = memberInfoService;
 	}
 	
-	@RequestMapping(value="Member/MemberInfo", method=RequestMethod.GET)
+	@RequestMapping(value="MemberInfo", method=RequestMethod.GET)
 	public String info(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		MemberDTO mem  = (MemberDTO) session.getAttribute("memberDTO");
@@ -40,12 +40,12 @@ public class MemberInfoController {
 		return "Member/MemberInfo";
 	}
 	
-	@RequestMapping(value= "Member/MemberUpdate", method=RequestMethod.GET)
+	@RequestMapping(value= "MemberUpdate", method=RequestMethod.GET)
 	public String update() {
 		
 		return "Member/MemberUpdate";
 	}
-	@RequestMapping(value= "Member/MemberUpdate", method=RequestMethod.POST)
+	@RequestMapping(value= "MemberUpdate", method=RequestMethod.POST)
 	public String info_update(MemberUpdateCommand upCommand, Model model ) {
 		
 		memberInfoService.update(upCommand,model);

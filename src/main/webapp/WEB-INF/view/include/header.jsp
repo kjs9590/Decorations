@@ -24,7 +24,7 @@
     <div id="header">
         <div id="header_menu">
             <h1>
-                <a href="" class="logo"><img src="../images/dc1.png" width="100%" height="100%"></a>
+                <a href="Main" class="logo"><img src="${pageContext.request.contextPath }/images/dc1.png" width="100%" height="100%"></a>
             </h1>
             <ul id="menu_list">
                 <li>
@@ -43,7 +43,7 @@
                         <li><a href="Logout"> LOGOUT </a></li>
                         <%} %>
                         <%if(memberDTO != null){ %>
-                        <li><a href="Member/MemberInfo"> MY PAGE </a></li>
+                        <li><a href="MemberInfo"> MY PAGE </a></li>
                         <%} %>
                         <%if(chargerDTO != null){ %>
                         <li><a href="memberList"> MEMBERLIST </a></li>
@@ -55,7 +55,7 @@
                 <li>
                     <ul id="mainmenu">
                         <li><a href="#"> MOVIE </a></li>
-                        <li><a href="#"> RESTAURANT </a></li>
+                        <li><a href="RestaurantMain"> RESTAURANT </a></li>
                         <li><a href="Festival/Main"> FESTIVAL </a></li>
                         <li><a href="Accomodation/AccomodationMain"> ACCOMMODATION </a></li>
                     </ul>

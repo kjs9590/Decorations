@@ -11,13 +11,16 @@ a:hover {
     color: lightsalmon;
     font-weight: bold;
 }
-
+#mainHeader{
+    margin: 200px 0 0 0 ;
+    text-align: center;
+}
 .wrap_contents {
     width: 1000px;
-    margin: 200px auto;
+    margin: 0 auto;
 }
 
-.hotplace {
+.hotplace, .newplace {
     width: 900px;
     margin: 0 auto;
 }
@@ -29,12 +32,12 @@ a:hover {
 
 .sub h3 {
     margin-top: 30px;
-    font-size: 35px;
+    font-size: 30px;
 }
 .list_m{
     
     margin: 0 auto;
-    width: 900px
+    width: 1000px
 }
 .list {
     text-align: center;

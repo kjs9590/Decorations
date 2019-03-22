@@ -1,6 +1,8 @@
 package Model;
 
-public class RestaurantDTO {
+import java.io.Serializable;
+
+public class RestaurantDTO implements Serializable {
 /*	RESTAURANT_NUM
 	RESTAURANT_NAME
 	RESTAURANT_KIND
@@ -17,6 +19,7 @@ public class RestaurantDTO {
 	private String restaurantAdd;
 	private String restaurantArea;
 	private String restaurantImage;
+	private String restaurantImgStore;
 	private String restaurantTell;
 	private String restaurantInfo;
 	private int tableCount;
@@ -27,7 +30,7 @@ public class RestaurantDTO {
 	
 	public RestaurantDTO() {}
 	public RestaurantDTO(String restaurantName, String restaurantKind, String restaurantAdd,
-			String restaurantArea, String restaurantImage, String restaurantTell, String restaurantInfo,
+			String restaurantArea, String restaurantImage,String restaurantImgStore, String restaurantTell, String restaurantInfo,
 			int tableCount) {
 		super();
 		this.restaurantName = restaurantName;
@@ -35,11 +38,20 @@ public class RestaurantDTO {
 		this.restaurantAdd = restaurantAdd;
 		this.restaurantArea = restaurantArea;
 		this.restaurantImage = restaurantImage;
+		this.restaurantImgStore = restaurantImgStore;
 		this.restaurantTell = restaurantTell;
 		this.restaurantInfo = restaurantInfo;
 		this.tableCount = tableCount;
 	}
 	
+	
+	
+	public String getRestaurantImgStore() {
+		return restaurantImgStore;
+	}
+	public void setRestaurantImgStore(String restaurantImgStore) {
+		this.restaurantImgStore = restaurantImgStore;
+	}
 	public int getRestaurantNum() {
 		return restaurantNum;
 	}
