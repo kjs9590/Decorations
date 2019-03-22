@@ -20,13 +20,13 @@ public class RestaurantRegisterController {
 	//메인페이지
 	@RequestMapping(value="/RestaurantMain" ,method=RequestMethod.GET)
 	public String main(Model model) {
-		/*
-		restaurantService.restaurantList(model);*/
+		
+		restaurantService.restaurantList(model);
 		return "Restaurant/RestaurantMain";
 	}
 
 	
-	
+	//등록
 	@RequestMapping(value="/RestaurantRegister", method=RequestMethod.GET)
 	public String regist() {
 		
@@ -39,5 +39,11 @@ public class RestaurantRegisterController {
 		restaurantService.restaurantRegist(reCommand, request, model);
 		return "redirect:RestaurantMain";
 	}
+	
+	
+	//리스트
+	
+	
+	
 	
 }

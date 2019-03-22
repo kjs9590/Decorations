@@ -6,14 +6,37 @@
 <mapper namespace="RestaurantMapper">
 	<cache />
 	
+	<!-- 레스토랑등록 -->
 	<insert id="insertRestaurant" parameterType="RestaurantDTO">
 		INSERT INTO
 		restaurant (RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA, 
-					RESTAURANT_IMAGE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
+					RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
 		values((select nvl(max(RESTAURANT_NUM),0) +1 from
 		restaurant), #{restaurantName},#{restaurantKind},#{restaurantAdd},#{restaurantArea},
-		#{restaurantImage},#{restaurantTell},#{restaurantInfo},#{tableCount})
+		#{restaurantImage},#{restaurantImgStore},#{restaurantTell},#{restaurantInfo},#{tableCount})
 	</insert>
+
+
+	<!-- 레스토랑리스트 -->
+	
+	<select id="listRestaurant" resultMap="listRestaurant">
+		SELECT RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA, 
+					RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+	</select>
+	
+	<resultMap type="RestaurantDTO" id="listRestaurant">
+		<id column="RESTAURANT_NUM" jdbcType="BIGINT" property="restaurantNum" />
+		<result column="RESTAURANT_NAME" jdbcType="VARCHAR" property="restaurantName"  />
+		<result column="RESTAURANT_KIND" jdbcType="VARCHAR" property="restaurantKind"  />
+		<result column="RESTAURANT_ADD" jdbcType="VARCHAR" property="restaurantAdd"  />
+		<result column="RESTAURANT_AREA" jdbcType="VARCHAR" property="restaurantArea"  />
+		<result column="RESTAURANT_IMGSTORE" jdbcType="VARCHAR" property="restaurantImgStore"  />
+		<result column="RESTAURANT_IMAGE" jdbcType="VARCHAR" property="restaurantImage"  />
+		<result column="RESTAURANT_TELL" jdbcType="VARCHAR" property="restaurantTell"  />
+		<result column="RESTAURANT_INFO" jdbcType="VARCHAR" property="restaurantInfo"  />
+		<result column="TABLE_COUNT" jdbcType="BIGINT" property="tableCount"  />
+	</resultMap>
 
 </mapper>
 

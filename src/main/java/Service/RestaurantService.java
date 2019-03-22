@@ -2,6 +2,7 @@ package Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +51,7 @@ public class RestaurantService {
 			e1.printStackTrace();
 		}
 		
-		RestaurantDTO redto = new RestaurantDTO (reCommand.getRestaurantName(),reCommand.getRestaurantKind(),address,area,originalFile,tell,reCommand.getRestaurantInfo(),reCommand.getTableCount());
+		RestaurantDTO redto = new RestaurantDTO (reCommand.getRestaurantName(),reCommand.getRestaurantKind(),address,area,originalFile,storeFile,tell,reCommand.getRestaurantInfo(),reCommand.getTableCount());
 
 		result=restaurantRepository.insertRestaurant(redto);
 		
@@ -59,4 +60,17 @@ public class RestaurantService {
 		
 	}
 
+
+	public void restaurantList(Model model) {
+		List<RestaurantDTO> list = restaurantRepository.restaurantList();
+		model.addAttribute("list",list);
+		
+	}
+
 }
+
+
+
+
+
+

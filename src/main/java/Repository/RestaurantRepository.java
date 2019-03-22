@@ -1,5 +1,7 @@
 package Repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +16,13 @@ public class RestaurantRepository {
 	public Integer insertRestaurant(RestaurantDTO redto) {
 
 		return sqlSession.insert("RestaurantMapper.insertRestaurant", redto);
+	}
+
+
+
+	public List<RestaurantDTO> restaurantList() {
+		
+		return sqlSession.selectList("RestaurantMapper.listRestaurant");
 	}
 
 }
