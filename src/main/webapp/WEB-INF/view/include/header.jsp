@@ -24,7 +24,7 @@
     <div id="header">
         <div id="header_menu">
             <h1>
-                <a href="" class="logo"><img src="${pageContext.request.contextPath }/images/dc1.png" width="100%" height="100%"></a>
+                <a href="Main" class="logo"><img src="${pageContext.request.contextPath }/images/dc1.png" width="100%" height="100%"></a>
             </h1>
             <ul id="menu_list">
                 <li>
