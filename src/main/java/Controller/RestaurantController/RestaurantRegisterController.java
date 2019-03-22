@@ -63,20 +63,41 @@ public class RestaurantRegisterController {
 	}
 	
 	
+	//레스토랑 지역별 나누기
+	@RequestMapping(value="/RestaurantKind" ,method=RequestMethod.POST)
+	public String detailArea(Model model,@RequestParam(value="area") String area,
+			@RequestParam(value="kind") String kind) {
+		restaurantService.restaurantArea(model,area,kind);
+		
+		return "Restaurant/RestaurantAjax";
+	}
 	
 	
+	@RequestMapping(value="/RestaurantNew" ,method=RequestMethod.POST)
+	public String newRestaurant(Model model,@RequestParam(value="kind") String kind ) {
+		restaurantService.newRestaurant(model, kind);
+		
+		return "Restaurant/RestaurantAjax";
+	}
+		
 	
-/*	
 	
 	//음식(세트) 등록
-	@RequestMapping(value="FoodRegister", method=RequestMethod.POST)
-	public String insert(FoodCommand fCommand, HttpServletRequest request, Model model ) {
+	@RequestMapping(value="FoodRegister", method=RequestMethod.GET)
+	public String foodinsert(Model model, @RequestParam(value="num") int num) {
 		
-		restaurantService.foodRegist(fCommand, request, model);	
-		return "redirect:RestaurantMain";
+		model.addAttribute("num", num);
+		return "Restaurant/FoodRegister";
 	}
-	RoomList?num=10
-	*/
+	
+/*	@RequestMapping(value="FoodRegister", method=RequestMethod.POST)
+	public String insert(Model model, HttpServletRequest request, FoodCommand fCommand) {
+		
+		String path=restaurantService.foodInsert(model,fCommand,request);
+		return path;
+	}*/
+	
+
 	
 	
 }

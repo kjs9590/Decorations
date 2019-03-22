@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0 minimum-scale = 1.0">
 <title></title>
 <style></style>
 <script></script>
@@ -17,7 +18,17 @@
 <!--body { font-family: "Jua", sans-serif;} -->
 <link href="${pageContext.request.contextPath }/CSS/restaurant_list.css"
 	rel="stylesheet" type="text/css">
- <script>
+<!--Jquery, JqueryUI설정-->
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+	crossorigin="anonymous"></script>
+		
+<script src = "../js/header.js"></script>
+
+<script>
         function area(val) {
             var val = val;
             $.ajax({
@@ -35,15 +46,14 @@
             var val = val;
             $.ajax({
                 type: "POST",
-                url: "AccomodationPrice",
-                data: "kind=호텔",
+                url: "RestaurantNew",
+                data: "kind=<%=kind%>",
                 datatype: "html",
                 success: function (data) {
                     $("#ajax").html(data);
                 }
             });
         }
-
     </script>
 
 </head>
@@ -59,7 +69,8 @@
 		</div>
 		<div id="optionList">
 			<div class="option">
-				<select style="height: 25px; width: 150px;" onchange="area(this.value)" id="selects">
+				<select style="height: 25px; width: 150px;"
+					onchange="area(this.value)" id="selects">
 
 					<option>서울</option>
 					<option>경기</option>

@@ -16,8 +16,7 @@ public class FoodDTO implements Serializable{
 	
 	private int restaurantNum;
 	private int foodNum;
-	private int productNum;
-	private int categoryNum;
+
 	private String foodPrice;
 	private String foodImage;
 	private String foodImgStore;
@@ -30,13 +29,11 @@ public class FoodDTO implements Serializable{
 	
 	
 	
-	public FoodDTO(int restaurantNum, int foodNum, int productNum, int categoryNum, String foodPrice, String foodImage,
+	public FoodDTO(int restaurantNum, int foodNum, String foodPrice, String foodImage,
 			String foodImgStore, String foodInfo, String foodName, String foodType) {
 		super();
 		this.restaurantNum = restaurantNum;
 		this.foodNum = foodNum;
-		this.productNum = productNum;
-		this.categoryNum = categoryNum;
 		this.foodPrice = foodPrice;
 		this.foodImage = foodImage;
 		this.foodImgStore = foodImgStore;
@@ -60,18 +57,7 @@ public class FoodDTO implements Serializable{
 	public void setFoodNum(int foodNum) {
 		this.foodNum = foodNum;
 	}
-	public int getProductNum() {
-		return productNum;
-	}
-	public void setProductNum(int productNum) {
-		this.productNum = productNum;
-	}
-	public int getCategoryNum() {
-		return categoryNum;
-	}
-	public void setCategoryNum(int categoryNum) {
-		this.categoryNum = categoryNum;
-	}
+
 	public String getFoodPrice() {
 		return foodPrice;
 	}

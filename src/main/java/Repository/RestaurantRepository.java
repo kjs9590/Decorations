@@ -1,5 +1,6 @@
 package Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -37,6 +38,23 @@ public class RestaurantRepository {
 	public List<RestaurantDTO> restaurantList(String kind) {
 		
 		return sqlSession.selectList("RestaurantMapper.listKindRestaurant", kind);
+	}
+
+
+
+	public List<RestaurantDTO> restaurantArea(String area, String kind) {
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("area", area);
+		map.put("kind", kind);
+	
+		return sqlSession.selectList("RestaurantMapper.restaurantArea", map);
+	}
+
+
+
+	public List<RestaurantDTO> newRestaurant(String kind) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("RestaurantMapper.newRestaurant", kind);
 	}
 
 }
