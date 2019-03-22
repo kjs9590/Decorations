@@ -1,10 +1,13 @@
 package Controller.CustomerserviceController;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Model.CustomerserviceDTO;
 import Service.CustomerServiceBoardService;
@@ -19,29 +22,35 @@ public class CustomerserviceBoardController {
 			this.customerserviceboardservice = customerserviceboardservice;
 		}
 		
-		//공지사항 글쓰기
-		@RequestMapping(value="Customer/NoticeWrite", method = RequestMethod.GET)
+		//일대일 문의 글쓰기
+		@RequestMapping(value="Customer/Write", method = RequestMethod.GET)
 		public String notice() {
-	
 			return "Notice/NoticeWrite";
 
 		}
-		@RequestMapping(value="Customer/NoticeWrite", method = RequestMethod.POST)
+		@RequestMapping(value="Customer/Write", method = RequestMethod.POST)
 		public String notice(CustomerserviceDTO dto) {
 			Integer result = customerserviceboardservice.insert(dto);
-			System.out.println("ㅇㅇ"+dto.getBoardTitle());
 			return "redirect:/Customer/Main";
 
 		}
 		
-		//공지사항 상세정보
-		@RequestMapping(value="Customer/NoticeDetail", method = RequestMethod.GET)
-		public String noticedetail() {
+		//일대일 문의 상세정보
+		@RequestMapping(value="Customer/Detail", method = RequestMethod.GET)
+		public String noticedetail(Model model,@RequestParam("fno") int num,HttpSession session) {
+			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
+			System.out.println("아이디"+detail.getMemberId());
 			
+		
+			
+			
+			
+	/*		if(detail.getMemberId() == )*/
+			model.addAttribute("detail", detail);
 			return "Notice/NoticeDetail";
 		}
 		
-		//일대일 문의 글쓰기
+		/*//일대일 문의 글쓰기
 		@RequestMapping(value="Customer/QnAWrite", method = RequestMethod.GET)
 		public String qna() {
 			
@@ -54,7 +63,7 @@ public class CustomerserviceBoardController {
 			
 			return "QnA/QnADetail";
 		}
-		
+		*/
 		
 		
 		

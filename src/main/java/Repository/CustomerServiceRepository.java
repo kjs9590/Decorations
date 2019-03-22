@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Model.CustomerserviceDTO;
 
@@ -25,6 +26,11 @@ public class CustomerServiceRepository {
 	public List<CustomerserviceDTO> alllist(CustomerserviceDTO dto) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("CustomerMapper.alllist", dto);
+	}
+
+	public CustomerserviceDTO detail(@RequestParam("fno") int num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("CustomerMapper.detail", num);
 	}
 
 }

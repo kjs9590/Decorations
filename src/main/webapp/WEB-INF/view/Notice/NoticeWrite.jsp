@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 
 <!--제목 설정-->
-<title>공지사항 글쓰기</title>
+<title>일대일 문의 글쓰기</title>
 
 <!-- 기본 설정  => 여기서부터 -->
 <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0 minimum-scale = 1.0">
@@ -53,12 +53,15 @@
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
 <form:form method="post">
- <div class="contents">
+ 
+ 	<input type="hidden" name="MemberId" value="${memberDTO.getMemberId() }">
 
+ <div class="contents">
+ 
         <table>
             <tr>
                 <td colspan="4">
-                   <div id="sub" align="center"><h2>공지 글쓰기</h2></div>
+                   <div id="sub" align="center"><h2>문의글쓰기</h2></div>
                 </td>
             </tr>
             <tr>
@@ -66,7 +69,12 @@
                     구분
                 </td>
                 <td><select name="BoardKind">
-                        <option value="공지사항">공지사항</option>
+                         <option value="영화" selected="selected">영화</option>
+                        <option value="레스토랑">레스토랑</option>
+                        <option value="축제">축제</option>
+                        <option value="숙박">숙박</option>
+                        <option value="결제/취소/환불">결제/취소/환불</option>
+                        <option value="회원">회원</option>
                     </select>
                 </td>
  
@@ -96,8 +104,8 @@
 
             <tr>
                 <td colspan="5" align="center">
+                    <button type="button"  onclick="location.href='Main'">돌아가기</button>
                     <input type="submit" value="등록" />
-                    <input type="reset"/>
                 </td>
             </tr>
         </table>

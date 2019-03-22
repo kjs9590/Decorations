@@ -2,6 +2,8 @@ package Controller.CustomerserviceController;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +25,10 @@ public class CustomerserviceController {
 
 
 	@RequestMapping(value="Customer/Main", method = RequestMethod.GET)
-	public String form(Model model,CustomerserviceDTO dto) {
+	public String form(Model model,CustomerserviceDTO dto,HttpSession session) {
 		List<CustomerserviceDTO> customerservice = customerserviceservice.alllist(dto);
 		model.addAttribute("customerservice", customerservice);
+		
 		return "Customerservice/Customerservice";
 	}
 }

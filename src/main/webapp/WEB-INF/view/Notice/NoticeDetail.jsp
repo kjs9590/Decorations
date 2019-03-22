@@ -49,7 +49,7 @@
 </head>
 <body>
 <!-- Header 시작 -->
-<%-- <jsp:include page="Header.jsp" /> --%>
+<jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
 <div class="contents">
@@ -58,39 +58,49 @@
                 <tr>
                     <td colspan="6">
                         <div id="sub" align="center">
-                            <h2>공지사항</h2>
+                            <h2>문의글</h2>
                         </div>
                     </td>
                 </tr>
+                  <tr>
+               
+                <td colspan="2" id="tdsub">
+                    구분
+                </td>
+                <td colspan="2" id="tdsub">
+                  ${detail.getBoardKind() }	
+                </td>
+                
+            </tr>
+            
                 <tr>
                    
-                    <td colspan="3" id="tdsub">
-                        구분
+                    <td colspan="2" id="tdsub">
+                       제목
                     </td>
-                    <td colspan="3" id="tdsub">
-                        제목입니당,,
+                    <td colspan="2" id="tdsub">
+                      ${detail.getBoardTitle() }
                     </td>
                 </tr>
                 <tr>
                     <td id="tdsub">
-                        내 용
+                     내용
                     </td>
                     <td colspan="5" id="tdcon">
-                        아..
-                        아....
+                         ${detail.getBoardContent() }
                     </td>
                 </tr>
-                <tr>
+             <!--    <tr>
                     <td colspan="6">
                         파일 가져오기,,
                         이미지나 이것저것
                     </td>
-                </tr>
+                </tr> -->
     
                 <tr>
                     <td colspan="6" align="center">
                         <div id="btn">
-                            <button type="button" id="update_btn">수정</button>
+                            <button type="button" onclick="location.href='Main' ">목록으로</button>
                         </div>
                     </td>
     

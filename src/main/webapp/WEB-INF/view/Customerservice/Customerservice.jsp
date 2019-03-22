@@ -4,6 +4,7 @@
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,18 +53,19 @@
 <%-- <jsp:include page="Header.jsp" /> --%>
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
+<jsp:include page="../include/header.jsp" />
 
   <div class="contents">
         <div class="custom_menu">
             <ul>
-                <li><a href="">NOTICE</a></li>
-                <li><a href="">1:1문의</a></li>
+                <li><a href="">고객센터</a></li>
             </ul>
-
+			<input type="hidden" name="MemberId" value="아이디" />
             <table class="custom_con">
                 <thead>
                     <tr>
                         <th id="num">번호</th>
+                        <th id="kind">카테고리</th>
                         <th id="sub">제목</th>
                         <th id="writer">작성자</th>
                         <th id="date">작성일</th>
@@ -71,14 +73,15 @@
                 </thead>
                 <c:forEach items="${customerservice}" var="list">
                 <tr>
-                    <th id="num"><a href="">${list.getBoardNum() }</a></th>
-                    <th id="sub"><a href="">${list.getBoardTitle() }</a></th>
-                    <th id="writer">adad</th>
-                    <th id="date">${list.getBoardDate() }</th>
+                    <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th>
+                    <th id="kind">${list.getBoardKind() }</th>
+                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a></th>
+                    <th id="writer">${list.getMemberId() }</th>
+                    <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
                 </tr>
                 </c:forEach>
             </table>
-
+				<button onclick="location.href='Write'">문의하기</button>
             <div class="paging">
                 <ol>
                     <p><a href=""><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/common/btn_page_prev.gif"
