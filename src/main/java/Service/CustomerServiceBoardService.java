@@ -16,7 +16,7 @@ public class CustomerServiceBoardService {
 	}
 
 	public CustomerserviceDTO detail(@RequestParam("fno") int num) {
-		// TODO Auto-generated method stub
+		
 		return customerserviceRepository.detail(num);
 	}
 
