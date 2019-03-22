@@ -25,4 +25,18 @@ public class RestaurantRepository {
 		return sqlSession.selectList("RestaurantMapper.listRestaurant");
 	}
 
+
+
+	public RestaurantDTO restaurantDedail(Long num) {
+		
+		return sqlSession.selectOne("RestaurantMapper.detailRestaurant", num);
+	}
+
+
+
+	public List<RestaurantDTO> restaurantList(String kind) {
+		
+		return sqlSession.selectList("RestaurantMapper.listKindRestaurant", kind);
+	}
+
 }

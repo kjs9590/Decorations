@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import Commend.FoodCommand;
 import Commend.RestaurantRegisterCommand;
+import Model.FoodDTO;
 import Model.RestaurantDTO;
 import Repository.RestaurantRepository;
 
@@ -65,6 +67,51 @@ public class RestaurantService {
 		List<RestaurantDTO> list = restaurantRepository.restaurantList();
 		model.addAttribute("list",list);
 		
+	}
+/*
+		*****음식등록
+	public Integer foodRegist(FoodCommand fCommand, HttpServletRequest request, Model model) {
+		Integer result = 0;
+		
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Restaurant\\upfile\\";
+		MultipartFile report = fCommand.getFoodImage();
+		originalFile = report.getOriginalFilename();
+		originalFileExtension =originalFile.substring(originalFile.lastIndexOf(".")); 
+		storeFile = UUID.randomUUID().toString().replaceAll("-", "");
+		storeFile = storeFile + originalFileExtension;
+		file = new File(filePath+storeFile);
+		try {
+			report.transferTo(file);
+			
+		} catch (IllegalStateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		FoodDTO fdto = new FoodDTO(fCommand.getFoodName(), fCommand.getFoodType(), fCommand.getFoodPrice(),fCommand.getFoodInform(),originalFile,storeFile);
+		
+		
+		
+		return result; 
+		
+	}*/
+
+	//디테일...럼홍ㄴ;ㅏㅓ로마언
+	public void restaurantDetail(Model model, Long num) {
+		RestaurantDTO rdto = restaurantRepository.restaurantDedail(num);
+		model.addAttribute("rdto",rdto);
+
+		
+	}
+
+
+	public void restaurantList(Model model, String kind) {
+		List<RestaurantDTO> list = restaurantRepository.restaurantList(kind);
+		model.addAttribute("list",list);
+		model.addAttribute("kind",kind);
 	}
 
 }

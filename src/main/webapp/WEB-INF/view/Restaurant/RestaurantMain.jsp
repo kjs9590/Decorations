@@ -36,7 +36,7 @@
 			<div class="list_m">
 				<!--4개까지..-->
 				<ul class="list">
-					<li class="list"><a href="">
+					<li class="list"><a href="RestaurantList?kind=식당">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -47,7 +47,7 @@
 								</ul>
 							</div>
 					</a></li>
-					<li class="list"><a href="">
+					<li class="list"><a href="RestaurantList?kind=카페">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -58,7 +58,7 @@
 								</ul>
 							</div>
 					</a></li>
-					<li class="list"><a href="">
+					<li class="list"><a href="RestaurantList?kind=디저트카페">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -82,16 +82,19 @@
 
 				<ul class="list">
 					<c:forEach items="${list}" var="list">
-						<li class="list"><a href="">
+						<li class="list">
+						<a href="RestaurantDetail?num=${list.restaurantNum }">
 								<div class="res_list">
 									<ul class="res_list">
-										<li><img src="Restaurant/upfile/${list.restaurantImage }" width="300" height="150"></li>
+										<li><img src="Restaurant/upfile/${list.restaurantImage }"
+											width="300" height="150"></li>
 										<li id="kind">${list.restaurantKind }</li>
 										<li id="name">${list.restaurantName }</li>
 										<li id="loc">${list.restaurantArea }</li>
 									</ul>
 								</div>
-						</a></li>
+						</a>
+						</li>
 					</c:forEach>
 				</ul>
 			</div>

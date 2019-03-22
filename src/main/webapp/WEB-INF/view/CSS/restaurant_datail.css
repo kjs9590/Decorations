@@ -164,44 +164,37 @@ span {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
     background-color: antiquewhite;
 }
-.pay{
-    margin-top: 30px;
-    width: 800px;
-    height: 330px;
-    background-color: lightgray;
-    
+
+button, button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
-.info_box{
-    width: 800px;
-    padding: 40px;
-    font-size: 20px;
-    
-}
-#info_box{
-    font-size: 25px;
-}
-#card, #halbu{
-    height: 30px;
-    margin-bottom: 20px;
-}
-.cardNum{
-    width: 100px;
-    height: 30px;
-}
-.btn{
-    width: 800px;
-}
-
-
-#paybtn {
+button {
     background-color: lightsalmon;
     border: none;
     color: white;
+    padding: 16px 32px;
     text-align: center;
     text-decoration: none;
-    padding: 16px 32px;
-    margin: 10px 0 0 300px;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 
+
+#btn {
+    background-color: white; 
+    color: black; 
+    font-weight: bold;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
