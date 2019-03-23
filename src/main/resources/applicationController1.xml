@@ -13,4 +13,5 @@
 <!-- 고객센터 -->
 <bean class="Controller.CustomerserviceController.CustomerserviceController" />
 <bean class="Controller.CustomerserviceController.CustomerserviceBoardController" />
+<bean class="Controller.CustomerserviceController.CustomerAnswerController" />
 </beans>

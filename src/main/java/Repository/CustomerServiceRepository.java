@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Model.AnswerDTO;
 import Model.CustomerserviceDTO;
 
 public class CustomerServiceRepository {
@@ -37,6 +38,18 @@ public class CustomerServiceRepository {
 	public List<CustomerserviceDTO> notice(CustomerserviceDTO dto) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("CustomerMapper.noticelist", dto);
+	}
+
+	//답변
+	public Integer answer(AnswerDTO answerdto) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("CustomerMapper.answerinsert", answerdto);
+	}
+	//답변 리스트
+	public AnswerDTO answerinfo(@RequestParam("fno") int num) {
+		// TODO Auto-generated method stub
+	
+		return sqlSession.selectOne("CustomerMapper.answerselect", num);
 	}
 
 }

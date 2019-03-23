@@ -6,6 +6,11 @@
 	<sql id="customerservice">
 	BOARD_NUM,MEMBER_ID,CHARGE_NUM,BOARD_CONTENT,BOARD_DATE,BOARD_ANSWER,BOARD_KIND,BOARD_TITLE
 	</sql>
+	<!-- 답변쓰기 -->
+	<insert id="answerinsert" parameterType="AnswerDTO">
+		insert into board (BOARD_ANSWER_NUM,BOARD_NUM,ANSWER_CONTENT,ANSER_DATE,ANSER_TIME)
+		values((select nvl(max(BOARD_NUM),0) +1 from board),(select nvl(max(BOARD_NUM),0) +1 from board),#{AnswerContent},sysdate,0420)
+	</insert>
 	
 	<insert id="cinsert" parameterType="CustomerserviceDTO">
 		insert into COUNTER (BOARD_NUM,MEMBER_ID,CHARGE_NUM,BOARD_CONTENT,BOARD_DATE,BOARD_ANSWER,BOARD_KIND,BOARD_TITLE)
@@ -44,7 +49,20 @@
 			where BOARD_KIND = '공지사항'
 	</select>
 	
-	
+	<!-- 답변빼오기 -->
+	<resultMap type="AnswerDTO" id="answer">
+		<id column="BOARD_ANSWER_NUM" jdbcType="BIGINT" property="BoardAnswerNum"/>
+		<result column="BOARD_NUM" jdbcType="BIGINT" property="BoardNum"/>
+		<result column="ANSWER_CONTENT" jdbcType="VARCHAR" property="AnswerContent"/>
+		<result column="ANSER_DATE" jdbcType="TIMESTAMP" property="AnserDate"/>
+		<result column="ANSER_TIME" jdbcType="BIGINT" property="AnserTime"/>
+	</resultMap>
+	<select id="answerselect" parameterType="int" resultMap="answer">
+		select ANSWER_CONTENT
+		from board
+		where BOARD_ANSWER_NUM = #{num}
+			
+	</select>
 	
 	
 	

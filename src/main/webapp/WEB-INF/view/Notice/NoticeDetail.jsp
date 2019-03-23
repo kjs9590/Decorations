@@ -52,8 +52,9 @@
 <jsp:include page="../include/header.jsp" />
 <!-- Header 끝 -->
 <!-- Content 시작(내용 첨가) -->
+
 <div class="contents">
-    
+    <form method="post">
             <table>
                 <tr>
                     <td colspan="6">
@@ -96,16 +97,17 @@
               	답변
               	</td>
               	<c:set var="loginId" value="${memberDTO.getMemberId() }" />
-                	<c:if test="loginId != null">
+                	<c:if test="${loginId != null }">
                     <td colspan="5" id="tdcon">
-			                     <textarea rows="20" cols="80" readonly="readonly"></textarea>
+			                     <textarea rows="20" cols="80" readonly="readonly" name="AnswerContent">${answerinfo.getAnswerContent() }</textarea>
                     </td>
                     </c:if>
                     
                     <c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
                 	<c:if test="${AdminloginId != null}">
                 	<td colspan="5" id="tdcon">
-			                     <textarea rows="20" cols="80" ></textarea>
+			                     <textarea rows="20" cols="80" name="AnswerContent" >${answerinfo.getAnswerContent() }</textarea>
+			                     <button onclick="location.href='Main' " type="submit">확인</button>
                     </td>
                     </c:if>
                 </tr>
@@ -120,6 +122,7 @@
                 </tr>
             </table>
         </div>
+</form>
 <!-- Content 끝 -->
 <!-- Footer 시작 -->
 <%-- <jsp:include page="Footer.jsp" /> --%>
