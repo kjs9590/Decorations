@@ -16,6 +16,7 @@ import Commend.RestaurantRegisterCommand;
 import Model.FoodDTO;
 import Model.RestaurantDTO;
 import Repository.RestaurantRepository;
+import other.AutoPaging;
 
 public class RestaurantService {
 
@@ -141,6 +142,18 @@ public class RestaurantService {
 
 
 
+	}
+
+
+	public int listCount() {
+		// TODO Auto-generated method stub
+		return restaurantRepository.ListCount();
+	}
+
+
+	public List<RestaurantDTO> listpaging(AutoPaging paging) {
+		// TODO Auto-generated method stub
+		return restaurantRepository.paging(paging);
 	}
 
 

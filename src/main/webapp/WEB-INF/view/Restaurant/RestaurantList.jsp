@@ -104,7 +104,7 @@
 						<img src="Restaurant/upfile/${list.restaurantImage }" />
 						<div class="detailContent">
 							<h3>
-								<a href="RestaurantDetail?num=${list.restaurantNum }">릴호-대구</a>
+								<a href="RestaurantDetail?num=${list.restaurantNum }">${list.restaurantName }</a>
 							</h3>
 							<p>주소:${list.restaurantAdd }</p>
 							<p>번호: ${list.restaurantTell }</p>
@@ -113,6 +113,12 @@
 						</div>
 					</div>
 				</c:forEach>
+				<div id="paging_box">
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+						<a href="?page=${i}">${i}</a>
+			</c:forEach>
+	
+		</div>
 			</div>
 		</div>
 	</div>

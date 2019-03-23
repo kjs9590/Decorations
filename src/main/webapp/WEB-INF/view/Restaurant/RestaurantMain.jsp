@@ -36,7 +36,7 @@
 			<div class="list_m">
 				<!--4개까지..-->
 				<ul class="list">
-					<li class="list"><a href="RestaurantList?kind=식당">
+					<li class="list"><a href="RestaurantList?kind=음식점">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -58,7 +58,7 @@
 								</ul>
 							</div>
 					</a></li>
-					<li class="list"><a href="RestaurantList?kind=디저트카페">
+					<li class="list"><a href="RestaurantList?kind=디저트">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -96,6 +96,12 @@
 						</a>
 						</li>
 					</c:forEach>
+			<div id="paging_box">
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+			<a href="?page=${i}">${i}</a>
+			</c:forEach>
+	
+		</div>
 				</ul>
 			</div>
 		</div>

@@ -65,3 +65,25 @@ a:hover {
 #loc {
     color: gray;
 }
+
+#paging_box{
+			float: left;
+			width: 1080px;
+			margin: 20px 0px;
+		}
+		#paging_box a{
+			display: inline-block;
+			vertical-align: middle;
+			width: 26px;
+			height: 24px;
+			border: 1px solid #dadada;
+			background: #f7f7f7;
+			color: #555;
+			text-align: center;
+			line-height: 21px;
+			text-decoration:none;
+			position: relative;
+			left: 40%;
+			transform: translateX(-40%);
+			margin: 20px 0px;
+		}

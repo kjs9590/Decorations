@@ -1,17 +1,24 @@
 package Controller.RestaurantController;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.FoodCommand;
+import Commend.PagingCommand;
 import Commend.RestaurantRegisterCommand;
+import Model.FestivalDTO;
+import Model.RestaurantDTO;
 import Service.RestaurantService;
+import other.AutoPaging;
 
 @Controller
 public class RestaurantRegisterController {
@@ -21,8 +28,16 @@ public class RestaurantRegisterController {
 	
 	//메인페이지
 	@RequestMapping(value="/RestaurantMain" ,method=RequestMethod.GET)
-	public String main(Model model) {
+	public String main(Model model,RestaurantDTO dto,@ModelAttribute PagingCommand command) {
 		
+		if(command.getPage()==0) {
+            command.setPage(1);
+          }
+		AutoPaging paging = new AutoPaging(command.getPage(),2,3);
+		paging.setListCount(restaurantService.listCount());
+		List<RestaurantDTO> listpaging = restaurantService.listpaging(paging);
+		model.addAttribute("Festivallist", listpaging);
+		model.addAttribute("paging", paging);
 		restaurantService.restaurantList(model);
 		return "Restaurant/RestaurantMain";
 	}
@@ -39,7 +54,7 @@ public class RestaurantRegisterController {
 	public String submit(RestaurantRegisterCommand reCommand ,HttpServletRequest request, Model model) {
 		
 		restaurantService.restaurantRegist(reCommand, request, model);
-		return "Restaurant/FoodRegister";
+		return "Restaurant/RestaurantMain";
 	}
 	
 	//레스토랑 디테일
@@ -52,7 +67,7 @@ public class RestaurantRegisterController {
 	}
 	
 	
-	//레스토랑 종류별  RestaurantList?kind=디저트카페
+	//레스토랑 종류별 
 	
 	@RequestMapping(value="/RestaurantList" ,method=RequestMethod.GET)
 	public String restaurantList(Model model,@RequestParam(value="kind") String kind
