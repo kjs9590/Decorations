@@ -100,6 +100,8 @@
                 	<c:if test="${loginId != null }">
                     <td colspan="5" id="tdcon">
 			                     <textarea rows="20" cols="80" readonly="readonly" name="AnswerContent">${answerinfo.getAnswerContent() }</textarea>
+			                     <%-- <c:if test="${answerinfo.getAnswerContent() ==null }"><input type="text">[답변대기중]</c:if>
+			                     <c:if test="${answerinfo.getAnswerContent() !=null }"><input type="text">[답변완료]</c:if> --%>
                     </td>
                     </c:if>
                     
@@ -107,6 +109,8 @@
                 	<c:if test="${AdminloginId != null}">
                 	<td colspan="5" id="tdcon">
 			                     <textarea rows="20" cols="80" name="AnswerContent" >${answerinfo.getAnswerContent() }</textarea>
+			                     <%-- <c:if test="${answerinfo.getAnswerContent() ==null }"><input type="text">[답변대기중]</c:if>
+			                     <c:if test="${answerinfo.getAnswerContent() !=null }"><input type="text">[답변완료]</c:if> --%>
 			                     <button onclick="location.href='Main' " type="submit">확인</button>
                     </td>
                     </c:if>

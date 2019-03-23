@@ -41,9 +41,11 @@ public class CustomerserviceBoardController {
 		
 		//일대일 문의 상세정보
 		@RequestMapping(value="Customer/Detail", method = RequestMethod.GET)
-		public String noticedetail(Model model,@RequestParam("fno") int num) {
+		public String noticedetail(Model model,@RequestParam("fno") int num,HttpSession session) {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
+			//답글 빼오기
 			AnswerDTO answerinfo = customerserviceboardservice.answerinfo(num);
+			session.setAttribute("answerinfo", answerinfo);
 			model.addAttribute("answerinfo", answerinfo);
 			model.addAttribute("detail", detail); 
 			
@@ -57,11 +59,7 @@ public class CustomerserviceBoardController {
 			
 			//답글쓰기
 			Integer answer = customerserviceboardservice.answer(answerdto);
-			//답글 빼오기
-			/*AnswerDTO answerinfo = customerserviceboardservice.answerinfo(num);*/
-			
 			model.addAttribute("answer", answer);
-			/*model.addAttribute("answerinfo", answerinfo);*/
 			return "redirect:/Customer/Main";
 		}
 	

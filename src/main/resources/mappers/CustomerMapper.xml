@@ -14,7 +14,7 @@
 	
 	<insert id="cinsert" parameterType="CustomerserviceDTO">
 		insert into COUNTER (BOARD_NUM,MEMBER_ID,CHARGE_NUM,BOARD_CONTENT,BOARD_DATE,BOARD_ANSWER,BOARD_KIND,BOARD_TITLE)
-		values((select nvl(max(BOARD_NUM),0) +1 from COUNTER),#{MemberId},1,#{BoardContent},sysdate,1,#{BoardKind},#{BoardTitle})
+		values((select nvl(max(BOARD_NUM),0) +1 from COUNTER),#{MemberId},#{ChargeNum},#{BoardContent},sysdate,2,#{BoardKind},#{BoardTitle})
 	</insert>
 	
 	<resultMap type="CustomerserviceDTO" id="listrs">
