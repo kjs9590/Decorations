@@ -26,24 +26,24 @@
 
 
 <div class="wrap_res_reg">
-	<form action="RestaurantRegister" enctype="multipart/form-data" method="POST">
-		<p id="sub">레스토랑 등록</p>
+	<form action="TheaterRegister" enctype="multipart/form-data" method="POST">
+		<p id="sub">영화관랑 등록</p>
 		<table class="table">
 			<tr>
-				<td>레스토랑 이름</td>
+				<td>영화관 이름</td>
 				<td><input type="text" class="textbox"
-					placeholder="    레스토랑 이름" name="restaurantName"></td>
+					placeholder="    영화관 이름" name="theaterName"></td>
 			</tr>
 			<tr>
-				<td>레스토랑 종류</td>
-				<td><select id="kindSelect" name="restaurantKind">
-				<option>음식점</option>
-				<option>카페</option>
-				<option>디저트식당</option>
+				<td>영화관 종류</td>
+				<td><select id="kindSelect" name="theaterKind">
+				<option>메가박스</option>
+				<option>CGV</option>
+				<option>롯데시네마</option>
 				</select></td>
 			</tr>
 			<tr>
-				<td>레스토랑 주소</td>
+				<td>영화관 주소</td>
 				<td><input type="text" class="textbox" id="sample6_postcode"
 					placeholder="   우편번호"> <input type="button"
 					onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -52,28 +52,16 @@
 					type="text" class="textbox" name="detailAddress"
 					id="sample6_detailAddress" placeholder="     상세주소">
 			</tr>
+			
 			<tr>
-				<td>레스토랑 이미지</td>
-				<td><input name="restaurantImage" type="file"
-					multiple="multiple" /></td>
-			</tr>
-			<tr>
-				<td>레스토랑 전화번호</td>
-				<td><input type="text" class="phone_text" name="restaurantTell">
+				<td>영화관 전화번호</td>
+				<td><input type="text" class="phone_text" name="tell">
 					<span>&nbsp-</span> <input type="text" class="phone_text"
-					name="restaurantTell"> - <input type="text"
-					class="phone_text" name="restaurantTell"></td>
+					name="tell"> - <input type="text"
+					class="phone_text" name="tell"></td>
 			</tr>
-			<tr>
-				<td>레스토랑 정보</td>
-				<td><input type="text" class="textbox"
-					placeholder="    레스토랑 정보" name="restaurantInfo"></td>
-			</tr>
-			<tr>
-				<td>레스토랑 테이블수</td>
-				<td><input type="text" class="textbox"
-					placeholder="    레스토랑 테이블수" name="tableCount"></td>
-			</tr>
+			
+		
 		</table>
 		<p></p>
 		<p>

@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public class AccomodationDTO implements Serializable{
 // 데이터베이스
-  
-	/*ACCOMODATION_NUM --숙박번호
+    /*ACCOMODATION_NUM --숙박번호
      ACCOMODATION_NAME --숙박시설이름
      ACCOMODATION_ADD --숙박주소
      ACCOMODATION_AREA --숙소지역

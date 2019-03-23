@@ -13,6 +13,7 @@
 		<typeAlias type="Model.CustomerserviceDTO" alias="CustomerserviceDTO"/>
 		<typeAlias type="Model.RestaurantDTO" alias="RestaurantDTO"/>
 		<typeAlias type="Model.FoodDTO" alias="FoodDTO"/>
+		<typeAlias type="Model.TheaterRegisterDTO" alias="TheaterRegisterDTO"/>
 	</typeAliases>
 
 </configuration>

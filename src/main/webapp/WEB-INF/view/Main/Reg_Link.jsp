@@ -19,7 +19,7 @@
 	<jsp:include page="../include/header.jsp" />
 	<div class="wrap_contents">
 		<div class="movie">
-			<a href=""><img src="images/sk.jpg" alt="" width="400" height="500">
+			<a href="TheaterRegister"><img src="images/sk.jpg" alt="" width="400" height="500">
 				<p>영화 등록</p> </a>
 		</div>
 		<div class="restaurant">

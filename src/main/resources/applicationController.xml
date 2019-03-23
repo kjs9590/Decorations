@@ -7,7 +7,8 @@
 	<bean class="Controller.MemberController.MemberRegisterController" />
 	<bean class="Controller.AccomodationController.AccomodationController" />
 	<bean class="Controller.AccomodationController.AccomodationDetailController" />
-	
+	<bean class="Controller.MovieController.TheaterMainController" />
+	<bean class="Controller.MovieController.TheaterRegisterController" />
 	
 	
 </beans>
