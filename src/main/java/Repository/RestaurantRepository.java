@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.FoodDTO;
 import Model.RestaurantDTO;
+import other.AutoPaging;
 
 public class RestaurantRepository {
 	@Autowired
@@ -76,6 +77,24 @@ public class RestaurantRepository {
 
 	public int foodInsert(FoodDTO fdto) {
 		return sqlSession.insert("RestaurantMapper.foodInsert",fdto);
+	}
+
+
+
+	public int ListCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("RestaurantMapper.listcount");
+	}
+
+
+
+	public List<RestaurantDTO> paging(AutoPaging paging) {
+		Integer minNum = ((paging.getPage()-1)*paging.getLimit())+1;
+		Integer maxNum = minNum+paging.getLimit()-1;
+		HashMap<String, Object> mapping = new HashMap<String, Object>();
+		mapping.put("minNum", minNum);
+		mapping.put("maxNum", maxNum);
+		return sqlSession.selectList("RestaurantMapper.paging",mapping);
 	}
 
 }
