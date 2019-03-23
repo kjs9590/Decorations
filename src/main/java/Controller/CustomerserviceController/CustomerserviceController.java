@@ -27,8 +27,10 @@ public class CustomerserviceController {
 	@RequestMapping(value="Customer/Main", method = RequestMethod.GET)
 	public String form(Model model,CustomerserviceDTO dto,HttpSession session) {
 		List<CustomerserviceDTO> customerservice = customerserviceservice.alllist(dto);
-		
+		//공지
+		List<CustomerserviceDTO> notice = customerserviceservice.noticelist(dto);
 		model.addAttribute("customerservice", customerservice);
+		model.addAttribute("notice", notice);
 		return "Customerservice/Customerservice";
 	}
 }

@@ -34,4 +34,9 @@ public class CustomerServiceRepository {
 		return sqlSession.selectOne("CustomerMapper.detail", num);
 	}
 
+	public List<CustomerserviceDTO> notice(CustomerserviceDTO dto) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("CustomerMapper.noticelist", dto);
+	}
+
 }

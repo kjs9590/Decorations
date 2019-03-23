@@ -3,7 +3,7 @@
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,12 +90,25 @@
                          ${detail.getBoardContent() }
                     </td>
                 </tr>
-             <!--    <tr>
-                    <td colspan="6">
-                        파일 가져오기,,
-                        이미지나 이것저것
+            
+              <tr>
+             	 <td id="tdsub" >
+              	답변
+              	</td>
+              	<c:set var="loginId" value="${memberDTO.getMemberId() }" />
+                	<c:if test="loginId != null">
+                    <td colspan="5" id="tdcon">
+			                     <textarea rows="20" cols="80" readonly="readonly"></textarea>
                     </td>
-                </tr> -->
+                    </c:if>
+                    
+                    <c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
+                	<c:if test="${AdminloginId != null}">
+                	<td colspan="5" id="tdcon">
+			                     <textarea rows="20" cols="80" ></textarea>
+                    </td>
+                    </c:if>
+                </tr>
     
                 <tr>
                     <td colspan="6" align="center">

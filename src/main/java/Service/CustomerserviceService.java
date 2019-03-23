@@ -15,5 +15,9 @@ public class CustomerserviceService {
 		// TODO Auto-generated method stub
 		return customerserviceRepository.alllist(dto);
 	}
+	public List<CustomerserviceDTO> noticelist(CustomerserviceDTO dto) {
+		// TODO Auto-generated method stub
+		return customerserviceRepository.notice(dto);
+	}
 
 }

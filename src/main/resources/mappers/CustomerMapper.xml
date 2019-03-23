@@ -26,6 +26,7 @@
 		select
 			<include refid="customerservice" />
 			from counter
+			WHERE BOARD_KIND != '공지사항'
 	</select>
 	
 	<select id="detail" resultMap="listrs" parameterType="int">
@@ -35,7 +36,13 @@
 		where BOARD_NUM = #{num}
 	</select>
 	
-	
+	<!-- 공지만 빼오기 -->
+	<select id="noticelist" parameterType="CustomerserviceDTO" resultMap="listrs">
+	select
+			<include refid="customerservice" />
+			from counter
+			where BOARD_KIND = '공지사항'
+	</select>
 	
 	
 	

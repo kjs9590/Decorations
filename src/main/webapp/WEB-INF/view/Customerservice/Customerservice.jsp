@@ -64,18 +64,28 @@
             <table class="custom_con">
                 <thead>
                     <tr>
-                        <th id="num">번호</th>
+                        <!-- <th id="num">번호</th> -->
                         <th id="kind">카테고리</th>
                         <th id="sub">제목</th>
                         <th id="writer">작성자</th>
                         <th id="date">작성일</th>
                     </tr>
                 </thead>
+                <c:forEach items="${notice}" var="notice">
+                <tr>
+                    <%-- <th id="num"><a href="Detail?fno=${notice.getBoardNum() }">${notice.getBoardNum() }</a></th> --%>
+                    <th id="kind" style="color: red;">${notice.getBoardKind() }</th>
+                    <th id="sub"><a href="Detail?fno=${notice.getBoardNum() }">${notice.getBoardTitle() }</a></th>
+                    <th id="writer">${notice.getMemberId() }</th>
+                    <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.getBoardDate() }"/></th>
+                </tr>
+                </c:forEach>
+                
                 <c:forEach items="${customerservice}" var="list">
                 <tr>
                 	<c:set var="loginId" value="${memberDTO.getMemberId() }" />
                 	<c:if test="${list.getMemberId() == loginId}">
-                    <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th>
+                   <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
                     <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a></th>
                     <th id="writer">${list.getMemberId() }</th>
@@ -88,7 +98,7 @@
                 <tr>
                 	<c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
                 	<c:if test="${AdminloginId != null}">
-                    <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th>
+                    <%-- <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
                     <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a></th>
                     <th id="writer">${list.getMemberId() }</th>
