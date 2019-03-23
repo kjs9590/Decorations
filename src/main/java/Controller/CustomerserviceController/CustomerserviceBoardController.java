@@ -1,5 +1,7 @@
 package Controller.CustomerserviceController;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import Model.CustomerserviceDTO;
+
 import Service.CustomerServiceBoardService;
 
 @Controller
@@ -21,7 +25,7 @@ public class CustomerserviceBoardController {
 		public CustomerserviceBoardController(CustomerServiceBoardService customerserviceboardservice) {
 			this.customerserviceboardservice = customerserviceboardservice;
 		}
-		
+
 		//일대일 문의 글쓰기
 		@RequestMapping(value="Customer/Write", method = RequestMethod.GET)
 		public String notice() {
@@ -39,14 +43,7 @@ public class CustomerserviceBoardController {
 		@RequestMapping(value="Customer/Detail", method = RequestMethod.GET)
 		public String noticedetail(Model model,@RequestParam("fno") int num,HttpSession session) {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
-			System.out.println("아이디"+detail.getMemberId());
-			
-		
-			
-			
-			
-	/*		if(detail.getMemberId() == )*/
-			model.addAttribute("detail", detail);
+			model.addAttribute("detail", detail); 
 			return "Notice/NoticeDetail";
 		}
 		

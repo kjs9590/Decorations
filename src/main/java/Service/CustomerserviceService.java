@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.CustomerserviceDTO;
+import Model.MemberDTO;
 import Repository.CustomerServiceRepository;
 
 public class CustomerserviceService {
