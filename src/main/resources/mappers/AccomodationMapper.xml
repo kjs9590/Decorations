@@ -12,6 +12,7 @@
 		insert into
 		ACCOMODATION(ACCOMODATION_NUM,ACCOMODATION_NAME,ACCOMODATION_ADD,ACCOMODATION_AREA,ACCOMODATION_KIND
 		,ACCOMODATION_TELL,ACCOMODATION_IMG,ACCOMODATION_IMGSTORE,ACCOMODATION_INFORM)
+		
 		values((select nvl(max(ACCOMODATION_NUM),0) +1 from
 		ACCOMODATION),#{accomodationName},#{accomodationAdd},#{accmodationArea},#{accmodationKind},
 		#{accmodationTell},#{accmodationImg},#{accmodationImgstore},#{accomodationInform})

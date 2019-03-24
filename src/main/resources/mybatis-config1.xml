@@ -15,6 +15,8 @@
 		<typeAlias type="Model.FoodDTO" alias="FoodDTO"/>
 		<typeAlias type="Model.TheaterRegisterDTO" alias="TheaterRegisterDTO"/>
 		<typeAlias type="Model.AnswerDTO" alias="AnswerDTO"/>
+		<typeAlias type="Model.MovieRegisterDTO" alias="MovieRegisterDTO"/>
+		
 	</typeAliases>
 
 </configuration>

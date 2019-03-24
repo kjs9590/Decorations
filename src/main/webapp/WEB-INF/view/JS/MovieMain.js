@@ -1,35 +1,40 @@
- $(function () {
-            var n = 1
-            $('.next').click(function () {
-                n++
-                if (n == 6) {
-                    n = 1
-                }
-                $('p img').attr('src', 'img/mov' + n + '.jpg')
-            })
-            $('.prev').click(function () {
-                n--
-                if (n == 0) {
-                    n = 5
-                }
-                $('p img').attr('src', 'img/mov' + n + '.jpg')
-            })
-        })
 
-        $(function () {
-            $("#ct1").on("click", function () {
-                $('#Screening_playing').hide();
-                $('.movie_list1').hide();
-                $('#nowplaying').show();
-                $('.movie_list').show();
 
-            })
-            $("#ct2").on("click", function () {
+      
+function MovieRegister(){
 
-                $('#nowplaying').hide();
-                $('.movie_list').hide();
-                $('#Screening_playing').show();
-                $('.movie_list1').show();
-
-            })
-        })
+	var url='/Dacorations/MovieRegister';
+	      window.name="parentForm";
+	      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=800");  
+	     
+	      self.close();
+}
+ 
+	function area(area) {
+		var kind = $("#TheaterKind").val();
+		$.ajax({
+			type : "POST",
+			url : "TheaterList",
+			data : "area=" + area + "&kind=" + kind,
+			datatype : "html",
+			success : function(data) {
+				$("#movieAjax").html(data);
+			}
+		});
+	}
+	
+	function theaterChoice(num) {
+		var num=num.split(".")
+		var num=num[0]
+		alert(num[0])
+		$.ajax({
+			type : "POST",
+			url : "TheaterScreenList",
+			data : "num=" + num,
+			datatype : "html",
+			success : function(data) {
+				$("#movieScreen").html(data);
+			}
+		});
+	}
+ 

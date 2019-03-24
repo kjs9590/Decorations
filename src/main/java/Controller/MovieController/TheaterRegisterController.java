@@ -16,14 +16,14 @@ public class TheaterRegisterController {
 	
         @RequestMapping(method=RequestMethod.GET)
 		public String form() {
-			return "Movie/TheaterRegister";
+			return "Movie/TheaterForm";
 		}
 		
 		@RequestMapping(method=RequestMethod.POST)
 		public String submit(Model model,TheaterRegisterCommend tRcommend ) {
 			
 			theaterRegisterService.theaterRegister(model,tRcommend);
-			return "Movie/MovieMain";
+			return "redirect:TheaterMain";
 		}
 	}
 

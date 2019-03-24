@@ -12,8 +12,7 @@
 <meta charset="UTF-8">
 <title>MAIN</title>
 
-<link href="../CSS/AccomodationDetail.css" rel="stylesheet"
-	type="text/css">
+<link href="../CSS/AccomodationDetail.css" rel="stylesheet" type="text/css">
 <link href="../CSS/header.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../JS/AccomodationDetail.js"></script>
 <script type="text/javascript">

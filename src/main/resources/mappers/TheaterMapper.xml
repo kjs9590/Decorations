@@ -14,10 +14,32 @@
 		THEATER),#{theaterName},#{theaterAdd},#{theaterArea},#{theaterTell},
 		#{theaterKind})
 	</insert>
-
-
-	
-	
+   <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+   <!-- 영화관 검색 -->
+    <select id="listTheater" parameterType="HashMap" resultMap="listTheater">
+        select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER where THEATER_KIND=#{kind} and THEATER_AREA=#{area}
+    
+    </select>
+   <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+   <!-- 검색된 영화관 불러오기 -->
+   <select id="screenList" parameterType="long" resultMap="listTheater">
+        select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER where THEATER_NUM=#{num} 
+       </select>
+   <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<resultMap type="TheaterRegisterDTO" id="listTheater">
+		<id column="THEATER_NUM" jdbcType="BIGINT"
+			property="theaterNum" />
+		<result column="THEATER_NAME" jdbcType="VARCHAR"
+			property="theaterName" />
+		<result column="THEATER_ADD" jdbcType="VARCHAR"
+			property="theaterAdd" />
+		<result column="THEATER_AREA" jdbcType="VARCHAR"
+			property="theaterArea" />
+		<result column="THEATER_TELL" jdbcType="VARCHAR"
+			property="theaterTell" />
+		<result column="THEATER_KIND" jdbcType="VARCHAR"
+			property="theaterKind" />
+	</resultMap>
 </mapper>
 
 

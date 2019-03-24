@@ -11,13 +11,18 @@
 <bean id="accomodationDetailServiceService" class="Service.AccomodationDetailService"/> 
 <!-- TheaterSevice	 -->
 <bean id="theaterRegisterService" class="Service.TheaterRegisterService"/> 
-
+<bean id="theaterMainService" class="Service.TheaterMainService"/> 
+<!-- MovieSevice	 -->
+<bean id="movieRegisterService" class="Service.MovieRegisterService"/> 
+<bean id="movieDetailService" class="Service.MovieDetailService"/> 
 
 <!-- Repository	 -->
 <bean id="memberSessionRepository" class="Repository.MemberSessionRepository"/>	
 <bean id="accomodationRepository" class="Repository.AccomodationRepository"/>	
 <bean id="accomodationDetailRepository" class="Repository.AccomodationDetailRepository"/>
 <bean id="theaterRegisterRepository" class="Repository.TheaterRegisterRepository"/>		
+<bean id="movieRegistRepository" class="Repository.MovieRegistRepository"/>	
+<bean id="movieDetailRepository" class="Repository.MovieDetailRepository"/>	
 
 </beans>
 

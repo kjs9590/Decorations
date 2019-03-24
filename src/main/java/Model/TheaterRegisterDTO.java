@@ -20,7 +20,9 @@ public class TheaterRegisterDTO implements Serializable{
 	private String theaterKind;
 	
 	
-	public TheaterRegisterDTO() {}
+	
+	public TheaterRegisterDTO() {
+	}
 	public TheaterRegisterDTO(String theaterName, String theaterAdd, String theaterArea, String theaterTell,
 			String theaterKind) {
 		

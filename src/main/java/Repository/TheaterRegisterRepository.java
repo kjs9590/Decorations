@@ -1,5 +1,8 @@
 package Repository;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +16,17 @@ public class TheaterRegisterRepository {
 	
 	
 	public Integer insertTheater(TheaterRegisterDTO tRdto) {
-        return sqlSession.insert("TheaterMapper.insertTheater", tRdto);
+        return sqlSession.insert("TheaterMapper.insertTheater", "");
 	}
+	public List<TheaterRegisterDTO> listTheater(String area,String kind) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("area", area);
+		map.put("kind", kind);
+		return sqlSession.selectList("TheaterMapper.listTheater",map);
+	}
+	public TheaterRegisterDTO screenList(Long num) {
+	
+		return sqlSession.selectOne("TheaterMapper.screenList",num);
+	}
+	
 }

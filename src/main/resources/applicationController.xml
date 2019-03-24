@@ -9,6 +9,10 @@
 	<bean class="Controller.AccomodationController.AccomodationDetailController" />
 	<bean class="Controller.MovieController.TheaterMainController" />
 	<bean class="Controller.MovieController.TheaterRegisterController" />
+	<bean class="Controller.MovieController.MovieRegisterController" />
+	<bean class="Controller.MovieController.MovieDetailController" />
+	
+	
 	
 	
 </beans>
