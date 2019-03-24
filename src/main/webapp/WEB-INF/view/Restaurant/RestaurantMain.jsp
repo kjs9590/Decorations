@@ -24,7 +24,7 @@
 	<div id="mainHeader">
 
 		<div id="mainHeaderContent">
-			<img src="${pageContext.request.contextPath }/images/food.jpg" alt=""
+			<img src="${pageContext.request.contextPath }/images/restaurantmain.jpg" alt=""
 				width="1400" height="300">
 		</div>
 	</div>
@@ -40,7 +40,7 @@
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/rest.jpg"
 										width="300" height="150"></li>
 									<li id="name">레스토랑</li>
 
@@ -51,7 +51,7 @@
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/cf.jpg"
 										width="300" height="150"></li>
 									<li id="name">카페</li>
 
@@ -62,7 +62,7 @@
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/dcdc.jpeg"
 										width="300" height="150"></li>
 									<li id="name">디저트</li>
 
