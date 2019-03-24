@@ -24,7 +24,7 @@
 	<div id="mainHeader">
 
 		<div id="mainHeaderContent">
-			<img src="${pageContext.request.contextPath }/images/food.jpg" alt=""
+			<img src="${pageContext.request.contextPath }/images/restaurantmain.jpg" alt=""
 				width="1400" height="300">
 		</div>
 	</div>
@@ -36,11 +36,11 @@
 			<div class="list_m">
 				<!--4개까지..-->
 				<ul class="list">
-					<li class="list"><a href="RestaurantList?kind=식당">
+					<li class="list"><a href="RestaurantList?kind=음식점">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/rest.jpg"
 										width="300" height="150"></li>
 									<li id="name">레스토랑</li>
 
@@ -51,18 +51,18 @@
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/cf.jpg"
 										width="300" height="150"></li>
 									<li id="name">카페</li>
 
 								</ul>
 							</div>
 					</a></li>
-					<li class="list"><a href="RestaurantList?kind=디저트카페">
+					<li class="list"><a href="RestaurantList?kind=디저트">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
-										src="${pageContext.request.contextPath }/images/cake.png"
+										src="${pageContext.request.contextPath }/images/dcdc.jpeg"
 										width="300" height="150"></li>
 									<li id="name">디저트</li>
 
@@ -96,6 +96,12 @@
 						</a>
 						</li>
 					</c:forEach>
+			<div id="paging_box">
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+			<a href="?page=${i}">${i}</a>
+			</c:forEach>
+	
+		</div>
 				</ul>
 			</div>
 		</div>

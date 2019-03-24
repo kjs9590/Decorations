@@ -16,6 +16,7 @@ import Commend.RestaurantRegisterCommand;
 import Model.FoodDTO;
 import Model.RestaurantDTO;
 import Repository.RestaurantRepository;
+import other.AutoPaging;
 
 public class RestaurantService {
 
@@ -28,6 +29,8 @@ public class RestaurantService {
 	private String storeFile = null;
 	private String path = null;
 
+	
+	//레스토랑 등록
 	public Integer restaurantRegist(RestaurantRegisterCommand reCommand, HttpServletRequest request, Model model) {
 		Integer result = 0;
 		String area=reCommand.getAddress().substring(0,2);
@@ -62,7 +65,7 @@ public class RestaurantService {
 
 	}
 
-
+	//레스토랑 리스트
 	public void restaurantList(Model model) {
 		List<RestaurantDTO> list = restaurantRepository.restaurantList();
 		model.addAttribute("list",list);
@@ -71,7 +74,7 @@ public class RestaurantService {
 
 
 
-	//디테일...럼홍ㄴ;ㅏㅓ로마언
+	//레스토랑 디테일
 	public void restaurantDetail(Model model, Long num) {
 		RestaurantDTO rdto = restaurantRepository.restaurantDedail(num);
 		model.addAttribute("rdto",rdto);
@@ -79,14 +82,14 @@ public class RestaurantService {
 
 	}
 
-
+	//레스토랑 종류별 리스트
 	public void restaurantList(Model model, String kind) {
 		List<RestaurantDTO> list = restaurantRepository.restaurantList(kind);
 		model.addAttribute("list",list);
 		model.addAttribute("kind",kind);
 	}
 
-
+	//레스토랑 지역별 리스트
 	public void restaurantArea(Model model, String area, String kind) {
 		List<RestaurantDTO> list = restaurantRepository.restaurantArea(area, kind);
 
@@ -94,7 +97,7 @@ public class RestaurantService {
 
 	}
 
-
+	//신규등록순 리스트
 	public void newRestaurant(Model model, String kind) {
 		List<RestaurantDTO> list = restaurantRepository.newRestaurant(kind);
 
@@ -102,7 +105,7 @@ public class RestaurantService {
 
 	}
 
-
+	//음식세트 등록
 	public String foodInsert(Model model, FoodCommand fCommand, HttpServletRequest request) {
 
 		String filePath = request.getRealPath("/WEB-INF/view/")+"Restaurant\\upfile\\";
@@ -141,6 +144,35 @@ public class RestaurantService {
 
 
 
+	}
+
+	//페이징
+	public int listCount() {
+		// TODO Auto-generated method stub
+		return restaurantRepository.ListCount();
+	}
+
+
+	public List<RestaurantDTO> listpaging(AutoPaging paging) {
+		// TODO Auto-generated method stub
+		return restaurantRepository.paging(paging);
+	}
+
+	//레스토랑 상세페이지 안에 음식세트 리스트
+	public void foodList(Model model, Long num) {
+
+		List<FoodDTO> list = restaurantRepository.foodList(num);
+
+		model.addAttribute("list",list);
+		
+		
+	}
+
+	//음식상세보기
+	public void foodDetail(Model model, Long num) {
+		FoodDTO fdto = restaurantRepository.foodDetail(num);
+		model.addAttribute("fdto",fdto);
+		
 	}
 
 

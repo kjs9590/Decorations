@@ -4,9 +4,9 @@
 <%@page import="Model.*, java.util.*"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<% 
-	ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
-	List <RestaurantDTO> list=(List)request.getAttribute("list");
+<%
+	ChargerDTO chargerDTO = (ChargerDTO) session.getAttribute("chargerDTO");
+	List<RestaurantDTO> list = (List) request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,7 +32,10 @@
             document.getElementById("time").onclick = function (event) {
                 document.getElementById("tm").innerText = tsel.value;
             }
-        }
+            }
+            
+            	
+            
         $(function () {
 
             $('.date').datepicker({
@@ -81,14 +84,21 @@
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/CSS/datepicker.min.css"
 	rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="${pageContext.request.contextPath }/JS/RestaurantDetail.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/JS/RestaurantDetail.js"></script>
 </head>
-
+<!--헤더 인클루드-->
+<jsp:include page="../include/header.jsp" />
 <body>
 	<div class="wrap_contents">
-		<%if(chargerDTO != null){ %>
-		<a href="" onclick="roomRegister(${rdto.restaurantNum })"> 음식등록하기 </a>
-		<%} %>
+		<%
+			if (chargerDTO != null) {
+		%>
+		<a href="" onclick="roomRegister(${rdto.restaurantNum })"> 음식등록하기
+		</a>
+		<%
+			}
+		%>
 		<p id="sub">레스토랑 예약하기</p>
 		<div class="food_img">
 			<img src="Restaurant/upfile/${rdto.restaurantImage }" alt="ymym"
@@ -117,52 +127,23 @@
 			</div>
 
 			<ul class="re_menu">
-				<li class="re_menu_li"><input type="radio" name="chk"
-					class="check" value="메뉴1"> <label for="" id="chk">메뉴이름</label>
-					<span><img src="../images/food.jpg" alt="" width="180"
-						height="160"></span>
-					<div>
-						<p>
-							<span>가격</span>40,000원
-						</p>
-					</div> <a href="#" class=""><img src="../images/detail.png"
-						alt="상세보기" width="100" height="12"></a></li>
-				<li class="re_menu_li"><input type="radio" name="chk"
-					class="check" value="메뉴2"> <label for="" id="chk">메뉴이름</label>
-					<span><img src="../images/food.jpg" alt="" width="180"
-						height="160"></span>
-					<div>
-						<p>
-							<span>가격</span>40,000원
-						</p>
-					</div> <a href="#" class=""><img src="../images/detail.png"
-						alt="상세보기" width="100" height="12"></a></li>
-				<li class="re_menu_li"><input type="radio" name="chk"
-					class="check" value="메뉴3"> <label for="" id="chk">메뉴이름</label>
-					<span><img src="../images/food.jpg" alt="" width="180"
-						height="160"></span>
-					<div>
-						<p>
-							<span>가격</span>40,000원
-						</p>
-					</div> <a href="#" class=""><img src="../images/detail.png"
-						alt="상세보기" width="100" height="12"></a></li>
-				<li class="re_menu_li"><input type="radio" name="chk"
-					class="check" value="메뉴4"> <label for="" id="chk">메뉴이름</label>
-					<span><img src="../images/food.jpg" alt="" width="180"
-						height="160"></span>
-					<div>
-						<p>
-							<span>가격</span>40,000원
-						</p>
-					</div> <a href="#" class=""><img src="../images/detail.png"
-						alt="상세보기" width="100" height="12"></a></li>
+				<c:forEach items="${list}" var="list">
+
+					<li class="re_menu_li"><input type="radio" name="chk" class="check" value="${list.foodName }"> 
+						<label for="" id="chk">${list.foodName }</label> 
+						<span><img src="Restaurant/upfile/${list.foodImgStore}" alt="" width="180" height="160"></span>
+						<div>
+							<p>
+								<span>가격</span>${list.foodPrice }
+							</p>
+						</div> <a href="FoodDetail?num=${list.foodNum}" class=""><img
+							src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12"></a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<div class="res_table">
 			<div class="table_box">
-				예약<br>
-				<br> <label for="" id="label">인원</label>
+				예약<br> <br> <label for="" id="label">인원</label>
 				<div id="t_box">
 					<select name="" id="select">
 						<option value="2명">2명</option>
@@ -189,8 +170,7 @@
 
 			</div>
 			<div class="chk_menu">
-				선택한 예약 정보<br>
-				<br>
+				선택한 예약 정보<br> <br>
 				<div id="dt" class="chk_date"></div>
 				<div id="tm"></div>
 				<div id="pp"></div>

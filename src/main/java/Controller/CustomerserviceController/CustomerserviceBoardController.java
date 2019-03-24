@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import Model.AnswerDTO;
 import Model.CustomerserviceDTO;
-
+import Service.CustomerServiceAnswerSerivce;
 import Service.CustomerServiceBoardService;
 
 @Controller
@@ -25,7 +25,7 @@ public class CustomerserviceBoardController {
 		public CustomerserviceBoardController(CustomerServiceBoardService customerserviceboardservice) {
 			this.customerserviceboardservice = customerserviceboardservice;
 		}
-
+		
 		//일대일 문의 글쓰기
 		@RequestMapping(value="Customer/Write", method = RequestMethod.GET)
 		public String notice() {
@@ -43,28 +43,27 @@ public class CustomerserviceBoardController {
 		@RequestMapping(value="Customer/Detail", method = RequestMethod.GET)
 		public String noticedetail(Model model,@RequestParam("fno") int num,HttpSession session) {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
+			//답글 빼오기
+			AnswerDTO answerinfo = customerserviceboardservice.answerinfo(num);
+			System.out.println("Dd"+answerinfo.getAnswerContent());
+			session.setAttribute("answerinfo", answerinfo);
+			model.addAttribute("answerinfo", answerinfo);
 			model.addAttribute("detail", detail); 
+			
 			return "Notice/NoticeDetail";
 		}
 		
-		/*//일대일 문의 글쓰기
-		@RequestMapping(value="Customer/QnAWrite", method = RequestMethod.GET)
-		public String qna() {
-			
-			return "QnA/QnAWrite";
+		//문의답변
+		@RequestMapping(value="Customer/Detail", method = RequestMethod.POST)
+		public String noticedetail(Model model,AnswerDTO answerdto,@RequestParam("fno") int num) {
+			System.out.println("내용"+answerdto.getAnswerContent());
+
+			//답글쓰기
+			Integer answer = customerserviceboardservice.answer(answerdto);
+			model.addAttribute("answer", answer);
+			return "redirect:/Customer/Main";
 		}
-		
-		//일대일 문의 상세정보
-		@RequestMapping(value="Customer/QnADetail", method = RequestMethod.GET)
-		public String qnadetail() {
-			
-			return "QnA/QnADetail";
-		}
-		*/
-		
-		
-		
-		
+	
 		
 	}
 
