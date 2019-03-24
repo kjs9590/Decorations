@@ -45,6 +45,7 @@ public class CustomerserviceBoardController {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
 			//답글 빼오기
 			AnswerDTO answerinfo = customerserviceboardservice.answerinfo(num);
+			System.out.println("Dd"+answerinfo.getAnswerContent());
 			session.setAttribute("answerinfo", answerinfo);
 			model.addAttribute("answerinfo", answerinfo);
 			model.addAttribute("detail", detail); 
@@ -56,7 +57,7 @@ public class CustomerserviceBoardController {
 		@RequestMapping(value="Customer/Detail", method = RequestMethod.POST)
 		public String noticedetail(Model model,AnswerDTO answerdto,@RequestParam("fno") int num) {
 			System.out.println("내용"+answerdto.getAnswerContent());
-			
+
 			//답글쓰기
 			Integer answer = customerserviceboardservice.answer(answerdto);
 			model.addAttribute("answer", answer);

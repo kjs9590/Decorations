@@ -64,6 +64,7 @@
             <table class="custom_con">
                 <thead>
                     <tr>
+                   
                         <!-- <th id="num">번호</th> -->
                         <th id="kind">카테고리</th>
                         <th id="sub">제목</th>
@@ -89,8 +90,8 @@
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
                     <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a>
-                  	<c:if test="${answerinfo.getAnswerContent()==null }">[답변대기]</c:if>
-			  	<c:if test="${answerinfo.getAnswerContent()!=null }">[답변완료]</c:if>
+                  	<c:if test="${list.getBoardAnswer() == null }">[답변대기]</c:if>
+				  	<c:if test="${list.getBoardAnswer() != null }">[답변완료]</c:if>
                     </th>
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
