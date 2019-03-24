@@ -63,6 +63,7 @@ public class RestaurantRegisterController {
 	public String detailrest(Model model, @RequestParam(value="num") Long num) {
 		
 		restaurantService.restaurantDetail(model, num);
+		restaurantService.foodList(model, num);
 		return "Restaurant/RestaurantDetail";
 	}
 	
@@ -110,6 +111,15 @@ public class RestaurantRegisterController {
 		
 		String path=restaurantService.foodInsert(model,fCommand,request);
 		return path;
+	}
+	
+	//음식세트 디테일
+	
+	@RequestMapping(value="/FoodDetail", method=RequestMethod.GET)
+	public String foodDetail(Model model, @RequestParam(value="num") Long num) {
+		
+		restaurantService.foodDetail(model, num);
+		return "Restaurant/FoodDetail";
 	}
 	
 

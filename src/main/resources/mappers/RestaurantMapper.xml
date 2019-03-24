@@ -21,25 +21,21 @@
 	<!-- 레스토랑등록 -->
 	<insert id="insertRestaurant" parameterType="RestaurantDTO">
 		INSERT INTO
-		restaurant (RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
-		RESTAURANT_ADD, RESTAURANT_AREA,
-		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
-		RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
-		values((select
-		nvl(max(RESTAURANT_NUM),0) +1 from
-		restaurant),
-		#{restaurantName},#{restaurantKind},#{restaurantAdd},#{restaurantArea},
-		#{restaurantImage},#{restaurantImgStore},#{restaurantTell},#{restaurantInfo},#{tableCount})
+			restaurant (RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+				RESTAURANT_ADD, RESTAURANT_AREA, RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+				RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT)
+			values((select nvl(max(RESTAURANT_NUM),0) +1 from restaurant),
+					#{restaurantName},#{restaurantKind},#{restaurantAdd},#{restaurantArea},
+					#{restaurantImage},#{restaurantImgStore},#{restaurantTell},#{restaurantInfo},#{tableCount})
 	</insert>
 
 
 	<!-- 레스토랑리스트 -->
 
 	<select id="listRestaurant" resultMap="listRestaurant">
-		SELECT RESTAURANT_NUM,
-		RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
-		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO
-		,TABLE_COUNT
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
+			RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
 		FROM RESTAURANT
 	</select>
 
@@ -70,13 +66,12 @@
 	<!-- 레스토랑디테일 -->
 	<select id="detailRestaurant" parameterType="long"
 		resultMap="detailRestaurant">
-		SELECT RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
-		RESTAURANT_ADD, RESTAURANT_AREA,
-		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
-		RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
+			RESTAURANT_ADD, RESTAURANT_AREA, RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
+			RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
 		FROM RESTAURANT
-		WHERE
-		RESTAURANT_NUM =#{num}
+		WHERE RESTAURANT_NUM =#{num}
 
 	</select>
 
@@ -97,13 +92,11 @@
 
 	<select id="listKindRestaurant" parameterType="string"
 		resultMap="listRestaurant">
-		SELECT RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND,
-		RESTAURANT_ADD, RESTAURANT_AREA,
-		RESTAURANT_IMAGE,RESTAURANT_IMGSTORE,
-		RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
+			RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
 		FROM RESTAURANT
-		WHERE
-		RESTAURANT_KIND = #{kind}
+		WHERE RESTAURANT_KIND = #{kind}
 	</select>
 
 	<!-- 지역별로 -->
@@ -191,7 +184,33 @@
 		FROM
 		RESTAURANT
 	</select>
+	
+	<!-- 등록된 음식(세트)들을 리스트로 출력 -->
+	<select id="foodList" parameterType="long" resultMap="FoodList">
+		SELECT 	FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
+				FOOD_TYPE, FOOD_IMGSTORE
+		FROM 	DATEFOOD
+		WHERE	RESTAURANT_NUM = #{num}
+	</select>
+	
+	<resultMap type="FoodDTO" id="FoodList">
+		<id column="FOOD_NUM" jdbcType="BIGINT" property="foodNum" />
+		<result column="FOOD_PRICE" jdbcType="BIGINT" property="foodPrice" />
+		<result column="FOOD_IMAGE" jdbcType="VARCHAR" property="foodImage"/>
+		<result column="FOOD_INFORM" jdbcType="VARCHAR" property="foodInfo"/>
+		<result column="FOOD_NAME" jdbcType="VARCHAR" property="foodName" />
+		<result column="FOOD_TYPE" jdbcType="VARCHAR" property="foodType"/>
+		<result column="FOOD_IMGSTORE" jdbcType="VARCHAR" property="foodImgStore"/>
+	</resultMap>
 
+
+	<select id="foodDetail" parameterType="long" resultMap="FoodList">
+		SELECT 	FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
+				FOOD_TYPE, FOOD_IMGSTORE
+		FROM 	DATEFOOD
+		WHERE FOOD_NUM =#{num}
+
+	</select>
 
 </mapper>
 
