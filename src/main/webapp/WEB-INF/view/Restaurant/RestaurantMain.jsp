@@ -58,7 +58,7 @@
 								</ul>
 							</div>
 					</a></li>
-					<li class="list"><a href="RestaurantList?kind=디저트">
+					<li class="list"><a href="RestaurantList?kind=디저트식당">
 							<div class="res_list">
 								<ul class="res_list">
 									<li><img
@@ -81,7 +81,7 @@
 
 
 				<ul class="list">
-					<c:forEach items="${list}" var="list">
+					<c:forEach items="${Festivallist}" var="list">
 						<li class="list">
 						<a href="RestaurantDetail?num=${list.restaurantNum }">
 								<div class="res_list">
