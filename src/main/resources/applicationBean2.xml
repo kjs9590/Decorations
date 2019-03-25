@@ -11,6 +11,7 @@
 <bean id="MemberListService" class="Service.MemberListService" />
 <bean id="MemberInfoService" class="Service.MemberInfoService" />
 <bean id="RestaurantService" class="Service.RestaurantService" />
+<bean id="MainService" class="Service.MainService" />
 
 
 
@@ -19,5 +20,6 @@
 <bean id="MemberListRepository" class="Repository.MemberListRepository" />
 <bean id="MemberInfoRepository" class="Repository.MemberInfoRepository" />
 <bean id="RestaurantRepository" class="Repository.RestaurantRepository" />
+<bean id="MainRepository" class="Repository.MainRepository" />
 
 </beans>
