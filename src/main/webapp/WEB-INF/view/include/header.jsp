@@ -4,23 +4,12 @@
 <% 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
 	ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ko">
 
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style></style>
-    <script>
-    </script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Jua|Play" rel="stylesheet">
-    <!--폰트-->
-    <!--body { font-family: "Jua", sans-serif;} -->
     <link href="${pageContext.request.contextPath }/CSS/header.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body>
     <div id="header">
         <div id="header_menu">
             <h1>
@@ -63,7 +52,3 @@
             </ul>
         </div>
     </div>
-    <!--여기까지 헤더-->
-</body>
-
-</html>

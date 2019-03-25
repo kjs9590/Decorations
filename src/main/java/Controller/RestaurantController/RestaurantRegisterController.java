@@ -33,10 +33,10 @@ public class RestaurantRegisterController {
 		if(command.getPage()==0) {
             command.setPage(1);
           }
-		AutoPaging paging = new AutoPaging(command.getPage(),2,3);
+		AutoPaging paging = new AutoPaging(command.getPage(),3,3);
 		paging.setListCount(restaurantService.listCount());
 		List<RestaurantDTO> listpaging = restaurantService.listpaging(paging);
-		model.addAttribute("Festivallist", listpaging);
+		model.addAttribute("list", listpaging);
 		model.addAttribute("paging", paging);
 		restaurantService.restaurantList(model);
 		return "Restaurant/RestaurantMain";
@@ -54,7 +54,7 @@ public class RestaurantRegisterController {
 	public String submit(RestaurantRegisterCommand reCommand ,HttpServletRequest request, Model model) {
 		
 		restaurantService.restaurantRegist(reCommand, request, model);
-		return "Restaurant/RestaurantMain";
+		return "redirect:/Reg_Link";
 	}
 	
 	//레스토랑 디테일
