@@ -1,5 +1,7 @@
 package Controller.MovieController;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +19,8 @@ public class ScreenController {
 	
 	
 	@RequestMapping(value="/ScreenRagister" ,method=RequestMethod.POST)
-	public String theaterList(Model model,ScreenCommand sCommand) {
-		screenRegisterService.screenInsert(sCommand);
+	public String theaterList(Model model,ScreenCommand sCommand,HttpServletRequest request) {
+		screenRegisterService.screenInsert(sCommand,request);
 		return "redirect:TheaterMain";
 	}
 }

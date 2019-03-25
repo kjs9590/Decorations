@@ -9,15 +9,18 @@
 <insert id="screenInsert" parameterType="ScreenDTO">
 
 insert into SCREEN (SCREEN_NUM, THEATER_NUM,SCREEN_KIND,
-                    SCREEN_ROW, SCREEN_COLUMN, SCREEN_NAME)
+                    SCREEN_ROW, SCREEN_COLUMN, SCREEN_NAME,SCREEN_STOREIMG,SCREEN_IMG  
+                    ,SCREEN_PLUS)
       values((select nvl(max(SCREEN_NUM),0) +1 from SCREEN)
-      ,#{theaterNum},#{screenKind},#{screenRow},#{screenColumn},#{screenName})  
+      ,#{theaterNum},#{screenKind},#{screenRow},#{screenColumn},#{screenName},
+      #{screenStoreimg},#{screenImg},#{screenPlus})  
                   
 </insert>
 <select id="screenLists" parameterType="long" resultMap="screenList">
   
   select SCREEN_NUM,SCREEN_KIND,
-                    SCREEN_ROW, SCREEN_COLUMN, SCREEN_NAME from screen 
+     SCREEN_ROW, SCREEN_COLUMN, SCREEN_NAME, SCREEN_STOREIMG 
+                    ,SCREEN_PLUS from screen 
                     where theater_num=#{no}
 </select>
 
@@ -27,6 +30,9 @@ insert into SCREEN (SCREEN_NUM, THEATER_NUM,SCREEN_KIND,
 		<result column="SCREEN_ROW" jdbcType="BIGINT" property="screenRow"/>
 		<result column="SCREEN_COLUMN" jdbcType="BIGINT" property="screenColumn"/>
 		<result column="SCREEN_NAME" jdbcType="VARCHAR" property="screenName" />
+		<result column="SCREEN_STOREIMG" jdbcType="VARCHAR" property="screenStoreimg" />
+		<result column="SCREEN_PLUS" jdbcType="BIGINT" property="screenPlus" />
+		
 	</resultMap>
 </mapper>
 

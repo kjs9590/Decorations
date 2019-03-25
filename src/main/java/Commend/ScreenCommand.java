@@ -1,12 +1,28 @@
 package Commend;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ScreenCommand {
 private Long theaterNum;
 private String screenName;
 private int screenRow;
 private int screenColum;
 private String screenKind;
+private int screenPlus;
+private MultipartFile screenFile;
 
+public int getScreenPlus() {
+	return screenPlus;
+}
+public void setScreenPlus(int screenPlus) {
+	this.screenPlus = screenPlus;
+}
+public MultipartFile getScreenFile() {
+	return screenFile;
+}
+public void setScreenFile(MultipartFile screenFile) {
+	this.screenFile = screenFile;
+}
 public Long getTheaterNum() {
 	return theaterNum;
 }
