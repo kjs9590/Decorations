@@ -28,6 +28,7 @@ public class TheaterMainController {
 	@RequestMapping(value="/TheaterScreenList" ,method=RequestMethod.POST)
 	public String theaterScreenList(Model model,@RequestParam(value="num") Long num) {
 		theaterMainService.theaterScreenList(model,num);
+		
 		return "Movie/MovieScreenAjax";
 	}
 	

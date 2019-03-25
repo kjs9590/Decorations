@@ -16,6 +16,7 @@
 		<typeAlias type="Model.TheaterRegisterDTO" alias="TheaterRegisterDTO"/>
 		<typeAlias type="Model.AnswerDTO" alias="AnswerDTO"/>
 		<typeAlias type="Model.MovieRegisterDTO" alias="MovieRegisterDTO"/>
+		<typeAlias type="Model.ScreenDTO" alias="ScreenDTO"/>
 		
 	</typeAliases>
 

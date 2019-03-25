@@ -15,6 +15,9 @@
 <!-- MovieSevice	 -->
 <bean id="movieRegisterService" class="Service.MovieRegisterService"/> 
 <bean id="movieDetailService" class="Service.MovieDetailService"/> 
+<!-- ScreenService -->
+<bean id="screenRegisterService" class="Service.ScreenRegisterService"/> 
+
 
 <!-- Repository	 -->
 <bean id="memberSessionRepository" class="Repository.MemberSessionRepository"/>	
@@ -23,6 +26,8 @@
 <bean id="theaterRegisterRepository" class="Repository.TheaterRegisterRepository"/>		
 <bean id="movieRegistRepository" class="Repository.MovieRegistRepository"/>	
 <bean id="movieDetailRepository" class="Repository.MovieDetailRepository"/>	
+<bean id="screenRegisterRepository" class="Repository.ScreenRegisterRepository"/>	
+
 
 </beans>
 

@@ -18,7 +18,7 @@ public class TheaterRegisterService {
     public void theaterRegister(Model model,TheaterRegisterCommend tRcommend) {
 //		String theaterName, String theaterAdd, String theaterArea, String theaterTell,
 //		String theaterKind
-    	System.out.println(tRcommend.getTheaterName()+"뭐야");
+    	System.out.println(tRcommend.getTheaterName()+"tRcommend.getTheaterName()");
 		String area=tRcommend.getAddress().substring(0,2);
 		String address=tRcommend.getAddress()+" "+tRcommend.getAddressDetail();
 		System.out.println(tRcommend.getTell()[0]+"안들어왔나");

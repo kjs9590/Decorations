@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import Model.MovieRegisterDTO;
+import Model.ScreenDTO;
 import Model.TheaterRegisterDTO;
 import Repository.MovieRegistRepository;
+import Repository.ScreenRegisterRepository;
 import Repository.TheaterRegisterRepository;
 
 public class TheaterMainService {
@@ -16,7 +18,8 @@ public class TheaterMainService {
 	private TheaterRegisterRepository theaterRegisterRepository;
 	@Autowired
 	private MovieRegistRepository movieRegistRepository;
-	
+	@Autowired
+	private ScreenRegisterRepository screenRegisterRepository;
 	public void theaterList(Model model,String area,String kind) {
 
 	List<TheaterRegisterDTO> list=theaterRegisterRepository.listTheater(area, kind);
@@ -24,10 +27,12 @@ public class TheaterMainService {
 	model.addAttribute("list",list);
 	}
 	public void theaterScreenList(Model model,Long num) {
-
+  
 	TheaterRegisterDTO tRdto=theaterRegisterRepository.screenList(num);
+	List<ScreenDTO> sList=screenRegisterRepository.screenList(num);
 	
 	model.addAttribute("tRdto",tRdto);
+	model.addAttribute("sList",sList);
 	}
 	public void movieList(Model model) {
 

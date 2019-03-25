@@ -11,6 +11,7 @@
 	<bean class="Controller.MovieController.TheaterRegisterController" />
 	<bean class="Controller.MovieController.MovieRegisterController" />
 	<bean class="Controller.MovieController.MovieDetailController" />
+	<bean class="Controller.MovieController.ScreenController" />
 	
 	
 	
