@@ -66,11 +66,11 @@ public class LoginService {
 		}
 		else {
 			result=2;	
-			ChargerDTO num = loginRepository.chargeNum(loginCommand.getId());
+			int num = loginRepository.chargeNum(loginCommand.getId()).getChargeNum();
 			ChargerDTO chargerDTO = new ChargerDTO();
 			chargerDTO.setChargeId(loginCommand.getId());
 			chargerDTO.setChargePw(loginCommand.getPassword());
-			/*chargerDTO.setChargeNum(num);*/
+			chargerDTO.setChargeNum(num);
 			System.out.println("loginCommand"+loginCommand.getId());
 
 			session.setAttribute("chargerDTO", chargerDTO);
