@@ -31,7 +31,7 @@
 		select
 			<include refid="customerservice" />
 			from counter
-			WHERE BOARD_KIND != '공지사항'
+			order by Board_Num
 	</select>
 	
 	<select id="detail" resultMap="listrs" parameterType="int">

@@ -7,7 +7,13 @@
 <%@page import="Model.MovieRegisterDTO,Model.ChargerDTO,java.util.*"%>  
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>
 <% int num=(int)request.getAttribute("num"); %>
-<%int chargeNum = Charge.getChargeNum(); %>
+
+<%--  <%int chargeNum = Charge.getChargeNum(); %> --%>
+
+<%--  <%if(Charge !=null){ %>
+<% chargeNum = Charge.getChargeNum();} %> --%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,24 +108,28 @@
              	 <td id="tdsub" >
               	답변
               	</td>
-              	<c:set var="loginId" value="${memberDTO.getMemberId() }" />
-                	<c:if test="${loginId != null }">
-                    <td colspan="5" id="tdcon">
-			                     <textarea rows="20" cols="80" readonly="readonly" name="AnswerContent">${info.getAnswerContent() }</textarea>        
-                    </td>
-                    </c:if>
+              <c:set var="loginId" value="${memberDTO.getMemberId() }" />
+                	<c:if test="${loginId != null }"> 
+                  <td colspan="5" id="tdcon">
+			                     <textarea rows="20" cols="80" readonly="readonly" name="AnswerContent">${answerinfo.getAnswerContent() }</textarea>        
+                    </td> 
+                    </c:if> 
                     
-                    <c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
+                   <c:set var="AdminloginId" value="${chargerDTO.getChargeId()}" />
                 	<c:if test="${AdminloginId != null}">
                 	<td colspan="5" id="tdcon">
-			                     <textarea rows="20" cols="80" name="AnswerContent" >${info.getAnswerContent() }</textarea>           
-			                      <input type="hidden" name="BoardNum" / value="<%=num%>">
-			                      <input type="hidden" name="ChargeNum" / value="<%=chargeNum%>">
+                				
+			                     <textarea rows="20" cols="80" name="AnswerContent" >${answerinfo.getAnswerContent() }</textarea>           
+			                      <input type="hidden" name="BoardNum"  value="<%=num%>">
+			                     <%if(Charge !=null){ %>
+                           <% int chargeNum = Charge.getChargeNum();%>
+                           <input type="hidden" name="ChargeNum"  value="<%=chargeNum%>">
+                              <%} %>
 			            
 			                     <button onclick="location.href='Main'" type="submit">확인</button>
 			                      
                     </td>
-                    </c:if>
+                     </c:if> 
                 </tr>
     
                 <tr>

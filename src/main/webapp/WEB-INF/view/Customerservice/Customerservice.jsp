@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="Model.ChargerDTO,java.util.*"%>  
+	<% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,33 +84,78 @@
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.getBoardDate() }"/></th>
                 </tr>
                 </c:forEach>
-                
+                <!-- 회원 화면 -> 답변완료 -->
                 <c:forEach items="${customerservice}" var="list">
                 <tr>
-                	<%-- <c:set var="loginId" value="${memberDTO.getMemberId() }" />
-                	<c:if test="${list.getMemberId() == loginId}"> --%>
+                	 <c:set var="loginId" value="${memberDTO.getMemberId() }" />
+                	<c:if test="${list.getMemberId() == loginId}"> 
+                	<c:if test="${list.getChargeNum() != null }">
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a>
-                    </th>
+                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span>
+                    </th> 
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
-                  <%--   </c:if> --%>
+                	</c:if>
+                  </c:if>
+                
+                </tr>
+                </c:forEach>
+                <!--회원 화면 -> 답변대기 -->
+                <c:forEach items="${customerservice}" var="list">
+                <tr>
+                	 <c:set var="loginId" value="${memberDTO.getMemberId() }" />
+                	<c:if test="${list.getMemberId() == loginId}"> 
+                	<c:if test="${list.getChargeNum() == null }">
+                   <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
+                    <th id="kind">${list.getBoardKind() }</th>
+                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</span>
+                    </th> 
+                    <th id="writer">${list.getMemberId() }</th>
+                    <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
+                	</c:if>
+                  </c:if>
+                
                 </tr>
                 </c:forEach>
                 
-               <%-- <c:forEach items="${customerservice}" var="list">
+                
+                <!--  -->
+                
+                <!-- 관리자화면 -> 답변 완료 -->
+                <c:forEach items="${customerservice}" var="list">
                 <tr>
+               		
                 	<c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
                 	<c:if test="${AdminloginId != null}">
-                    <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th>
+                	<c:if test="${list.getChargeNum() != null }">
+                   <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a></th>
+                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span></th>
+                    
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
+                    	</c:if>
                     </c:if>
                 </tr>
-              </c:forEach> --%>
+              </c:forEach>
+              <!-- 관리자 화면 -> 답변대기 -->
+               <c:forEach items="${customerservice}" var="list">
+                <tr>
+               		
+                	<c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
+                	<c:if test="${AdminloginId != null}">
+                	<c:if test="${list.getChargeNum() == null }">
+                   <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
+                    <th id="kind">${list.getBoardKind() }</th>
+                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</th>
+                    
+                    <th id="writer">${list.getMemberId() }</th>
+                    <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
+                    	</c:if>
+                    </c:if>
+                </tr>
+              </c:forEach>
             </table>
 				<button onclick="location.href='Write'">문의하기</button>
             <div class="paging">
