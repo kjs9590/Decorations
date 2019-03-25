@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainMapper">
+	<cache />
+	
+	
+	
+	
+	<!-- 레스토랑리스트 -->
+
+	
+	<select id="restaturantList" resultMap="restaturantList">
+		SELECT 
+			RESTAURANT_NUM, RESTAURANT_NAME, RESTAURANT_KIND, RESTAURANT_ADD, RESTAURANT_AREA,
+			RESTAURANT_IMAGE,RESTAURANT_IMGSTORE, RESTAURANT_TELL, RESTAURANT_INFO ,TABLE_COUNT
+		FROM RESTAURANT
+	</select>
+
+	<resultMap type="RestaurantDTO" id="restaturantList">
+		<id column="RESTAURANT_NUM" jdbcType="BIGINT" property="restaurantNum" />
+		<result column="RESTAURANT_NAME" jdbcType="VARCHAR" property="restaurantName" />
+		<result column="RESTAURANT_KIND" jdbcType="VARCHAR" property="restaurantKind" />
+		<result column="RESTAURANT_ADD" jdbcType="VARCHAR" property="restaurantAdd" />
+		<result column="RESTAURANT_AREA" jdbcType="VARCHAR" property="restaurantArea" />
+		<result column="RESTAURANT_IMGSTORE" jdbcType="VARCHAR" property="restaurantImgStore" />
+		<result column="RESTAURANT_IMAGE" jdbcType="VARCHAR" property="restaurantImage" />
+		<result column="RESTAURANT_TELL" jdbcType="VARCHAR" property="restaurantTell" />
+		<result column="RESTAURANT_INFO" jdbcType="VARCHAR" property="restaurantInfo" />
+		<result column="TABLE_COUNT" jdbcType="BIGINT" property="tableCount" />
+	</resultMap>
+
+
+
+	<!-- 숙소 리스트  -->
+	<select id="accomodationList" resultMap="accomodationList">
+		select ACCOMODATION_NUM,
+		ACCOMODATION_NAME ,ACCOMODATION_ADD,
+		ACCOMODATION_AREA,
+		ACCOMODATION_KIND, ACCOMODATION_TELL,
+		ACCOMODATION_IMGSTORE,
+		ACCOMODATION_INFORM ,ACCOMODATION_AVG 
+		from ACCOMODATION
+	</select>
+    
+	
+	<resultMap type="AccomodationDTO" id="accomodationList">
+		<id column="ACCOMODATION_NUM" jdbcType="BIGINT"
+			property="accomodationNum" />
+		<result column="ACCOMODATION_NAME" jdbcType="VARCHAR"
+			property="accomodationName" />
+		<result column="ACCOMODATION_ADD" jdbcType="VARCHAR"
+			property="accomodationAdd" />
+		<result column="ACCOMODATION_AREA" jdbcType="VARCHAR"
+			property="accmodationArea" />
+		<result column="ACCOMODATION_KIND" jdbcType="VARCHAR"
+			property="accmodationKind" />
+		<result column="ACCOMODATION_TELL" jdbcType="VARCHAR"
+			property="accmodationTell" />
+		<result column="ACCOMODATION_INFORM" jdbcType="VARCHAR"
+			property="accomodationInform" />
+		<result column="ACCOMODATION_IMGSTORE" jdbcType="VARCHAR"
+			property="accmodationImgstore" />
+		<result column="ACCOMODATION_AVG" jdbcType="BIGINT"
+			property="accomodationAvg" />
+	
+	</resultMap>
+	
+</mapper>

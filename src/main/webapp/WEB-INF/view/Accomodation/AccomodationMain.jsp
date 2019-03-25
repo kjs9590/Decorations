@@ -9,16 +9,15 @@
 <html lang="UTF-8">
 
 <head>
-<meta charset="UTF-8">
-<title>accomodation</title>
+	<meta charset="UTF-8">
+	<title>accomodation</title>
 
-<script src="../JS/AccomodationMain.js"></script>
-<link href="../CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
-</head>
-
+	<script src="../JS/AccomodationMain.js"></script>
+	<link href="../CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
     <link href="../CSS/header.css" rel="stylesheet" type="text/css">
-
 </head>
+
+
 
 <!-- 헤더 인클루드 밑에 헤더 지우기-->
 

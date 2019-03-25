@@ -81,28 +81,27 @@
 
 
 				<ul class="list">
-					<c:forEach items="${Festivallist}" var="list">
+					<c:forEach items="${list}" var="list">
 						<li class="list">
 						<a href="RestaurantDetail?num=${list.restaurantNum }">
-								<div class="res_list">
-									<ul class="res_list">
-										<li><img src="Restaurant/upfile/${list.restaurantImage }"
-											width="300" height="150"></li>
-										<li id="kind">${list.restaurantKind }</li>
-										<li id="name">${list.restaurantName }</li>
-										<li id="loc">${list.restaurantArea }</li>
-									</ul>
-								</div>
+							<div class="res_list">
+								<ul class="res_list">
+									<li>
+										<img src="Restaurant/upfile/${list.restaurantImgStore }"width="300" height="150"></li>
+									<li id="kind">${list.restaurantKind }</li>
+									<li id="name">${list.restaurantName }</li>
+									<li id="loc">${list.restaurantArea }</li>
+								</ul>
+							</div>
 						</a>
 						</li>
 					</c:forEach>
-			<div id="paging_box">
-			<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
-			<a href="?page=${i}">${i}</a>
-			</c:forEach>
-	
-		</div>
 				</ul>
+				<div id="paging_box">
+					<c:forEach begin="${paging.startPage}" end="${paging.endPage }"  step="1" var="i">	
+						<a href="?page=${i}">${i}</a>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>
