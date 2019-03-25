@@ -25,6 +25,12 @@
 		WHERE member_id = #{id}
 	</update>
 	
+	<select id="chargerno" parameterType="string" resultMap="clogin">
+		select
+		charge_num 
+		FROM CHARGER
+		WHERE charge_id = #{id}
+	</select>
 	
 	
 	<resultMap type="MemberDTO" id="login">

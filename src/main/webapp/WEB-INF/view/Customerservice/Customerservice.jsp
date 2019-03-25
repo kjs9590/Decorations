@@ -84,33 +84,30 @@
                 
                 <c:forEach items="${customerservice}" var="list">
                 <tr>
-                	<c:set var="loginId" value="${memberDTO.getMemberId() }" />
-                	<c:set var="answer" value="${answerinfo.getAnswerContent() }" /> 
-                	<c:if test="${list.getMemberId() == loginId}">
+                	<%-- <c:set var="loginId" value="${memberDTO.getMemberId() }" />
+                	<c:if test="${list.getMemberId() == loginId}"> --%>
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
                     <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a>
-                  	<c:if test="${list.getBoardAnswer() == null }">[답변대기]</c:if>
-				  	<c:if test="${list.getBoardAnswer() != null }">[답변완료]</c:if>
                     </th>
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
-                    </c:if>
+                  <%--   </c:if> --%>
                 </tr>
                 </c:forEach>
                 
-               <c:forEach items="${customerservice}" var="list">
+               <%-- <c:forEach items="${customerservice}" var="list">
                 <tr>
                 	<c:set var="AdminloginId" value="${chargerDTO.getChargeId() }" />
                 	<c:if test="${AdminloginId != null}">
-                    <%-- <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
+                    <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th>
                     <th id="kind">${list.getBoardKind() }</th>
                     <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a></th>
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
                     </c:if>
                 </tr>
-              </c:forEach>
+              </c:forEach> --%>
             </table>
 				<button onclick="location.href='Write'">문의하기</button>
             <div class="paging">

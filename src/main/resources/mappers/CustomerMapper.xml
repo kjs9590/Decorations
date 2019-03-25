@@ -7,9 +7,9 @@
 	BOARD_NUM,MEMBER_ID,CHARGE_NUM,BOARD_CONTENT,BOARD_DATE,BOARD_ANSWER,BOARD_KIND,BOARD_TITLE
 	</sql>
 	<!-- 답변쓰기 -->
-	<insert id="answerinsert" parameterType="AnswerDTO">
+	<insert id="answerinsert" parameterType="CustomerserviceDTO">
 		insert into board (BOARD_ANSWER_NUM,BOARD_NUM,ANSWER_CONTENT,ANSER_DATE,ANSER_TIME)
-		values((select nvl(max(BOARD_NUM),0) +1 from board),(select nvl(max(BOARD_NUM),0) +1 from board),#{AnswerContent},sysdate,0420)
+		values((select nvl(max(BOARD_NUM),0) +1 from board),#{BoardNum},#{AnswerContent},sysdate,0420)
 	</insert>
 	
 	<insert id="cinsert" parameterType="CustomerserviceDTO">
@@ -64,7 +64,10 @@
 			
 	</select>
 	
-	
+	<update id="answerupdate" parameterType="hashmap" >
+		update counter set CHARGE_NUM = #{chargeNum}
+		where  BOARD_NUM = #{boardNum}
+	</update>
 	
 
 	

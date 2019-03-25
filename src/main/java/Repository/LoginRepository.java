@@ -29,5 +29,11 @@ public class LoginRepository {
 		
 	}
 
+	public int chargeNum(String id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("LoginMapper.chargerno", id);
+		
+	}
+
 
 }
