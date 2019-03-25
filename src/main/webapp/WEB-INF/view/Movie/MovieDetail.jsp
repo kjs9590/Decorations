@@ -52,7 +52,7 @@
 					<p>감독 : 애너 보든 , 라이언 플렉 </p>
 					<p>배우 : 브리 라슨 , 사무엘 L. 잭슨 , 벤 멘델슨 , 주드 로</p>
 					<p>장르 : <%=mRdto.getMovieKind() %>/<%=mRdto.getMovieAge() %></p>
-					<p>시간 : <%=mRdto.getMovieTime() %></p>
+					<p>시간 : <%=mRdto.getMovieTime() %> 시간</p>
 				</div>
 			
 			</div>

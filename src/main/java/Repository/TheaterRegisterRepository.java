@@ -16,7 +16,7 @@ public class TheaterRegisterRepository {
 	
 	
 	public Integer insertTheater(TheaterRegisterDTO tRdto) {
-        return sqlSession.insert("TheaterMapper.insertTheater", "");
+        return sqlSession.insert("TheaterMapper.insertTheater",tRdto);
 	}
 	public List<TheaterRegisterDTO> listTheater(String area,String kind) {
 		HashMap<String, Object> map = new HashMap<String, Object>();

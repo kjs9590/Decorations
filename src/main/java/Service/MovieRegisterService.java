@@ -35,6 +35,7 @@ public class MovieRegisterService {
        
 		for(MultipartFile report : reports) {
 			originalFile = report.getOriginalFilename();
+			System.out.println(originalFile+"originalFile");
 			originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
 			storeFile = UUID.randomUUID().toString().replaceAll("-", "");
 			storeFile = storeFile + originalFileExtension;

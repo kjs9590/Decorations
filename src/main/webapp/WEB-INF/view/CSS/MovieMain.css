@@ -79,7 +79,7 @@ a{
 }
 
 #ad_img {
-	width: 80%;
+	width: 75%;
 	height: 370px;
 	float: left;
 }
@@ -237,7 +237,18 @@ legend {
 	height: auto;
 	word-break: break-all;
 }
-
+.movieMention input{
+	margin-left: 23%;
+	width: 50%;
+	border: solid 2px gray;
+	margin-bottom: 4%;
+}
+.movieMention select{
+	margin-left: 23%;
+	width: 51.5%;
+	border: solid 2px gray;
+	
+}
 .movieMention h3 {
 	margin-top: 10%;
 	margin-bottom: -5px;
@@ -281,7 +292,7 @@ legend {
 	width: 30%;
 	height: 308px;
 	position: relative;
-	left: 65%;
+	left: 60%;
 	top: -330px;
 }
 

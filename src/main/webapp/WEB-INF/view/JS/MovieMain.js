@@ -26,7 +26,6 @@ function MovieRegister(){
 	function theaterChoice(num) {
 		var num=num.split(".")
 		var num=num[0]
-		alert(num[0])
 		$.ajax({
 			type : "POST",
 			url : "TheaterScreenList",

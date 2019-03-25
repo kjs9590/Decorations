@@ -7,7 +7,7 @@ String img[];
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>
 <!DOCTYPE html>
 <html>
-
+<%=Charge.getChargeNum() %>
 <head>
     <meta charset="UTF-8">
     <!--제목 설정-->
