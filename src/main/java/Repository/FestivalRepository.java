@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Commend.FestivalOptionCommand;
 import Model.FestivalDTO;
 import other.AutoPaging;
 @Repository
@@ -66,6 +67,12 @@ public class FestivalRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("FestivalMapper.paginglistcount");
 	}
+
+
+
+
+	
+	
 
 
 

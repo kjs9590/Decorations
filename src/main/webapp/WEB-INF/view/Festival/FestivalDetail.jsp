@@ -56,20 +56,20 @@
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
-		<div id="festival_img_box"><img src="../images/festival_detail1.jpg"></div>
-		
+		<div id="festival_img_box"><img src="../Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
+		<form action="Order" method="get">
 		<table id="festival_info">
 			<tr>
 				<td class="subject">개최지역</td>
-				 <td class="info">${Festivaldetail.getFESTIVALAREA() }</td>
+				 <td class="info">${Festivaldetail.FESTIVALAREA }</td>
 			</tr>
 			<tr>
 				<td class="subject">개최기간</td>
-		<td class="info">${Festivaldetail.getFESTIVALTERM() }</td>
+		<td class="info">${Festivaldetail.FESTIVALTERM }</td>
 			</tr>
 			<tr>
 				<td class="subject">축제성격</td>
-			<td class="info">${Festivaldetail.getFESTIVALKING() }</td> 
+			<td class="info">${Festivaldetail.FESTIVALKING }</td> 
 			</tr>
 		<!-- 	<tr>
 				<td class="subject">관련 누리집</td>
@@ -77,7 +77,7 @@
 			</tr> -->
 			<tr>
 				<td class="subject">축제장소</td>
-			<td class="info">${Festivaldetail.getFESTIVALADD() }</td> 
+			<td class="info">${Festivaldetail.FESTIVALADD }</td> 
 			</tr>
 			<!-- <tr>
 				<td class="subject">오시는길</td>
@@ -85,7 +85,7 @@
 			</tr> -->
 			<tr>
 				<td class="subject">요금</td>
-				<td class="info">${Festivaldetail.getFESTIVALFARE() }원</td> 
+				<td class="info">${Festivaldetail.FESTIVALFARE }원</td> 
 			</tr>
 			<!-- <tr>
 				<td class="subject">소요시간</td>
@@ -97,22 +97,34 @@
 			</tr> -->
 			<tr>
 				<td class="subject">주최기간</td>
-			<td class="info">${Festivaldetail.getFESTIVALAREA() }</td> 
+			<td class="info">${Festivaldetail.FESTIVALAREA }</td> 
 			</tr>
 			<tr>
 				<td class="subject">문의</td>
-			<td class="info">${Festivaldetail.getFESTIVALTELL() }</td> 
+			<td class="info">${Festivaldetail.FESTIVALTELL }</td> 
+			</tr>
+			<tr>
+			<td class="subject">날짜선택</td>
+			<td class="info"><input type="date" name="festivalDate"></td> 
 			</tr>
 		</table>
-
+		<input type="hidden" name="PRODUCTNUM" value="${Festivaldetail.PRODUCTNUM }">
+		<input type="hidden" name="CATEGORYNUM" value="${Festivaldetail.CATEGORYNUM }">
+		<input type="hidden" name="festivalType" value="${Festivaldetail.categoryName }">
+		<input type="hidden" name="festivalName" value="${Festivaldetail.FESTIVALNAME }">
+		<input type="hidden" name="festivalPrice" value="${Festivaldetail.FESTIVALFARE }">
+		<input type="hidden" name="festivalimg" value="${Festivaldetail.FESTIVALIMG }">
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }
 		</div>
 		
 		<div id="festival_list">
+			<button type="submit">예약하러가기</button>
 			<button type="button" onclick="location.href='Main' ">목록</button>
+			
 		</div>
+		</form>
 </div>
 <!-- Content 끝 -->
 <!-- Footer 시작 -->

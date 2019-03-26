@@ -47,11 +47,11 @@ public class CustomerserviceBoardController {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
 			
 			
-			/*//답변빼기
+			//답변빼기
 			AnswerDTO answerinfo = customerserviceboardservice.answerinfo(num);
-			session.setAttribute("info", answerinfo);
+			/*session.setAttribute("info", answerinfo);*/
 			model.addAttribute("answerinfo", answerinfo);
-			*/
+			
 			model.addAttribute("detail", detail); 
 			model.addAttribute("num", num); 
 			return "Notice/NoticeDetail";
@@ -64,11 +64,11 @@ public class CustomerserviceBoardController {
 			//답글쓰기
 			Integer answer = customerserviceboardservice.answer(cus);
 			System.out.println("담당자번호"+cus.getChargeNum());
-
+			
 			System.out.println("글번호"+cus.getBoardNum());
 			//업데이트 (번호,관리자)
-			customerserviceboardservice.InsertCnum(cus.getChargeNum(),cus.getBoardNum());
-
+			Integer charno = customerserviceboardservice.InsertCnum(cus.getChargeNum(),cus.getBoardNum());
+			
 			model.addAttribute("answer", answer);
 			return "redirect:/Customer/Main";
 		}

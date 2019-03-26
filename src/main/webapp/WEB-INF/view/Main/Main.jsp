@@ -73,7 +73,31 @@ function slide(id, dir, n)
 			</div>
 
 		</div>
-		<div id="movie"></div>
+		<div id="movie">
+			<div class="wrap_accommodation">
+				<div class="main_img"><a href="TheaterMain"><img src="${pageContext.request.contextPath }/images/hotel.jpg" alt=""
+				width="1200" height="500"></a></div>
+				<div class="main_list">
+				<ul id="slideShow">
+                    <c:forEach items="${movieList}" var="list">
+					<li>
+					<div class="listContent">
+					<img src="Movie/upfile/${list.movieStoreimg}" />
+						<div class="mention" style="line-height: 2em">
+				<%-- 			<h2>${list.movieTitel}</h2> --%>
+						</div>
+					</div>
+					</li>
+                   </c:forEach>
+				
+				</ul>
+				</div>
+			</div>
+			<div id="controll">
+				<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
+				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
+			</div>		
+		</div>
 		
 		<div id="accommodation">
 			<div class="wrap_accommodation">
@@ -86,8 +110,8 @@ function slide(id, dir, n)
 					<div class="listContent">
 					<img src="Accomodation/upfile/${list.accmodationImgstore}" />
 						<div class="mention" style="line-height: 2em">
-							<h2>${list.accomodationName} ${list.accmodationKind}</h2>
-						</div>
+<%-- 							<h2>${list.accomodationName}</h2><h3> ${list.accmodationKind}</h3>
+ --%>						</div>
 					</div>
 					</li>
                    </c:forEach>
@@ -119,7 +143,24 @@ function slide(id, dir, n)
 				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
 			</div>
 		</div>
-		<div id="festival"></div>
+		<div id="festival">
+		<%-- 	<div class="wrap_restaurant">
+				<div class="main_img"><a href=""><img src="" alt="" width="1200" height="500"></a></div>
+				<div class="main_list">
+				<ul id="slideShow">
+					<c:forEach items="${movieList}" var="list">
+						<li><div class="img_list">
+							<a href="RestaurantDetail?num=${list.FESTIVALNUM }"><img src="Restaurant/upfile/${list.FESTIVALIMG }"width="380" height="300" alt="${list.FESTIVALIMG }"/></a>
+						</div></li>
+					</c:forEach>
+				</ul>
+				</div>
+			</div>
+			<div id="controll">
+				<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
+				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
+			</div> --%>
+		</div>
 	</div>
 </body>
 </html>
