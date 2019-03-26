@@ -28,7 +28,7 @@
 	<resultMap type="MovieRegisterDTO" id="movieList">
 		<id column="MOVIE_NUM" jdbcType="BIGINT"
 			property="movieNum" />
-		<result column="MOVIE_TITEL" jdbcType="BIGINT"
+		<result column="MOVIE_TITEL" jdbcType="VARCHAR"
 			property="movieTitel" />
 		<result column="MOVIE_KIND" jdbcType="VARCHAR"
 			property="movieKind" />

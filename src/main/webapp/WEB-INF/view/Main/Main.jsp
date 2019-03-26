@@ -86,7 +86,7 @@ function slide(id, dir, n)
 					<div class="listContent">
 					<img src="Accomodation/upfile/${list.accmodationImgstore}" />
 						<div class="mention" style="line-height: 2em">
-							<h2>${list.accomodationName} ${list.accmodationKind}</h2>
+							<h2>${list.accomodationName}</h2><h3> ${list.accmodationKind}</h3>
 						</div>
 					</div>
 					</li>
