@@ -66,7 +66,7 @@
                         <td colspan="3">  <p id="info_box">옵션선택</p></td>
                     </tr>
                     <tr>
-                        <td rowspan="9"><img src="../images/cake.png" alt="" width="400" height="400"></td>
+                        <td rowspan="9"><img src="../Festival/${command.festivalimg }" alt="" width="400" height="400"></td>
                     </tr>
                     <tr>
                         <td id="sub">타입</td>
@@ -74,11 +74,18 @@
                     </tr>
                     <tr>
                         <td id="sub">이름</td>
-                        <td id="con">영화제목,축제이름</td>
+                        <td id="con">${command.festivalName }</td>
                     </tr>
                     <tr>
                         <td id="sub">날짜</td>
-                        <td id="con"><fmt:formatDate pattern="yyyy-MM-dd" value="${command.festivalDate }"/>
+                        <!-- 날짜 미선택시 -->
+                        <c:if test="${command.festivalDate == null }">
+                       		 <td id="con"><span style="color: red;">이전페이지에서 날짜를 선택해 주세요!</span>
+                      	 </c:if>
+                      	 <!-- 날짜 선택시  -->
+                       <c:if test="${command.festivalDate != null }">
+                       		 <td id="con"><fmt:formatDate pattern="yyyy-MM-dd" value="${command.festivalDate }"/><span style="color: red;"></span>
+                      </c:if>
                     </tr>
                     <tr>
                         <td id="sub">시간</td>
@@ -100,7 +107,7 @@
                     </tr>
                     <tr>
                         <td id="sub">가격</td>
-                        <td id="con">50000원</td>
+                        <td id="con">${command.festivalPrice }원</td>
                     </tr>
                     <tr>
                         <td id="sub">옵션</td>

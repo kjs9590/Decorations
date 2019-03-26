@@ -111,6 +111,9 @@
 		<input type="hidden" name="PRODUCTNUM" value="${Festivaldetail.PRODUCTNUM }">
 		<input type="hidden" name="CATEGORYNUM" value="${Festivaldetail.CATEGORYNUM }">
 		<input type="hidden" name="festivalType" value="${Festivaldetail.categoryName }">
+		<input type="hidden" name="festivalName" value="${Festivaldetail.FESTIVALNAME }">
+		<input type="hidden" name="festivalPrice" value="${Festivaldetail.FESTIVALFARE }">
+		<input type="hidden" name="festivalimg" value="${Festivaldetail.FESTIVALIMG }">
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }
