@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class FestivalDTO implements Serializable{
 	private String FESTIVALNUM;
@@ -16,7 +17,6 @@ public class FestivalDTO implements Serializable{
 	private String FESTIVALNAME;
 	private String FESTIVALAREA;
 	private String FESTIVALIMG;
-	
 	
 	public String getFESTIVALNUM() {
 		return FESTIVALNUM;

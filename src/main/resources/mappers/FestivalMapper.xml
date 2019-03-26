@@ -19,6 +19,14 @@
     	FESTIVAL_IMG
 	</sql>
 	
+	<!-- 
+	<resultMap type="FestivalOptionCommand" id="option">
+		
+	</resultMap>
+	축제옵션
+	<select id="optionlist" parameterType="FestivalOptionCommand" resultMap="option">
+	
+	</select> -->
 	
 	<resultMap type="FestivalDTO" id="baseCommentDTO">
 		<id column="FESTIVAL_NUM" jdbcType="BIGINT" property="FESTIVALNUM"/>

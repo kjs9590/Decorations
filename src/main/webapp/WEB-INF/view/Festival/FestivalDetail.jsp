@@ -56,7 +56,7 @@
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
-		<div id="festival_img_box"><img src="../images/festival_detail1.jpg"></div>
+		<div id="festival_img_box"><img src="../Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
 		
 		<table id="festival_info">
 			<tr>
@@ -103,6 +103,10 @@
 				<td class="subject">문의</td>
 			<td class="info">${Festivaldetail.getFESTIVALTELL() }</td> 
 			</tr>
+			<tr>
+			<td class="subject">날짜선택</td>
+			<td class="info"><input type="date" id="FESTIVALSELECT"></td> 
+			</tr>
 		</table>
 
 		<div id="festival_contents">
@@ -111,6 +115,7 @@
 		</div>
 		
 		<div id="festival_list">
+			<button type="submit" onclick="location.href='Order' ">예약하러가기</button>
 			<button type="button" onclick="location.href='Main' ">목록</button>
 		</div>
 </div>
