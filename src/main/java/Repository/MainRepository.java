@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.AccomodationDTO;
+import Model.FestivalDTO;
+import Model.MovieRegisterDTO;
 import Model.RestaurantDTO;
 
 public class MainRepository {
@@ -22,5 +24,15 @@ public class MainRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("MainMapper.accomodationList");
 	}
+
+	public List<MovieRegisterDTO> movieList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("MainMapper.movieList");
+	}
+
+/*	public List<FestivalDTO> festivalList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("MainMapper.festivalList");
+	}*/
 
 }
