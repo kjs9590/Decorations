@@ -18,8 +18,10 @@ public class MainController {
 	@RequestMapping(value="/Main",method=RequestMethod.GET)
 	public String main(Model model) {
 		
-		mainService.restaurantList(model);
-		mainService.accomodationList(model);
+		mainService.restaurantList(model);		//레스토랑 리스트 부르는 거 
+		mainService.accomodationList(model); 	// 숙박 리스트 부르는 거 
+		mainService.movieList(model); 			//영화 리스트 부르기
+	//	mainService.festivalList(model); 		//축제 리스트
 		return "Main/Main";
 	}
 	

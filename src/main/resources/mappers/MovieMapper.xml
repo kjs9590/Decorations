@@ -32,7 +32,7 @@
 			property="movieTitel" />
 		<result column="MOVIE_KIND" jdbcType="VARCHAR"
 			property="movieKind" />
-		<result column="MOVIE_AGE" jdbcType="BIGINT"
+		<result column="MOVIE_AGE" jdbcType="VARCHAR"
 			property="movieAge" />
 		<result column="MOVIE_TIME" jdbcType="BIGINT"
 			property="movieTime" />
