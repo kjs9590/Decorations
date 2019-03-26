@@ -32,8 +32,16 @@ insert into SCREEN (SCREEN_NUM, THEATER_NUM,SCREEN_KIND,
 		<result column="SCREEN_NAME" jdbcType="VARCHAR" property="screenName" />
 		<result column="SCREEN_STOREIMG" jdbcType="VARCHAR" property="screenStoreimg" />
 		<result column="SCREEN_PLUS" jdbcType="BIGINT" property="screenPlus" />
-		
-	</resultMap>
+</resultMap>
+<insert id="screenMovieInsert" parameterType="DateProductMovieDTO">
+
+insert into DATEMOVIE (PRODUCT_NUM, SCREEN_NUM, THEATER_NUM,
+        CATEGORY_NUM, MOVIE_START, MOVIE_DATE, MOVIE_NUM)
+      values(#{productNum},#{screenNum},#{theaterNum},#{categoryNum},#{movieStart},sysdate,
+      #{movieNum})  
+                  
+</insert>
+
 </mapper>
 
 

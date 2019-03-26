@@ -31,11 +31,11 @@ public class MovieRegisterService {
 	public String movieInsert(Model model,MovieRegisterCommand mRcommend,HttpServletRequest request) {
 		System.out.println(request.getRealPath("/WEB-INF/view/")+"Movie\\upfile1\\");
 		String filePath = request.getRealPath("/WEB-INF/view/")+"Movie\\upfile1\\";
+		System.out.println(mRcommend.getBoardFile()+"뭐냐");
 		MultipartFile[] reports = mRcommend.getBoardFile();
        
 		for(MultipartFile report : reports) {
 			originalFile = report.getOriginalFilename();
-			System.out.println(originalFile+"originalFile");
 			originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
 			storeFile = UUID.randomUUID().toString().replaceAll("-", "");
 			storeFile = storeFile + originalFileExtension;
@@ -46,12 +46,13 @@ public class MovieRegisterService {
 				System.out.println(originalFile +" originalFile");
 				originalFiles += originalFile +"-";
 				storeFiles += storeFile + "-";
-
+                 System.out.println(originalFiles+"뭐냐");
 			}catch(Exception e) {	
 				e.printStackTrace();
 			}
 
 		}
+		System.out.println(originalFiles+"파일스");
 		MovieRegisterDTO mRdto =new MovieRegisterDTO(mRcommend.getMovieTitle(),mRcommend.getMovieKind()
 				,mRcommend.getMovieAge(),mRcommend.getMovieTime(),mRcommend.getMoviePrice()
 				,originalFiles,mRcommend.getMovieInform(),storeFiles);

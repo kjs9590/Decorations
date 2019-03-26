@@ -26,7 +26,8 @@
 <bean id="theaterRegisterRepository" class="Repository.TheaterRegisterRepository"/>		
 <bean id="movieRegistRepository" class="Repository.MovieRegistRepository"/>	
 <bean id="movieDetailRepository" class="Repository.MovieDetailRepository"/>	
-<bean id="screenRegisterRepository" class="Repository.ScreenRegisterRepository"/>	
+<bean id="screenRegisterRepository" class="Repository.ScreenRegisterRepository"/>
+<bean id="dateProductRepository" class="Repository.DateProductRepository"/>		
 
 
 </beans>

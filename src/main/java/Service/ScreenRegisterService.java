@@ -11,13 +11,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import Commend.MovieScreenCommand;
 import Commend.ScreenCommand;
+import Model.DateProductMovieDTO;
+import Model.MovieRegisterDTO;
 import Model.ScreenDTO;
+import Repository.DateProductRepository;
+import Repository.MovieRegistRepository;
 import Repository.ScreenRegisterRepository;
 
 public class ScreenRegisterService {
     @Autowired
 	private ScreenRegisterRepository screenRegisterRepository;
+    @Autowired
+    private MovieRegistRepository movieRegistRepository;
+    @Autowired
+    private DateProductRepository dateProductRepository;
     private File file = null;
 	private String originalFile = null;
 	private String originalFileExtension = null;
@@ -43,13 +52,26 @@ public class ScreenRegisterService {
 			e1.printStackTrace();
 		}
 
-		
-		
 		ScreenDTO sDto =new ScreenDTO(sCommand.getTheaterNum(),sCommand.getScreenKind(),
 				sCommand.getScreenRow(),sCommand.getScreenColum(),sCommand.getScreenName(),
 				originalFile,storeFile,sCommand.getScreenPlus());
 		screenRegisterRepository.screenInsert(sDto);
 		}
-
+	public void intoScreen(Model model,Long no1,Long no2) {
+		List<MovieRegisterDTO> Mrdto=movieRegistRepository.movieList();
+		model.addAttribute("Mrdto",Mrdto);
+		model.addAttribute("no1",no1);
+		model.addAttribute("no2",no2);
+	}
+	public void movieScreenRegister(MovieScreenCommand mScommand) {
+		int movie[]=mScommand.getTime();
+		String movieStart=movie[0]+"시"+movie[1];
+		Long num=dateProductRepository.dateProductNum();
+		dateProductRepository.dateProduct(num,2);
+		DateProductMovieDTO dPdtod= new DateProductMovieDTO(num,mScommand.getScreenNum()
+			,mScommand.getTheaterNum(),2,movieStart,mScommand.getMovieNum());
+		screenRegisterRepository.screenMovieInsert(dPdtod);
+	}
+	
 	
 }

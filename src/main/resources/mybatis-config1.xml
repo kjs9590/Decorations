@@ -17,7 +17,8 @@
 		<typeAlias type="Model.AnswerDTO" alias="AnswerDTO"/>
 		<typeAlias type="Model.MovieRegisterDTO" alias="MovieRegisterDTO"/>
 		<typeAlias type="Model.ScreenDTO" alias="ScreenDTO"/>
-		
+		<typeAlias type="Model.DateProductMovieDTO" alias="DateProductMovieDTO"/>
+
 	</typeAliases>
 
 </configuration>

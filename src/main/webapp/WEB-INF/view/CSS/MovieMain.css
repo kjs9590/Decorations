@@ -159,7 +159,13 @@ a{
 	width: 100%;
 	float: left;
 	height: auto;
+	margin-bottom: 10%;
 
+}
+#time{margin-left: 80%;}
+#submits{
+	border: solid 2px;
+	margin-bottom: 15%;
 }
 #nowplayings {
 	width: 100%;

@@ -20,7 +20,8 @@
     <!-- css 적용 : font-family: 'Noto Serif KR', serif; -->
     <!--css 설정(기본값)-->
   
- 
+
+
 </head>
 <body>
     <div class="footer">
@@ -65,7 +66,8 @@
                 <h5>${sList.screenKind}</h5>
                 <h5>좌석수: ${sList.screenRow*sList.screenColumn }</h5>
                 <h5>추가요금: +${sList.screenPlus }</h5>
-                <h5><input type="button" style="height: 50px; width: 50%; margin-top: 131px; margin-bottom: -11px; cursor: pointer;" value="영화등록" ></h5>
+                
+                <h5><input type="button" onclick="Register(${tRdto.theaterNum },${sList.screenNum})" style="height: 50px; width: 50%; margin-top: 131px; margin-bottom: -11px; cursor: pointer;" value="영화등록" ></h5>
                 </div></div>
              
             </c:forEach>
@@ -109,5 +111,16 @@
         <%} %>
         </fieldset>
         </div>
+<script type="text/javascript">
+function Register(no1,no2){
+	  alert(no1);
+	  alert("제발되라");
+		var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
+		      window.name="parentForm";
+		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=800");  
+		     
+		      self.close();
+	}
+</script>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Commend.MovieScreenCommand;
 import Commend.ScreenCommand;
 import Service.ScreenRegisterService;
 
@@ -22,5 +23,18 @@ public class ScreenController {
 	public String theaterList(Model model,ScreenCommand sCommand,HttpServletRequest request) {
 		screenRegisterService.screenInsert(sCommand,request);
 		return "redirect:TheaterMain";
+	}
+	
+	@RequestMapping(value="/MovieRegisterIntoScreen" ,method=RequestMethod.GET)
+	public String intoScreen(Model model ,@RequestParam(value="no1") Long no1,@RequestParam(value="no2") Long no2) {
+		screenRegisterService.intoScreen(model,no1,no2);
+		
+		return "Movie/MoviceScreenInsert";
+	}
+	@RequestMapping(value="/MovieScreen" ,method=RequestMethod.POST)
+	public String movieScreen(Model model,MovieScreenCommand mScommand) {
+		screenRegisterService.movieScreenRegister(mScommand);
+		
+		return "Movie/MoviceScreenInsert";
 	}
 }
