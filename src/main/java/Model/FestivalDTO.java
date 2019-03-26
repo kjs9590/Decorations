@@ -17,7 +17,22 @@ public class FestivalDTO implements Serializable{
 	private String FESTIVALNAME;
 	private String FESTIVALAREA;
 	private String FESTIVALIMG;
+	private Date festivalFinalDate; 
+	private String categoryName;
 	
+	public Date getFestivalFinalDate() {
+		return festivalFinalDate;
+	}
+	public void setFestivalFinalDate(Date festivalFinalDate) {
+		this.festivalFinalDate = festivalFinalDate;
+	}
+	
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 	public String getFESTIVALNUM() {
 		return FESTIVALNUM;
 	}

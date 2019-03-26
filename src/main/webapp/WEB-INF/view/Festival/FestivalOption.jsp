@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, Model.FestivalDTO" %>
-	<%List<FestivalDTO> list = (List)request.getAttribute("Festivallist"); %> 
+	<%List<FestivalDTO> list = (List)request.getAttribute("Festivallist"); %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
 <%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
@@ -69,7 +70,7 @@
                     </tr>
                     <tr>
                         <td id="sub">타입</td>
-                        <td id="con">영화/레스토랑..등등</td>
+                        <td id="con">${command.festivalType }</td>
                     </tr>
                     <tr>
                         <td id="sub">이름</td>
@@ -77,11 +78,25 @@
                     </tr>
                     <tr>
                         <td id="sub">날짜</td>
-                        <td id="con">2019.05.05</td>
+                        <td id="con"><fmt:formatDate pattern="yyyy-MM-dd" value="${command.festivalDate }"/>
                     </tr>
                     <tr>
                         <td id="sub">시간</td>
-                        <td id="con">13:00</td>
+                        <td id="con">
+                       		<select name="FestivalTime">
+                        		<option value="10:00">10:00</option>
+                        		<option value="11:00">11:00</option>
+                        		<option value="12:00">12:00</option>
+                        		<option value="13:00">13:00</option>
+                        		<option value="14:00">14:00</option>
+                        		<option value="15:00">15:00</option>
+                        		<option value="16:00">16:00</option>
+                        		<option value="17:00">17:00</option>
+                        		<option value="18:00">18:00</option>
+                        		<option value="19:00">19:00</option>
+                        		<option value="20:00">20:00</option>
+                        	</select>
+                        </td>
                     </tr>
                     <tr>
                         <td id="sub">가격</td>

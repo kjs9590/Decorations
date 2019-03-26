@@ -30,7 +30,7 @@
 	
 	<resultMap type="FestivalDTO" id="baseCommentDTO">
 		<id column="FESTIVAL_NUM" jdbcType="BIGINT" property="FESTIVALNUM"/>
-		<result column="PRODUCTNUM" jdbcType="BIGINT" property="PRODUCTNUM"/>
+		<result column="PRODUCT_NUM" jdbcType="BIGINT" property="PRODUCTNUM"/>
 		<result column="CATEGORY_NUM" jdbcType="BIGINT" property="CATEGORYNUM"/>
 		<result column="FESTIVAL_ADD" jdbcType="VARCHAR" property="FESTIVALADD"/>
 		<result column="FESTIVAL_TERM" jdbcType="VARCHAR" property="FESTIVALTERM"/>
@@ -42,6 +42,8 @@
 		<result column="FESTIVAL_NAME" jdbcType="NVARCHAR" property="FESTIVALNAME"/>
 		<result column="FESTIVAL_AREA" jdbcType="NVARCHAR" property="FESTIVALAREA"/>
 		<result column="FESTIVAL_IMG" jdbcType="NVARCHAR" property="FESTIVALIMG"/>
+		<result column="FESTIVAL_FINAL_DATE" jdbcType="DATE" property="festivalFinalDate"/>
+		<result column="CATEGORY_name" jdbcType="NVARCHAR" property="categoryName"/>
 	</resultMap>
   <!-- <select id="selectlist" parameterType="FestivalDTO" resultMap="baseCommentDTO">
 	SELECT
@@ -50,9 +52,23 @@
 	</select>    -->
 	
 	<select id="detail"  resultMap="baseCommentDTO" parameterType="int" >
-	SELECT
-	  		<include refid="basecolumn" />
-		FROM FESTIVAL
+	SELECT 
+	  		f.FESTIVAL_NUM,
+			f.PRODUCT_NUM,
+			f.CATEGORY_NUM,
+			f.FESTIVAL_ADD,
+			f.FESTIVAL_TERM,
+			f.FESTIVAL_INFORM,
+			f.FESTIVAL_KING,
+			f.FESTIVAL_START_DATE,
+    		f.FESTIVAL_TELL,
+    		f.FESTIVAL_FARE,
+    		f.FESTIVAL_NAME,
+    		f.FESTIVAL_AREA,
+    		f.FESTIVAL_IMG,
+    		f.FESTIVAL_final_DATE,
+    		c.CATEGORY_name
+		FROM FESTIVAL f Left outer join category c ON(f.CATEGORY_NUM = c.CATEGORY_NUM)
 		where FESTIVAL_NUM = #{num}
 	</select>  
 
