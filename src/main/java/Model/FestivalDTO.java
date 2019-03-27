@@ -19,38 +19,8 @@ public class FestivalDTO implements Serializable{
 	private String FESTIVALIMG;
 	private Date festivalFinalDate; 
 	private String categoryName;
-	private int optionNum; //옵션번호
-	private String optionProduct; //옵션명
-	private int optionPrice; // 옵션가격
-	private String optionSortation; // 옵션종류 영화/숙박/레스토랑/축제
 	
 	
-	
-	
-	public int getOptionNum() {
-		return optionNum;
-	}
-	public void setOptionNum(int optionNum) {
-		this.optionNum = optionNum;
-	}
-	public String getOptionProduct() {
-		return optionProduct;
-	}
-	public void setOptionProduct(String optionProduct) {
-		this.optionProduct = optionProduct;
-	}
-	public int getOptionPrice() {
-		return optionPrice;
-	}
-	public void setOptionPrice(int optionPrice) {
-		this.optionPrice = optionPrice;
-	}
-	public String getOptionSortation() {
-		return optionSortation;
-	}
-	public void setOptionSortation(String optionSortation) {
-		this.optionSortation = optionSortation;
-	}
 	public Date getFestivalFinalDate() {
 		return festivalFinalDate;
 	}

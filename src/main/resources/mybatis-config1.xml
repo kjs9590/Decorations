@@ -19,7 +19,7 @@
 		<typeAlias type="Model.ScreenDTO" alias="ScreenDTO"/>
 		<typeAlias type="Model.DateProductMovieDTO" alias="DateProductMovieDTO"/>
         <typeAlias type="Model.DateMovieDTO" alias="DateMovieDTO"/>
-
+		<typeAlias type="Model.OptionDTO" alias="OptionDTO"/>
 
 	</typeAliases>
 

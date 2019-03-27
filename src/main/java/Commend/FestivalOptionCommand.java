@@ -17,12 +17,7 @@ public class FestivalOptionCommand {
 	private int CATEGORYNUM; //카테고리번호
 	private int festivalPrice; //입장요금
 	private String festivalimg; // 이미지
-	/*private int optionNum; //옵션번호
-	private String optionProduct; //옵션명
-	private int optionPrice; // 옵션가격
-	private String optionSortation; // 옵션종류 영화/숙박/레스토랑/축제
-*/	
-	
+
 	
 
 	public String getFestivalimg() {
