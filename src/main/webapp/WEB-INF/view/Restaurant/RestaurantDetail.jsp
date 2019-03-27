@@ -21,57 +21,29 @@
 <script src="${pageContext.request.contextPath }/JS/datepicker.js"></script>
 <script src="${pageContext.request.contextPath }/JS/datepicker.min.js"></script>
 <script>
-        window.onload = function () {
-            var sel = document.getElementById("select");
-            //document.getElementById("sel").onclick = function(event){
-            document.getElementById("select").onclick = function (event) {
-                document.getElementById("pp").innerText = sel.value;
-            }
-            var tsel = document.getElementById("time");
-            //document.getElementById("sel").onclick = function(event){
-            document.getElementById("time").onclick = function (event) {
-                document.getElementById("tm").innerText = tsel.value;
-            }
-            }
-            
-            	
-            
-        $(function () {
 
-            $('.date').datepicker({
-                language: {
-                    days: ["일", "월", "화", "수", "목", "금", "토"],
-                    daysShort: ["1", "2", "3", "4", "5", "6", "7"],
-                    daysMin: ["일", "월", "화", "수", "목", "금", "토"],
-                    months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-                    monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-                    today: "오늘",
-                    clear: "1주일",
-                    dateFormat: "yyyy.mm.dd",
-                    timeFormat: "hh:ii",
-                    firstDay: 1
-                },
-                navTitles: {
-                    days: " <i class='date-pic-year'>yyyy</i>MM"
-                },
-                autoClose: true,
-                onSelect: function onSelect(fd) {
-                    $('.chk_date').text(fd);
-                }
 
-            });
-        });
-        $(document).ready(function () {
-            // .check 클래스 중 어떤 원소가 체크되었을 때 발생하는 이벤트
-            $(".check").click(function () {  // 여기서 .click은 체크박스의 체크를 뜻한다.
-                var str = "";  // 여러개가 눌렸을 때 전부 출력이 될 수 있게 하나의 객체에 담는다.
-                $(".check").each(function () {  // .each()는 forEach를 뜻한다.
-                    if ($(this).is(":checked"))  // ":checked"를 이용하여 체크가 되어있는지 아닌지 확인한다.
-                        str += $(this).val() + " ";  // 체크된 객체를 str에 저장한다.
-                });
-                $("#chkmenu").text(str);  // #multiPrint에 체크된 원소를 출력한다.
-            });
-        });
+$(function () {
+
+    $('.date').datepicker({
+        language: {
+            days: ["일", "월", "화", "수", "목", "금", "토"],
+            daysShort: ["1", "2", "3", "4", "5", "6", "7"],
+            daysMin: ["일", "월", "화", "수", "목", "금", "토"],
+            months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+            monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+            today: "오늘",
+            clear: "1주일",
+            dateFormat: "yyyy.mm.dd",
+            timeFormat: "hh:ii",
+            firstDay: 1
+        },
+        navTitles: {
+            days: " <i class='date-pic-year'>yyyy</i>MM"
+        },
+
+    });
+});
 
 
     </script>
@@ -90,6 +62,7 @@
 <!--헤더 인클루드-->
 <jsp:include page="../include/header.jsp" />
 <body>
+		<form action="FoodOrder" method="post">
 	<div class="wrap_contents">
 		<%
 			if (chargerDTO != null) {
@@ -101,7 +74,7 @@
 		%>
 		<p id="sub">레스토랑 예약하기</p>
 		<div class="food_img">
-			<img src="Restaurant/upfile/${rdto.restaurantImage }" alt="ymym"
+			<img src="Restaurant/upfile/${rdto.restaurantImgStore }" alt="ymym"
 				width="700" height="400">
 		</div>
 		<div class="res">
@@ -129,59 +102,44 @@
 			<ul class="re_menu">
 				<c:forEach items="${list}" var="list">
 
-					<li class="re_menu_li"><input type="radio" name="chk" class="check" value="${list.foodName }"> 
+					<li class="re_menu_li">
+						<input type="radio" name="foodName" class="check" value="${list.foodNum }"> 
 						<label for="" id="chk">${list.foodName }</label> 
-						<span><img src="Restaurant/upfile/${list.foodImgStore}" alt="" width="180" height="160"></span>
+						<span>
+							<img src="Restaurant/upfile/${list.foodImgStore}" alt="" width="180" height="160">
+						</span>
 						<div>
 							<p>
 								<span>가격</span>${list.foodPrice }
 							</p>
-						</div> <a href="FoodDetail?num=${list.foodNum}" class=""><img
-							src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12"></a></li>
+						</div> 
+						<a href="FoodDetail?num=${list.foodNum}" class="">
+							<img src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12">
+						</a>
+					</li>
 				</c:forEach>
 			</ul>
 		</div>
+		
+
+				
+		
 		<div class="res_table">
 			<div class="table_box">
-				예약<br> <br> <label for="" id="label">인원</label>
-				<div id="t_box">
-					<select name="" id="select">
-						<option value="2명">2명</option>
-						<option value="3명">3명</option>
-						<option value="4명">4명</option>
-					</select>
-				</div>
 				<label for="" id="label">날짜</label>
 				<div id="t_box">
 					<p>
-						<input type="text" class="date">
+						<input type="text" class="date" name="foodDate" >
 					</p>
 				</div>
-				<label for="" id="label">시간</label>
-				<div id="t_box">
-					<select name="" id="time">
-						<option value="12:00">12:00</option>
-						<option value="14:00">14:00</option>
-						<option value="16:00">16:00</option>
-						<option value="18:00">18:00</option>
-						<option value="20:00">20:00</option>
-					</select>
-				</div>
-
-			</div>
-			<div class="chk_menu">
-				선택한 예약 정보<br> <br>
-				<div id="dt" class="chk_date"></div>
-				<div id="tm"></div>
-				<div id="pp"></div>
-				<div id="chkmenu"></div>
-				<div id="price">가격,,</div>
 			</div>
 		</div>
+		
 
 		<div id="btn">
-			<button type="submit">주문</button>
+			<button type="submit">예약하러가기</button>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

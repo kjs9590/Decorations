@@ -12,9 +12,8 @@
 <meta charset="UTF-8">
 <title>MAIN</title>
 
-<link href="../CSS/AccomodationDetail.css" rel="stylesheet" type="text/css">
-<link href="../CSS/header.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../JS/AccomodationDetail.js"></script>
+<link href="${pageContext.request.contextPath }/CSS/AccomodationDetail.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/JS/AccomodationDetail.js"></script>
 <script type="text/javascript">
 
 
@@ -28,7 +27,7 @@
 					${aDto.accmodationKind}(${aDto.accmodationArea})</b><a href="#" id="a"
 						onclick="roomRegister(${aDto.accomodationNum})">객실등록하기</a></div>
 		<div class="mainRoomHeader">
-			<img src="../images\rooms.jpg" width="100%" height="311px">
+			<img src="${pageContext.request.contextPath }/images\rooms.jpg" width="100%" height="311px">
        </div>
 		<div id="mainContent">
 			<div class="roomInfo">
@@ -36,9 +35,9 @@
 				<h4>숙소 전화번호: ${aDto.accmodationTell}</h4>
 				<h4>이용가능한 객실수: 5실</h4>
 				<h4><span>당일예약취소가능</span><span>현장적립</span><span>최저가보상</span></h4>
-				<p><img src="../images\v.PNG" style="height: 20px;">미리예약시 1% 적립</p>
-				<p><img src="../images\v.PNG" style="height: 20px;">당일예약 건 입실 3시간 전까지 100% 환불가능</p>
-				<p><img src="../images\v.PNG "style="height: 20px;">정보제공</p>
+				<p><img src="${pageContext.request.contextPath }/images\v.PNG" style="height: 20px;">미리예약시 1% 적립</p>
+				<p><img src="${pageContext.request.contextPath }/images\v.PNG" style="height: 20px;">당일예약 건 입실 3시간 전까지 100% 환불가능</p>
+				<p><img src="${pageContext.request.contextPath }/images\v.PNG "style="height: 20px;">정보제공</p>
 
 			</div>
 
@@ -58,8 +57,7 @@
 				<div class="roomImg">
                   <div><img src="./upfile1/<%=img[0]%>" alt="" id="imgss"></div>
                  <div class="imgBox">
-                 <%for(int a=0; a<img.length; a++){ %>
-		         
+                 <% for(int a=0; a<img.length; a++){ %>       
 		          <div class="imgBoxs"><img src="./upfile1/<%=img[a]%>" value="dd" style="height: 50px; width: 50px;" onclick="changImg(<%=count%>,this.src)" ></div>
 		      
 		         <%} %> 

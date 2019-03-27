@@ -31,7 +31,8 @@ public class ScreenRegisterService {
 	private String originalFile = null;
 	private String originalFileExtension = null;
 	private String storeFile = null;
-	public void screenInsert(ScreenCommand sCommand,HttpServletRequest request) {
+	private String path;
+	public String screenInsert(ScreenCommand sCommand,HttpServletRequest request) {
 		
 		String filePath = request.getRealPath("/WEB-INF/view/")+"Movie\\upfile2\\";
 		MultipartFile report = sCommand.getScreenFile();
@@ -55,7 +56,14 @@ public class ScreenRegisterService {
 		ScreenDTO sDto =new ScreenDTO(sCommand.getTheaterNum(),sCommand.getScreenKind(),
 				sCommand.getScreenRow(),sCommand.getScreenColum(),sCommand.getScreenName(),
 				originalFile,storeFile,sCommand.getScreenPlus());
-		screenRegisterRepository.screenInsert(sDto);
+	Integer i=screenRegisterRepository.screenInsert(sDto);
+
+	if(i==1) {
+		path="RegisterComplete";
+		return path;
+	}else {
+	return null;
+	}
 		}
 	public void intoScreen(Model model,Long no1,Long no2) {
 		List<MovieRegisterDTO> Mrdto=movieRegistRepository.movieList();
@@ -63,14 +71,20 @@ public class ScreenRegisterService {
 		model.addAttribute("no1",no1);
 		model.addAttribute("no2",no2);
 	}
-	public void movieScreenRegister(MovieScreenCommand mScommand) {
+	public String movieScreenRegister(MovieScreenCommand mScommand) {
+		String path;
 		int movie[]=mScommand.getTime();
 		String movieStart=movie[0]+"시"+movie[1];
 		Long num=dateProductRepository.dateProductNum();
 		dateProductRepository.dateProduct(num,2);
 		DateProductMovieDTO dPdtod= new DateProductMovieDTO(num,mScommand.getScreenNum()
 			,mScommand.getTheaterNum(),2,movieStart,mScommand.getMovieNum());
-		screenRegisterRepository.screenMovieInsert(dPdtod);
+		Integer i=screenRegisterRepository.screenMovieInsert(dPdtod);
+	    
+if(i==1) {
+	return path="RegisterComplete";
+}
+return null;
 	}
 	
 	

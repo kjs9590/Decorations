@@ -47,11 +47,11 @@ if(session.getAttribute("chargerDTO") != null){
 <body>
     <jsp:include page="../include/header.jsp" />
     <div id="contents">
-       <div class="click_box"><button class="prev">◁</button></div>
+     
         <div id="ad_img">
             <p><img src="./images/movies0.jpg" onclick="location.href='#'"></p>
         </div>
-        <div class="click_box"><button class="next">▷</button></div>
+       
        
     </div>
      <div class="theraterSerch">
@@ -135,9 +135,11 @@ if(session.getAttribute("chargerDTO") != null){
                 img=mrdto.get(i).getMovieStoreimg().split("-");
             	%>
             <div class=movie_list><img src="Movie/upfile1/<%=img[0] %>" >
-            <div class="movieMention"><h2><a href="movieDetail?no=<%=mrdto.get(i).getMovieNum()%>&img=<%=img[0]%>"><%=mrdto.get(i).getMovieTitel() %></a></h2><p><b>장르:
-            </b></p><P><b>연령:</b> <%=mrdto.get(i).getMovieAge()%></P><P><b>상영시간:</b> <%=mrdto.get(i).getMovieTime()%>시간</div>
-           </div>
+            <div class="movieMention"><div style="border-bottom: 1px solid #dedede; height:32px;  margin-top: 3%;"><h2><a href="movieDetail?no=<%=mrdto.get(i).getMovieNum()%>&img=<%=img[0]%>"><%=mrdto.get(i).getMovieTitel() %></a>
+            <span style="border-radius:75px; height: 70px; width: 45px; background-color: blue; color: white;">상영중</span>
+            </h2></div>
+            <b style="margin-top: 5%; color: gray;"><%=mrdto.get(i).getMovieAge()%> 이용가</b>
+            </div></div>
           
           <%}} %>
          

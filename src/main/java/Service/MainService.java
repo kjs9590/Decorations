@@ -26,6 +26,7 @@ public class MainService {
 	public void accomodationList(Model model) {
 		List<AccomodationDTO> accomodationList = mainRepository.accomodationList();
 		model.addAttribute("accomodationList",accomodationList );
+
 		
 	}
 

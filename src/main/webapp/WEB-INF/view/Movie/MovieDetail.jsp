@@ -59,7 +59,7 @@
 		</div>
 
 		<div id=story>
-			<p><strong>영화 줄거리</strong></p>
+			<p><strong style="font-size: 25px;">영화 줄거리</strong></p>
 			<%=mRdto.getMovieInform()%>
 		</div>
 		<div class="cut_img">

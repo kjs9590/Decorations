@@ -121,22 +121,22 @@
 			
 		}
 		#mainImg{
-		height: 350px;
-		width: 87%;
+		height: 250px;
+		width: 93%;
 		border: solid 2px;
 		margin-bottom: 5%;
 		margin-left:6%;
 		}
 		#mainImg>img{
 		width: 100%;
-		height:350px;
+		height:250px;
 		}
 		#cut_subject{
 			border: 3px solid gray;
 			margin-left:6%;
 			background-color: darkgrey;
 			font-family: 'Noto Serif KR', serif;
-			width: 87%;
+			width: 93%;
 		}
 		#prev{
 			float: left;

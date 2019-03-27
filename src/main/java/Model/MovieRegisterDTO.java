@@ -14,7 +14,15 @@ public class MovieRegisterDTO implements Serializable{
 		MOVIE_INFORM--영화정보
 		MOVIE_STOREIMG--영화 스토어 이미지
 			*/
-
+//	MOVIE_NUM      NOT NULL NUMBER         
+//	MOVIE_TITEL    NOT NULL NVARCHAR2(200) 
+//	MOVIE_KIND     NOT NULL VARCHAR2(1000) 
+//	MOVIE_AGE      NOT NULL NUMBER         
+//	MOVIE_TIME     NOT NULL NUMBER         
+//	MOVIE_PRICE    NOT NULL NUMBER         
+//	MOVIE_IMAGE    NOT NULL VARCHAR2(1000) 
+//	MOVIE_INFORM   NOT NULL NVARCHAR2(300) 
+//	MOVIE_STOREIMG          VARCHAR2(1000) 
 private Long movieNum;
 private String movieTitel;
 private String movieKind;

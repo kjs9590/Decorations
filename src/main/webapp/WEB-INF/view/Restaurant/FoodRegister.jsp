@@ -29,11 +29,7 @@
 					<td>음식 타입</td>
 					<td><select id="food" name="foodType">
 							<option value selected="selected">타입을 선택해주세요</option>
-							<option value="한식">한식</option>
-							<option value="양식">양식</option>
-							<option value="중식">중식</option>
-							<option value="일식">일식</option>
-							<option value="음료">음료</option>
+							<option value="음식">음식</option>
 							<option value="디저트">디저트</option>
 							<option value="커피">커피</option>
 					</select></td>

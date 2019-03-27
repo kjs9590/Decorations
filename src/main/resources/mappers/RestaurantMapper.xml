@@ -187,7 +187,8 @@
 	
 	<!-- 등록된 음식(세트)들을 리스트로 출력 -->
 	<select id="foodList" parameterType="long" resultMap="FoodList">
-		SELECT 	FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
+		SELECT 	FOOD_NUM,  PRODUCT_NUM, CATEGORY_NUM,
+				FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
 				FOOD_TYPE, FOOD_IMGSTORE
 		FROM 	DATEFOOD
 		WHERE	RESTAURANT_NUM = #{num}
@@ -195,6 +196,8 @@
 	
 	<resultMap type="FoodDTO" id="FoodList">
 		<id column="FOOD_NUM" jdbcType="BIGINT" property="foodNum" />
+		<result column="PRODUCT_NUM" jdbcType="BIGINT" property="PRODUCTNUM"/>
+		<result column="CATEGORY_NUM" jdbcType="BIGINT" property="CATEGORYNUM"/>
 		<result column="FOOD_PRICE" jdbcType="BIGINT" property="foodPrice" />
 		<result column="FOOD_IMAGE" jdbcType="VARCHAR" property="foodImage"/>
 		<result column="FOOD_INFORM" jdbcType="VARCHAR" property="foodInfo"/>
@@ -205,11 +208,24 @@
 
 
 	<select id="foodDetail" parameterType="long" resultMap="FoodList">
-		SELECT 	FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME,
-				FOOD_TYPE, FOOD_IMGSTORE
-		FROM 	DATEFOOD
+		SELECT 	
+				d.FOOD_PRICE, 
+				d.FOOD_IMAGE, 
+				d.FOOD_INFORM, 
+				d.FOOD_NAME,
+				d.FOOD_TYPE, 
+				d.FOOD_IMGSTORE,
+				c.CATEGORY_NAME
+		FROM 	DATEFOOD d LEFT OUTER JOIN category c ON(d.CATEGORY_NUM = c.CATEGORY_NUM)
 		WHERE FOOD_NUM =#{num}
 
+	</select>
+	<!-- foodOrder -->
+	<select id="foodOrder" parameterType="string" resultMap="FoodList">
+		SELECT 
+			FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE, FOOD_IMGSTORE, CATEGORY_NUM
+		FROM 	DATEFOOD
+		WHERE FOOD_NUM =#{foodName}
 	</select>
 
 </mapper>
