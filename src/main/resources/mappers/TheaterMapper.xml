@@ -25,7 +25,41 @@
    <select id="screenList" parameterType="long" resultMap="listTheater">
         select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER where THEATER_NUM=#{num} 
        </select>
+  
+    <select id="screenMovie" parameterType="long" resultMap="listScreenMovie">
+             select d.MOVIE_START,d.PRODUCT_NUM,m.MOVIE_STOREIMG,m.MOVIE_TITEL,m.MOVIE_PRICE,m.MOVIE_TITEL,s.SCREEN_KIND,s.SCREEN_ROW,s.SCREEN_COLUMN,s.SCREEN_NAME,s.SCREEN_PLUS
+              from SCREEN s join DATEMOVIE d on(d.SCREEN_NUM=s.SCREEN_NUM) join movie m on(d.MOVIE_NUM=m.MOVIE_NUM) 
+             join THEATER t on(t.THEATER_NUM=s.THEATER_NUM) where THEATER_NUM=#{num}
+       </select>
+
+  
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<resultMap type="DateMovieDTO" id="listScreenMovie">
+		<id column="PRODUCT_NUM" jdbcType="BIGINT"
+			property="productNum" />
+		<result column="MOVIE_STOREIMG" jdbcType="VARCHAR"
+			property="movieStoreimg" />
+		<result column="MOVIE_TITEL" jdbcType="VARCHAR"
+			property="movieTitel" />
+		<result column="MOVIE_PRICE" jdbcType="BIGINT"
+			property="moviePrice" />
+		<result column="SCREEN_KIND" jdbcType="VARCHAR"
+			property="screenKind" />
+		<result column="SCREEN_ROW" jdbcType="BIGINT"
+			property="screenRow" />
+		<result column="SCREEN_ROW" jdbcType="BIGINT"
+			property="screenRow" />
+		<result column="SCREEN_COLUMN" jdbcType="BIGINT"
+			property="screenColumn" />		
+		<result column="SCREEN_NAME" jdbcType="BIGINT"
+			property="screenName" />			
+		<result column="SCREEN_PLUS" jdbcType="BIGINT"
+			property="screenPlus" />
+		<result column="MOVIE_START" jdbcType="BIGINT"
+			property="movieStart" />						
+	</resultMap>
+	
+	
 	<resultMap type="TheaterRegisterDTO" id="listTheater">
 		<id column="THEATER_NUM" jdbcType="BIGINT"
 			property="theaterNum" />

@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-<%@page import="Model.MovieRegisterDTO,Model.ChargerDTO,java.util.*"%>    
+<%@page import="Model.MovieRegisterDTO,Model.DateMovieDTO,Model.ChargerDTO,java.util.*"%>    
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>    
+<%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +28,16 @@
 <body>
     <div class="footer">
             <fieldset>
-                <legend style="font-size: 40px;">${tRdto.theaterKind}영화관</legend>
-           <div id="theaterName"><img src="dd"></div>
+                <c:if test="${tRdto.theaterKind =='롯데시네마'}" >
+                <legend style="font-size: 40px;"><div id="theaterName"><img src="./images/lottecinema.png"></div></legend>
+                </c:if>
+                 <c:if test="${tRdto.theaterKind =='메가박스'}" >
+                <legend style="font-size: 40px;"><div id="theaterName"><img src="./images/maga.jpg"></div></legend>
+                </c:if>
+                 <c:if test="${tRdto.theaterKind =='CGV'}" >
+                <legend style="font-size: 40px;"><div id="theaterName"><img src="./images/cgv.jpg"></div></legend>
+                </c:if>
+       
            <div id="screenMention"> <h2> ${tRdto.theaterName}</h2>
             <h3>주소: ${tRdto.theaterAdd}</h3>
            <h3>TELL: ${tRdto.theaterTell}</h3></div>
@@ -40,8 +50,8 @@
                 <div class="movieMention"><h4>상영관 등록</h4>
                 <form action="ScreenRagister" method="post" enctype="multipart/form-data">
                 <h5><input type="text" placeholder="상영관 이름" name="screenName"></h5>
-                <h5> <input type="number"placeholder="좌석행" name="screenRow" style="width: 55px;">
-                <input type="number"placeholder="좌석열" name="screenColum" style="width: 55px; margin-left: -2px;"></h5>
+                <h5> <input type="number"placeholder="행" name="screenRow" style="width: 37px;">
+                <input type="number"placeholder="열" name="screenColum" style="width: 37px; margin-left: -2px;"></h5>
                 <h5><select name="screenKind" style="height: 25px;">
                 <option>상영관 종류</option>
                 <option>일반상영관</option>
@@ -49,6 +59,7 @@
                 </select></h5>
                 <h5><select name="screenPlus" style="height: 25px;">
                 <option>추가요금</option>
+                <option>0</option>
                 <option>10000</option>
                 <option>15000</option>
                 <option>20000</option>
@@ -59,12 +70,12 @@
                 </form>
                 </div>
          </div>
-            
+          
              <c:forEach items="${sList}" var="sList">
                 <div class=screen_list><img src="Movie/upfile2/${sList.screenStoreimg }" >
                 <div class="movieMention"><h4>${sList.screenName} </h4>
                 <h5>${sList.screenKind}</h5>
-                <h5>좌석수: ${sList.screenRow*sList.screenColumn }</h5>
+                <h5>좌석수: ${sList.screenRow*sList.screenColumn }석</h5>
                 <h5>추가요금: +${sList.screenPlus }</h5>
                 
                 <h5><input type="button" onclick="Register(${tRdto.theaterNum },${sList.screenNum})" style="height: 50px; width: 50%; margin-top: 131px; margin-bottom: -11px; cursor: pointer;" value="영화등록" ></h5>
@@ -78,46 +89,31 @@
                 <legend>상영영화</legend>
             
            <div id=nowplaying>
-                <div class=screen_list><img src="./images/movie1.JPG" >
-                <div class="movieMention"><h4>제 1관</h4>
-                <h5>상영 영화: 캡틴마블</h5>
-                <h5>상영 시간: 2시</h5>
-                <h5>남은 좌석: 50석</h5>
+             <%if(mrdto!=null){
+            	 for(int i=0; i<mrdto.size(); i++){
+            		 String time[]=mrdto.get(i).getMovieStart().split("시");
+            		 String img[]=mrdto.get(i).getMovieStoreimg().split("-");
+            	 %>
+                <div class=screen_list><img src="Movie/upfile1/<%=img[0] %>" >
+                <div class="movieMention"><h4><%=mrdto.get(i).getScreenName() %></h4>
+                 <h3><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
+                <h5><%=mrdto.get(i).getScreenKind()%> +<%=mrdto.get(i).getScreenPlus() %>원</h5>
+                <h5 style="color: blue;"><%=time[0]%>시 <%=time[1]%>분</h5>
+              
                 </div>
            </div>
-              
+             <%}} %>
             </div>   
-            <div id=nowplaying>
-                <div class=screen_list><img src="./images/movie1.JPG" >
-                <div class="movieMention"><h4>제 1관</h4>
-                <h5>상영 영화: 캡틴마블</h5>
-                <h5>상영 시간: 2시</h5>
-                <h5>남은 좌석: 50석</h5>
-                </div>
-           </div>
-              
-            </div>   
-            <div id=nowplaying>
-                <div class=screen_list><img src="./images/movie1.JPG" >
-                <div class="movieMention"><h4>제 1관</h4>
-                <h5>상영 영화: 캡틴마블</h5>
-                <h5>상영 시간: 2시</h5>
-                <h5>남은 좌석: 50석</h5>
-                </div>
-           </div>
-              
-            </div>   
+     
         </fieldset>    
         <%} %>
         </fieldset>
         </div>
 <script type="text/javascript">
 function Register(no1,no2){
-	  alert(no1);
-	  alert("제발되라");
 		var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
 		      window.name="parentForm";
-		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=800");  
+		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
 		     
 		      self.close();
 	}

@@ -140,8 +140,8 @@ public class RestaurantService {
 
 		i1=restaurantRepository.foodInsert(fdto);
 
-
-		return	path ="redirect:RestaurantMain";
+	
+		return	path ="RegisterComplete";
 
 
 

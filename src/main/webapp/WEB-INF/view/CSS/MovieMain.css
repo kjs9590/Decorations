@@ -62,26 +62,12 @@ a{
 	font-size: 20px;
 }
 
-.click_box {
-	float: left;
-	color: gray;
-	margin: 10% 1%;
-}
-
-.click_box>button {
-	width: 30% px;
-	height: 80px;
-	font-size: 50px;
-	text-align: center;
-	border: 0px;
-	background-color: white;
-	color: gray;
-}
 
 #ad_img {
-	width: 75%;
+	width: 85%;
 	height: 370px;
 	float: left;
+    margin-left: 7%;
 }
 
 #ad_img>p>img {
@@ -159,7 +145,7 @@ a{
 	width: 100%;
 	float: left;
 	height: auto;
-	margin-bottom: 10%;
+	margin-bottom: 2%;
 
 }
 #time{margin-left: 80%;}
@@ -181,23 +167,35 @@ a{
 	position: relative;
 	left: 2%;
 	transform: translateX(-9%);
-	border: 3px solid gray;
+	border: 1px solid #dedede;
 	margin-right: 1.3%;
 	margin-left: 2.8%;
 	margin-top: 1%;
     margin-bottom: 3%;
 	
 }
-
-
-.screen_list {
+.screenMovie_list{
 	width: 20%;
 	height: auto;
 	float: left;
 	position: relative;
 	left: 2%;
 	transform: translateX(-9%);
-	border: 3px solid gray;
+	border: 1px solid #dedede;
+	margin-right: 1.3%;
+	margin-left: 2.8%;
+	margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+.screen_list {
+	width: 18%;
+	height: auto;
+	float: left;
+	position: relative;
+	left: 2%;
+	transform: translateX(-9%);
+	border: 1px solid #dedede;
 	margin-right: 1.3%;
 	margin-left: 2.8%;
 	margin-top: 1%;
@@ -210,7 +208,11 @@ a{
 	width: 100%;
 	height: 300px;
 }
-
+.screenMovie_list>img{
+	
+		width: 100%;
+	height: 150px;
+}
 .screen_list>img {
 	width: 100%;
 	height: 200px;
@@ -234,7 +236,7 @@ a{
 
 .movie_list1>img {
 	width: 300px;
-	height: 300px;
+
 }
 
 .block {
@@ -331,11 +333,14 @@ legend {
 }
 
 #theaterName {
-	height: auto;
+	height:200px; 
 	width: 100%;
 	text-align: center;
 }
-
+#theaterName >img{
+	height:200px; 
+	
+}
 #movieregister {
 	height: 30px;
 	width: 94%;

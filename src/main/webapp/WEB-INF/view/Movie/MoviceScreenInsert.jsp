@@ -15,14 +15,9 @@ String img[];%>
 <div id="registeRoom">
 
 	<form  action="MovieScreen" method="post" >
-        
-		<h2 style="margin-left:4%;">상영영화 등록</h2>
-		<br>
-		<script type="text/javascript">
 
-</script>
           <div id="time">
-			<h3>시작 상영시간</h3>
+			<h3>상영시간</h3>
 			<select name="time">
 			<%for(int i=1; i<25; i++) 
 			{%><option><%=i %></option><%} %>
@@ -39,7 +34,7 @@ String img[];%>
             	for(int i=0; i<mrdto.size(); i++){
                 img=mrdto.get(i).getMovieStoreimg().split("-");
             	%>
-            <div class=movie_list><img src="Movie/upfile1/<%=img[0] %>" >
+            <div class=screenMovie_list><img src="Movie/upfile1/<%=img[0] %>" >
             <div class="movieMention"><h2><a href="movieDetail?no=<%=mrdto.get(i).getMovieNum()%>&img=<%=img[0]%>"><%=mrdto.get(i).getMovieTitel() %></a></h2><p><b>장르:
             </b></p><P><b>연령:</b> <%=mrdto.get(i).getMovieAge()%></P><P><b>상영시간:</b> <%=mrdto.get(i).getMovieTime()%>시간</div>
            <div><input type="radio" name="MovieNum" value="<%=mrdto.get(i).getMovieNum()%>" style="width:23px;margin-left:42%; height:18px"></div>

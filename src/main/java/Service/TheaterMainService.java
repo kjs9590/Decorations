@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import Model.DateMovieDTO;
 import Model.MovieRegisterDTO;
 import Model.ScreenDTO;
 import Model.TheaterRegisterDTO;
@@ -29,10 +30,12 @@ public class TheaterMainService {
 	public void theaterScreenList(Model model,Long num) {
   
 	TheaterRegisterDTO tRdto=theaterRegisterRepository.screenList(num);
+	List<DateMovieDTO> dMdto=theaterRegisterRepository.screenMovie(num);
 	List<ScreenDTO> sList=screenRegisterRepository.screenList(num);
 	
 	model.addAttribute("tRdto",tRdto);
 	model.addAttribute("sList",sList);
+	model.addAttribute("dMdto",dMdto);
 	}
 	public void movieList(Model model) {
 

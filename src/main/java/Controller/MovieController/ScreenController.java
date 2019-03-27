@@ -21,8 +21,9 @@ public class ScreenController {
 	
 	@RequestMapping(value="/ScreenRagister" ,method=RequestMethod.POST)
 	public String theaterList(Model model,ScreenCommand sCommand,HttpServletRequest request) {
-		screenRegisterService.screenInsert(sCommand,request);
-		return "redirect:TheaterMain";
+	String path=screenRegisterService.screenInsert(sCommand,request);
+		
+		return path;
 	}
 	
 	@RequestMapping(value="/MovieRegisterIntoScreen" ,method=RequestMethod.GET)
@@ -33,8 +34,8 @@ public class ScreenController {
 	}
 	@RequestMapping(value="/MovieScreen" ,method=RequestMethod.POST)
 	public String movieScreen(Model model,MovieScreenCommand mScommand) {
-		screenRegisterService.movieScreenRegister(mScommand);
+		String path=screenRegisterService.movieScreenRegister(mScommand);
 		
-		return "Movie/MoviceScreenInsert";
+		return  path;
 	}
 }
