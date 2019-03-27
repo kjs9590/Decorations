@@ -114,6 +114,8 @@
 		<input type="hidden" name="festivalName" value="${Festivaldetail.FESTIVALNAME }">
 		<input type="hidden" name="festivalPrice" value="${Festivaldetail.FESTIVALFARE }">
 		<input type="hidden" name="festivalimg" value="${Festivaldetail.FESTIVALIMG }">
+
+		
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }

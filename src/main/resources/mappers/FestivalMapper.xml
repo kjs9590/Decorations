@@ -19,14 +19,19 @@
     	FESTIVAL_IMG
 	</sql>
 	
-	<!-- 
-	<resultMap type="FestivalOptionCommand" id="option">
-		
-	</resultMap>
-	축제옵션
-	<select id="optionlist" parameterType="FestivalOptionCommand" resultMap="option">
 	
-	</select> -->
+<!-- <resultMap type="FestivalOptionCommand" id="option">
+		<id column="OPTION_NUM" jdbcType="BIGINT" property="optionNum"/>
+		<result column="OPTION_PRODUCT" jdbcType="VARCHAR" property="optionProduct"/>
+		<result column="OPTION_PRICE" jdbcType="BIGINT" property="optionPrice"/>
+		<result column="OPTION_SORTATION" jdbcType="VARCHAR" property="optionSortation"/>
+	</resultMap>
+축제 옵션
+	<select id="optionlist" parameterType="FestivalDTO" resultMap="option">
+	SELECT
+	  		option_num,option_product,option_price,option_sortation
+		FROM options
+	</select>  --> 
 	
 	<resultMap type="FestivalDTO" id="baseCommentDTO">
 		<id column="FESTIVAL_NUM" jdbcType="BIGINT" property="FESTIVALNUM"/>
@@ -44,6 +49,7 @@
 		<result column="FESTIVAL_IMG" jdbcType="NVARCHAR" property="FESTIVALIMG"/>
 		<result column="FESTIVAL_FINAL_DATE" jdbcType="DATE" property="festivalFinalDate"/>
 		<result column="CATEGORY_name" jdbcType="NVARCHAR" property="categoryName"/>
+
 	</resultMap>
   <!-- <select id="selectlist" parameterType="FestivalDTO" resultMap="baseCommentDTO">
 	SELECT
@@ -52,7 +58,7 @@
 	</select>    -->
 	
 	<select id="detail"  resultMap="baseCommentDTO" parameterType="int" >
-	SELECT 
+	<!-- SELECT 
 	  		f.FESTIVAL_NUM,
 			f.PRODUCT_NUM,
 			f.CATEGORY_NUM,
@@ -69,7 +75,26 @@
     		f.FESTIVAL_final_DATE,
     		c.CATEGORY_name
 		FROM FESTIVAL f Left outer join category c ON(f.CATEGORY_NUM = c.CATEGORY_NUM)
-		where FESTIVAL_NUM = #{num}
+		where FESTIVAL_NUM = #{num} -->
+		SELECT 
+	  		f.FESTIVAL_NUM,
+			f.PRODUCT_NUM,
+			f.CATEGORY_NUM,
+			f.FESTIVAL_ADD,
+			f.FESTIVAL_TERM,
+			f.FESTIVAL_INFORM,
+			f.FESTIVAL_KING,
+			f.FESTIVAL_START_DATE,
+    		f.FESTIVAL_TELL,
+    		f.FESTIVAL_FARE,
+    		f.FESTIVAL_NAME,
+    		f.FESTIVAL_AREA,
+    		f.FESTIVAL_IMG,
+    		f.FESTIVAL_final_DATE,
+    		c.CATEGORY_name
+
+			FROM FESTIVAL f Left outer join category c ON(f.CATEGORY_NUM = c.CATEGORY_NUM)
+			where FESTIVAL_NUM = #{num}
 	</select>  
 
 

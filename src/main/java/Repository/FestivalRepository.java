@@ -19,10 +19,10 @@ public class FestivalRepository {
 	private final String namespace = "FestivalMapper";
 	
 	
-	/*public List<FestivalDTO> festivallist(FestivalDTO dto) {
+	public List<FestivalDTO> festivallist(FestivalDTO dto) {
 		return sqlSession.selectList("FestivalMapper.selectlist",dto);
-	}*/
 
+	}
 
 	public FestivalDTO detail(@RequestParam("fno") int num) {
 		return sqlSession.selectOne("FestivalMapper.detail",num);
@@ -67,6 +67,12 @@ public class FestivalRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("FestivalMapper.paginglistcount");
 	}
+
+
+	/*public List<FestivalDTO> option() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("FestivalMapper.optionlist");
+	}*/
 
 
 

@@ -35,8 +35,9 @@ public class FestivalDetailController {
 		//예약옵션 가기
 		@RequestMapping(value="/Festival/Order", method = RequestMethod.GET )
 		public String form(Model model,@ModelAttribute FestivalOptionCommand command) {
-			System.out.println(command.getFestivalName());
-			model.addAttribute("command", command);
+	/*	List<FestivalDTO> option = festivalDetailService.option();
+			model.addAttribute("option", option); */
+			model.addAttribute("command",command);
 			return "Festival/FestivalOption";
 		}
 		

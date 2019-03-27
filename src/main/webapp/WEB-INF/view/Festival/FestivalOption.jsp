@@ -69,8 +69,10 @@
                         <td rowspan="9"><img src="../Festival/${command.festivalimg }" alt="" width="400" height="400"></td>
                     </tr>
                     <tr>
-                        <td id="sub">타입</td>
+                    
+                        <td id="sub">상품</td>
                         <td id="con">${command.festivalType }</td>
+                    
                     </tr>
                     <tr>
                         <td id="sub">이름</td>
@@ -89,29 +91,22 @@
                     </tr>
                     <tr>
                         <td id="sub">시간</td>
-                        <td id="con">
-                       		<select name="FestivalTime">
-                        		<option value="10:00">10:00</option>
-                        		<option value="11:00">11:00</option>
-                        		<option value="12:00">12:00</option>
-                        		<option value="13:00">13:00</option>
-                        		<option value="14:00">14:00</option>
-                        		<option value="15:00">15:00</option>
-                        		<option value="16:00">16:00</option>
-                        		<option value="17:00">17:00</option>
-                        		<option value="18:00">18:00</option>
-                        		<option value="19:00">19:00</option>
-                        		<option value="20:00">20:00</option>
-                        	</select>
-                        </td>
+                      <td id="con" colspan="5">
+	                       	ㅡ
+                        </td> 
                     </tr>
-                    <tr>
+                	  <tr>
+                    	<td id="sub">좌석</td>
+                    	 <td id="con">ㅡ</td>
+                    </tr>
+                   <%--  <tr>
                         <td id="sub">가격</td>
                         <td id="con">${command.festivalPrice }원</td>
-                    </tr>
+                    </tr> --%>
+                 
                     <tr>
                         <td id="sub">옵션</td>
-                        <td><select id="option" name="op">
+                        <!-- <td><select id="option" name="op">
                             <option value selected="selected">옵션을 선택해주세요</option>
                             <option value="곱빼기">곱빼기   +2,000원</option>
                             <option value="같은">같은   +2,000원</option>
@@ -120,10 +115,29 @@
                             <option value="있는지">있는지   +2,000원</option>
                             <option value="잘">잘   +2,000원</option>
                             <option value="모르겠다">모르겠다   +2,000원</option>
-                        </select></td>
+                        </select> --></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><button type="submit" value="예약하기" id="paybtn">예약</button></td>    
+                    
+                    <td colspan="5"><select id="option" name="op">
+                            <option value selected="selected">선택해주세요</option>
+                            <option value=""></option>
+                            <option value="같은">같은   +2,000원</option>
+                            <option value="옵션">옵션   +2,000원</option>
+                            <option value="뭐가">뭐가   +2,000원</option>
+                            <option value="있는지">있는지   +2,000원</option>
+                            <option value="잘">잘   +2,000원</option>
+                            <option value="모르겠다">모르겠다   +2,000원</option>
+                        </select></td>
+                    
+                    </tr>
+                    
+                     <tr>
+                        <td id="sub">가격</td>
+                        <td id="con">${command.festivalPrice }원</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" id="btn"><button type="submit" value="예약하기" id="paybtn">예약</button></td>    
                     </tr>
                 </table>
             </div>
