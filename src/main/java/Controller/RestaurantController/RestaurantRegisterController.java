@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.FoodCommand;
 import Commend.PagingCommand;
+import Commend.RestaurantOptionCommand;
 import Commend.RestaurantRegisterCommand;
-import Model.FestivalDTO;
 import Model.RestaurantDTO;
 import Service.RestaurantService;
 import other.AutoPaging;
@@ -99,14 +99,14 @@ public class RestaurantRegisterController {
 	
 	
 	//음식(세트) 등록
-	@RequestMapping(value="FoodRegister", method=RequestMethod.GET)
+	@RequestMapping(value="/FoodRegister", method=RequestMethod.GET)
 	public String foodinsert(Model model, @RequestParam(value="num") int num) {
 		
 		model.addAttribute("num", num);
 		return "Restaurant/FoodRegister";
 	}
 	
-	@RequestMapping(value="FoodRegister", method=RequestMethod.POST)
+	@RequestMapping(value="/FoodRegister", method=RequestMethod.POST)
 	public String insert(Model model, HttpServletRequest request, FoodCommand fCommand) {
 		
 		String path=restaurantService.foodInsert(model,fCommand,request);
@@ -122,6 +122,15 @@ public class RestaurantRegisterController {
 		return "Restaurant/FoodDetail";
 	}
 	
+	//음식 예약 페이지 "foodOrder"
+	
+	@RequestMapping(value="/FoodOrder", method=RequestMethod.POST)
+	public String foodOrder(Model model,@ModelAttribute  RestaurantOptionCommand command) {
+		model.addAttribute("command", command);
+		restaurantService.foodOrder(model, command.getFoodName());
+		
+		return "Restaurant/FoodOrder";
+	}
 
 	
 	

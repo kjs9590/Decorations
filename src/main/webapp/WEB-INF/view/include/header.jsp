@@ -46,7 +46,7 @@
                         <li><a href="#"> MOVIE </a></li>
                         <li><a href="RestaurantMain"> RESTAURANT </a></li>
                         <li><a href="Festival/Main"> FESTIVAL </a></li>
-                        <li><a href="Accomodation/AccomodationMain"> ACCOMMODATION </a></li>
+                        <li><a href="AccomodationMain"> ACCOMMODATION </a></li>
                     </ul>
                 </li>
             </ul>

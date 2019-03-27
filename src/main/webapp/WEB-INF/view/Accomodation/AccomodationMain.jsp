@@ -12,9 +12,8 @@
 	<meta charset="UTF-8">
 	<title>accomodation</title>
 
-	<script src="../JS/AccomodationMain.js"></script>
-	<link href="../CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
-    <link href="../CSS/header.css" rel="stylesheet" type="text/css">
+	<script src="${pageContext.request.contextPath }/JS/AccomodationMain.js"></script>
+	<link href="${pageContext.request.contextPath }/CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -78,28 +77,28 @@
 		<div id="accomodationList">
 		
 			<div class="accmodation">
-				<img src="../images/hotel.jpg"><a href="AccomodationListEach?kind=호텔">호텔</a>
+				<img src="${pageContext.request.contextPath }/images/hotel.jpg"><a href="AccomodationListEach?kind=호텔">호텔</a>
 			    <p>
 				<%if(accomodationCount.get(1).getCount()!=null) {%>
 				<%=accomodationCount.get(1).getCount()%><%}else{%>0<% } %>개 호텔</p>
 			</div>
 		
 			<div class="accmodation">
-				<img src="../images/motel.jpg"><a href="AccomodationListEach?kind=모텔" >모텔</a>
+				<img src="${pageContext.request.contextPath }/images/motel.jpg"><a href="AccomodationListEach?kind=모텔" >모텔</a>
 				  <p>
 				<%if(accomodationCount.get(3).getCount()!=null) {%>
 				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 모텔</p>
 			</div>
 			
 			<div class="accmodation">
-				<img src="../images/pension.jpg"><a href="AccomodationListEach?kind=펜션" >펜션</a>
+				<img src="${pageContext.request.contextPath }/images/pension.jpg"><a href="AccomodationListEach?kind=펜션" >펜션</a>
 				  <p>
 				<%if(accomodationCount.get(0).getCount()!=null) {%>
 				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 펜션</p>
 			</div>
 			
 			<div class="accmodation">
-				<img src="../images/resort.jpg"><a href="AccomodationListEach?kind=리조트" >리조트</a>
+				<img src="${pageContext.request.contextPath }/images/resort.jpg"><a href="AccomodationListEach?kind=리조트" >리조트</a>
 				  <p>
 				<%if(accomodationCount.get(2).getCount()!=null) {%>
 				<%=accomodationCount.get(2).getCount()%><%}else{%>0<% } %>개 리조트</p>
@@ -114,7 +113,7 @@
 					<a href="AccomodationForm">숙소등록하기</a>
                     <c:forEach items="${list}" var="list">
 					<li><div class="listContent">
-							<img src="./upfile/${list.accmodationImgstore}" />
+							<img src="Accomodation/upfile/${list.accmodationImgstore}" />
 							<div class="mention" style="line-height: 2em">
 
 								<h2>${list.accomodationName} ${list.accmodationKind}</h2>

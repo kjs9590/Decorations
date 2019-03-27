@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import Commend.FoodCommand;
+import Commend.RestaurantOptionCommand;
 import Commend.RestaurantRegisterCommand;
 import Model.FoodDTO;
 import Model.RestaurantDTO;
@@ -174,6 +175,13 @@ public class RestaurantService {
 		model.addAttribute("fdto",fdto);
 		
 	}
+
+	public void foodOrder(Model model, String foodName) {
+		FoodDTO fdto = restaurantRepository.foodOrder(foodName);
+		model.addAttribute("fdto",fdto);
+		
+	}
+
 
 
 }

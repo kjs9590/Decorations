@@ -33,7 +33,7 @@ a:hover {
 }
 
 .res_info {
-    width: 400px;
+    width: 800px;
 }
 
 .info {
@@ -125,67 +125,25 @@ span {
 
 .res_table {
     width: 800px;
-    height: 330px;
-    background-color: lightgray;
+    height: 230px;
 }
 
 .table_box {
-    width: 400px;
-    padding: 40px;
+    width: 800px;
+	margin-top: 40px;
     font-size: 25px;
-    float: left;
+    text-align: center;
 }
 
-#t_box {}
+#t_box {
+}
 
 #label {
     font-size: 18px;
 }
 
-#select, .date, #time {    width: 100px;
-    height: 30px;}
-#pp, #dt, #tm, #chkmenu, #price{
-    font-size: 20px;
-}
-.chk_menu {
-    padding-top: 40px;
-    width: 300px;
-    font-size: 25px;
-    float: right;
-    margin-bottom: 30px;
-}
 
-.ui-datepicker {
-    width: 280px;
-    height: auto;
-    margin: 5px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    background-color: antiquewhite;
-}
 
-button, button::after {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-button {
-    background-color: lightsalmon;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
 
 
 

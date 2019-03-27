@@ -112,6 +112,12 @@ public class RestaurantRepository {
 	}
 
 
+	public FoodDTO foodOrder(String foodName) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("RestaurantMapper.foodOrder", foodName);
+	}
+
+
 
 
 }
