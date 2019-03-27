@@ -1,6 +1,7 @@
 //Row 추가
 function insRow() {
-  oTbl = document.getElementById("addTable");
+ aleret("추가")
+	oTbl = document.getElementById("addTable");
   var oRow = oTbl.insertRow();
   oRow.onmouseover=function(){oTbl.clickedRowIndex=this.rowIndex}; //clickedRowIndex - 클릭한 Row의 위치를 확인;
   var oCell = oRow.insertCell();

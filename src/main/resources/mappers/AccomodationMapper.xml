@@ -170,8 +170,8 @@
      <!--객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해  -->
 	<insert id="DateProduct" parameterType="AccomodationRegisterDTO">
 		insert into
-		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM, PRODUCT_NAME)
-		values(#{roomNum},3,#{roomKind})
+		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
+		values(#{roomNum},3)
 	</insert>
       <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	<!-- 객실상품을을 등록하기위해 -->

@@ -5,13 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.AccomodationRoomRegisterCommend;
+import Commend.RoomOptionCommand;
 import Service.AccomodationDetailService;
-import Service.AccomodationService;
 
 
 @Controller
@@ -39,4 +40,15 @@ public class AccomodationDetailController {
 		
 		return "Accomodation/AccomodationDetail";
 	}
+	
+	
+	@RequestMapping(value="/AcoomodationOrder" ,method=RequestMethod.GET)
+	public String acoomodationOrder(Model model,@ModelAttribute RoomOptionCommand command ) {
+		
+		model.addAttribute("command",command);
+		
+		return "Accomodation/RoomOrder";
+	}
+	
+	
 }
