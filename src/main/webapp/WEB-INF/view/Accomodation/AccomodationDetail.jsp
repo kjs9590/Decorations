@@ -40,7 +40,7 @@
 				<p><img src="${pageContext.request.contextPath }/images\v.PNG "style="height: 20px;">정보제공</p>
 
 			</div>
-
+             <form action="">
              <div class="chekinChekout">
 				<div id="chekin">체크인<input type="date"></div>
 				<div id="chekout">체크아웃<input type="date"></div>
@@ -70,7 +70,8 @@
 					<h4>기준2명/최대<%=aRlist.get(i).getRoomCount() %>명</h4>
 					<h4>입실:<%=aRlist.get(i).getRoomAd() %> 퇴실 :<%=aRlist.get(i).getRoomEx() %></h4>
 		         	<h1><%=aRlist.get(i).getRoomPrice() %>원</h1></div>
-				
+				    <input type="submit"value="예약하기 "style="width: 100%; height: 40px;">
+				   </form>
 				</div>
 				<% count+=img.length;}%> 
 			</div>
