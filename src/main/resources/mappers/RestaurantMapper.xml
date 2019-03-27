@@ -223,7 +223,7 @@
 	<!-- foodOrder -->
 	<select id="foodOrder" parameterType="string" resultMap="FoodList">
 		SELECT 
-			FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE, FOOD_IMGSTORE
+			FOOD_NUM, FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE, FOOD_IMGSTORE, CATEGORY_NUM
 		FROM 	DATEFOOD
 		WHERE FOOD_NUM =#{foodName}
 	</select>

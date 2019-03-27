@@ -74,7 +74,7 @@
 					</tr>
 					<tr>
 						<td id="sub">타입</td>
-						<td id="con">${fdto.foodType}</td>
+						<td id="con">${fdto.foodType} <input type="hidden" value="레스토랑"> </td>
 					</tr>
 					<tr>
 						<td id="sub">이름</td>
