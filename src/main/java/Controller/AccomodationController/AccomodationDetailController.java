@@ -19,20 +19,20 @@ public class AccomodationDetailController {
 	@Autowired
 	private AccomodationDetailService accomodationDetailServiceService;
 	
-	@RequestMapping(value="/Accomodation/RoomForm",method=RequestMethod.GET)
+	@RequestMapping(value="/RoomForm",method=RequestMethod.GET)
 	public String roomForm(Model model,@RequestParam(value="num") int num) {
 		
 		model.addAttribute("num", num);
 		return "Accomodation/RoomForm";
 	}
-	@RequestMapping(value="/Accomodation/RoomRegister",method=RequestMethod.POST)
+	@RequestMapping(value="/RoomRegister",method=RequestMethod.POST)
 	public String roomRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request ) {
 		
 		String path=accomodationDetailServiceService.accomodationRegister(model,aRcommend,request);
 		return path;
 	}
 	
-	@RequestMapping(value="/Accomodation/RoomList" ,method=RequestMethod.GET)
+	@RequestMapping(value="/RoomList" ,method=RequestMethod.GET)
 	public String roomList(Model model,@RequestParam(value="num") Long num ) {
 		
 		accomodationDetailServiceService.accomodationRoom(model,num);

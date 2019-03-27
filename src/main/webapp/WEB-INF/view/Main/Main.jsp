@@ -4,6 +4,7 @@
 <% MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,6 +27,7 @@
 $(window).load(function () {
     $('body').sakura();
 });
+
 
 function slide(id, dir, n)
 {
@@ -74,17 +76,20 @@ function slide(id, dir, n)
 
 		</div>
 		<div id="movie">
-			<div class="wrap_accommodation">
+			<div class="wrap_movie">
 				<div class="main_img"><a href="TheaterMain"><img src="${pageContext.request.contextPath }/images/hotel.jpg" alt=""
-				width="1200" height="500"></a></div>
+				width="600" height="500"></a></div>
 				<div class="main_list">
 				<ul id="slideShow">
                     <c:forEach items="${movieList}" var="list">
 					<li>
 					<div class="listContent">
-					<img src="Movie/upfile/${list.movieStoreimg}" />
+						<div id="img_box">
+							<img src="Movie/upfile1/${fn:split(list.movieStoreimg,'-')[0]}" />
+						</div>
 						<div class="mention" style="line-height: 2em">
-				<%-- 			<h2>${list.movieTitel}</h2> --%>
+							<h2>${list.movieTitel}</h2>
+							<h3> ${list.movieKind}</h3>
 						</div>
 					</div>
 					</li>
@@ -92,60 +97,74 @@ function slide(id, dir, n)
 				
 				</ul>
 				</div>
+				<div id="controll">
+					<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
+					<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
+				</div>	
 			</div>
-			<div id="controll">
-				<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
-				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
-			</div>		
+	
 		</div>
 		
 		<div id="accommodation">
 			<div class="wrap_accommodation">
 				<div class="main_img"><a href="Accomodation/AccomodationMain"><img src="${pageContext.request.contextPath }/images/hotel.jpg" alt=""
-				width="1200" height="500"></a></div>
+				width="600" height="500"></a></div>
 				<div class="main_list">
 				<ul id="slideShow">
                     <c:forEach items="${accomodationList}" var="list">
 					<li>
 					<div class="listContent">
-					<img src="Accomodation/upfile/${list.accmodationImgstore}" />
+					<div id="img_box">
+						<img src="Accomodation/upfile/${list.accmodationImgstore}" />
+					</div>
 						<div class="mention" style="line-height: 2em">
-<%-- 							<h2>${list.accomodationName}</h2><h3> ${list.accmodationKind}</h3>
- --%>						</div>
+ 						<h2>${list.accomodationName}</h2>
+ 						<h3> ${list.accmodationKind}</h3>
+					</div>
 					</div>
 					</li>
                    </c:forEach>
 				
 				</ul>
 				</div>
+				<div id="controll">
+					<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
+					<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
+				</div>
 			</div>
-			<div id="controll">
-				<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
-				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
-			</div>
+
 		</div>
 		<div id="restaurant">
 			<div class="wrap_restaurant">
 				<div class="main_img"><a href="RestaurantMain"><img src="${pageContext.request.contextPath }/images/restaurantmain.jpg" alt=""
-				width="1200" height="500"></a></div>
+				width="600" height="500"></a></div>
 				<div class="main_list">
 				<ul id="slideShow">
 					<c:forEach items="${restaurantList}" var="list">
-						<li><div class="img_list">
-							<a href="RestaurantDetail?num=${list.restaurantNum }"><img src="Restaurant/upfile/${list.restaurantImgStore }"width="380" height="300" alt="${list.restaurantImgStore }"/></a>
-						</div></li>
+						<li>
+						<div class="img_list">
+							<div id="img_box">
+								<img src="Restaurant/upfile/${list.restaurantImgStore }"width="380" height="300" alt="${list.restaurantImgStore }"/>
+							</div>
+							<div class="mention" style="line-height: 2em">
+ 								<h2>${list.restaurantName}</h2>
+ 								<h3> ${list.restaurantKind}</h3>
+ 							</div>
+						</div>
+						</li>
 					</c:forEach>
 				</ul>
 				</div>
+				<div id="controll">
+					<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
+					<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
+				</div>
 			</div>
-			<div id="controll">
-				<a href="javascript:slide('slideShow', 'left', 2)">◀</a> 
-				<a href="javascript:slide('slideShow', 'right', 2)">▶</a>
-			</div>
+			
 		</div>
 		<div id="festival">
-		<%-- 	<div class="wrap_restaurant">
-				<div class="main_img"><a href=""><img src="" alt="" width="1200" height="500"></a></div>
+		<%-- 	<div class="wrap_festival">
+				<div class="main_img"><a href=""><img src="" alt="" width="600" height="500"></a></div>
 				<div class="main_list">
 				<ul id="slideShow">
 					<c:forEach items="${movieList}" var="list">

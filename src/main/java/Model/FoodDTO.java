@@ -16,7 +16,8 @@ public class FoodDTO implements Serializable{
 	
 	private Long restaurantNum;
 	private Long foodNum;
-
+	private String PRODUCTNUM;
+	private String CATEGORYNUM;
 	private String foodPrice;
 	private String foodImage;
 	private String foodImgStore;
@@ -39,6 +40,34 @@ public class FoodDTO implements Serializable{
 		this.foodInfo = foodInfo;
 		this.foodName = foodName;
 		this.foodType = foodType;
+	}
+
+
+
+
+	public String getPRODUCTNUM() {
+		return PRODUCTNUM;
+	}
+
+
+
+
+	public void setPRODUCTNUM(String pRODUCTNUM) {
+		PRODUCTNUM = pRODUCTNUM;
+	}
+
+
+
+
+	public String getCATEGORYNUM() {
+		return CATEGORYNUM;
+	}
+
+
+
+
+	public void setCATEGORYNUM(String cATEGORYNUM) {
+		CATEGORYNUM = cATEGORYNUM;
 	}
 
 

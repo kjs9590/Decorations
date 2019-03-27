@@ -20,7 +20,7 @@ public class AccomodationController {
 	private AccomodationService accomodationService;
 	
 	//숙박 메인 페이지
-	@RequestMapping(value="/Accomodation/AccomodationMain" ,method=RequestMethod.GET)
+	@RequestMapping(value="/AccomodationMain" ,method=RequestMethod.GET)
 	public String main(Model model) {
 		
 		accomodationService.accomodationList(model);
@@ -29,20 +29,20 @@ public class AccomodationController {
 
 	
 	//숙박 등록 메소드
-	@RequestMapping(value="/Accomodation/AccomodationForm" ,method=RequestMethod.GET)
+	@RequestMapping(value="/AccomodationForm" ,method=RequestMethod.GET)
 	public String form() {
 		
 		return "Accomodation/AccomodationForm";
 	}
 	
-	@RequestMapping(value="/Accomodation/AccomodationRegister" ,method=RequestMethod.POST)
+	@RequestMapping(value="/AccomodationRegister" ,method=RequestMethod.POST)
 	public String submit( AccomodationRegisterCommend aCommend,HttpServletRequest request) {
 		
 		accomodationService.accomodationinsert(aCommend,request);
 		return "redirect:AccomodationMain";
 	}
 	
-	@RequestMapping(value="/Accomodation/AccomodationListEach" ,method=RequestMethod.GET)
+	@RequestMapping(value="/AccomodationListEach" ,method=RequestMethod.GET)
 	public String detail(Model model,@RequestParam(value="kind") String kind) {
 		
 		accomodationService.accomodationEachList(model,kind);
@@ -50,7 +50,7 @@ public class AccomodationController {
 		return "Accomodation/AccomodationList";
 	}
 	
-	@RequestMapping(value="/Accomodation/AccomodationKind" ,method=RequestMethod.POST)
+	@RequestMapping(value="/AccomodationKind" ,method=RequestMethod.POST)
 	public String detailArea(Model model,@RequestParam(value="area") String area,
 			@RequestParam(value="kind") String kind
 			) {
@@ -60,14 +60,14 @@ public class AccomodationController {
 		return "Accomodation/AccomodationAjax";
 	}
 	
-	@RequestMapping(value="/Accomodation/AccomodationPrice" ,method=RequestMethod.POST)
+	@RequestMapping(value="/AccomodationPrice" ,method=RequestMethod.POST)
 	public String accomodationPrice(Model model,@RequestParam(value="kind") String kind
 			) {
 		accomodationService.accomodationPrice(model,kind);
 		
 		return "Accomodation/AccomodationAjax";
 	}
-	@RequestMapping(value="/Accomodation/AccomodationLowPrice" ,method=RequestMethod.POST)
+	@RequestMapping(value="/AccomodationLowPrice" ,method=RequestMethod.POST)
 	public String accomodatioLowPrice(Model model,@RequestParam(value="kind") String kind
 			) {
 		accomodationService.accomodationLowPrice(model,kind);

@@ -10,8 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>accomodation</title>
-<link href="../CSS/AccomodationList.css" rel="stylesheet" type="text/css">
- <link href="../CSS/header.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/AccomodationList.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../JS/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="../JS/jquery.form.js"></script>   
     
@@ -91,7 +90,7 @@ function lowPrice(){
  </div><div class="option" onclick="hightPrice()">높은가격순</div><div class="option" onclick="lowPrice()">낮은가격순</div><div class="option">후기순</div></div>
 <div id="ajax">
 <c:forEach items="${list}" var="list">
-<div class="accomodationList"> <img src="./upfile/${list.accmodationImgstore}" />
+<div class="accomodationList"> <img src="Accomodation/upfile/${list.accmodationImgstore}" />
 <div class="detailContent">
     <h1><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName } <b id="c">-${list.accmodationArea }-</b></a></h1>
     <p>주소: ${list.accomodationAdd }</p>  
