@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Model.DateMovieDTO;
 import Model.RestaurantDTO;
 import Model.TheaterRegisterDTO;
 
@@ -28,5 +29,11 @@ public class TheaterRegisterRepository {
 	
 		return sqlSession.selectOne("TheaterMapper.screenList",num);
 	}
+	public List<DateMovieDTO> screenMovie(Long num) {
+		
+		return sqlSession.selectList("TheaterMapper.screenMovie",num);
+	}
+	
+	
 	
 }

@@ -27,6 +27,7 @@ public class MovieRegisterService {
 	private String time2;
 	private String originalFiles = "";
 	private String storeFiles = "";
+	private String path;
 
 	public String movieInsert(Model model,MovieRegisterCommand mRcommend,HttpServletRequest request) {
 		System.out.println(request.getRealPath("/WEB-INF/view/")+"Movie\\upfile1\\");
@@ -63,7 +64,8 @@ public class MovieRegisterService {
 		storeFiles="";
 		
 		if(i1 > 0) {  
-			return	"";
+			path="RegisterComplete";
+			return	path;
 		}else {
 			String[] fileNames = storeFiles.split("-");
 			for(String fileName : fileNames) {

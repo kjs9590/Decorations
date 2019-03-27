@@ -28,8 +28,9 @@ public class MovieRegisterController {
 			@RequestMapping(method=RequestMethod.POST)
 			public String submit(Model model,MovieRegisterCommand mRcommand,HttpServletRequest request ) {
 				
-				movieRegisterService.movieInsert(model,mRcommand,request);
-				return "redirect:TheaterMain";
+				String path=movieRegisterService.movieInsert(model,mRcommand,request);
+				System.out.println(path);
+				return path;
 			}
 			
 			

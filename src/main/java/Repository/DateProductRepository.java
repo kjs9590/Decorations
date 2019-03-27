@@ -20,5 +20,6 @@ public class DateProductRepository {
 			map.put("nums", nums);
 			return sqlSession.insert("DateProducts.DateProduct",map);
 		}
+		
 
 }
