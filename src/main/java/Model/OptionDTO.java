@@ -1,6 +1,8 @@
 package Model;
 
-public class OptionDTO {
+import java.io.Serializable;
+
+public class OptionDTO implements Serializable{
 	private int optionNum;   //옵션번호
 	private String optionProduct;  //옵션상품
 	private int optionPrice; // 옵션 가격

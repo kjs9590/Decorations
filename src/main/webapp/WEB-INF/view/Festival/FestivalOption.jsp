@@ -119,22 +119,18 @@
                     </tr>
                     <tr>
                     
-                    <td colspan="5"><select id="option" name="op">
-                            <option value selected="selected">선택해주세요</option>
-                            <option value=""></option>
-                            <option value="같은">같은   +2,000원</option>
-                            <option value="옵션">옵션   +2,000원</option>
-                            <option value="뭐가">뭐가   +2,000원</option>
-                            <option value="있는지">있는지   +2,000원</option>
-                            <option value="잘">잘   +2,000원</option>
-                            <option value="모르겠다">모르겠다   +2,000원</option>
+                    <td colspan="5"><select id="option" name="op" onchange="changePrice()">
+                            <option  selected="selected">선택해주세요</option>
+                            <c:forEach items="${option }" var="op">
+                            <option id="options">${op.optionProduct } + ${op.optionPrice }</option>
+                            </c:forEach>
                         </select></td>
                     
                     </tr>
                     
                      <tr>
                         <td id="sub">가격</td>
-                        <td id="con">${command.festivalPrice }원</td>
+                        <td id="plus">${command.festivalPrice }</td>
                     </tr>
                     <tr>
                         <td colspan="3" id="btn"><button type="submit" value="예약하기" id="paybtn">예약</button></td>    
@@ -142,7 +138,17 @@
                 </table>
             </div>
         </div>
-
+<script type="text/javascript">
+function changePrice() {
+	var s=document.getElementById("op").value;
+	alert(s);
+	var b=document.getElementById("plus").innerHTML;
+	var price1=eval(s);
+	var price2=eval(b);
+var	pricess=price1+price2;
+document.getElementById("plus").innerHTML=pricess;
+}
+</script>
 
 
         </div>

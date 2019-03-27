@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.FestivalOptionCommand;
 import Model.FestivalDTO;
+import Model.OptionDTO;
 import other.AutoPaging;
 @Repository
 public class FestivalRepository {
@@ -68,11 +69,14 @@ public class FestivalRepository {
 		return sqlSession.selectOne("FestivalMapper.paginglistcount");
 	}
 
-
-	/*public List<FestivalDTO> option() {
+	public List<OptionDTO> option(String kind) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("FestivalMapper.optionlist");
-	}*/
+		
+		return sqlSession.selectList("FestivalMapper.Option", kind);
+	}
+
+
+
 
 
 

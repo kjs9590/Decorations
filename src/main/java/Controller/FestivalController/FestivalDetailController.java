@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.FestivalOptionCommand;
 import Model.FestivalDTO;
+import Model.OptionDTO;
 import Service.FestivalDetailService;
 
 
@@ -34,8 +35,10 @@ public class FestivalDetailController {
 		
 		//예약옵션 가기
 		@RequestMapping(value="/Festival/Order", method = RequestMethod.GET )
-		public String form(Model model,@ModelAttribute FestivalOptionCommand command) {
-					
+		public String form(Model model,@ModelAttribute FestivalOptionCommand command ) {
+			String kind="축제";
+			List<OptionDTO> option = festivalDetailService.option(kind);
+			model.addAttribute("option", option);
 			model.addAttribute("command",command);
 			return "Festival/FestivalOption";
 		}

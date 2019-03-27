@@ -19,9 +19,9 @@ public class FestivalDetailService {
 		return  festivalRepository.detail(num);
 	}
 
-	public void option(OptionDTO opdto) {
+	public List<OptionDTO> option(String kind) {
 		// TODO Auto-generated method stub
-		
+		return festivalRepository.option(kind);
 	}
 
 
