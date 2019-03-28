@@ -20,6 +20,7 @@ public class FestivalDTO implements Serializable{
 	private Date festivalFinalDate; 
 	private String categoryName;
 	
+	
 	public Date getFestivalFinalDate() {
 		return festivalFinalDate;
 	}
