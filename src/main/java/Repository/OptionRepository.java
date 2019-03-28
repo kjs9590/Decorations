@@ -21,5 +21,11 @@ public class OptionRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("OptionMapper.optionList");
 	}
-
+	
+	public List<OptionDTO> option(String kind) {
+		// TODO Auto-generated method stub
+		
+		return sqlSession.selectList("OptionMapper.Option", kind);
+	
+}
 }

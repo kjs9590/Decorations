@@ -15,7 +15,7 @@ public class AccomodationRegisterDTO implements Serializable{
 	ROOM_IMGSTORE --객실 스토어 이미지
 	*
 	*/
-
+    private Long productNum;
 	private Long roomNum;
 	private Long accomodationNum;
 	private Long roomPrice;
@@ -26,6 +26,18 @@ public class AccomodationRegisterDTO implements Serializable{
 	private String roomImg;
 	private String roomImgstore;
 	
+	public Long getProductNum() {
+		return productNum;
+	}
+
+
+
+	public void setProductNum(Long productNum) {
+		this.productNum = productNum;
+	}
+
+
+
 	public AccomodationRegisterDTO() {}
 
 	

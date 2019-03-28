@@ -195,7 +195,7 @@
 
 		select ROOM_NUM,ROOM_PRICE,ROOM_AD, ROOM_EX, ROOM_KIND,
 		ROOM_IMGSTORE,
-		ROOM_COUNT from DATEROOM where ACCOMODATION_NUM = #{num}
+		ROOM_COUNT,PRODUCT_NUM from DATEROOM where ACCOMODATION_NUM = #{num}
 
 	</select>
 	<resultMap type="AccomodationRegisterDTO"
@@ -211,6 +211,8 @@
 			property="roomImgstore" />
 		<result column="ROOM_COUNT" jdbcType="BIGINT"
 			property="roomCount" />
+			<result column="PRODUCT_NUM" jdbcType="BIGINT"
+			property="productNum" />
 	</resultMap>
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	<select id="AccomodationAvg" parameterType="long" resultType="long">

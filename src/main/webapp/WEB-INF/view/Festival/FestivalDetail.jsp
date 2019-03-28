@@ -57,7 +57,7 @@
 <div id = "contents">
 <div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
 		<div id="festival_img_box"><img src="Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
-		<form action="FestivalOrder" method="get">
+		<form action="OptionMain" method="post">
 		<table id="festival_info">
 			<tr>
 				<td class="subject">개최지역</td>
@@ -110,13 +110,13 @@
 		</table>
 		<input type="hidden" name="productType" value="축제">
 		<input type="hidden" name="productName" value="${Festivaldetail.FESTIVALNAME }">
-		<input type="hidden" name="optionTime" value="--">
+		<input type="hidden" name="optionTime" value="0">
 		<input type="hidden" name="productNum" value="${Festivaldetail.PRODUCTNUM }">
-		<input type="hidden" name="optionPrice" value="${Festivaldetail.FARE }">
+		<input type="hidden" name="optionPrice" value="${Festivaldetail.FESTIVALFARE }">
 		<input type="hidden" name="optionimg" value="${Festivaldetail.FESTIVALIMG }">
 		<input type="hidden" name="optionSeat" value="--">
-		<input type="hidden" name=optionCheckin" value="--">
-	   <input type="hidden" name=optionCheckout" value="--">
+		<input type="hidden" name="optionCheckin" value="0">
+	   <input type="hidden" name="optionCheckout" value="0">
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }

@@ -29,7 +29,7 @@
 
 <body>
 	<jsp:include page="../include/header.jsp" />
-	<form action="AcoomodationOrder" method="get">
+	<form action="OptionMain" method="post">
 		<div id="roomMain">
 			<div id="mainTitle">
 				<b>${aDto.accomodationName}
@@ -65,10 +65,10 @@
 
 				<div class="chekinChekout">
 					<div id="chekin">
-						체크인<input type="date" name="checkin">
+						체크인<input type="date" name="optionCheckin">
 					</div>
 					<div id="chekout">
-						체크아웃<input type="date" name="checkout">
+						체크아웃<input type="date" name="optionCheckout">
 					</div>
 
 				</div>
@@ -109,14 +109,17 @@
 							퇴실 :<%=aRlist.get(i).getRoomEx()%></h4>
 						<h1><%=aRlist.get(i).getRoomPrice()%>원
 						</h1>
+						<input type="hidden" name="productType" value="숙박">
+						<input type="hidden" name="productName" value="<%=aRlist.get(i).getRoomKind() %>">
+						<input type="hidden" name="optionTime" value="0">
+						<input type="hidden" name="productNum" value="0">
+						<input type="hidden" name="optionPrice" value="<%=aRlist.get(i).getRoomPrice() %>">
+						<input type="hidden" name="optionimg" value="<%=img[0]%>">
+						<input type="hidden" name="optionSeat" value="--">
+						<input type="date" name="optionDate" value="숙박" style="background-color: white;">
 					<input type="submit" value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;">
 					</div>
 					
-					
-					
-					<input type="hidden" name="roomImgstore"  value="${aDto.accmodationImgstore}">
-					<input type="hidden" name="accomodationName"  value="${aDto.accomodationName}">
-					<input type="hidden" name="roomPrice"  value="<%=aRlist.get(i).getRoomPrice()%>">
 					
 			
 				</div>
