@@ -7,6 +7,7 @@
 <%
 	ChargerDTO chargerDTO = (ChargerDTO) session.getAttribute("chargerDTO");
 	List<FoodDTO> list = (List) request.getAttribute("list");
+	int plz=0;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,6 +21,7 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="${pageContext.request.contextPath }/JS/datepicker.js"></script>
 <script src="${pageContext.request.contextPath }/JS/datepicker.min.js"></script>
+
 <script>
 
 
@@ -112,24 +114,24 @@ $(function () {
 		</div>
 			<%if(list !=null){ 
 			for(int i=0; i<list.size(); i++){
-			 
+			 plz++;
 			%>
                 
 					<li class="re_menu_li">
 						<input type="radio" name="foodName" class="check" value="<%=list.get(i).getFoodNum()%>"> 
 						<input type="hidden" name="productType" value="레스토랑">
-						<input type="hidden" name="productName" value="<%= list.get(i).getPRODUCTNUM() %>">
-						<input type="hidden" name="optionTime" value="0">
+						<input type="hidden" name="productName" value="<%= list.get(i).getFoodName() %>">
+						<input type="hidden" name="optionTime" value="--">
 						<input type="hidden" name="productNum" value="<%=list.get(i).getPRODUCTNUM()%>">
 						<input type="hidden" name="optionPrice" value="<%= list.get(i).getFoodPrice() %>">
 						<input type="hidden" name="optionimg" value="<%=list.get(i).getFoodImgStore()%>">
 						<input type="hidden" name="optionSeat" value="--">
-						
+						<input type="hidden" id="x" name="count">
 		              
 			            
 						<label for="" id="chk"><%=list.get(i).getFoodName()%></label> 
 						<span>
-							<img src="Product/date/<%list.get(i).getFoodImgStore(); %>" alt="" width="180" height="160">
+							<img src="Product/date/<%=list.get(i).getFoodImgStore() %>" alt="" width="180" height="160">
 						</span>
 						<div>
 							<p>
@@ -140,7 +142,7 @@ $(function () {
 							<img src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12">
 						</a>
 					  <div id="btn">
-			            <button type="submit">예약하러가기</button></div>
+			            <button type="submit" onclick="plz(<%=plz%>)">예약하러가기</button></div>
 					</li>
 				<%} %>
 			</ul>
@@ -148,7 +150,15 @@ $(function () {
 		<%} %>
 
 				
-		
+			<script type="text/javascript">
+				function plz(plz) {
+					
+					alert(plz)
+					document.getElementById("x").value=plz;
+					alert(document.getElementById("x").value)
+					document.getElementById('frm').submit()
+				}
+				</script>
 		
 		
 

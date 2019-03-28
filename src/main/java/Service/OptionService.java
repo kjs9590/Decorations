@@ -30,10 +30,26 @@ public class OptionService {
 	}
 	
 	public void option(OptionCommand command, Model model) {
-	     kind=command.getProductType();
+	    
+		kind=command.getProductType();
 	  List<OptionDTO> opt=optionRepository.option(kind);
-		model.addAttribute("command", command);
-		model.addAttribute("opt",opt);
+	 
+	 String name[]= command.getProductName().split(",");
+	 String type[]=command.getProductType().split(",");
+	 String pNume[]=command.getProductNum().split(",");
+	 String price[]=command.getOptionPrice().split(",");
+	 String img[]=command.getOptionimg().split(",");
+	 String seat[]=command.getOptionSeat().split(",");
+	 String time[]=command.getOptionTime().split(",");
+	 command.setOptionimg(img[command.getCount()-1]);
+	 command.setOptionPrice(price[command.getCount()-1]);
+	 command.setOptionSeat(seat[command.getCount()-1]);
+	 command.setProductName(name[command.getCount()-1]);
+	 command.setProductNum(pNume[command.getCount()-1]);
+	 command.setProductType(type[command.getCount()-1]);
+	 command.setOptionTime(time[command.getCount()-1]);
+	 model.addAttribute("command", command);
+	model.addAttribute("opt",opt);
 	}
 
 	

@@ -5,14 +5,14 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class OptionCommand {
-	
+	private int count;
 	private String productType;   //데이트상품 타입
 	private String productName;  // 데이트 상품이름
-	private int productNum; //데이트번호
+	private String productNum; //데이트번호
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date optionDate; // 데이트 날짜
-	private int optionTime; // 데이트시간 
-	private int optionPrice; //입장요금
+	private String optionTime; // 데이트시간 
+	private String optionPrice; //입장요금
 	private String optionimg; // 이미지
 	private String optionSeat; //좌석 null
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -20,6 +20,13 @@ public class OptionCommand {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date optionCheckout;
 	private int foodName;
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public int getFoodName() {
 		return foodName;
 	}
@@ -44,23 +51,23 @@ public class OptionCommand {
 	public void setOptionDate(Date optionDate) {
 		this.optionDate = optionDate;
 	}
-	public int getOptionTime() {
+	public String getOptionTime() {
 		return optionTime;
 	}
-	public void setOptionTime(int optionTime) {
+	public void setOptionTime(String optionTime) {
 		this.optionTime = optionTime;
 	}
 	
-	public int getProductNum() {
+	public String  getProductNum() {
 		return productNum;
 	}
-	public void setProductNum(int productNum) {
+	public void setProductNum(String  productNum) {
 		this.productNum = productNum;
 	}
-	public int getOptionPrice() {
+	public String getOptionPrice() {
 		return optionPrice;
 	}
-	public void setOptionPrice(int optionPrice) {
+	public void setOptionPrice(String optionPrice) {
 		this.optionPrice = optionPrice;
 	}
 	public String getOptionimg() {

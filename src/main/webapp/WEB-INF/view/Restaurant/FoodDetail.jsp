@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>음식 이미지</td>
-                <td><img src="Restaurant/upfile/${fdto.foodImgStore}" width="200" height="200" alt=""></td>
+                <td><img src="Product/date//${fdto.foodImgStore}" width="200" height="200" alt=""></td>
             </tr>
             <tr>
                 <td>음식 정보</td>

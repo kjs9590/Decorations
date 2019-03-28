@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+--<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, Model.FestivalDTO" %>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
@@ -31,21 +31,15 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
 	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
 	crossorigin="anonymous"></script>
-
-<!--css 설정(기본값)-->
 <link href="/css/body.css" rel="stylesheet" type="text/css">
 <link href="/css/header.css" rel="stylesheet" type="text/css">
 <link href="/css/footer.css" rel="stylesheet" type="text/css">
 
-<!-- js 설정(기본값) -->
+
 <script src = "../js/header.js"></script>
 
-<!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
-
-<!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
 <link href="CSS/FestivalOption_content.css" rel="stylesheet" type="text/css"> 
-<!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
-<!-- <script src = "js/sample.js"></script> -->
+
 
 
 </head>
@@ -86,15 +80,25 @@
                       	 <!-- 날짜 선택시  -->
                       
                     </tr>
+                    
                     <tr>
                         <td id="sub">시간</td>
+                      
                       <td id="con" colspan="5">
-	                       	ㅡ
+	                       ${command.optionTime }
                         </td> 
+                    </tr>
+                      <tr>
+                        <td id="sub">체크인</td>
+                        <td id="plus">${command.optionPrice }</td>
+                    </tr>
+                      <tr>
+                        <td id="sub">체크아웃</td>
+                        <td id="plus">${command.optionPrice }</td>
                     </tr>
                 	  <tr>
                     	<td id="sub">좌석</td>
-                    	 <td id="con">ㅡ</td>
+                    	 <td id="con">${command.optionSeat }</td>
                     </tr>
                    <%--  <tr>
                         <td id="sub">가격</td>

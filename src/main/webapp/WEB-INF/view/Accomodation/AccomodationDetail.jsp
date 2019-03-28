@@ -8,6 +8,7 @@
 %>
 <%
 	int count = 4;
+	int plz=0;
 %>
 <!doctype html>
 <html lang="UTF-8">
@@ -29,7 +30,7 @@
 
 <body>
 	<jsp:include page="../include/header.jsp" />
-	<form action="OptionMain" method="post">
+	<form action="OptionMain" method="post" id="frm"">
 		<div id="roomMain">
 			<div id="mainTitle">
 				<b>${aDto.accomodationName}
@@ -78,6 +79,7 @@
 				<%for (int i = 0; i < aRlist.size(); i++){ %>
                <%String img[] = aRlist.get(i).getRoomImgstore().split("-");%>
 				<%count++;%>
+				<%plz++; %>
 				<div class="room">
 					<div class="roomImg">
 						<div>
@@ -109,22 +111,34 @@
 							퇴실 :<%=aRlist.get(i).getRoomEx()%></h4>
 						<h1><%=aRlist.get(i).getRoomPrice()%>원
 						</h1>
-						<input type="hidden" name="foodName" class="check" value="1"> 
+						<input type="hidden" name="foodName" class="check" value="0"> 
 						<input type="hidden" name="productType" value="숙박">
 						<input type="hidden" name="productName" value="<%=aRlist.get(i).getRoomKind() %>">
-						<input type="hidden" name="optionTime" value="0">
-						<input type="hidden" name="productNum" value="0">
+						<input type="hidden"  name="optionTime"  value="--">
+						<input type="hidden" name="productNum" value="<%=aRlist.get(i).getProductNum()%>">
 						<input type="hidden" name="optionPrice" value="<%=aRlist.get(i).getRoomPrice() %>">
 						<input type="hidden" name="optionimg" value="<%=img[0]%>">
 						<input type="hidden" name="optionSeat" value="--">
+						<input type="hidden" id="x" name="count" >
 						<input type="date" name="optionDate" value="숙박" style="background-color: white;border:none;color: white;">
-					<input type="submit" value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;">
+					<input type="submit"  value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;" onclick="plz(<%=plz%>)">
 					</div>
 					
 					
 			
 				</div>
-				<%count += img.length;}%>
+				<script type="text/javascript">
+				function plz(plz) {
+					
+					alert(plz)
+					document.getElementById("x").value=plz;
+					alert(document.getElementById("x").value)
+					document.getElementById('frm').submit()
+				}
+				</script>
+				<%count += img.length;
+				
+				}%>
 			</div>
 
 		</div>
