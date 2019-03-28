@@ -96,7 +96,7 @@
             	 %>
                 <div class=screen_list><img src="Movie/upfile1/<%=img[0] %>" >
                 <div class="movieMention"><h4><%=mrdto.get(i).getScreenName() %></h4>
-                 <h3 onclick="movieSeate(<%=mrdto.get(i).getProductNum()%>,<%=mrdto.get(i).getMovieNum()%>)" style="cursor: pointer;"><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
+                 <h3 onclick="movieSeate(<%=mrdto.get(i).getProductNum()%>,<%=mrdto.get(i).getMovieNum()%>,<%=mrdto.get(i).getScreenColumn()%>+<%=mrdto.get(i).getScreenRow()%>)" style="cursor: pointer;"><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
                 <h5><%=mrdto.get(i).getScreenKind()%> +<%=mrdto.get(i).getScreenPlus() %>원</h5>
                 <h5 style="color: blue;"><%=time[0]%>시 <%=time[1]%>분</h5>
               
