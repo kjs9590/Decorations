@@ -11,10 +11,30 @@
 	rel="stylesheet">
 <!--폰트-->
 <!--body { font-family: "Jua", sans-serif;} -->
-<script type="text/javascript" src="../JS/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="../JS/jquery.form.js"></script>
-<link href="${pageContext.request.contextPath }/CSS/product.css" rel="stylesheet" type="text/css">
-<script></script>
+<link href="${pageContext.request.contextPath }/CSS/product.css"
+	rel="stylesheet" type="text/css">
+	
+<script type="text/javascript" src="./JS/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./JS/jquery.form.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+<script>
+function theater(kind){
+
+	$.ajax({
+		type : "get",
+		url : "Productkind",
+		data : "kind="+kind,
+			datatype : "html",
+			success : function(data) {
+				$("#ajax").html(data);
+			}
+		});
+	}
+</script>
 
 </head>
 
@@ -23,28 +43,29 @@
 	<div class="wrap_product">
 		<p id="p">상품 관리</p>
 
-		<div class="option" onclick="all()">전체</div>
-		<div class="option" onclick="theater()">영화관</div>
-		<div class="option" onclick="accomodation()">숙소</div>
-		<div class="option" onclick="restaurant()">레스토랑</div>
-		<table id="table">
-			<tr>
-				<td colspan="4" id="sub">전체</td>
-			</tr>
+		<div class="option" onclick="theater('영화')">영화</div>
+		<div class="option" onclick="theater('숙소')">숙소</div>
+		<div class="option" onclick="theater('레스토랑')">레스토랑</div>
+		<div id="ajax">
+			<table id="table">
+				<tr>
+					<td colspan="4" id="sub">전체</td>
+				</tr>
 
-			<tr>
-				<td id="sub">이름</td>
-				<td id="sub">정보</td>
-				<td id="sub">주소</td>
-				<td id="sub">연락처</td>
-			</tr>
-			<tr>
-				<td id="con">ㅁㅁㅁ</td>
-				<td id="con">ㅁㅁㅁ</td>
-				<td id="con">ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ</td>
-				<td id="con">000-0000-0000</td>
-			</tr>
-		</table>
+				<tr>
+					<td id="sub">이름</td>
+					<td id="sub">정보</td>
+					<td id="sub">주소</td>
+					<td id="sub">연락처</td>
+				</tr>
+				<tr>
+					<td id="con">ㅁㅁㅁ</td>
+					<td id="con">ㅁㅁㅁ</td>
+					<td id="con">ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ</td>
+					<td id="con">000-0000-0000</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
