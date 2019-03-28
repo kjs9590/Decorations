@@ -41,8 +41,8 @@
 #mainmenu {
     list-style: none;
     float: right;
-    margin-right: 100px;
-    width: 670px;
+    margin-right: 50px;
+    width: 1000px;
 }
 
 #mainmenu li {

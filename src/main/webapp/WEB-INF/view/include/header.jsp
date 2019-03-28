@@ -21,32 +21,39 @@
 
 						
                         <% if( chargerDTO != null){ %>
+                        <li><a href="">옵션등록하기</a></li>
                         <li><a href="Reg_Link">상품등록하기</a></li><!--담당자 로그인때만 보여지게-->
                         <%} %>
                         <%if(memberDTO==null && chargerDTO==null){ %>
                         <li><a href="Login"> LOGIN </a></li>
                         <li><a href="CLogin"> CHARGER LOGIN </a></li>
-                        <li><a href="Member/MemberRegister"> SIGN UP </a></li>
+                        <li><a href="MemberRegister"> SIGN UP </a></li>
                         <%} %>
                         <%if(memberDTO!=null || chargerDTO != null){ %>
                         <li><a href="Logout"> LOGOUT </a></li>
                         <%} %>
-                        <%if(memberDTO != null){ %>
-                        <li><a href="MemberInfo"> MY PAGE </a></li>
-                        <%} %>
                         <%if(chargerDTO != null){ %>
                         <li><a href="memberList"> MEMBERLIST </a></li>
+                        <li><a href="#"> PRODUCT </a></li>
                         <%} %>
                         
-                        <li><a href="#"> CUSTOMERSERVICE </a></li>
                     </ul>
                 </li>
                 <li>
                     <ul id="mainmenu">
-                        <li><a href="#"> MOVIE </a></li>
+                     <% if( chargerDTO != null){ %>
+                        <li><a href="TheaterMain"> MOVIE </a></li>
                         <li><a href="RestaurantMain"> RESTAURANT </a></li>
-                        <li><a href="Festival/Main"> FESTIVAL </a></li>
+                        <li><a href="FestivalMain"> FESTIVAL </a></li>
                         <li><a href="AccomodationMain"> ACCOMMODATION </a></li>
+                        <li><a href="#"> CUSTOMERSERVICE </a></li>
+                     <%} %>
+                     <%if(memberDTO != null){ %>
+                        <li><a href=""> SCHEDULE </a></li>
+                        <li><a href="MemberInfo"> MY PAGE </a></li>
+                        <li><a href=""> ORDER INFO </a></li>
+                        <li><a href="#"> CUSTOMERSERVICE </a></li>
+                     <%} %>
                     </ul>
                 </li>
             </ul>
