@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@ page import="java.util.*"%>
-<%@ page import="Model.*"%>
-<% 
-	ArrayList<ProductDTO> dto = (ArrayList<ProductDTO>)request.getAttribute("dto");
-%> --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,17 +24,7 @@
 			<td id="con">${pDtos.number }</td>
 		</tr>
 		</c:forEach>
-		
-<%-- 		<% for(int a = 0; a< dto.size(); a++){ %>
-		<tr>
-			<td id="con"><%=dto.get(a).getName() %></td>
-			<td id="con"><%=dto.get(a).getInfo() %></td>
-			<td id="con"><%=dto.get(a).getAddress() %></td>
-			<td id="con"><%=dto.get(a).getNumber() %></td>
-		</tr>
-		<%
-				}
-			%> --%>
+
 	</table>
 </body>
 </html>

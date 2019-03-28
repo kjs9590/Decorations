@@ -43,6 +43,12 @@ public class TheaterMainService {
 		
 		model.addAttribute("Mrdto",Mrdto);
 		}
+	public List<TheaterRegisterDTO> theaterList(Model model) {
+		List<TheaterRegisterDTO> list =theaterRegisterRepository.theaterList();
+		
+		
+		return list;
+	}
 	
 	
 }

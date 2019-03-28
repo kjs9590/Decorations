@@ -22,7 +22,7 @@
   crossorigin="anonymous"></script>
 
 <script>
-function theater(kind){
+function list(kind){
 
 	$.ajax({
 		type : "get",
@@ -43,9 +43,9 @@ function theater(kind){
 	<div class="wrap_product">
 		<p id="p">상품 관리</p>
 
-		<div class="option" onclick="theater('영화')">영화</div>
-		<div class="option" onclick="theater('숙소')">숙소</div>
-		<div class="option" onclick="theater('레스토랑')">레스토랑</div>
+		<div class="option" onclick="list('영화')">영화</div>
+		<div class="option" onclick="list('숙소')">숙소</div>
+		<div class="option" onclick="list('레스토랑')">레스토랑</div>
 		<div id="ajax">
 			<table id="table">
 				<tr>
