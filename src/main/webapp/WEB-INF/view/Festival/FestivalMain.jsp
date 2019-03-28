@@ -43,7 +43,7 @@
 <!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
 
 <!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
-<link href="../CSS/FestivalMain_content.css" rel="stylesheet" type="text/css"> 
+<link href="CSS/FestivalMain_content.css" rel="stylesheet" type="text/css"> 
 <!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
 <!-- <script src = "js/sample.js"></script> -->
 
@@ -75,7 +75,7 @@ function areaClick(area){
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <form method="get">
-<div id="festival_main_view"><img src="../images/Festival_main.png"></div>
+<div id="festival_main_view"><img src="images/Festival_main.png"></div>
 		<div id="festival_title"><h3>지역축제</h3></div>
 		<div id="area_info">
 			<ul>
@@ -92,12 +92,12 @@ function areaClick(area){
 				<c:forEach items="${Festivallist}" var="festivallist">
 					<div class="festival_infobox">
 						<div id="festival_infoview">
-							<img src="../Festival/${festivallist.getFESTIVALIMG()}">
+							<img src="Festival/${festivallist.getFESTIVALIMG()}">
 						</div>
 						<div id="festival_info">
 							<p id="info">
 								<strong><a
-									href="Detail?fno=${festivallist.getFESTIVALNUM()}">${festivallist.getFESTIVALNAME()}</a></strong></span>
+									href="FestivalDetail?fno=${festivallist.getFESTIVALNUM()}">${festivallist.getFESTIVALNAME()}</a></strong></span>
 							<p>
 								입장료 : <span style="color: red;">${festivallist.getFESTIVALFARE()}</span>원
 							</p>

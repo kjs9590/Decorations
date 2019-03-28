@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import Commend.OptionCommand;
 import Commend.OptionRegisterCommand;
 import Service.OptionService;
 
@@ -32,5 +33,14 @@ public class OptionRegisterController {
 	}
 	
 
+	@RequestMapping(value="/OptionMain", method=RequestMethod.POST)
+	
+	public String optionMain(OptionCommand optioncommand, Model model) {
+		
+		optionService.option(optioncommand,model);
+		
+		
+		return "Option/OptionMain.jsp";
+	}	
 	
 }

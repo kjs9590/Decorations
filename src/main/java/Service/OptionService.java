@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import Commend.OptionCommand;
 import Commend.OptionRegisterCommand;
 import Model.OptionDTO;
 import Repository.OptionRepository;
@@ -26,6 +27,11 @@ public class OptionService {
 		
 		return result;
 		
+	}
+	
+	public void option(OptionCommand command, Model model) {
+	
+		model.addAttribute("command", command);
 	}
 
 
