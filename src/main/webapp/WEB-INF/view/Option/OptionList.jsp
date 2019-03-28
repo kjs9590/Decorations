@@ -3,7 +3,7 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ page import="java.util.*"%>
-<%@ page import="Model.OptionDTO"%>
+<%@ page import="Model.*"%>
 <%
 	ArrayList<OptionDTO> options = null;
 	if (request.getAttribute("options") != null) {
@@ -80,19 +80,25 @@ html, body {
 				<td id="product">이름</td>
 				<td id="price">가격</td>
 			</tr>
-			
+			<%
+				if (options.size() ==0){
+			%>
 			<tr>
-				<td colspan="4" style="text-align: center">회원이 존재하지 않습니다.</td>
+				<td colspan="4" style="text-align: center">옵션이 존재하지 않습니다.</td>
 			</tr>
-		
+			<%} else { 
+				 	for(int i = 0; i<options.size(); i++){	
+			%>
 
 			<tr id="ta_sub">
-				<td id="num">번호</td>
-				<td id="sortation">구분</td>
-				<td id="product">이름</td>
-				<td id="price">가격</td>
+				<td id="num"><%=options.get(i).getOptionNum() %></td>
+				<td id="sortation"><%=options.get(i).getOptionSoration() %></td>
+				<td id="product"><%=options.get(i).getOptionProduct() %></td>
+				<td id="price"><%=options.get(i).getOptionPrice() %></td>
 			</tr>
-
+			
+			<%}
+			}%>
 		</table>
 	</div>
 </body>
