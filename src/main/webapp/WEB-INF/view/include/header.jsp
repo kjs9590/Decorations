@@ -4,8 +4,24 @@
 <% 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
 	ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
 %>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+var su=1;
+var su1=1
+var d;
+var oTbl; 
 
 
+function OptionRegister(){
+
+	var url='OptionRegister'
+	    window.name="parentForm";
+	    window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=500");  
+	     
+	    self.close();
+}
+
+</script>
 
     <link href="https://fonts.googleapis.com/css?family=Jua|Play" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/CSS/header.css" rel="stylesheet" type="text/css">
@@ -21,7 +37,7 @@
 
 						
                         <% if( chargerDTO != null){ %>
-                        <li><a href="">옵션등록하기</a></li>
+                        <li><a href="" onclick="OptionRegister()">옵션등록하기</a></li>
                         <li><a href="Reg_Link">상품등록하기</a></li><!--담당자 로그인때만 보여지게-->
                         <%} %>
                         <%if(memberDTO==null && chargerDTO==null){ %>

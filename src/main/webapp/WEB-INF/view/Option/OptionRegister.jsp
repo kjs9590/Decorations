@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css?family=Jua|Play"
 	rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/CSS/OptionRegister.css"
+	rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="wrap_option_reg">
@@ -15,7 +17,7 @@
 			<table class="table">
 				<tr>
 					<td>옵션 구분</td>
-					<td><select id="option" name="optionType">
+					<td><select id="option" name="optionSoration">
 							<option value selected="selected">타입을 선택해주세요</option>
 							<option value="숙박">숙박</option>
 							<option value="레스토랑">레스토랑</option>
@@ -25,7 +27,7 @@
 				</tr>
 				<tr>
 					<td>옵션 이름</td>
-					<td><input type="text" name="optionName" class="textbox" placeholder="    옵션 이름"></td>
+					<td><input type="text" name="optionProduct" class="textbox" placeholder="    옵션 이름"></td>
 				</tr>
 
 				<tr>

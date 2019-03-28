@@ -1,13 +1,9 @@
-package Model;
+package Commend;
 
-import java.io.Serializable;
-
-public class OptionDTO implements Serializable{
-	private int optionNum;   //옵션번호
-	private String optionProduct;  //옵션상품
-	private int optionPrice; // 옵션 가격
-	private String optionSoration; //옵션구분
-	
+public class OptionRegisterCommand {
+	private String optionSoration;
+	private String optionProduct;
+	private int optionPrice;
 	
 	
 	public String getOptionSoration() {
@@ -15,12 +11,6 @@ public class OptionDTO implements Serializable{
 	}
 	public void setOptionSoration(String optionSoration) {
 		this.optionSoration = optionSoration;
-	}
-	public int getOptionNum() {
-		return optionNum;
-	}
-	public void setOptionNum(int optionNum) {
-		this.optionNum = optionNum;
 	}
 	public String getOptionProduct() {
 		return optionProduct;
