@@ -21,4 +21,10 @@ public class MovieDetailController {
 		        	movieDetailService.movieDetail(model,num,img);
 		        	return "Movie/MovieDetail";
 				}
+		        @RequestMapping(value="/MovieSeat" ,method=RequestMethod.GET)
+					public String seat(Model model,@RequestParam(value="num") Long num) {
+						
+//			        	movieDetailService.movieDetail(model,num);
+			        	return "Movie/MovieDetail";
+			    }
 }

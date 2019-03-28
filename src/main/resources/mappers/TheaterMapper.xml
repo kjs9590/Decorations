@@ -27,7 +27,7 @@
        </select>
   
     <select id="screenMovie" parameterType="long" resultMap="listScreenMovie">
-             select d.MOVIE_START,d.PRODUCT_NUM,m.MOVIE_STOREIMG,m.MOVIE_TITEL,m.MOVIE_PRICE,m.MOVIE_TITEL,s.SCREEN_KIND,s.SCREEN_ROW,s.SCREEN_COLUMN,s.SCREEN_NAME,s.SCREEN_PLUS
+             select d.MOVIE_START,d.PRODUCT_NUM,m.MOVIE_STOREIMG,m.MOVIE_TITEL,m.MOVIE_NUM,m.MOVIE_PRICE,m.MOVIE_TITEL,s.SCREEN_KIND,s.SCREEN_ROW,s.SCREEN_COLUMN,s.SCREEN_NAME,s.SCREEN_PLUS
               from SCREEN s join DATEMOVIE d on(d.SCREEN_NUM=s.SCREEN_NUM) join movie m on(d.MOVIE_NUM=m.MOVIE_NUM) 
              join THEATER t on(t.THEATER_NUM=s.THEATER_NUM) where THEATER_NUM=#{num}
        </select>
@@ -57,6 +57,9 @@
 			property="screenPlus" />
 		<result column="MOVIE_START" jdbcType="BIGINT"
 			property="movieStart" />						
+	    <result column="MOVIE_NUM" jdbcType="BIGINT"
+			property="movieNum" />
+
 	</resultMap>
 	
 	

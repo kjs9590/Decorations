@@ -58,7 +58,9 @@ function OptionRegister(){
                 </li>
                 <li>
                     <ul id="mainmenu">
+
                      <% if( chargerDTO != null){ %>
+
                         <li><a href="TheaterMain"> MOVIE </a></li>
                         <li><a href="RestaurantMain"> RESTAURANT </a></li>
                         <li><a href="FestivalMain"> FESTIVAL </a></li>

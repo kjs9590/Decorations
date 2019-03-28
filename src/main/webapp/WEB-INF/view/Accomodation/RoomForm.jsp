@@ -6,8 +6,10 @@
 <meta charset="UTF-8">
 <title>Javascript Slide Example</title>
 
-<link href="../CSS/RoomForm.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/RoomForm.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath }/JS/RoomForm.js"></script>
+
+
 </head>
 
 <div id="registeRoom">
@@ -39,7 +41,7 @@
 
 		<div>
 			<p>객실 인원</p>
-			<span>1명</span> ~ <input type="number" id="number" name="count">명
+			<span>1명</span> ~ <input type="number" id="number" name="count" style="width:30px;">명
 		</div>
 
 		<div>
@@ -85,7 +87,7 @@
 		<p>사진등록</p>
 
 		<img id="lastone" src="${pageContext.request.contextPath }/images/sunny.jpg" width="5%" height="30px"
-			onclick="insRow()">
+			onclick="insRow()" style="cursor: pointer;">
 		<table id="addTable" width="400" cellspacing="0" cellpadding="0"
 			bgcolor="#FFFFFF" border="0">
 			

@@ -27,7 +27,7 @@
 				<p>레스토랑 등록</p> </a>
 		</div>
 		<div class="accommodation">
-			<a href="Accomodation/AccomodationForm"><img src="images/hotel.jpg" alt="" width="400" height="500">
+			<a href="AccomodationForm"><img src="images/hotel.jpg" alt="" width="400" height="500">
 				<p>숙소 등록</p> </a>
 		</div>
 	</div>

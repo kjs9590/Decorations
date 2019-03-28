@@ -23,7 +23,7 @@ public class TheaterRegisterController {
 		public String submit(Model model,TheaterRegisterCommend tRcommend ) {
 			
 			theaterRegisterService.theaterRegister(model,tRcommend);
-			return "redirect:TheaterMain";
+			return "redirect:/TheaterMain";
 		}
 	}
 
