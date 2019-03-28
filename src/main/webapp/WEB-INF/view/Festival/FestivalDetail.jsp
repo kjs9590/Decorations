@@ -105,20 +105,18 @@
 			</tr>
 			<tr>
 			<td class="subject">날짜선택</td>
-			<td class="info"><input type="date" name="festivalDate"></td> 
+			<td class="info"><input type="date" name="optionDate"></td> 
 			</tr>
 		</table>
-		<input type="hidden" name="PRODUCTNUM" value="${Festivaldetail.PRODUCTNUM }">
-		<input type="hidden" name="CATEGORYNUM" value="${Festivaldetail.CATEGORYNUM }">
-		<input type="hidden" name="festivalType" value="${Festivaldetail.categoryName }">
-		<input type="hidden" name="festivalName" value="${Festivaldetail.FESTIVALNAME }">
-		<input type="hidden" name="festivalPrice" value="${Festivaldetail.FESTIVALFARE }">
-		<input type="hidden" name="festivalimg" value="${Festivaldetail.FESTIVALIMG }">
-		<input type="hidden" name="festivalTime" value="${Festivaldetail.festivalTime }">
-		<input type="hidden" name="festivalSeat" value="${Festivaldetail.festivalSeat }">
-		<input type="hidden" name="festivalCheckin" value="${Festivaldetail.festivalCheckin }">
-		<input type="hidden" name="festivalCheckout" value="${Festivaldetail.festivalCheckout }">
-		
+		<input type="hidden" name="productType" value="축제">
+		<input type="hidden" name="productName" value="${Festivaldetail.FESTIVALNAME }">
+		<input type="hidden" name="optionTime" value="--">
+		<input type="hidden" name="productNum" value="${Festivaldetail.PRODUCTNUM }">
+		<input type="hidden" name="optionPrice" value="${Festivaldetail.FARE }">
+		<input type="hidden" name="optionimg" value="${Festivaldetail.FESTIVALIMG }">
+		<input type="hidden" name="optionSeat" value="--">
+		<input type="hidden" name=optionCheckin" value="--">
+	   <input type="hidden" name=optionCheckout" value="--">
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }

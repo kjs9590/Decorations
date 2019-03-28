@@ -3,6 +3,7 @@ package Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import Commend.OptionCommand;
 import Commend.OptionRegisterCommand;
 import Repository.OptionRepository;
 
@@ -13,6 +14,11 @@ public class OptionService {
 	public void optionInsert(OptionRegisterCommand command, Model model) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void option(OptionCommand command, Model model) {
+	
+		model.addAttribute("command", command);
 	}
 
 }
