@@ -38,6 +38,7 @@ function OptionRegister(){
 						
                         <% if( chargerDTO != null){ %>
                         <li><a href="" onclick="OptionRegister()">옵션등록하기</a></li>
+                        <li><a href="OptionList">옵션리스트</a></li>
                         <li><a href="Reg_Link">상품등록하기</a></li><!--담당자 로그인때만 보여지게-->
                         <%} %>
                         <%if(memberDTO==null && chargerDTO==null){ %>

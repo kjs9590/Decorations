@@ -30,6 +30,7 @@ public class OptionRegisterController {
 		
 		return "redirect:/Main";
 	}
-		
+	
+
 	
 }
