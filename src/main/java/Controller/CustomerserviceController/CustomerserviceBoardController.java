@@ -29,20 +29,20 @@ public class CustomerserviceBoardController {
 		}
 		
 		//일대일 문의 글쓰기
-		@RequestMapping(value="Customer/Write", method = RequestMethod.GET)
+		@RequestMapping(value="CustomerWrite", method = RequestMethod.GET)
 		public String notice() {
 			return "Notice/NoticeWrite";
 
 		}
-		@RequestMapping(value="Customer/Write", method = RequestMethod.POST)
+		@RequestMapping(value="CustomerWrite", method = RequestMethod.POST)
 		public String notice(CustomerserviceDTO dto) {
 			Integer result = customerserviceboardservice.insert(dto);
-			return "redirect:/Customer/Main";
+			return "redirect:/CustomerMain";
 
 		}
 		
 		//일대일 문의 상세정보
-		@RequestMapping(value="Customer/Detail", method = RequestMethod.GET)
+		@RequestMapping(value="CustomerDetail", method = RequestMethod.GET)
 		public String noticedetail(Model model,@RequestParam("fno") int num,HttpSession session) {
 			CustomerserviceDTO detail = customerserviceboardservice.detail(num);
 			
@@ -58,7 +58,7 @@ public class CustomerserviceBoardController {
 		}
 		
 		//문의답변
-		@RequestMapping(value="Customer/Detail", method = RequestMethod.POST)
+		@RequestMapping(value="CustomerDetail", method = RequestMethod.POST)
 		public String noticedetail(Model model,CustomerServiceCommand cus) {
 			
 			//답글쓰기
@@ -70,7 +70,7 @@ public class CustomerserviceBoardController {
 			Integer charno = customerserviceboardservice.InsertCnum(cus.getChargeNum(),cus.getBoardNum());
 			
 			model.addAttribute("answer", answer);
-			return "redirect:/Customer/Main";
+			return "redirect:/CustomerMain";
 		}
 	
 		

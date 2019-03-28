@@ -43,7 +43,7 @@
 <!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
 
 <!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
-<link href="../CSS/FestivalDetail_content.css" rel="stylesheet" type="text/css"> 
+<link href="CSS/FestivalDetail_content.css" rel="stylesheet" type="text/css"> 
 <!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
 <!-- <script src = "js/sample.js"></script> -->
 
@@ -56,8 +56,8 @@
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
-		<div id="festival_img_box"><img src="../Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
-		<form action="Order" method="get">
+		<div id="festival_img_box"><img src="Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
+		<form action="FestivalOrder" method="get">
 		<table id="festival_info">
 			<tr>
 				<td class="subject">개최지역</td>
@@ -114,7 +114,10 @@
 		<input type="hidden" name="festivalName" value="${Festivaldetail.FESTIVALNAME }">
 		<input type="hidden" name="festivalPrice" value="${Festivaldetail.FESTIVALFARE }">
 		<input type="hidden" name="festivalimg" value="${Festivaldetail.FESTIVALIMG }">
-
+		<input type="hidden" name="festivalTime" value="${Festivaldetail.festivalTime }">
+		<input type="hidden" name="festivalSeat" value="${Festivaldetail.festivalSeat }">
+		<input type="hidden" name="festivalCheckin" value="${Festivaldetail.festivalCheckin }">
+		<input type="hidden" name="festivalCheckout" value="${Festivaldetail.festivalCheckout }">
 		
 		<div id="festival_contents">
 			
@@ -123,7 +126,7 @@
 		
 		<div id="festival_list">
 			<button type="submit">예약하러가기</button>
-			<button type="button" onclick="location.href='Main' ">목록</button>
+			<button type="button" onclick="location.href='FestivalMain' ">목록</button>
 			
 		</div>
 		</form>

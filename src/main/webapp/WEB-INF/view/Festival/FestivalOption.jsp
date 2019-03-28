@@ -44,7 +44,7 @@
 <!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
 
 <!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
-<link href="../CSS/FestivalOption_content.css" rel="stylesheet" type="text/css"> 
+<link href="CSS/FestivalOption_content.css" rel="stylesheet" type="text/css"> 
 <!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
 <!-- <script src = "js/sample.js"></script> -->
 
@@ -66,7 +66,7 @@
                         <td colspan="3">  <p id="info_box">옵션선택</p></td>
                     </tr>
                     <tr>
-                        <td rowspan="9"><img src="../Festival/${command.festivalimg }" alt="" width="400" height="400"></td>
+                        <td rowspan="9"><img src="Festival/${command.festivalimg }" alt="" width="400" height="400"></td>
                     </tr>
                     <tr>
                     

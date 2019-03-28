@@ -45,7 +45,7 @@
 <!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
 
 <!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
-<link href="../CSS/Customerservice.css" rel="stylesheet" type="text/css">
+<link href="CSS/Customerservice.css" rel="stylesheet" type="text/css">
 <!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
 <!-- <script src = "js/sample.js"></script> -->
 
@@ -79,7 +79,7 @@
                 <tr>
                     <%-- <th id="num"><a href="Detail?fno=${notice.getBoardNum() }">${notice.getBoardNum() }</a></th> --%>
                     <th id="kind" style="color: red;">${notice.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${notice.getBoardNum() }">${notice.getBoardTitle() }</a></th>
+                    <th id="sub"><a href="CustomerDetail?fno=${notice.getBoardNum() }">${notice.getBoardTitle() }</a></th>
                     <th id="writer">${notice.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.getBoardDate() }"/></th>
                 </tr>
@@ -92,7 +92,7 @@
                 	<c:if test="${list.getChargeNum() != null }">
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span>
+                    <th id="sub"><a href="CustomerDetail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span>
                     </th> 
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
@@ -109,7 +109,7 @@
                 	<c:if test="${list.getChargeNum() == null }">
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</span>
+                    <th id="sub"><a href="CustomerDetail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</span>
                     </th> 
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
@@ -131,7 +131,7 @@
                 	<c:if test="${list.getChargeNum() != null }">
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span></th>
+                    <th id="sub"><a href="CustomerDetail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: red;">&nbsp;[답변완료]</span></th>
                     
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>
@@ -148,7 +148,7 @@
                 	<c:if test="${list.getChargeNum() == null }">
                    <%--  <th id="num"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardNum() }</a></th> --%>
                     <th id="kind">${list.getBoardKind() }</th>
-                    <th id="sub"><a href="Detail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</th>
+                    <th id="sub"><a href="CustomerDetail?fno=${list.getBoardNum() }">${list.getBoardTitle() }</a><span style="color: black;">&nbsp;[답변대기]</th>
                     
                     <th id="writer">${list.getMemberId() }</th>
                     <th id="date"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.getBoardDate() }"/></th>

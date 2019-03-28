@@ -13,9 +13,9 @@
 <div class="festivalarea1111">
 	<c:forEach items="${area}" var="arealist">
 		<div class="festival_infobox">
-			<div id="festival_infoview"><img src="../Festival/${arealist.getFESTIVALIMG()}"></div>
+			<div id="festival_infoview"><img src="Festival/${arealist.getFESTIVALIMG()}"></div>
 			<div id="festival_info">
-					<p id="info"><strong><a href="Detail?fno=${arealist.getFESTIVALNUM()}">${arealist.getFESTIVALNAME()}</a></strong></span>
+					<p id="info"><strong><a href="FestivalDetail?fno=${arealist.getFESTIVALNUM()}">${arealist.getFESTIVALNAME()}</a></strong></span>
 				<p>입장료 :  <span style="color: red;">${arealist.getFESTIVALFARE()}</span>원  </p>
 				<p>
 					기간: ${arealist.getFESTIVALTERM() }<br>
