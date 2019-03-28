@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import Commend.FestivalOptionCommand;
+import Commend.OptionCommand;
 import Model.FestivalDTO;
 import Model.OptionDTO;
 import other.AutoPaging;

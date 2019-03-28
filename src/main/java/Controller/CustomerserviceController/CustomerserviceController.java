@@ -29,7 +29,7 @@ public class CustomerserviceController {
 	
 	
 
-	@RequestMapping(value="Customer/Main", method = RequestMethod.GET)
+	@RequestMapping(value="CustomerMain", method = RequestMethod.GET)
 	public String form(Model model,CustomerserviceDTO dto) {
 		List<CustomerserviceDTO> customerservice = customerserviceservice.alllist(dto);
 		

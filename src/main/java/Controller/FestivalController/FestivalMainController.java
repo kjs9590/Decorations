@@ -28,7 +28,7 @@ public class FestivalMainController {
 
 
 
-	@RequestMapping(value="/Festival/Main", method = RequestMethod.GET )
+	@RequestMapping(value="/FestivalMain", method = RequestMethod.GET )
 	public String form(Model model,FestivalDTO dto,@ModelAttribute PagingCommand command) {
 		
 		if(command.getPage()==0) {
@@ -44,7 +44,7 @@ public class FestivalMainController {
 		return "Festival/FestivalMain";
 	}
 	
-	@RequestMapping(value="/Festival/areaSelect", method = RequestMethod.POST )
+	@RequestMapping(value="areaSelect", method = RequestMethod.POST )
 		public String areaSelect(Model model,@RequestParam(value="area", required=false) String FESTIVALAREA,@ModelAttribute PagingCommand command) {
 		if(command.getPage()==0) {
             command.setPage(1);

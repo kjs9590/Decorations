@@ -20,20 +20,20 @@ public class MemberRegisterController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value="/Member/MemberRegister" ,method=RequestMethod.GET)
+	@RequestMapping(value="/MemberRegister" ,method=RequestMethod.GET)
 	public String form() {
 	
 		return "Member/MemberRegister";
 	}
 	
-	@RequestMapping(value="/Member/MemberJoin",method = RequestMethod.POST)
+	@RequestMapping(value="/MemberJoin",method = RequestMethod.POST)
 	public String submit(Model model,MemberRegisterCommend mCommend) { 
 
 		memberService.Memberinsert(mCommend,model);
 		return "Member/MemberRegisterSuccess";
 	}
 	
-	@RequestMapping(value="/Member/MemberDuplicate" , method = RequestMethod.POST)
+	@RequestMapping(value="/MemberDuplicate" , method = RequestMethod.POST)
 	public String duplicate(Model model,@RequestParam(value="id") String id	)  { 
 		memberService.duplicate(id,model);
 		System.out.println(id+"뭐지");

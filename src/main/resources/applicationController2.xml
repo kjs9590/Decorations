@@ -13,6 +13,8 @@
 <bean class="Controller.MemberController.MemberListController" />
 <bean class="Controller.MemberController.MemberInfoController" />
 <bean class="Controller.RestaurantController.RestaurantRegisterController" />
+<bean class="Controller.OptionController.OptionRegisterController" />
+<bean class="Controller.OptionController.OptionListController" />
 
 
 </beans>
