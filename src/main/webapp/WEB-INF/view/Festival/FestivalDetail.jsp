@@ -108,6 +108,7 @@
 			<td class="info"><input type="date" name="optionDate"></td> 
 			</tr>
 		</table>
+		<input type="hidden" name="foodName" class="check" value="1"> 
 		<input type="hidden" name="productType" value="축제">
 		<input type="hidden" name="productName" value="${Festivaldetail.FESTIVALNAME }">
 		<input type="hidden" name="optionTime" value="0">

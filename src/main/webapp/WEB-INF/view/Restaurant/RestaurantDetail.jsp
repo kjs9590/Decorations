@@ -6,7 +6,7 @@
 
 <%
 	ChargerDTO chargerDTO = (ChargerDTO) session.getAttribute("chargerDTO");
-	List<RestaurantDTO> list = (List) request.getAttribute("list");
+	List<FoodDTO> list = (List) request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -100,52 +100,58 @@ $(function () {
 			</div>
 
 			<ul class="re_menu">
-				<c:forEach items="${list}" var="list">
-
-					<li class="re_menu_li">
-						<input type="radio" name="foodName" class="check" value="${list.foodNum }"> 
-						<input type="hidden" name="productType" value="레스토랑">
-						<input type="hidden" name="productName" value="${list.PRODUCTNUM }">
-						<input type="hidden" name="optionTime" value="0">
-						<input type="hidden" name="productNum" value="0">
-						<input type="hidden" name="optionPrice" value="${list.foodPrice }">
-						<input type="hidden" name="optionimg" value="${list.foodImgStore}">
-						<input type="hidden" name="optionSeat" value="--">
-						<label for="" id="chk">${list.foodName }</label> 
-						<span>
-							<img src="Restaurant/upfile/${list.foodImgStore}" alt="" width="180" height="160">
-						</span>
-						<div>
-							<p>
-								<span>가격</span>${list.foodPrice }
-							</p>
-						</div> 
-						<a href="FoodDetail?num=${list.foodNum}" class="">
-							<img src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12">
-						</a>
-					</li>
-				</c:forEach>
-			</ul>
-		</div>
-		
-
-				
-		
-		<div class="res_table">
+				<div class="res_table">
 			<div class="table_box">
 				<label for="" id="label">날짜</label>
 				<div id="t_box">
 					<p>
-						<input type="text" class="date" name="optionDate" >
+						<input type="date" class="date" name="optionDate" >
 					</p>
 				</div>
 			</div>
 		</div>
+			<%if(list !=null){ 
+			for(int i=0; i<list.size(); i++){
+			 
+			%>
+                
+					<li class="re_menu_li">
+						<input type="radio" name="foodName" class="check" value="<%=list.get(i).getFoodNum()%>"> 
+						<input type="hidden" name="productType" value="레스토랑">
+						<input type="hidden" name="productName" value="<%= list.get(i).getPRODUCTNUM() %>">
+						<input type="hidden" name="optionTime" value="0">
+						<input type="hidden" name="productNum" value="<%=list.get(i).getPRODUCTNUM()%>">
+						<input type="hidden" name="optionPrice" value="<%= list.get(i).getFoodPrice() %>">
+						<input type="hidden" name="optionimg" value="<%=list.get(i).getFoodImgStore()%>">
+						<input type="hidden" name="optionSeat" value="--">
+						
+		              
+			            
+						<label for="" id="chk"><%=list.get(i).getFoodName()%></label> 
+						<span>
+							<img src="Product/date/<%list.get(i).getFoodImgStore(); %>" alt="" width="180" height="160">
+						</span>
+						<div>
+							<p>
+								<span>가격</span><%= list.get(i).getFoodPrice() %>
+							</p>
+						</div> 
+						<a href="FoodDetail?num=<%=list.get(i).getFoodNum()%>" class="">
+							<img src="${pageContext.request.contextPath }/images/detail.png" alt="상세보기" width="100" height="12">
+						</a>
+					  <div id="btn">
+			            <button type="submit">예약하러가기</button></div>
+					</li>
+				<%} %>
+			</ul>
+		</div>
+		<%} %>
+
+				
+		
+		
 		
 
-		<div id="btn">
-			<button type="submit">예약하러가기</button>
-		</div>
 	</div>
 	</form>
 </body>

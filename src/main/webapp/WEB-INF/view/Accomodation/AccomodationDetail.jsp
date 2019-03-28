@@ -109,6 +109,7 @@
 							퇴실 :<%=aRlist.get(i).getRoomEx()%></h4>
 						<h1><%=aRlist.get(i).getRoomPrice()%>원
 						</h1>
+						<input type="hidden" name="foodName" class="check" value="1"> 
 						<input type="hidden" name="productType" value="숙박">
 						<input type="hidden" name="productName" value="<%=aRlist.get(i).getRoomKind() %>">
 						<input type="hidden" name="optionTime" value="0">
