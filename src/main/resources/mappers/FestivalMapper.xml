@@ -20,16 +20,7 @@
 	</sql>
 	
 	
-<resultMap type="OptionDTO" id="option">
-	<id column="OPTION_NUM" jdbcType="BIGINT" property="optionNum"/>
-	<result column="OPTION_PRODUCT" jdbcType="VARCHAR" property="optionProduct"/>
-	<result column="OPTION_PRICE" jdbcType="BIGINT" property="optionPrice"/>
-</resultMap>
-<select id="Option" parameterType="String" resultMap="option">
-		select OPTION_NUM,OPTION_PRODUCT,OPTION_PRICE
-		from options
-		where OPTION_SORTATION =#{kind}
-</select>
+
 	
 	<resultMap type="FestivalDTO" id="baseCommentDTO">
 		<id column="FESTIVAL_NUM" jdbcType="BIGINT" property="FESTIVALNUM"/>

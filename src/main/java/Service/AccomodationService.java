@@ -65,12 +65,13 @@ public class AccomodationService {
 		result=accomodationRepository.insertAccomodation(aDto);
 		return result;
 	}
-	public void accomodationList(Model model) {
+	public List<AccomodationDTO> accomodationList(Model model) {
 
 		List<AccomodationDTO> list=accomodationRepository.listAccomodation();
 		List<AccomodationDTO> listCount=accomodationRepository.listAccomodationCount();
 		model.addAttribute("list",list);
 		model.addAttribute("AccomodationCount",listCount);
+		return list;
 	}
 
 	public void accomodationEachList(Model model,String kind) {

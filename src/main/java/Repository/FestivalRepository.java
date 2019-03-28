@@ -69,11 +69,8 @@ public class FestivalRepository {
 		return sqlSession.selectOne("FestivalMapper.paginglistcount");
 	}
 
-	public List<OptionDTO> option(String kind) {
-		// TODO Auto-generated method stub
-		
-		return sqlSession.selectList("FestivalMapper.Option", kind);
-	}
+	
+	
 
 
 

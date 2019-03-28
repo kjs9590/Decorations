@@ -24,7 +24,7 @@ html, body {
     background-color: rgba(252, 252, 252, 0.829);
 }
 .wrap_op_list {
-    width: 1300px;
+    width: 800px;
     margin: 200px auto;
     border: 1px solid rgb(204, 198, 198);
     padding: 20px 50px 50px 50px;
@@ -56,15 +56,15 @@ html, body {
 }
 
 #sortation {
-    width: 150px;
+    width: 200px;
 }
 
 #product {
-    width: 190px;
+    width:300px;
 }
 
 #price {
-    width: 100px;
+    width: 150px;
 }
 
 </style>
@@ -72,7 +72,7 @@ html, body {
 <jsp:include page="../include/header.jsp" />
 <body>
 <div class="wrap_op_list">
-		<p id="sub">회원 관리</p>
+		<p id="sub">옵션 관리</p>
 		<table class="table">
 			<tr id="ta_sub">
 				<td id="num">번호</td>

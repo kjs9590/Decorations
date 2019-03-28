@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, Model.FestivalDTO" %>
-	<%List<FestivalDTO> list = (List)request.getAttribute("Festivallist"); %>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <!-- 자기가 쓸거 알아서 주석풀고 사용하기 [순서대로 form설정, spring기능 사용, c태그 사용] -->
 <%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> --%>
@@ -66,28 +65,26 @@
                         <td colspan="3">  <p id="info_box">옵션선택</p></td>
                     </tr>
                     <tr>
-                        <td rowspan="9"><img src="Festival/${command.festivalimg }" alt="" width="400" height="400"></td>
+                        <td rowspan="9"><img src="Accomodation/upfile1/${command.optionimg }" alt="" width="400" height="400"></td>
                     </tr>
                     <tr>
                     
                         <td id="sub">상품</td>
-                        <td id="con">${command.festivalType }</td>
+                        <td id="con">${command.productType }</td>
                     
                     </tr>
                     <tr>
                         <td id="sub">이름</td>
-                        <td id="con">${command.festivalName }</td>
+                        <td id="con">${command.productName }</td>
                     </tr>
                     <tr>
                         <td id="sub">날짜</td>
                         <!-- 날짜 미선택시 -->
-                        <c:if test="${command.festivalDate == null }">
-                       		 <td id="con"><span style="color: red;">이전페이지에서 날짜를 선택해 주세요!</span>
-                      	 </c:if>
+                 
+                       		 <td id="con"><span style="color: red;">  ${command.optionDate }</span>
+                      	
                       	 <!-- 날짜 선택시  -->
-                       <c:if test="${command.festivalDate != null }">
-                       		 <td id="con"><fmt:formatDate pattern="yyyy-MM-dd" value="${command.festivalDate }"/><span style="color: red;"></span>
-                      </c:if>
+                      
                     </tr>
                     <tr>
                         <td id="sub">시간</td>
@@ -110,10 +107,11 @@
                     </tr>
                     <tr>
                     
-                    <td colspan="5"><select id="option" name="op" onchange="changePrice()">
+                    <td colspan="5"><select id="option" name="op" onchange="changePrice(this.value)">
                             <option  selected="selected">선택해주세요</option>
-                            <c:forEach items="${option }" var="op">
-                            <option id="options">${op.optionProduct } + ${op.optionPrice }</option>
+                            <c:forEach items="${opt}" var="op">
+                            <option id="options">${op.optionNum}.${op.optionProduct } + ${op.optionPrice } 
+                            </option>
                             </c:forEach>
                         </select></td>
                     
@@ -121,7 +119,7 @@
                     
                      <tr>
                         <td id="sub">가격</td>
-                        <td id="plus">${command.festivalPrice }</td>
+                        <td id="plus">${command.optionPrice }</td>
                     </tr>
                     <tr>
                         <td colspan="3" id="btn"><button type="submit" value="예약하기" id="paybtn">예약</button></td>    
@@ -130,15 +128,19 @@
             </div>
         </div>
 <script type="text/javascript">
-function changePrice() {
-	var s=document.getElementById("op").value;
-	alert(s);
-	var b=document.getElementById("plus").innerHTML;
-	var price1=eval(s);
-	var price2=eval(b);
-var	pricess=price1+price2;
-document.getElementById("plus").innerHTML=pricess;
+var	price;
+var b=document.getElementById("plus").innerHTML;
+var a;
+var c;
+function changePrice(a) {
+	var price=a.split("+"); 
+	a=eval(price[1]);
+    c=eval(b);
+	price=a+c;
+	document.getElementById("plus").innerHTML=price;
 }
+document.getElementById("plus").innerHTML=b;
+price=0;
 </script>
 
 

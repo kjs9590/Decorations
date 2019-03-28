@@ -36,11 +36,11 @@ public class OptionRegisterController {
 	@RequestMapping(value="/OptionMain", method=RequestMethod.POST)
 	
 	public String optionMain(OptionCommand optioncommand, Model model) {
-		
+		System.out.println("숙박");
 		optionService.option(optioncommand,model);
 		
 		
-		return "Option/OptionMain.jsp";
+		return "Option/OptionMain";
 	}	
 	
 }

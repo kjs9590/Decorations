@@ -26,6 +26,18 @@
 		<result column="OPTION_PRICE" jdbcType="BIGINT" property="optionPrice"/>
 		<result column="OPTION_SORTATION" jdbcType="VARCHAR" property="optionSoration"/>
 	</resultMap>
+<!-- 각 상품별로 옶션 상품 정보를 가져오기위한 -->
+<select id="Option" parameterType="String" resultMap="option">
+		select OPTION_NUM,OPTION_PRODUCT,OPTION_PRICE
+		from options
+		where OPTION_SORTATION =#{kind}
+</select>
+
+<resultMap type="OptionDTO" id="option">
+	<id column="OPTION_NUM" jdbcType="BIGINT" property="optionNum"/>
+	<result column="OPTION_PRODUCT" jdbcType="VARCHAR" property="optionProduct"/>
+	<result column="OPTION_PRICE" jdbcType="BIGINT" property="optionPrice"/>
+</resultMap>
 
 
 </mapper> 

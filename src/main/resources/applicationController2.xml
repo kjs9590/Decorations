@@ -15,6 +15,7 @@
 <bean class="Controller.RestaurantController.RestaurantRegisterController" />
 <bean class="Controller.OptionController.OptionRegisterController" />
 <bean class="Controller.OptionController.OptionListController" />
+<bean class="Controller.ProductController.ProductController" />
 
 
 </beans>
