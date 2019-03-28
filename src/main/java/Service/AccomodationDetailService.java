@@ -41,8 +41,8 @@ public class AccomodationDetailService {
 	
 	}
 	public String accomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request) {
-		System.out.println(request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile1\\");
-		String filePath = request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile1\\";
+		System.out.println(request.getRealPath("/WEB-INF/view/")+"Product\\date\\");
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Product\\date\\";
 		MultipartFile[] reports = aRcommend.getBoardFile();
   
 		for(MultipartFile report : reports) {

@@ -81,14 +81,14 @@
 				<div class="room">
 					<div class="roomImg">
 						<div>
-							<img src="Accomodation/upfile1/<%=img[0]%>" alt="" id="imgss">
+							<img src="Product/date/<%=img[0]%>" alt="" id="imgss">
 						</div>
 						<div class="imgBox">
 							<%
 								for (int a = 0; a < img.length; a++) {
 							%>
 							<div class="imgBoxs">
-								<img src="Accomodation/upfile1/<%=img[a]%>"
+								<img src="Product/date/<%=img[a]%>"
 									style="height: 50px; width: 50px;" value="dd"
 									onclick="changImg(<%=count%>,this.src)">
 							</div>
@@ -116,7 +116,7 @@
 						<input type="hidden" name="optionPrice" value="<%=aRlist.get(i).getRoomPrice() %>">
 						<input type="hidden" name="optionimg" value="<%=img[0]%>">
 						<input type="hidden" name="optionSeat" value="--">
-						<input type="date" name="optionDate" value="숙박" style="background-color: white;">
+						<input type="date" name="optionDate" value="숙박" style="background-color: white;border:none;color: white;">
 					<input type="submit" value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;">
 					</div>
 					
@@ -130,7 +130,7 @@
 		<script type="text/javascript">
    function changImg(a,i){
 	var img=i.split('/')
-	document.getElementsByTagName("img")[a].src="Accomodation/upfile1/"+img[6];
+	document.getElementsByTagName("img")[a].src="Product/date/"+img[6];
    }
    </script>
 	</form>

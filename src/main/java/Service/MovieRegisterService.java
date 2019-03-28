@@ -30,8 +30,8 @@ public class MovieRegisterService {
 	private String path;
 
 	public String movieInsert(Model model,MovieRegisterCommand mRcommend,HttpServletRequest request) {
-		System.out.println(request.getRealPath("/WEB-INF/view/")+"Movie\\upfile1\\");
-		String filePath = request.getRealPath("/WEB-INF/view/")+"Movie\\upfile1\\";
+		System.out.println(request.getRealPath("/WEB-INF/view/")+"Product\\date\\");
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Product\\date\\";
 		System.out.println(mRcommend.getBoardFile()+"뭐냐");
 		MultipartFile[] reports = mRcommend.getBoardFile();
        

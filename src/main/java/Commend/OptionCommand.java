@@ -19,6 +19,13 @@ public class OptionCommand {
 	private Date optionCheckin; //체크인 null
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date optionCheckout;
+	private int foodName;
+	public int getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(int foodName) {
+		this.foodName = foodName;
+	}
 	public String getProductType() {
 		return productType;
 	}

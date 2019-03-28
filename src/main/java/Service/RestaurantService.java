@@ -38,7 +38,7 @@ public class RestaurantService {
 		String address=reCommand.getAddress()+" "+reCommand.getDetailAddress();
 		String tell = reCommand.getRestaurantTell()[0]+reCommand.getRestaurantTell()[1]+reCommand.getRestaurantTell()[2];
 
-		String filePath = request.getRealPath("/WEB-INF/view/")+"Restaurant\\upfile\\";
+		String filePath = request.getRealPath("/WEB-INF/view/")+"Product\\date\\";
 		MultipartFile report = reCommand.getRestaurantImage();
 		originalFile = report.getOriginalFilename();
 		originalFileExtension =originalFile.substring(originalFile.lastIndexOf(".")); 

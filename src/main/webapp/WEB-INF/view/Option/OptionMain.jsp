@@ -65,7 +65,7 @@
                         <td colspan="3">  <p id="info_box">옵션선택</p></td>
                     </tr>
                     <tr>
-                        <td rowspan="9"><img src="Accomodation/upfile1/${command.optionimg }" alt="" width="400" height="400"></td>
+                        <td rowspan="9"><img src="Product/date/${command.optionimg }" alt="" width="400" height="400"></td>
                     </tr>
                     <tr>
                     

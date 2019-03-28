@@ -62,7 +62,7 @@ $(function () {
 <!--헤더 인클루드-->
 <jsp:include page="../include/header.jsp" />
 <body>
-		<form action="FoodOrder" method="post">
+		<form action="OptionMain" method="post">
 	<div class="wrap_contents">
 		<%
 			if (chargerDTO != null) {
@@ -104,6 +104,13 @@ $(function () {
 
 					<li class="re_menu_li">
 						<input type="radio" name="foodName" class="check" value="${list.foodNum }"> 
+						<input type="hidden" name="productType" value="레스토랑">
+						<input type="hidden" name="productName" value="${list.PRODUCTNUM }">
+						<input type="hidden" name="optionTime" value="0">
+						<input type="hidden" name="productNum" value="0">
+						<input type="hidden" name="optionPrice" value="${list.foodPrice }">
+						<input type="hidden" name="optionimg" value="${list.foodImgStore}">
+						<input type="hidden" name="optionSeat" value="--">
 						<label for="" id="chk">${list.foodName }</label> 
 						<span>
 							<img src="Restaurant/upfile/${list.foodImgStore}" alt="" width="180" height="160">
@@ -129,7 +136,7 @@ $(function () {
 				<label for="" id="label">날짜</label>
 				<div id="t_box">
 					<p>
-						<input type="text" class="date" name="foodDate" >
+						<input type="text" class="date" name="optionDate" >
 					</p>
 				</div>
 			</div>
