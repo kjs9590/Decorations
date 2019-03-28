@@ -59,7 +59,7 @@ public class ScreenRegisterService {
 	Integer i=screenRegisterRepository.screenInsert(sDto);
 
 	if(i==1) {
-		path="RegisterComplete";
+		path="redirect:/TheaterMain";
 		return path;
 	}else {
 	return null;

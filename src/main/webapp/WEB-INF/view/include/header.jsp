@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <ul id="mainmenu">
-                        <li><a href="#"> MOVIE </a></li>
+                        <li><a href="TheaterMain"> MOVIE </a></li>
                         <li><a href="RestaurantMain"> RESTAURANT </a></li>
                         <li><a href="Festival/Main"> FESTIVAL </a></li>
                         <li><a href="AccomodationMain"> ACCOMMODATION </a></li>

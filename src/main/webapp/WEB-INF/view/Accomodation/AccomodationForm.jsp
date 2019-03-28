@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Javascript Slide Example</title>
 
-<link href="../CSS/Accomodation.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/Accomodation.css" rel="stylesheet" type="text/css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="../JS/Accomodation.js"></script>
+<script src="${pageContext.request.contextPath }/JS/Accomodation.js"></script>
 </head>
 
 <form method="post" enctype="multipart/form-data"

@@ -65,7 +65,7 @@ a{
 	font-size: 14px;
 }
 .imgBox{
-	height: 60px;
+height:auto;
 	width: 100%;
 	
 }
@@ -73,11 +73,12 @@ a{
 	cursor: pointer;
 }
 .imgBoxs{
-	border:solid 2px red;
+	  border: 1px groove gray;
 	height: 50px;
     width: 13.5%;
     float: left;
 	
+
 }
 .roomInfo p{
     margin: 0;

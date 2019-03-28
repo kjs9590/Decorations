@@ -38,7 +38,7 @@ public class AccomodationDetailService {
 		accomodationDetailRepository.accomodationAvgInsert(nume,avg);
 		model.addAttribute("aDto",aDto);	
 		model.addAttribute("list",list);	
-		
+	
 	}
 	public String accomodationRegister(Model model,AccomodationRoomRegisterCommend aRcommend,HttpServletRequest request) {
 		System.out.println(request.getRealPath("/WEB-INF/view/")+"Accomodation\\upfile1\\");
@@ -80,7 +80,7 @@ public class AccomodationDetailService {
 		storeFiles="";
 		
 		if(i1 > 0) {  
-			return	path ="redirect:Accomodation/RoomList?num=2";
+			return	path ="RegisterComplete";
 		}else {
 			String[] fileNames = storeFiles.split("-");
 			for(String fileName : fileNames) {

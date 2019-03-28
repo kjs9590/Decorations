@@ -75,36 +75,28 @@
 				<script type="text/javascript">
 			
 			 </script>
-				<%
-					for (int i = 0; i < aRlist.size(); i++) {
-				%>
-
-				<%
-					String img[] = aRlist.get(i).getRoomImgstore().split("-");
-				%>
-				<%
-					count++;
-				%>
+				<%for (int i = 0; i < aRlist.size(); i++){ %>
+               <%String img[] = aRlist.get(i).getRoomImgstore().split("-");%>
+				<%count++;%>
 				<div class="room">
 					<div class="roomImg">
 						<div>
-							<img src="./upfile1/<%=img[0]%>" alt="" id="imgss">
+							<img src="Accomodation/upfile1/<%=img[0]%>" alt="" id="imgss">
 						</div>
 						<div class="imgBox">
 							<%
 								for (int a = 0; a < img.length; a++) {
 							%>
 							<div class="imgBoxs">
-								<img src="./upfile1/<%=img[a]%>"
+								<img src="Accomodation/upfile1/<%=img[a]%>"
 									style="height: 50px; width: 50px;" value="dd"
 									onclick="changImg(<%=count%>,this.src)">
 							</div>
-
-							<%
-								}
-							%>
-
-						</div>
+                        
+							<%}%>
+							
+				</div>
+					
 					</div>
 
 					<div class="roomInfos">
@@ -117,6 +109,7 @@
 							퇴실 :<%=aRlist.get(i).getRoomEx()%></h4>
 						<h1><%=aRlist.get(i).getRoomPrice()%>원
 						</h1>
+					<input type="submit" value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;">
 					</div>
 					
 					
@@ -125,22 +118,16 @@
 					<input type="hidden" name="accomodationName"  value="${aDto.accomodationName}">
 					<input type="hidden" name="roomPrice"  value="<%=aRlist.get(i).getRoomPrice()%>">
 					
-					
-					
-					<input type="submit" value="예약하기 " style="width: 100%; height: 40px;">
-
+			
 				</div>
-				<%
-					count += img.length;
-					}
-				%>
+				<%count += img.length;}%>
 			</div>
 
 		</div>
 		<script type="text/javascript">
    function changImg(a,i){
 	var img=i.split('/')
-	document.getElementsByTagName("img")[a].src="./upfile1/"+img[6];
+	document.getElementsByTagName("img")[a].src="Accomodation/upfile1/"+img[6];
    }
    </script>
 	</form>

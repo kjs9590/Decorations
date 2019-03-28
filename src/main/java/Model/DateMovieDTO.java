@@ -24,8 +24,14 @@ public class DateMovieDTO implements Serializable{
 	private int screenPlus;
 	private String movieStart;
 	private String movieTitel;
-	
+	private Long movieNum;
 
+	public Long getMovieNum() {
+		return movieNum;
+	}
+	public void setMovieNum(Long movieNum) {
+		this.movieNum = movieNum;
+	}
 	public String getMovieStart() {
 		return movieStart;
 	}
