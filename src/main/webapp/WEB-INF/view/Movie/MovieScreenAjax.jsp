@@ -66,7 +66,7 @@
                 </select></h5>
                 <h5><input type="file" name="screenFile" value="상영관 이미지"></h5>
                 <input type="hidden" value="${tRdto.theaterNum }" name="theaterNum" >
-                <input type="submit" value="등록하기" style="height:50px;cursor: pointer; ">
+                <input type="submit" value="등록하기" style="height:50px; cursor: pointer; ">
                 </form>
                 </div>
          </div>
