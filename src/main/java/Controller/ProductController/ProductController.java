@@ -12,12 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Model.AccomodationDTO;
 import Model.ProductDTO;
+import Model.RestaurantDTO;
+import Model.TheaterRegisterDTO;
 import Service.AccomodationService;
+import Service.RestaurantService;
+import Service.TheaterMainService;
 
 @Controller
 public class ProductController {
 	@Autowired
 	private AccomodationService accomodationService;
+	@Autowired
+	private TheaterMainService theaterMainService;
+	@Autowired
+	RestaurantService restaurantService;
+	
+	
 	List<ProductDTO> pDtos= new ArrayList <ProductDTO>();
 	ProductDTO  pDto;
 
@@ -39,12 +49,37 @@ public class ProductController {
 						dto.get(i).getAccomodationInform(),dto.get(i).getAccomodationAdd()
 						,dto.get(i).getAccmodationTell()));
 			}
+
+			model.addAttribute("pDtos",pDtos);
+		
+
+		}else if(kind.equals("영화")) {
+			List<TheaterRegisterDTO> dto = theaterMainService.theaterList(model);
+			for(int i=0; i<dto.size(); i++) {
+				pDtos.add(new ProductDTO(dto.get(i).getTheaterName(),
+						dto.get(i).getTheaterKind(),dto.get(i).getTheaterAdd()
+						,dto.get(i).getTheaterTell()));
+			}
+			
+			model.addAttribute("pDtos",pDtos);
+			
+		}else if(kind.equals("레스토랑")) {
+			List<RestaurantDTO> dto = restaurantService.restaurantList(model);
+			for(int i=0; i<dto.size(); i++) {
+				pDtos.add(new ProductDTO(dto.get(i).getRestaurantName(),
+						dto.get(i).getRestaurantInfo(),dto.get(i).getRestaurantAdd()
+						,dto.get(i).getRestaurantTell()));
+			}
+			
+			model.addAttribute("pDtos",pDtos);
+			
+			
 		}
 
-		System.out.println(pDtos.get(1).getAddress());
-		model.addAttribute("pDtos",pDtos);
+		
+		
+		
 		return "Product/ProductListAjax";
-
 	}
 	private void add(ProductDTO productDTO) {
 		// TODO Auto-generated method stub

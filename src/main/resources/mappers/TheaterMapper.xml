@@ -31,7 +31,13 @@
               from SCREEN s join DATEMOVIE d on(d.SCREEN_NUM=s.SCREEN_NUM) join movie m on(d.MOVIE_NUM=m.MOVIE_NUM) 
              join THEATER t on(t.THEATER_NUM=s.THEATER_NUM) where THEATER_NUM=#{num}
        </select>
-
+       
+       
+	<!-- theaterList 영화관 리스트 -->
+  	<select id="theaterList" resultMap="listTheater">
+  		select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER
+  	</select>
+  
   
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	<resultMap type="DateMovieDTO" id="listScreenMovie">

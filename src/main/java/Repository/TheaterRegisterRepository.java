@@ -33,6 +33,10 @@ public class TheaterRegisterRepository {
 		
 		return sqlSession.selectList("TheaterMapper.screenMovie",num);
 	}
+	public List<TheaterRegisterDTO> theaterList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("TheaterMapper.theaterList");
+	}
 	
 	
 	

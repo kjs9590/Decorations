@@ -67,9 +67,10 @@ public class RestaurantService {
 	}
 
 	//레스토랑 리스트
-	public void restaurantList(Model model) {
+	public List<RestaurantDTO> restaurantList(Model model) {
 		List<RestaurantDTO> list = restaurantRepository.restaurantList();
 		model.addAttribute("list",list);
+		return list;
 
 	}
 
