@@ -127,7 +127,7 @@ $(function () {
 						<input type="hidden" name="optionimg" value="<%=list.get(i).getFoodImgStore()%>">
 						<input type="hidden" name="optionSeat" value="--">
 						<input type="hidden" id="x" name="count">
-		              
+		                <input type="hidden" id="x" name="categoryNum" value="4">
 			            
 						<label for="" id="chk"><%=list.get(i).getFoodName()%></label> 
 						<span>

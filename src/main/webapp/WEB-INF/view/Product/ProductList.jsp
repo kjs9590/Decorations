@@ -58,12 +58,7 @@ function list(kind){
 					<td id="sub">주소</td>
 					<td id="sub">연락처</td>
 				</tr>
-				<tr>
-					<td id="con">ㅁㅁㅁ</td>
-					<td id="con">ㅁㅁㅁ</td>
-					<td id="con">ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ-ㅁㅁㅁ</td>
-					<td id="con">000-0000-0000</td>
-				</tr>
+
 			</table>
 		</div>
 	</div>

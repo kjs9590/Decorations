@@ -118,6 +118,7 @@
 		<input type="hidden" name="optionSeat" value="--">
 		<input type="hidden" name="optionCheckin" value="0">
 	   <input type="hidden" name="optionCheckout" value="0">
+	   <input type="hidden" id="x" name="categoryNum" value="1">
 		<div id="festival_contents">
 			
 		${Festivaldetail.getFESTIVALINFORM() }

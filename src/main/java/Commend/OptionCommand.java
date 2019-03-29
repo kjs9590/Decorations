@@ -20,7 +20,14 @@ public class OptionCommand {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date optionCheckout;
 	private int foodName;
+	private int categoryNum;
 	
+	public int getCategoryNum() {
+		return categoryNum;
+	}
+	public void setCategoryNum(int categoryNum) {
+		this.categoryNum = categoryNum;
+	}
 	public int getCount() {
 		return count;
 	}

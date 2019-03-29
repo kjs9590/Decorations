@@ -120,6 +120,7 @@
 						<input type="hidden" name="optionimg" value="<%=img[0]%>">
 						<input type="hidden" name="optionSeat" value="--">
 						<input type="hidden" id="x" name="count" >
+						<input type="hidden" id="x" name="categoryNum" value="3">
 						<input type="date" name="optionDate" value="숙박" style="background-color: white;border:none;color: white;">
 					<input type="submit"  value="예약하기 " style="width: 100%; height: 40px; margin-top: 3.5%;" onclick="plz(<%=plz%>)">
 					</div>
