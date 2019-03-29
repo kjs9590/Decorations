@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="OrderMapper">
+	<cache />
+	<!-- (ORDER_NUM, PRODUCT_NUM,  CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT,
+							RESERVE_DATE, SEATE_NUM) -->
+	<!-- 주문이 등록될 때 주문번호,,,ㅠㅠㅠ머하고잇는지모르겟ㅅ아ㅓㄴ뮤ㅜ라먼유ㅠ  -->
+	<select id="orderNum" resultType="Integer">
+		select
+		nvl(max(ORDER_NUM),0) +1 from
+		orders	
+	</select>
+	
+	<insert id="orderInsert">
+		INSERT INTO orders (ORDER_NUM, MEMBER_ID, RESERVE_NAME, RESERVE_TELL, ORDER_DATE)
+		VALUES ((select nvl(max(ORDER_NUM),0) +1 from orders), #{memberId}, #{reserveName} , #{reserveTell}, sysdate)
+	</insert>
+	
+
+</mapper>

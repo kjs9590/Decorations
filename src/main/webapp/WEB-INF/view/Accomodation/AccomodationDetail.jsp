@@ -30,7 +30,7 @@
 
 <body>
 	<jsp:include page="../include/header.jsp" />
-	<form action="OptionMain" method="post" id="frm"">
+	<form action="OptionMain" method="post" id="frm">
 		<div id="roomMain">
 			<div id="mainTitle">
 				<b>${aDto.accomodationName}

@@ -16,6 +16,7 @@
 <bean class="Controller.OptionController.OptionRegisterController" />
 <bean class="Controller.OptionController.OptionListController" />
 <bean class="Controller.ProductController.ProductController" />
+<bean class="Controller.OrderController.OrderController" />
 
 
 </beans>
