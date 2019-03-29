@@ -116,9 +116,9 @@
 		<input type="hidden" name="optionPrice" value="${Festivaldetail.FESTIVALFARE }">
 		<input type="hidden" name="optionimg" value="${Festivaldetail.FESTIVALIMG }">
 
-		<input type="hidden" name="optionSeat" value="--">
+	<!--<input type="hidden" name="optionSeat" value="">
 		<input type="hidden" name="optionCheckin" value="0">
-	   <input type="hidden" name="optionCheckout" value="0">
+	   <input type="hidden" name="optionCheckout" value="0"> -->
 	   <input type="hidden" id="x" name="categoryNum" value="1">
 
 		<input type="hidden" name="optionSeat" value="">
@@ -127,9 +127,8 @@
 	    <input type="date" name="optionCheckout" style="border: none; color: white;"> 
 	   <input type="hidden" id="x" name="count" value="0">
 
-		<div id="festival_contents">
-			
-	<%-- 	${Festivaldetail.getFESTIVALINFORM() } --%>
+		<div id="festival_contents">	
+		${Festivaldetail.getFESTIVALINFORM() } 
 		</div>
 		
 		
