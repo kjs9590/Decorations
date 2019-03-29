@@ -51,7 +51,7 @@ function OptionRegister(){
                         <%} %>
                         <%if(chargerDTO != null){ %>
                         <li><a href="memberList"> MEMBERLIST </a></li>
-                        <li><a href="#"> PRODUCT </a></li>
+                        <li><a href="Product"> PRODUCT </a></li>
                         <%} %>
                         
                     </ul>
@@ -65,13 +65,13 @@ function OptionRegister(){
                         <li><a href="RestaurantMain"> RESTAURANT </a></li>
                         <li><a href="FestivalMain"> FESTIVAL </a></li>
                         <li><a href="AccomodationMain"> ACCOMMODATION </a></li>
-                        <li><a href="#"> CUSTOMERSERVICE </a></li>
+                        <li><a href="CustomerMain"> CUSTOMERSERVICE </a></li>
                      <%} %>
                      <%if(memberDTO != null){ %>
                         <li><a href=""> SCHEDULE </a></li>
                         <li><a href="MemberInfo"> MY PAGE </a></li>
                         <li><a href=""> ORDER INFO </a></li>
-                        <li><a href="#"> CUSTOMERSERVICE </a></li>
+                        <li><a href="CustomerMain"> CUSTOMERSERVICE </a></li>
                      <%} %>
                     </ul>
                 </li>
