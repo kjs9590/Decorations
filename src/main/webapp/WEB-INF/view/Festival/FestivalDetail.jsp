@@ -108,21 +108,31 @@
 			<td class="info"><input type="date" name="optionDate"></td> 
 			</tr>
 		</table>
-		<input type="hidden" name="foodName" class="check" value="1"> 
+		<input type="hidden" name="foodName" class="check" value="0"> 
 		<input type="hidden" name="productType" value="축제">
 		<input type="hidden" name="productName" value="${Festivaldetail.FESTIVALNAME }">
-		<input type="hidden" name="optionTime" value="0">
+		<input type="hidden" name="optionTime" value="">
 		<input type="hidden" name="productNum" value="${Festivaldetail.PRODUCTNUM }">
 		<input type="hidden" name="optionPrice" value="${Festivaldetail.FESTIVALFARE }">
 		<input type="hidden" name="optionimg" value="${Festivaldetail.FESTIVALIMG }">
+
 		<input type="hidden" name="optionSeat" value="--">
 		<input type="hidden" name="optionCheckin" value="0">
 	   <input type="hidden" name="optionCheckout" value="0">
 	   <input type="hidden" id="x" name="categoryNum" value="1">
+
+		<input type="hidden" name="optionSeat" value="">
+ 		
+ 		<input type="date" name="optionCheckin"  style="border: none; color: white;">
+	    <input type="date" name="optionCheckout" style="border: none; color: white;"> 
+	   <input type="hidden" id="x" name="count" value="0">
+
 		<div id="festival_contents">
 			
-		${Festivaldetail.getFESTIVALINFORM() }
+	<%-- 	${Festivaldetail.getFESTIVALINFORM() } --%>
 		</div>
+		
+		
 		
 		<div id="festival_list">
 			<button type="submit">예약하러가기</button>

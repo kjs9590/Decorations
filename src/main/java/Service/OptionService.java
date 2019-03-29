@@ -33,6 +33,10 @@ public class OptionService {
 	    
 		kind=command.getProductType();
 	  List<OptionDTO> opt=optionRepository.option(kind);
+	  System.out.println(kind);
+	 if(kind.equals("축제")) {
+		 model.addAttribute("command", command);
+	}else {
 	 
 	 String name[]= command.getProductName().split(",");
 	 String type[]=command.getProductType().split(",");
@@ -49,7 +53,8 @@ public class OptionService {
 	 command.setProductType(type[command.getCount()-1]);
 	 command.setOptionTime(time[command.getCount()-1]);
 	 model.addAttribute("command", command);
-	model.addAttribute("opt",opt);
+	 }
+	 model.addAttribute("opt",opt);
 	}
 
 	

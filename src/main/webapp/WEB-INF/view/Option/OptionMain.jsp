@@ -59,45 +59,55 @@
                         <td colspan="3">  <p id="info_box">옵션선택</p></td>
                     </tr>
                     <tr>
-                        <td rowspan="9"><img src="Product/date/${command.optionimg }" alt="" width="400" height="400"></td>
+                        <td rowspan="13"><img src="Product/date/${command.optionimg }" alt="" width="400" height="400"></td>
                     </tr>
+                    
                     <tr>
                     
-                        <td id="sub">상품</td>
+                        <td class="sub">예약자</td>
+                        <td id="con"><input type="text"></td>
+                    
+                    </tr>
+                    <tr>
+                        <td class="sub">예약자번호</td>
+                        <td id="con"><input type="text"></td>
+                    </tr>
+                    
+                    
+                    <tr>
+                    
+                        <td class="sub">상품</td>
                         <td id="con">${command.productType }</td>
                     
                     </tr>
                     <tr>
-                        <td id="sub">이름</td>
+                        <td class="sub">이름</td>
                         <td id="con">${command.productName }</td>
                     </tr>
                     <tr>
-                        <td id="sub">날짜</td>
-                        <!-- 날짜 미선택시 -->
-                 
-                       		 <td id="con"><span style="color: red;">  ${command.optionDate }</span>
-                      	
-                      	 <!-- 날짜 선택시  -->
-                      
+                        <td class="sub">날짜</td>
+                       		 <td id="con"> 	<fmt:formatDate pattern="yyyy-MM-dd" value="${command.optionDate }"/></td>
+                   
+                  
                     </tr>
                     
                     <tr>
-                        <td id="sub">시간</td>
+                        <td class="sub">시간</td>
                       
-                      <td id="con" colspan="5">
+                      <td id="con">
 	                       ${command.optionTime }
                         </td> 
                     </tr>
                       <tr>
-                        <td id="sub">체크인</td>
-                        <td id="plus">${command.optionPrice }</td>
+                        <td class="sub">체크인</td>
+                        <td >${command.optionCheckin }</td>
                     </tr>
                       <tr>
-                        <td id="sub">체크아웃</td>
-                        <td id="plus">${command.optionPrice }</td>
+                        <td class="sub">체크아웃</td>
+                        <td >${command.optionCheckout }</td>
                     </tr>
                 	  <tr>
-                    	<td id="sub">좌석</td>
+                    	<td class="sub">좌석</td>
                     	 <td id="con">${command.optionSeat }</td>
                     </tr>
                    <%--  <tr>
@@ -106,12 +116,13 @@
                     </tr> --%>
                  
                     <tr>
-                        <td id="sub">옵션</td>
-                        </td>
+                        <td class="sub">옵션</td>
+                        
                     </tr>
                     <tr>
-                    
-                    <td colspan="5"><select id="option" name="op" onchange="changePrice(this.value)">
+                  
+                        
+                    <td  id="con"><select id="option" name="op" onchange="changePrice(this.value)">
                             <option  selected="selected">선택해주세요</option>
                             <c:forEach items="${opt}" var="op">
                             <option id="options">${op.optionNum}.${op.optionProduct } + ${op.optionPrice } 
@@ -122,7 +133,7 @@
                     </tr>
                     
                      <tr>
-                        <td id="sub">가격</td>
+                        <td class="sub">가격</td>
                         <td id="plus">${command.optionPrice }</td>
                     </tr>
                     <tr>
