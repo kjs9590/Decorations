@@ -88,6 +88,7 @@ return null;
 	}
 	public void movieScreenSeat(int num) {
 		
+		
 	}
 	
 }
