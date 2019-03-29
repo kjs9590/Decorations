@@ -13,6 +13,7 @@
 <bean id="RestaurantService" class="Service.RestaurantService" />
 <bean id="MainService" class="Service.MainService" />
 <bean id="OptionService" class="Service.OptionService" />
+<bean id="OrderService" class="Service.OrderService" />
 
 
 
@@ -23,5 +24,6 @@
 <bean id="RestaurantRepository" class="Repository.RestaurantRepository" />
 <bean id="MainRepository" class="Repository.MainRepository" />
 <bean id="OptionRepository" class="Repository.OptionRepository" />
+<bean id="OrderRepository" class="Repository.OrderRepository" />
 
 </beans>

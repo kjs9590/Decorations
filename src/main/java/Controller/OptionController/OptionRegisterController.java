@@ -39,7 +39,7 @@ public class OptionRegisterController {
 		System.out.println("숙박");
 		optionService.option(optioncommand,model);
 		
-		
+		System.out.println(optioncommand.getCategoryNum());
 		return "Option/OptionMain";
 	}	
 	

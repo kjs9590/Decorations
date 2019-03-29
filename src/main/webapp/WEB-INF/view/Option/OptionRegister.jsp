@@ -18,7 +18,7 @@
 				<tr>
 					<td>옵션 구분</td>
 					<td><select id="option" name="optionSoration">
-							<option value selected="selected">타입을 선택해주세요</option>
+							<option selected="selected">타입을 선택해주세요</option>
 							<option value="숙박">숙박</option>
 							<option value="레스토랑">레스토랑</option>
 							<option value="축제">축제</option>
