@@ -4,7 +4,10 @@
     
 <%@page import="Model.MovieRegisterDTO,Model.DateMovieDTO,Model.ChargerDTO,java.util.*"%>    
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>    
-<%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto"); %>
+<%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto");%>
+		
+
+
 
 <!DOCTYPE html>
 <html>
@@ -91,14 +94,14 @@
            <div id=nowplaying>
              <%if(mrdto!=null){
             	 for(int i=0; i<mrdto.size(); i++){
-            		 String time[]=mrdto.get(i).getMovieStart().split("시");
+
             		 String img[]=mrdto.get(i).getMovieStoreimg().split("-");
             	 %>
                 <div class=screen_list><img src="Movie/upfile1/<%=img[0] %>" >
                 <div class="movieMention"><h4><%=mrdto.get(i).getScreenName() %></h4>
-                 <h3 onclick="movieSeate(<%=mrdto.get(i).getProductNum()%>,<%=mrdto.get(i).getMovieNum()%>,<%=mrdto.get(i).getScreenColumn()%>+<%=mrdto.get(i).getScreenRow()%>)" style="cursor: pointer;"><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
+                 <h3 onclick="movieSeate(<%=mrdto.get(i).getMovieNum()%>,<%=mrdto.get(i).getScreenColumn()%>*<%=mrdto.get(i).getScreenRow()%>,<%=mrdto.get(i).getScreenNum() %>)" style="cursor: pointer;"><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
                 <h5><%=mrdto.get(i).getScreenKind()%> +<%=mrdto.get(i).getScreenPlus() %>원</h5>
-                <h5 style="color: blue;"><%=time[0]%>시 <%=time[1]%>분</h5>
+             
               
                 </div>
            </div>
@@ -110,21 +113,20 @@
         </fieldset>
         </div>
 <script type="text/javascript">
-function Register(no1,no2){
-		var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
+function Register(no1,no2){ 
+	alert(no3)
+	var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
 		      window.name="parentForm";
 		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
 		     
 		      self.close();
 	}
-function movieSeate(num,num1){
-	alert(num)
-	alert(num1)
-	var url='/Dacorations/MovieSeat?num='+num+'&num1'+num1;
+function movieSeate(num,num1,num2){
+
+	var url='/Dacorations/MovieSeatChoice?num='+num+'&num1='+num1+'&num2='+num2;
 	      window.name="parentForm";
 	      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
 	     
-	      self.close();
 }
 	
 	

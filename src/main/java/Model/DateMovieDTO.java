@@ -20,12 +20,19 @@ public class DateMovieDTO implements Serializable{
 	private int screenRow;
 	private int screenColumn;
 	private String screenName;
+	private Long screenNum;
 	private int moviePrice;
 	private int screenPlus;
 	private String movieStart;
 	private String movieTitel;
 	private Long movieNum;
 
+	public Long getScreenNum() {
+		return screenNum;
+	}
+	public void setScreenNum(Long screenNum) {
+		this.screenNum = screenNum;
+	}
 	public Long getMovieNum() {
 		return movieNum;
 	}

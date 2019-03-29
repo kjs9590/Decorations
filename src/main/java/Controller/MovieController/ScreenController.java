@@ -38,13 +38,12 @@ public class ScreenController {
 		
 		return  path;
 	}
-//	@RequestMapping(value="/MovieSeat" ,method=RequestMethod.GET)
-//	public String movieSeat(Model model,@RequestParam(value="num") Long no,@RequestParam(value="num1") Long no1) {
-//	
-//		
-//		return "Movie/MovieSeat";
-//	}
-	
+	@RequestMapping(value="/MovieSeatChoice" ,method=RequestMethod.GET)
+	public String Screen(Model model ,@RequestParam(value="num") Long no,@RequestParam(value="num1") Long no1,@RequestParam(value="num2") Long no2) {
+//		screenRegisterService.movieScreenSeat(no2);
+		System.out.println("여기왔어");
+		return "Movie/MovieSeat";
+	}
 	
 	
 	

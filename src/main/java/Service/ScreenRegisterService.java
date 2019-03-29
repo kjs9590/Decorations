@@ -86,6 +86,8 @@ if(i==1) {
 }
 return null;
 	}
-	
+	public void movieScreenSeat(int num) {
+		
+	}
 	
 }
