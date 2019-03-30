@@ -3,7 +3,6 @@
    <%@page import="Model.*,java.util.*"%> 
  <%DateMovieDTO mrdto=(DateMovieDTO)request.getAttribute("dDto");%>  
   <%List <DateProductMovieDTO> sdTO=(List)request.getAttribute("sdTO");
-  List<String> seat =(List)request.getAttribute("List");
   Long snum=(Long)request.getAttribute("num");
   Long tnum=(Long)request.getAttribute("tnum");
   int a=0;
