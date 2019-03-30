@@ -24,7 +24,7 @@ public class OptionRepository {
 	
 	public List<OptionDTO> option(String kind) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(kind+"힘드다");
 		return sqlSession.selectList("OptionMapper.Option", kind);
 	
 }

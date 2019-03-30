@@ -7,7 +7,7 @@ public class OptionDTO implements Serializable{
 	private String optionProduct;  //옵션상품
 	private int optionPrice; // 옵션 가격
 	private String optionSoration; //옵션구분
-	
+	private int orderNum;
 	public OptionDTO() {}
 	
 	
@@ -17,6 +17,18 @@ public class OptionDTO implements Serializable{
 		this.optionProduct = optionProduct;
 		this.optionPrice = optionPrice;
 		this.optionSoration = optionSoration;
+	}
+
+
+
+	public int getOrderNum() {
+		return orderNum;
+	}
+
+
+
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
 	}
 
 

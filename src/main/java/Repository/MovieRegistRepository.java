@@ -12,7 +12,7 @@ public class MovieRegistRepository {
 	private SqlSession sqlSession;
 
 		public Integer movieInsert(MovieRegisterDTO art) {
-			System.out.println(art.getMovieImage()+"이미지");
+			
 			return sqlSession.insert("MovieMapper.insertMovie",art);
 		}
 		public List<MovieRegisterDTO> movieList() {

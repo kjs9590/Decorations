@@ -103,14 +103,7 @@ $(function () {
 
 			<ul class="re_menu">
 				<div class="res_table">
-			<div class="table_box">
-				<label for="" id="label">날짜</label>
-				<div id="t_box">
-					<p>
-						<input type="date" class="date" name="optionDate" >
-					</p>
-				</div>
-			</div>
+		
 		</div>
 			<%if(list !=null){ 
 			for(int i=0; i<list.size(); i++){

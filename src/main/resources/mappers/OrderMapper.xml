@@ -14,10 +14,29 @@
 		orders	
 	</select>
 	
-	<insert id="orderInsert">
+	<insert id="orderInsert" parameterType="OrderDTO">
 		INSERT INTO orders (ORDER_NUM, MEMBER_ID, RESERVE_NAME, RESERVE_TELL, ORDER_DATE)
-		VALUES ((select nvl(max(ORDER_NUM),0) +1 from orders), #{memberId}, #{reserveName} , #{reserveTell}, sysdate)
+		VALUES (#{orderNum}, #{memberId}, #{reserveName} , #{reserveTell}, sysdate)
 	</insert>
 	
-
+	<insert id="orderList" parameterType="OrderDTO">
+		INSERT INTO ORDERLIST (ORDER_NUM, PRODUCT_NUM, CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT, RESERVE_DATE, SEATE_NUM)
+		VALUES (#{orderNum}, #{productNum}, #{categoryNum} , #{reserveTime},
+		#{checkIn},#{checkOut},#{reserveDate},#{seateNum})
+	</insert>
+	
+	<insert id="payMentInsert" parameterType="PaymentDTO">
+		INSERT INTO PAYMENT (PAY_NUM, ORDER_NUM, CARD_NUM, PAY_PRICE, CARD_TERM,CARD_NAME,PAY_DATE)
+		VALUES ((select nvl(max(PAY_NUM),0) +1 from PAYMENT),#{orderNum}, #{cardNum}, #{payPrice} , #{cardTerm},
+		#{cardName}, sysdate)
+	</insert>
+	
+		<insert id="option" parameterType="OptionDTO">
+		INSERT INTO OPTIONLIST (OPTION_NUM, ORDER_NUM)
+		VALUES (#{optionNum},#{orderNum})
+	</insert>
+  <select id="orderSeat" parameterType="Long" resultType="String">
+  select SEATE_NUM from ORDERLIST where PRODUCT_NUM=#{no}
+  
+  </select>
 </mapper>

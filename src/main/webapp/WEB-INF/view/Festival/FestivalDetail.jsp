@@ -103,10 +103,7 @@
 				<td class="subject">문의</td>
 			<td class="info">${Festivaldetail.FESTIVALTELL }</td> 
 			</tr>
-			<tr>
-			<td class="subject">날짜선택</td>
-			<td class="info"><input type="date" name="optionDate"></td> 
-			</tr>
+			
 		</table>
 		<input type="hidden" name="foodName" class="check" value="0"> 
 		<input type="hidden" name="productType" value="축제">

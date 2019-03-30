@@ -40,6 +40,9 @@
   
   
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+   <select id="movieTimeSeat" parameterType="HashMap" resultType="Long">
+     select PRODUCT_NUM from DATEMOVIE where screen_num=#{snum} and THEATER_NUM=#{tnum} and MOVIE_START =#{time}  
+   </select>
 	<resultMap type="DateProductMovieDTO" id="movietime">
 		<result column="MOVIE_START" jdbcType="VARCHAR"
 			property="movieStart" />

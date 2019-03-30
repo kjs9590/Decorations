@@ -21,6 +21,7 @@
         <typeAlias type="Model.DateMovieDTO" alias="DateMovieDTO"/>
 		<typeAlias type="Model.OptionDTO" alias="OptionDTO"/>
 		<typeAlias type="Model.OrderDTO" alias="OrderDTO"/>
+		<typeAlias type="Model.PaymentDTO" alias="PaymentDTO"/>
 
 	</typeAliases>
 

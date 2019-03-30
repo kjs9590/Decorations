@@ -19,6 +19,7 @@ import Model.MovieRegisterDTO;
 import Model.ScreenDTO;
 import Repository.DateProductRepository;
 import Repository.MovieRegistRepository;
+import Repository.OrderRepository;
 import Repository.ScreenRegisterRepository;
 import Repository.TheaterRegisterRepository;
 
@@ -31,6 +32,8 @@ public class ScreenRegisterService {
     private DateProductRepository dateProductRepository;
     @Autowired
     private TheaterRegisterRepository theaterRegisterRepository;
+    @Autowired
+	private OrderRepository orderRepository;
     private File file = null;
 	private String originalFile = null;
 	private String originalFileExtension = null;
@@ -78,7 +81,7 @@ public class ScreenRegisterService {
 	public String movieScreenRegister(MovieScreenCommand mScommand) {
 		String path;
 		int movie[]=mScommand.getTime();
-		String movieStart=movie[0]+"시"+movie[1];
+		String movieStart=movie[0]+"시"+movie[1]+"분";
 		Long num=dateProductRepository.dateProductNum();
 		dateProductRepository.dateProduct(num,2);
 		DateProductMovieDTO dPdtod= new DateProductMovieDTO(num,mScommand.getScreenNum()
@@ -94,8 +97,18 @@ return null;
 		List<DateProductMovieDTO> sdTO=theaterRegisterRepository.movieScreentimes(num,tnum);
 		model.addAttribute("sdTO", sdTO);
 		dDto.setProductNum(sdTO.get(0).getProductNum());
-		System.out.println(dDto.getScreenRow());
 		model.addAttribute("dDto", dDto);
+		
+		model.addAttribute("num",num);
+		model.addAttribute("tnum",tnum);
 	}
 	
+	public void movieTimeSeat(String time,Long tnum,int snum,Model model) {
+	
+		Long dNum=theaterRegisterRepository.movieTimeSeat(time,tnum,snum);
+		List<String> List=orderRepository.orderSeat(dNum);
+		
+	model.addAttribute("List", List);
+	model.addAttribute("dNum",dNum);
+	}
 }

@@ -22,8 +22,14 @@ public class OrderController {
 	
 	@RequestMapping(value="/OrderMain", method=RequestMethod.POST)
 	public String order(Model model, OrderCommand command,HttpSession session) {
-		
-		orderService.addOption(model,command,session);
+		if(command.getOptionCheckin() ==null ) {
+			System.out.println("안돼");
+			command.setOptionCheckin("--");
+		}
+		if(command.getOptionCheckout() ==null ) {
+			command.setOptionCheckout("--");;
+		}
+				orderService.addOption(model,command,session);
 		
 		return "Order/Order";
 	}

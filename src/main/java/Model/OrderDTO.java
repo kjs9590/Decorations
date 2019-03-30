@@ -3,6 +3,8 @@ package Model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class OrderDTO  implements Serializable{
 /*	
   	ORDER_NUM --..자동생성,,,.,.,.,.
@@ -20,7 +22,7 @@ public class OrderDTO  implements Serializable{
 	private String reserveTime;
 	private String checkIn;
 	private String checkOut;
-	private Date reserveDate;
+	private String reserveDate;
 	private String seateNum;
 	private String reserveName;
 	private String reserveTell;
@@ -31,10 +33,8 @@ public class OrderDTO  implements Serializable{
 	
 	public OrderDTO() {}
 
-
-
 	public OrderDTO(int productNum, int categoryNum, String reserveTime, String checkIn, String checkOut,
-			 String seateNum, String reserveName, String reserveTell, String memberId) {
+			 String seateNum, String reserveName, String reserveTell, String memberId,String reserveDate) {
 		super();
 		this.productNum = productNum;
 		this.categoryNum = categoryNum;
@@ -45,6 +45,7 @@ public class OrderDTO  implements Serializable{
 		this.reserveName = reserveName;
 		this.reserveTell = reserveTell;
 		this.memberId = memberId;
+		this.reserveDate=reserveDate;
 	}
 
 
@@ -121,13 +122,13 @@ public class OrderDTO  implements Serializable{
 
 
 
-	public Date getReserveDate() {
+	public String getReserveDate() {
 		return reserveDate;
 	}
 
 
 
-	public void setReserveDate(Date reserveDate) {
+	public void setReserveDate(String reserveDate) {
 		this.reserveDate = reserveDate;
 	}
 

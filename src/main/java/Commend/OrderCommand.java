@@ -9,27 +9,40 @@ public class OrderCommand {
 	private int categoryNum;	//카테고리번호
 	private String optionSeat;	//좌석번호
 	private String optionTime;	//예약시간
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private String optionCheckin;	//체크인
-	
 	private String optionCheckout;	//체크아웃
-
-	
-	
-	private String name;	//예약자명
+    private String name;	//예약자명
 	private String tell;	//예약자 연락처
 	private String option; //옵션번호
 	private int optionPrice; 
 
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date optionDate;//예약날짜
+	private String optionDate;//예약날짜
+	private String cardName;//카드사명
+	private String [] cardNum;//카드번호
+	private String cardTerm;
 	
-	
-	public Date getOptionDate() {
+	public String getCardName() {
+		return cardName;
+	}
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
+	}
+	public String[] getCardNum() {
+		return cardNum;
+	}
+	public void setCardNum(String[] cardNum) {
+		this.cardNum = cardNum;
+	}
+	public String getCardTerm() {
+		return cardTerm;
+	}
+	public void setCardTerm(String cardTerm) {
+		this.cardTerm = cardTerm;
+	}
+	public String getOptionDate() {
 		return optionDate;
 	}
-	public void setOptionDate(Date optionDate) {
+	public void setOptionDate(String optionDate) {
 		this.optionDate = optionDate;
 	}
 	public String getOption() {

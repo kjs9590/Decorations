@@ -3,7 +3,11 @@
    <%@page import="Model.*,java.util.*"%> 
  <%DateMovieDTO mrdto=(DateMovieDTO)request.getAttribute("dDto");%>  
   <%List <DateProductMovieDTO> sdTO=(List)request.getAttribute("sdTO");
+  List<String> seat =(List)request.getAttribute("List");
+  Long snum=(Long)request.getAttribute("num");
+  Long tnum=(Long)request.getAttribute("tnum");
   int a=0;
+  String seats[];
   %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,9 +15,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <link href="../CSS/header.css" rel="stylesheet" type="text/css">
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript" src="../JS/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../JS/jquery.form.js"></script>
+<script type="text/javascript"></script>
 <style type="text/css">
 #all{
 margin-top:200px;
@@ -64,6 +68,21 @@ font-size: 40px;
  font-size: 25px;
  font-weight: bold;
  }
+<%-- <%if(seat!=null){%>
+<%  for(int i=0; i< seat.size(); i++){
+  seats=seat.get(i).split("_");	%>
+#seat_<%=seats[1]%>_<%=seats[2]%>{
+	width:10%; 
+	float:left; 
+	height:20px; 
+	margin:1px; 
+	background-color:red; 
+	border:1px solid #ccc;}
+
+
+
+<%}}%> --%>
+
 #choiceSeat{
 float:left; 
 border: solid 2px;
@@ -82,6 +101,7 @@ margin-top: 8%;
 </style>
 </head>
 <body>
+<form action="OptionMain" method="post">
    <jsp:include page="../include/header.jsp" />
    <div id="all">
 
@@ -101,19 +121,22 @@ margin-top: 8%;
 		<%} %>
 	
 	</div>
+	<div id="movieAjax"></div>
 	<script type="text/javascript">
 	var rowNum=0;
 	var columnNum=0;
 	var rows;
 	var columns;
+	var time;
+	var optionTime;
 	function seat(row, column){
-		
-		 
+		var seat="seat_"+row+"_"+column
+		document.getElementById("seat").value=seat; 
 		 columns=column;
 		document.getElementById("seat_"+row+"_"+column).style.backgroundColor="rgb(137, 69, 248)";
+		
 		if(rowNum!=0&columnNum!=0){
-			document.getElementById("seat_"+rowNum+"_"+columnNum).style.backgroundColor="#ccc";
-		}
+			document.getElementById("seat_"+rowNum+"_"+columnNum).style.backgroundColor="#ccc";}
 		rowNum=row;
 		columnNum=column;
 	
@@ -140,18 +163,33 @@ margin-top: 8%;
 		
 		 document.getElementById("seatValue").innerHTML=row+"열"+columns;
 		
-		
+
 	}
 	row=0;
+	function date(){
+	 time=document.getElementById("time").value
+	 optionTime=time.split(".");
+		document.getElementById("times").value=optionTime[2];
+
+		$.ajax({
+				type : "POST",
+				url : "TimeSeat",
+				data : "time=" + optionTime[2] +"&snum=<%=snum%>"+"&tnum=<%=tnum%>",
+				datatype : "html",
+				success : function(data) {
+					$("#movieAjax").html(data);
+				}
+			}); 
+		
+	}
 	</script>
 	
 	<div id="choiceSeat">
 	<div id="titel"><%=mrdto.getMovieTitel() %></div>
-	 <input type="date" name="optionDate"  style="width: 90%; height:60px; border: none;">
-	 <select style="width: 100%; height:80px;">
+	 <select style="width: 100%; height:80px;" onchange="date()" id="time">
 	 <option>희망시간대를 선택해주세요</option>
 	 <%for(int i=0;i<sdTO.size();i++){ %>
-	 <option><%=mrdto.getScreenName() %> <%=mrdto.getMovieTitel() %> <%=sdTO.get(i).getMovieStart()%>분 영화관람</option>
+	 <option><%=mrdto.getScreenName() %>. <%=mrdto.getMovieTitel() %> .<%=sdTO.get(i).getMovieStart()%>. 영화관람</option>
 	
 	<%} %>
 	 </select>
@@ -159,18 +197,19 @@ margin-top: 8%;
 	                 	<input type="hidden" name="foodName" class="check" value="0"> 
 						<input type="hidden" name="productType" value="영화">
 						<input type="hidden" name="productName" value="<%=mrdto.getMovieTitel() %>">
-						<input type="hidden"  name="optionTime"  value="--">
-						<input type="hidden" name="productNum" value="<%=mrdto.getProductNum() %>">
+						<input type="hidden" id="times" name="optionTime"  value="--">
+						<input type="hidden" id="pNum" name="productNum" ">
 						<input type="hidden" name="optionPrice" value="<%=mrdto.getMoviePrice()+mrdto.getScreenPlus() %>">
 						<input type="hidden" name="optionimg" value="<%=mrdto.getMovieStoreimg()%>">
-						<input type="hidden" name="optionSeat" value="--">
-						<input type="hidden" id="x" name="count" >
+						<input type="hidden" id="seat" name="optionSeat" value="--">
+						<input type="hidden" id="x" name="count" value=1>
 						<input type="hidden" id="x" name="categoryNum" value="1">
-					
+					    <input type="date" name="optionCheckin"  style="border: none; color: white;">
+	                    <input type="date" name="optionCheckout" style="border: none; color: white;"> 
 	 
-	 <input type="submit" value="예약하기" style="height: 135px;width: 100%;">
+	 <input type="submit" value="예약하기" style="height: 130px;width: 100%; margin-top: 10%;">
 	</div>
 	 </div>
-	
+	</form>
 </body>
 </html>

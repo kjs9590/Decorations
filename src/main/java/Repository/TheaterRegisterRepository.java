@@ -45,6 +45,15 @@ public class TheaterRegisterRepository {
 		map.put("tno", tno);
 		return sqlSession.selectList("TheaterMapper.movieScreentimes",map);
 	}
-	
+	public Long movieTimeSeat(String time,Long tnum,int snum) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("time",time);
+		map.put("tnum", tnum);
+		map.put("snum", snum);
+		
+		System.out.println(time+"  시간");
+		return sqlSession.selectOne("TheaterMapper.movieTimeSeat",map);
+	}
 	
 }

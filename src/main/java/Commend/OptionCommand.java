@@ -9,16 +9,14 @@ public class OptionCommand {
 	private String productType;   //데이트상품 타입
 	private String productName;  // 데이트 상품이름
 	private String productNum; //데이트번호
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date optionDate; // 데이트 날짜
 	private String optionTime; // 데이트시간 
 	private String optionPrice; //입장요금
 	private String optionimg; // 이미지
 	private String optionSeat; //좌석 null
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date optionCheckin; //체크인 null
+	private String optionCheckin; //체크인 null
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date optionCheckout;
+	private String optionCheckout;
 	private int foodName;
 	private int categoryNum;
 	
@@ -52,12 +50,7 @@ public class OptionCommand {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public Date getOptionDate() {
-		return optionDate;
-	}
-	public void setOptionDate(Date optionDate) {
-		this.optionDate = optionDate;
-	}
+
 	public String getOptionTime() {
 		return optionTime;
 	}
@@ -89,16 +82,16 @@ public class OptionCommand {
 	public void setOptionSeat(String optionSeat) {
 		this.optionSeat = optionSeat;
 	}
-	public Date getOptionCheckin() {
+	public String getOptionCheckin() {
 		return optionCheckin;
 	}
-	public void setOptionCheckin(Date optionCheckin) {
+	public void setOptionCheckin(String optionCheckin) {
 		this.optionCheckin = optionCheckin;
 	}
-	public Date getOptionCheckout() {
+	public String getOptionCheckout() {
 		return optionCheckout;
 	}
-	public void setOptionCheckout(Date optionCheckout) {
+	public void setOptionCheckout(String optionCheckout) {
 		this.optionCheckout = optionCheckout;
 	} //체크아웃 null
 	

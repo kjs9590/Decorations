@@ -34,10 +34,11 @@ public class OptionService {
 		kind=command.getProductType();
 	  List<OptionDTO> opt=optionRepository.option(kind);
 	  System.out.println(kind);
-	 if(kind.equals("축제")) {
+	 if(kind.equals("축제") || kind.equals("영화")) {
 		 model.addAttribute("command", command);
 	}else {
-	 
+	String[] kind=command.getProductType().split(",");
+		opt=optionRepository.option(kind[0]);
 	 String name[]= command.getProductName().split(",");
 	 String type[]=command.getProductType().split(",");
 	 String pNume[]=command.getProductNum().split(",");
