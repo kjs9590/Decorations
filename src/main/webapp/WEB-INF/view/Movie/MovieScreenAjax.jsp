@@ -5,7 +5,7 @@
 <%@page import="Model.MovieRegisterDTO,Model.DateMovieDTO,Model.ChargerDTO,java.util.*"%>    
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>    
 <%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto");%>
-		
+<%Long tnum=(Long)request.getAttribute("num"); %>		
 
 
 
@@ -99,7 +99,7 @@
             	 %>
                 <div class=screen_list><img src="Movie/upfile1/<%=img[0] %>" >
                 <div class="movieMention"><h4><%=mrdto.get(i).getScreenName() %></h4>
-                 <h3 onclick="movieSeate(<%=mrdto.get(i).getMovieNum()%>,<%=mrdto.get(i).getScreenColumn()%>*<%=mrdto.get(i).getScreenRow()%>,<%=mrdto.get(i).getScreenNum() %>)" style="cursor: pointer;"><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
+                 <h3><a href="MovieSeatChoice?no1=<%=mrdto.get(i).getMovieNum() %>&no2=<%=mrdto.get(i).getScreenColumn()%>&no22=<%=mrdto.get(i).getScreenRow()%>&no3=<%=mrdto.get(i).getMoviePrice() %>&no4=<%=img[0]%>&no5=<%=mrdto.get(i).getScreenNum()%>&no6=<%=mrdto.get(i).getMovieTitel() %>&no7=<%=mrdto.get(i).getScreenName()%>&no8=<%=tnum%>"><%=mrdto.get(i).getMovieTitel() %></a> </h3><br><br>
                 <h5><%=mrdto.get(i).getScreenKind()%> +<%=mrdto.get(i).getScreenPlus() %>원</h5>
              
               
@@ -112,22 +112,15 @@
         <%} %>
         </fieldset>
         </div>
-<script type="text/javascript">
+<script type="text/javascript">1
 function Register(no1,no2){ 
-	alert(no3)
+	
 	var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
 		      window.name="parentForm";
 		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
 		     
 		      self.close();
 	}
-function movieSeate(num,num1,num2){
-
-	var url='/Dacorations/MovieSeatChoice?num='+num+'&num1='+num1+'&num2='+num2;
-	      window.name="parentForm";
-	      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
-	     
-}
 	
 	
 

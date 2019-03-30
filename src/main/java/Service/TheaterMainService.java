@@ -24,7 +24,6 @@ public class TheaterMainService {
 	public void theaterList(Model model,String area,String kind) {
 
 	List<TheaterRegisterDTO> list=theaterRegisterRepository.listTheater(area, kind);
-	System.out.println(list.size()+"몇이야");
 	model.addAttribute("list",list);
 	}
 	public void theaterScreenList(Model model,Long num) {
@@ -36,6 +35,8 @@ public class TheaterMainService {
 	model.addAttribute("tRdto",tRdto);
 	model.addAttribute("sList",sList);
 	model.addAttribute("dMdto",dMdto);
+	System.out.println(num+"뭐지");
+	model.addAttribute("num",num);
 	}
 	public void movieList(Model model) {
 

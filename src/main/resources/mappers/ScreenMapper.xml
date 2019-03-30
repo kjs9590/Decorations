@@ -24,6 +24,7 @@ insert into SCREEN (SCREEN_NUM, THEATER_NUM,SCREEN_KIND,
                     where theater_num=#{no}
 </select>
 
+
 <resultMap type="ScreenDTO" id="screenList">
 		<id column="SCREEN_NUM" jdbcType="BIGINT" property="screenNum" />
 		<result column="SCREEN_KIND" jdbcType="VARCHAR" property="screenKind" />

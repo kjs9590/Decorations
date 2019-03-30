@@ -18,8 +18,7 @@
    <!-- 영화관 검색 -->
     <select id="listTheater" parameterType="HashMap" resultMap="listTheater">
         select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER where THEATER_KIND=#{kind} and THEATER_AREA=#{area}
-    
-    </select>
+     </select>
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
    <!-- 검색된 영화관 불러오기 -->
    <select id="screenList" parameterType="long" resultMap="listTheater">
@@ -30,8 +29,10 @@
             select s.SCREEN_NUM,s.SCREEN_KIND, m.MOVIE_STOREIMG,m.MOVIE_NUM,m.MOVIE_PRICE,m.MOVIE_TITEL,s.SCREEN_ROW,s.SCREEN_COLUMN,s.SCREEN_NAME,s.SCREEN_PLUS
               from SCREEN s left outer join DATEMOVIE d on(d.SCREEN_NUM=s.SCREEN_NUM) left outer join movie m on(d.MOVIE_NUM=m.MOVIE_NUM) where d.theater_num=#{num} group by s.SCREEN_NUM,s.SCREEN_KIND, m.MOVIE_STOREIMG,m.MOVIE_TITEL,m.MOVIE_NUM,m.MOVIE_PRICE,m.MOVIE_TITEL,s.SCREEN_ROW,s.SCREEN_COLUMN,s.SCREEN_NAME,s.SCREEN_PLUS
        </select>
-       
-       
+    	<select id="movieScreentimes" parameterType="HashMap" resultMap="movietime">
+    select MOVIE_START, PRODUCT_NUM from DATEMOVIE where screen_num=#{no} and THEATER_NUM=#{tno}
+    </select>   
+      
 	<!-- theaterList 영화관 리스트 -->
   	<select id="theaterList" resultMap="listTheater">
   		select THEATER_NUM, THEATER_NAME, THEATER_ADD, THEATER_AREA, THEATER_TELL, THEATER_KIND from THEATER
@@ -39,7 +40,13 @@
   
   
    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-
+	<resultMap type="DateProductMovieDTO" id="movietime">
+		<result column="MOVIE_START" jdbcType="VARCHAR"
+			property="movieStart" />
+		<result column="PRODUCT_NUM" jdbcType="VARCHAR"
+			property="productNum" />	
+        </resultMap>
+		
 		<resultMap type="DateMovieDTO" id="listScreenMovies">
 		<result column="MOVIE_STOREIMG" jdbcType="VARCHAR"
 			property="movieStoreimg" />

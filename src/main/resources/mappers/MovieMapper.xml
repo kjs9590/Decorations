@@ -24,6 +24,7 @@
 	select MOVIE_NUM, MOVIE_TITEL, MOVIE_KIND, MOVIE_AGE, MOVIE_TIME,
 		 MOVIE_PRICE, MOVIE_IMAGE, MOVIE_INFORM, MOVIE_STOREIMG from MOVIE WHERE MOVIE_NUM=#{num}
 	</select>
+
 	
 	<resultMap type="MovieRegisterDTO" id="movieList">
 		<id column="MOVIE_NUM" jdbcType="BIGINT"

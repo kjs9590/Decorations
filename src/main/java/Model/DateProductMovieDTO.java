@@ -1,6 +1,8 @@
 package Model;
 
-public class DateProductMovieDTO {
+import java.io.Serializable;
+
+public class DateProductMovieDTO implements Serializable{
 
 /*	PRODUCT_NUM	--데이트상품번호
 	SCREEN_NUM	--상영관번호

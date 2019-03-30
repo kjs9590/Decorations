@@ -13,12 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import Commend.MovieScreenCommand;
 import Commend.ScreenCommand;
+import Model.DateMovieDTO;
 import Model.DateProductMovieDTO;
 import Model.MovieRegisterDTO;
 import Model.ScreenDTO;
 import Repository.DateProductRepository;
 import Repository.MovieRegistRepository;
 import Repository.ScreenRegisterRepository;
+import Repository.TheaterRegisterRepository;
 
 public class ScreenRegisterService {
     @Autowired
@@ -27,6 +29,8 @@ public class ScreenRegisterService {
     private MovieRegistRepository movieRegistRepository;
     @Autowired
     private DateProductRepository dateProductRepository;
+    @Autowired
+    private TheaterRegisterRepository theaterRegisterRepository;
     private File file = null;
 	private String originalFile = null;
 	private String originalFileExtension = null;
@@ -86,9 +90,12 @@ if(i==1) {
 }
 return null;
 	}
-	public void movieScreenSeat(int num) {
-		
-		
+	public void movieScreentimes(Long num,Long tnum,DateMovieDTO dDto,Model model) {
+		List<DateProductMovieDTO> sdTO=theaterRegisterRepository.movieScreentimes(num,tnum);
+		model.addAttribute("sdTO", sdTO);
+		dDto.setProductNum(sdTO.get(0).getProductNum());
+		System.out.println(dDto.getScreenRow());
+		model.addAttribute("dDto", dDto);
 	}
 	
 }

@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Model.DateMovieDTO;
+import Model.DateProductMovieDTO;
 import Model.RestaurantDTO;
+import Model.ScreenDTO;
 import Model.TheaterRegisterDTO;
 
 public class TheaterRegisterRepository {
@@ -37,7 +39,12 @@ public class TheaterRegisterRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("TheaterMapper.theaterList");
 	}
-	
+	public List<DateProductMovieDTO> movieScreentimes(Long no,Long tno) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("no", no);
+		map.put("tno", tno);
+		return sqlSession.selectList("TheaterMapper.movieScreentimes",map);
+	}
 	
 	
 }

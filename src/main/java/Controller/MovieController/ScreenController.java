@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import Commend.MovieScreenCommand;
 import Commend.ScreenCommand;
+import Model.DateMovieDTO;
 import Service.ScreenRegisterService;
 
 @Controller
@@ -39,9 +40,18 @@ public class ScreenController {
 		return  path;
 	}
 	@RequestMapping(value="/MovieSeatChoice" ,method=RequestMethod.GET)
-	public String Screen(Model model ,@RequestParam(value="num") Long no,@RequestParam(value="num1") Long no1,@RequestParam(value="num2") Long no2) {
-//		screenRegisterService.movieScreenSeat(no2);
-		System.out.println("여기왔어");
+	public String Screen(Model model ,@RequestParam(value="no1") Long movienum,
+			@RequestParam(value="no2") int column,@RequestParam(value="no22") int row,@RequestParam(value="no3") int price,
+			@RequestParam(value="no4") String img,@RequestParam(value="no5") Long sNum,
+			@RequestParam(value="no6") String titel,@RequestParam(value="no7") String sName,
+			@RequestParam(value="no8") Long tNum
+			) {
+		DateMovieDTO dDto =new DateMovieDTO();
+		dDto.setMoviePrice(price);dDto.setMovieStoreimg(img);
+		dDto.setMovieTitel(titel);dDto.setScreenName(sName);
+		dDto.setScreenRow(row);dDto.setScreenColumn(column);
+	screenRegisterService.movieScreentimes(sNum,tNum,dDto,model);
+	
 		return "Movie/MovieSeat";
 	}
 	
