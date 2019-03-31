@@ -1,5 +1,7 @@
 package Service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +41,24 @@ public class OrderService {
 		OptionDTO opto=new OptionDTO();
 		opto.setOrderNum(orderNum);
 		opto.setOptionNum(optionNum);
-		
-		
-		orderRepository.payMentInsert(pdto);
+		System.out.println(odto.getProductNum()+"이거안돼");
+		result = orderRepository.orderInsert(odto);
 		orderRepository.orderListInsert(odto);
 		orderRepository.option(opto);
-		result = orderRepository.orderInsert(odto);
+		orderRepository.payMentInsert(pdto);
 		
+		
+		return result;
+	}
+
+
+	public Integer orderDetail(HttpSession session) {
+		Integer result = 0;
+
+		MemberDTO member = (MemberDTO)session.getAttribute("memberDTO");
+		
+		result = orderRepository.searchOrder(member);
+		System.out.println(result+"나와와와와와와와와ㅗ아ㅗ아ㅗ와와와");
 		
 		return result;
 	}

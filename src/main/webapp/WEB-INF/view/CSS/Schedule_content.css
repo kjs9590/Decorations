@@ -1,0 +1,185 @@
+ #scheduleMain {
+      width: 100%;
+      height: auto;
+      float: left;        
+    }
+#schedulebox{
+	width: 900px;
+	background-color: red;
+    margin: 210px auto 0px;
+    
+}
+#title{
+	float: left;
+	width: 225px;
+	margin: 10px 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+	    font-size: 25px;
+	    border-bottom: 5px double;
+}
+#memberId{
+	float: right;
+	width: 70px;
+	margin: 10px 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+	    font-size: 25px;
+	    text-align: right;
+	    border-bottom: 5px double;
+}
+    #scheduleContent {
+      width: 900px;
+      border: solid 2px;
+      margin: auto;
+      background-size: 80% 100%;
+      font-weight: bold;
+
+    }
+
+    .scheuleRow {
+      height: 50px;
+      border-bottom: solid 0.5px;
+      text-align: center;
+
+    }
+
+    .scheduleNum {
+      width: 7%;
+      height: 37px;
+      float: left;
+      border-right: solid 2px;
+
+      padding-top: 1.5%;
+    }
+
+    .scheduleTime {
+      width: 20%;
+      height: 37px;
+      border-right: solid 2px;
+      padding-top: 1.5%;
+      float: left;
+    }
+
+    .schedulePlus {
+      width: 47.3%;
+      height: 37px;
+      border-right: solid 2px;
+      padding-top: 1.5%;
+      float: left;
+    }
+
+    .schedulePlus img {
+      height: 45px;
+      width: 5%;
+      float: left;
+      position: relative;
+      top: -12px;
+      cursor: pointer;
+    }
+
+    .schedulePlus textarea {
+      margin-top: -2px;
+      border: solid 1px blue;
+      border-radius: 10px;
+   
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .schedule {
+      width: 85%;
+      height: 42px;
+      margin-top: -10px;
+      padding-top: 1.5%;
+      margin-left: 6.5%;
+      float: left;
+      cursor: pointer;
+      font-size: 20px;
+      font-family: 'Do Hyeon', sans-serif;
+    }
+
+    .scheduleDate {
+      width: 15%;
+      height: 37px;
+      border-right: solid 2px;
+      padding-top: 1.5%;
+      float: left;
+    }
+    .scheduleDate >input{
+      border-radius: 5px;
+      font-family: 'Do Hyeon', sans-serif;
+    }
+
+    .schedulePrice {
+      width: 5%;
+      height: 37px;
+      padding-top: 1.5%;
+      padding-left: 2%;
+      float: left;
+    }
+
+    #totalPrice {
+      width: 74.8%;
+      height: 42px;
+      padding-top: 1%;
+      border-right: 2px solid;
+      font-size: 25px;
+      float: left;
+      background-color: white;
+      font-family: 'Do Hyeon', sans-serif;
+    }
+
+    #totalPrices {
+      height: 37px;
+      padding-top: 1.5%;
+      background-color: white;
+    }
+
+    #scheuleThema {
+      height: 80px;
+      border-top: 1px solid;
+
+    }
+
+    .Thema {
+      height: 80px;
+      
+    }
+
+    #oneThema {
+      background-image: url('images/hero2.jpg');
+      background-size: 28% 108%;
+      border: 2px ridge;
+    }
+
+    #twoThema {
+      background-image: url('images/create.png');
+      border: 2px ridge;
+     
+    }
+
+    #threeThema {
+      background-image: url('images/sky.jpg');
+      border: 2px ridge;
+      
+    }
+
+    #fourThema {
+      background-image: url('images/cookies_dolly.jpg');
+      border: 2px ridge;
+    
+    }
+    #total{
+      border: 1px solid;
+    text-align: center;
+    margin: 10px 0px;
+    
+    }
+    .skinBox{
+      width: 900px;
+      font-size: 20px;
+      margin: 10px auto;
+    }
+    .skintitle{
+      font-family: 'Do Hyeon', sans-serif; 
+      margin: 7px 0px;
+    }

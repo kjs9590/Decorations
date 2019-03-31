@@ -69,7 +69,7 @@ function slide(id, dir, n)
 						<a href="#">make a plan</a>
 					</div>
 					<div id="plan_table">
-						<a href=""><img src="images/plan_table.JPG" alt="plan_table"></a>
+						<a href="Schedule"><img src="images/Schedule.JPG" alt="plan_table"></a>
 					</div>
 				</div>
 			</div>
