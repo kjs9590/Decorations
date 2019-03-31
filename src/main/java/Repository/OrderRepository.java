@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Model.MemberDTO;
 import Model.OptionDTO;
 import Model.OrderDTO;
 import Model.PaymentDTO;
@@ -26,7 +27,7 @@ public class OrderRepository {
 	}
 	public int orderListInsert(OrderDTO odto) {
 		// TODO Auto-generated method stub
-		System.out.println(odto.getReserveDate()+"너무하네");
+		System.out.println(odto.getOrderNum()+"너무하네");
 		return sqlSession.insert("OrderMapper.orderList" ,odto);
 	}
 	
@@ -46,6 +47,12 @@ public class OrderRepository {
 	public List<String> orderSeat(Long num) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("OrderMapper.orderSeat" ,num);
+	}
+
+
+	public Integer searchOrder(MemberDTO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("OrderMapper.searchOrder" ,member);
 	}
 	
 }

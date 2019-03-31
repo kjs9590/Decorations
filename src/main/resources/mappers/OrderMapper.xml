@@ -21,7 +21,7 @@
 	
 	<insert id="orderList" parameterType="OrderDTO">
 		INSERT INTO ORDERLIST (ORDER_NUM, PRODUCT_NUM, CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT, RESERVE_DATE, SEATE_NUM)
-		VALUES (#{orderNum}, #{productNum}, #{categoryNum} , #{reserveTime},
+		VALUES (19, #{productNum}, #{categoryNum} , #{reserveTime},
 		#{checkIn},#{checkOut},#{reserveDate},#{seateNum})
 	</insert>
 	
@@ -35,8 +35,24 @@
 		INSERT INTO OPTIONLIST (OPTION_NUM, ORDER_NUM)
 		VALUES (#{optionNum},#{orderNum})
 	</insert>
-  <select id="orderSeat" parameterType="Long" resultType="String">
-  select SEATE_NUM from ORDERLIST where PRODUCT_NUM=#{no}
+ 	<select id="orderSeat" parameterType="Long" resultType="String">
+  		select SEATE_NUM from ORDERLIST where PRODUCT_NUM=#{no}
   
-  </select>
+  	</select>
+  
+  	<!-- orderDetail,  -->
+  	<select id="searchOrder" parameterType="string" resultType="Integer">
+  		select 
+  			r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE, r.SEATE_NUM,t.MOVIE_IMAGE,t.MOVIE_TITEL 
+  		from ORDERS o 	
+  		join ORDERLIST		 r on(o.ORDER_NUM=r.ORDER_NUM) 
+  		join DATEPRODUCT	 D on(r.PRODUCT_NUM=d.PRODUCT_NUM) 
+  		join DATEMOVIE		 m on(d.PRODUCT_NUM=m.PRODUCT_NUM) 
+  		join MOVIE			 t on(m.MOVIE_NUM=t.MOVIE_NUM)
+  		
+  		
+  		 where member_id = #{member}
+  	</select>
+  
+  
 </mapper>

@@ -29,7 +29,7 @@ public class OptionRegisterController {
 		optionService.optionInsert(command,model);
 		
 		
-		return "redirect:/Main";
+		return optionService.optionInsert(command,model);
 	}
 	
 

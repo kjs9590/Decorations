@@ -15,18 +15,20 @@ public class OptionService {
 	@Autowired
 	private OptionRepository optionRepository;
 	private  String kind;
+	String path;
 	
-	public Integer optionInsert(OptionRegisterCommand command, Model model) {
+	public String optionInsert(OptionRegisterCommand command, Model model) {
 		// TODO Auto-generated method stub
 		Integer result = 0;
 		
 		OptionDTO odto = new OptionDTO(command.getOptionProduct(),command.getOptionPrice(),command.getOptionSoration());
 		
 		result = optionRepository.optionInsert(odto);
-		
-		
-		return result;
-		
+		if(result==1) {
+	    path ="RegisterComplete";
+		return path;
+		}
+		return null;
 	}
 	
 	public void option(OptionCommand command, Model model) {
