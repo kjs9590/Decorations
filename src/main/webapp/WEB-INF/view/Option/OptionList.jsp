@@ -75,11 +75,12 @@ html, body {
 		<p id="sub">옵션 관리</p>
 		<table class="table">
 			<tr id="ta_sub">
-				<td id="num">번호</td>
+				
 				<td id="sortation">구분</td>
 				<td id="product">이름</td>
 				<td id="price">가격</td>
 			</tr>
+			<tr><td colspan="3"><br></td></tr>
 			<%
 				if (options.size() ==0){
 			%>
@@ -91,7 +92,7 @@ html, body {
 			%>
 
 			<tr id="ta_sub">
-				<td id="num"><%=options.get(i).getOptionNum() %></td>
+				
 				<td id="sortation"><%=options.get(i).getOptionSoration() %></td>
 				<td id="product"><%=options.get(i).getOptionProduct() %></td>
 				<td id="price"><%=options.get(i).getOptionPrice() %></td>

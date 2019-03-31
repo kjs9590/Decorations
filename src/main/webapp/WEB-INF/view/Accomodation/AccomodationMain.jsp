@@ -39,7 +39,7 @@
 						<div class="bottom">리조트</div>
 					</div>
 				</div>
-
+             
 				<div class="mainHeaderSerach">
 					<div class="top">
 						지역
@@ -71,6 +71,10 @@
 
 			</div>
 		</div>
+	</div>
+	<div id="SearchBox">
+	<div id="boxKind">ddd</div>
+	<div id="boxArea"></div>
 	</div>
 	<div id="mainContent">
 		<div id="listMention">4가지 종류의 숙소를 골라보세요!</div>
@@ -110,7 +114,6 @@
 			<div id="list">
 
 				<ul id="slideShow">
-					<a href="AccomodationForm">숙소등록하기</a>
                     <c:forEach items="${list}" var="list">
 					<li><div class="listContent">
 							<img src="Accomodation/upfile/${list.accmodationImgstore}" />

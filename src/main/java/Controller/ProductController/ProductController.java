@@ -28,8 +28,8 @@ public class ProductController {
 	RestaurantService restaurantService;
 	
 	
-	List<ProductDTO> pDtos= new ArrayList <ProductDTO>();
-	ProductDTO  pDto;
+
+
 
 	@RequestMapping(value="/Product" ,method=RequestMethod.GET)
 	public String list() {
@@ -40,20 +40,21 @@ public class ProductController {
 
 	@RequestMapping(value="/Productkind", method=RequestMethod.GET)
 	public String product(Model model,@RequestParam(value="kind") String kind) {
-
+      
 		if(kind.equals("숙소")) {
-
+			List<ProductDTO> pDtos= new ArrayList <ProductDTO>();
 			List<AccomodationDTO> dto=accomodationService.accomodationList(model);
 			for(int i=0; i<dto.size(); i++) {
 				pDtos.add(new ProductDTO(dto.get(i).getAccomodationName(),
 						dto.get(i).getAccomodationInform(),dto.get(i).getAccomodationAdd()
 						,dto.get(i).getAccmodationTell()));
 			}
-
+              System.out.println(pDtos.size()+"사이즈");
 			model.addAttribute("pDtos",pDtos);
 		
-
+           
 		}else if(kind.equals("영화")) {
+			List<ProductDTO> pDtos= new ArrayList <ProductDTO>();
 			List<TheaterRegisterDTO> dto = theaterMainService.theaterList(model);
 			for(int i=0; i<dto.size(); i++) {
 				pDtos.add(new ProductDTO(dto.get(i).getTheaterName(),
@@ -64,6 +65,7 @@ public class ProductController {
 			model.addAttribute("pDtos",pDtos);
 			
 		}else if(kind.equals("레스토랑")) {
+			List<ProductDTO> pDtos= new ArrayList <ProductDTO>();
 			List<RestaurantDTO> dto = restaurantService.restaurantList(model);
 			for(int i=0; i<dto.size(); i++) {
 				pDtos.add(new ProductDTO(dto.get(i).getRestaurantName(),
