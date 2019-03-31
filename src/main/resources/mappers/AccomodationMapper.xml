@@ -159,30 +159,13 @@
     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 
 	
-   <!--객실이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해  -->
-	<select id="DateProductNum" resultType="long">
-		select
-		nvl(max(PRODUCT_NUM),0) +1 from
-		DATEPRODUCT
-	</select>
-     <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-     
-     <!--객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해  -->
-	<insert id="DateProduct" parameterType="AccomodationRegisterDTO">
-		insert into
-		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
-		values(#{roomNum},3)
-	</insert>
-      <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	<!-- 객실상품을을 등록하기위해 -->
 	<insert id="AccomodationRegister"
 		parameterType="AccomodationRegisterDTO">
 		insert into DATEROOM(ROOM_NUM, ACCOMODATION_NUM,
 		PRODUCT_NUM, CATEGORY_NUM,
-		ROOM_PRICE,
-		ROOM_AD, ROOM_EX, ROOM_KIND,
-		ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)
-		values((select nvl(max(ROOM_NUM),0)
+		ROOM_PRICE,ROOM_AD, ROOM_EX, ROOM_KIND,
+		ROOM_IMGSTORE,ROOM_IMG, ROOM_COUNT)values((select nvl(max(ROOM_NUM),0)
 		+1 from
 		DATEROOM),#{accomodationNum},#{roomNum},3,#{roomPrice}
 		,#{roomAd},#{roomEx},#{roomKind},#{roomImgstore},#{roomImg},#{roomCount}

@@ -60,19 +60,6 @@ public class RestaurantRepository {
 	}
 
 
-	//음식이 등록 될 때 부모테이블인 데이트 상품 넘버 값을 가져오기 위해
-	public Long dateProductNum() {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne("RestaurantMapper.DateProductNum");
-	}
-
-
-	//
-	public int dateProduct(FoodDTO fdto) {
-		return sqlSession.insert("RestaurantMapper.DateProduct",fdto);
-		
-	}
-
 
 	//음식 등록
 	public int foodInsert(FoodDTO fdto) {

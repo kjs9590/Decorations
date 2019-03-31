@@ -39,6 +39,7 @@ public class AccomodationRepository {
 
 	}
 	public List<AccomodationDTO> accomodationArea(String area,String kind) {
+		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("area", area);
 		map.put("kind", kind);
@@ -54,6 +55,16 @@ public class AccomodationRepository {
 	public List<AccomodationDTO> accomodationLowPrice(String kind) {
 
 		return sqlSession.selectList("AccomodationMapper.AccomodationLowPrice",kind);
+
+	}
+    public List<AccomodationDTO> accomodationFind(String area,String kind) {
+		System.out.println(area+"왜 안되는건데");
+		System.out.println(kind+"dhodho");
+		HashMap<String, Object> maps = new HashMap<String, Object>();
+		maps.put("area", area);
+		maps.put("kind", kind);
+      
+		return sqlSession.selectList("AccomodationMapper.AccomodationArea",maps);
 
 	}
 	

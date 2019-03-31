@@ -16,6 +16,7 @@ import Commend.RestaurantOptionCommand;
 import Commend.RestaurantRegisterCommand;
 import Model.FoodDTO;
 import Model.RestaurantDTO;
+import Repository.DateProductRepository;
 import Repository.RestaurantRepository;
 import other.AutoPaging;
 
@@ -23,7 +24,8 @@ public class RestaurantService {
 
 	@Autowired
 	private RestaurantRepository restaurantRepository;
-
+	@Autowired
+    private DateProductRepository dateProductRepository;
 	private File file = null;
 	private String originalFile = null;
 	private String originalFileExtension = null;
@@ -134,11 +136,10 @@ public class RestaurantService {
 				fCommand.getFoodName(),fCommand.getFoodType());
 
 		Integer i1;
-
-
-		fdto.setFoodNum(restaurantRepository.dateProductNum());
-		restaurantRepository.dateProduct(fdto);
-
+        
+		Long num=dateProductRepository.dateProductNum();
+		dateProductRepository.dateProduct(num,1,fCommand.getFoodName(),storeFile);
+		fdto.setFoodNum(num);
 		i1=restaurantRepository.foodInsert(fdto);
 
 	

@@ -11,6 +11,7 @@ import Commend.OrderCommand;
 import Model.MemberDTO;
 import Model.OptionDTO;
 import Model.OrderDTO;
+import Model.OrderDetailDTO;
 import Model.PaymentDTO;
 import Repository.OrderRepository;
 
@@ -19,7 +20,7 @@ public class OrderService {
      private String cardNum;
      private String []optionNm;
      private int optionNum;
-	
+	 private int cNum;
 	@Autowired
 	private OrderRepository orderRepository;
 	
@@ -52,15 +53,31 @@ public class OrderService {
 	}
 
 
-	public Integer orderDetail(HttpSession session) {
-		Integer result = 0;
+	public void orderDetail(Model model, Long num, HttpSession session) {
+		/*
+		1- 영화
+  		2- 레스토랑
+  		3- 숙소
+  		4- 축제*/
+		
+		MemberDTO mDto = (MemberDTO) session.getAttribute("memberDTO");
+		String id = mDto.getMemberId();
 
-		MemberDTO member = (MemberDTO)session.getAttribute("memberDTO");
-		
-		result = orderRepository.searchOrder(member);
-		System.out.println(result+"나와와와와와와와와ㅗ아ㅗ아ㅗ와와와");
-		
-		return result;
+		if(num==1) {
+			cNum=1;
+		}else if(num==2) {
+			cNum=2;
+		}
+		else if(num==3) {
+			cNum=3;
+		}
+		else if(num==4) {
+			cNum=4;
+		}
+		List<OrderDetailDTO> list = orderRepository.searchOrderAD(id,cNum);
+		  System.out.println(list.size()+"사이즈");
+		model.addAttribute("list",list);
 	}
+
 
 }

@@ -83,9 +83,11 @@ public class ScreenRegisterService {
 		int movie[]=mScommand.getTime();
 		String movieStart=movie[0]+"시"+movie[1]+"분";
 		Long num=dateProductRepository.dateProductNum();
-		dateProductRepository.dateProduct(num,2);
+		MovieRegisterDTO mDto=	movieRegistRepository.movieInfom(mScommand.getMovieNum());
+		String img[]=mDto.getMovieStoreimg().split("-");
+		dateProductRepository.dateProduct(num,1,mDto.getMovieTitel(),img[0]);
 		DateProductMovieDTO dPdtod= new DateProductMovieDTO(num,mScommand.getScreenNum()
-			,mScommand.getTheaterNum(),2,movieStart,mScommand.getMovieNum());
+			,mScommand.getTheaterNum(),1,movieStart,mScommand.getMovieNum());
 		Integer i=screenRegisterRepository.screenMovieInsert(dPdtod);
 	    
 if(i==1) {

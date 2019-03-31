@@ -21,7 +21,7 @@
 	
 	<insert id="orderList" parameterType="OrderDTO">
 		INSERT INTO ORDERLIST (ORDER_NUM, PRODUCT_NUM, CATEGORY_NUM, RESERVE_TIME, CHEKIN, CHEKOUT, RESERVE_DATE, SEATE_NUM)
-		VALUES (19, #{productNum}, #{categoryNum} , #{reserveTime},
+		VALUES (#{orderNum}, #{productNum}, #{categoryNum} , #{reserveTime},
 		#{checkIn},#{checkOut},#{reserveDate},#{seateNum})
 	</insert>
 	
@@ -41,18 +41,37 @@
   	</select>
   
   	<!-- orderDetail,  -->
-  	<select id="searchOrder" parameterType="string" resultType="Integer">
-  		select 
-  			r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE, r.SEATE_NUM,t.MOVIE_IMAGE,t.MOVIE_TITEL 
-  		from ORDERS o 	
-  		join ORDERLIST		 r on(o.ORDER_NUM=r.ORDER_NUM) 
-  		join DATEPRODUCT	 D on(r.PRODUCT_NUM=d.PRODUCT_NUM) 
-  		join DATEMOVIE		 m on(d.PRODUCT_NUM=m.PRODUCT_NUM) 
-  		join MOVIE			 t on(m.MOVIE_NUM=t.MOVIE_NUM)
-  		
-  		
-  		 where member_id = #{member}
-  	</select>
-  
-  
+ 
+
+	<select id="searchOrderAD" parameterType="HashMap"
+		resultMap="orderList">
+
+		select r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE,
+		r.SEATE_NUM,n.OPTION_PRODUCT,d.DATEPRODUCT_IMG,d.DATEPRODUCT_NAME from ORDERS o join ORDERLIST r
+		on(o.ORDER_NUM=r.ORDER_NUM)
+		join DATEPRODUCT D on(r.PRODUCT_NUM=d.PRODUCT_NUM) join OPTIONLIST i on (o.ORDER_NUM=i.ORDER_NUM) join OPTIONS n 
+		on(n.OPTION_NUM=i.OPTION_NUM)
+
+		where o.member_id = #{id} and r.category_num=#{cNum}
+
+
+	</select>
+<resultMap type="OrderDetailDTO" id="orderList">
+		<id column="RESERVE_TIME" jdbcType="VARCHAR"
+			property="reserveTime" />
+		<result column="CHEKIN" jdbcType="VARCHAR"
+			property="checkIn" />
+		<result column="CHEKOUT" jdbcType="VARCHAR"
+			property="checkOut" />
+		<result column="RESERVE_DATE" jdbcType="VARCHAR"
+			property="reserveDate" />
+		<result column="SEATE_NUM" jdbcType="VARCHAR"
+			property="seatNum" />
+		<result column="DATEPRODUCT_IMG" jdbcType="VARCHAR"
+			property="imgStore" />
+		<result column="DATEPRODUCT_NAME" jdbcType="VARCHAR"
+			property="productName" />
+		<result column="OPTION_PRODUCT" jdbcType="VARCHAR"
+			property="optionProduct" />
+	</resultMap>
 </mapper>

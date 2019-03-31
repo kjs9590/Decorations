@@ -66,10 +66,10 @@
 				</div>
 
 				<div class="mainHeaderSerach">
-				   <form action="roomlistsearchs">
+				   <form action="roomSerch">
          <div class="first2">
-            <input id="kind" name="area"   value="" type="hidden">
-            <input id="area" name="kind" value="" type="hidden">
+            <input id="kind" name="kind"   value="" type="hidden">
+            <input id="area" name="area" value="" type="hidden">
             
             <button style="height: 91px; width: 112%; background-color: #07c; color: white; font-size:30px; ">숙소검색</button>
          </div>

@@ -83,10 +83,9 @@
 	}
 
 	function insert(i){
-	    alert("d")
 		var input=document.getElementById("area");
 		var areas= document.getElementById("areas");
-	  
+	    alert(i.innerHTML)
 		areas.innerHTML=i.innerHTML;
 		input.value=i.innerHTML;
 		var nam = document.getElementById("boxArea");

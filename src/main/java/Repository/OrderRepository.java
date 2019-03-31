@@ -1,5 +1,6 @@
 package Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import Model.MemberDTO;
 import Model.OptionDTO;
 import Model.OrderDTO;
+import Model.OrderDetailDTO;
 import Model.PaymentDTO;
 
 public class OrderRepository {
@@ -44,15 +46,19 @@ public class OrderRepository {
 		// TODO Auto-generated method stub
 		return sqlSession.insert("OrderMapper.option" ,opto);
 	}
+	
 	public List<String> orderSeat(Long num) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("OrderMapper.orderSeat" ,num);
 	}
 
-
-	public Integer searchOrder(MemberDTO member) {
+	public List<OrderDetailDTO> searchOrderAD(String id,int cNum) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("OrderMapper.searchOrder" ,member);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cNum", cNum);
+		
+		return sqlSession.selectList("OrderMapper.searchOrderAD" ,map);
 	}
 	
 }

@@ -22,6 +22,7 @@
 		<typeAlias type="Model.OptionDTO" alias="OptionDTO"/>
 		<typeAlias type="Model.OrderDTO" alias="OrderDTO"/>
 		<typeAlias type="Model.PaymentDTO" alias="PaymentDTO"/>
+	     <typeAlias type="Model.OrderDetailDTO" alias="OrderDetailDTO"/>
 
 	</typeAliases>
 

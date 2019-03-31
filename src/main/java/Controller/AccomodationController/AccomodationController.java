@@ -46,7 +46,7 @@ public class AccomodationController {
 	public String detail(Model model,@RequestParam(value="kind") String kind) {
 		
 		accomodationService.accomodationEachList(model,kind);
-		System.out.println("음");
+		
 		return "Accomodation/AccomodationList";
 	}
 	
@@ -54,7 +54,7 @@ public class AccomodationController {
 	public String detailArea(Model model,@RequestParam(value="area") String area,
 			@RequestParam(value="kind") String kind
 			) {
-		System.out.println(area+"제발");
+		
 		accomodationService.accomodationArea(model,area,kind);
 		
 		return "Accomodation/AccomodationAjax";
@@ -74,6 +74,14 @@ public class AccomodationController {
 		
 		return "Accomodation/AccomodationAjax";
 	}
+
+	@RequestMapping(value="/roomSerch" ,method=RequestMethod.GET)
+	public String roomSerch(Model model,@RequestParam(value="kind") String kind,@RequestParam(value="area") String area ) {
+		
+		accomodationService.accomodationArea(model,area,kind);
 	
+		return "Accomodation/AccomodationList";
+
+	}
 	
 }

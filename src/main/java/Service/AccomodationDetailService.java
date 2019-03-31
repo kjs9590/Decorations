@@ -15,6 +15,7 @@ import Model.AccomodationDTO;
 import Model.AccomodationRegisterDTO;
 import Repository.AccomodationDetailRepository;
 import Repository.AccomodationRepository;
+import Repository.DateProductRepository;
 
 public class AccomodationDetailService {
 	@Autowired
@@ -31,6 +32,8 @@ public class AccomodationDetailService {
 	private String filesSize = "";
 	private String path = null;
     private Long avg;
+    @Autowired
+    private DateProductRepository dateProductRepository;
 	public void accomodationRoom(Model model,Long nume) {
         AccomodationDTO aDto=accomodationDetailRepository.accomodationRoom(nume);
 		List<AccomodationRegisterDTO> list=accomodationDetailRepository.accomodationRoomList(nume);
@@ -73,9 +76,11 @@ public class AccomodationDetailService {
 		AccomodationRegisterDTO aRDTO =new AccomodationRegisterDTO(aRcommend.getNum(),aRcommend.getaProPrice(),
 				time1,time2,aRcommend.getaProKind(),aRcommend.getCount(),originalFiles,storeFiles);
 		Integer i1;
-        aRDTO.setRoomNum(accomodationDetailRepository.dateProductNum());
-		accomodationDetailRepository.dateProduct(aRDTO);
-		i1=accomodationDetailRepository.roomRegister(aRDTO);
+		Long num=dateProductRepository.dateProductNum();
+	    aRDTO.setRoomNum(num);
+        dateProductRepository.dateProduct(num,3,aRcommend.getaProKind(),storeFile);
+		
+        i1=accomodationDetailRepository.roomRegister(aRDTO);
 		originalFiles="";
 		storeFiles="";
 		
@@ -93,4 +98,5 @@ public class AccomodationDetailService {
 			return path = "report/submissionForm";
 		}
 	}
+
 }

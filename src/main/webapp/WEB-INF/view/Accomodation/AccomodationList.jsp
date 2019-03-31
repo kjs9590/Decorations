@@ -64,7 +64,7 @@ function lowPrice(){
 
 <div id="detailList">
 
-<div id="detailMention">데이코레이션 <%=kind %> 리스트</div>
+<div id="detailMention">데이코레이션 숙박 리스트</div>
 <div id="optionList"><div class="option"><select style="height: 25px; width: 150px;" onchange="area(this.value)" id="selects">	
     
     <option>서울</option>  

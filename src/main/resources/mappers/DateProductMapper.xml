@@ -17,8 +17,8 @@
      <!--객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해  -->
 	<insert id="DateProduct" parameterType="HashMap">
 		insert into
-		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
-		values(#{num},#{nums})
+		DATEPRODUCT(PRODUCT_NUM,CATEGORY_NUM,DATEPRODUCT_IMG,DATEPRODUCT_NAME)
+		values(#{num},#{nums},#{img},#{movieName})
 	</insert>
 	
 	</mapper>

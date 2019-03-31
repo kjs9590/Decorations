@@ -127,20 +127,6 @@
 		ORDER BY RESTAURANT_NUM DESC
 	</select>
 
-	<!--음식이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해 -->
-	<select id="DateProductNum" resultType="long">
-		select
-		nvl(max(PRODUCT_NUM),0) +1 from
-		DATEPRODUCT
-	</select>
-
-
-	<!--음식이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해 -->
-	<insert id="DateProduct" parameterType="FoodDTO">
-		insert into
-		DATEPRODUCT(PRODUCT_NUM, CATEGORY_NUM)
-		values(#{foodNum},4)
-	</insert>
 
 
 	<!-- 음식상품을을 등록하기위해 -->
@@ -150,7 +136,7 @@
 		FOOD_PRICE, FOOD_IMAGE, FOOD_INFORM, FOOD_NAME, FOOD_TYPE,
 		FOOD_IMGSTORE)
 		VALUES (#{restaurantNum}, (select nvl(max(FOOD_NUM),0) +1 from datefood),
-		#{foodNum},4, #{foodPrice}, #{foodImage}, #{foodInfo},#{foodName},
+		#{foodNum},2, #{foodPrice}, #{foodImage}, #{foodInfo},#{foodName},
 		#{foodType},#{foodImgStore})
 	</insert>
 

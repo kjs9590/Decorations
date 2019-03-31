@@ -42,13 +42,5 @@ public class AccomodationDetailController {
 	}
 	
 	
-	@RequestMapping(value="/AcoomodationOrder" ,method=RequestMethod.GET)
-	public String acoomodationOrder(Model model,@ModelAttribute RoomOptionCommand command ) {
-		
-		model.addAttribute("command",command);
-		
-		return "Accomodation/RoomOrder";
-	}
-	
 	
 }

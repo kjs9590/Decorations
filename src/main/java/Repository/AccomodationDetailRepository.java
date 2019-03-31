@@ -18,14 +18,7 @@ public class AccomodationDetailRepository {
 	public List<AccomodationRegisterDTO> accomodationRoomList(Long num) {
 		return sqlSession.selectList("AccomodationMapper.AccomodationRoomList",num);
 	}
-	//객실이 등록될때 부모테이블인 데이트상품넘버 값을 가져오기위해
-	public Long dateProductNum() {
-		return sqlSession.selectOne("AccomodationMapper.DateProductNum");
-	}
-	//객실이 등록될때 부모테이블 데이트상품넘버에 값을 넣기위해
-	public int dateProduct(AccomodationRegisterDTO aRdto) {
-		return sqlSession.insert("AccomodationMapper.DateProduct",aRdto);
-	}
+	
 	//객실상품을을 등록하기위해
 	public int roomRegister(AccomodationRegisterDTO aRdto) {
 		return sqlSession.insert("AccomodationMapper.AccomodationRegister",aRdto);

@@ -86,8 +86,10 @@ public class AccomodationService {
 
 	}
 	public void accomodationArea(Model model,String area,String kind) {
-
+       System.out.println(area);
+       
 		List<AccomodationDTO> list=accomodationRepository.accomodationArea(area,kind);
+	
 		model.addAttribute("list",list);
 
 	}
@@ -103,5 +105,6 @@ public class AccomodationService {
 		model.addAttribute("list",list);
 
 	}	
+	
 	
 }
