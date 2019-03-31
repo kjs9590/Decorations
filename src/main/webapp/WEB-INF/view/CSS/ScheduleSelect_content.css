@@ -1,0 +1,78 @@
+	p{
+		color: black;
+		}
+		button:focus {
+		outline: none;
+		}
+		#contents {
+			width: 1080px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+		#menu_contents{
+			width: 540px;
+			height: 500px;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			background-image: url("../images/Menu_box.jpg");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			border-radius:10px;
+		}
+	
+		#movie_box{
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 25px 35px;
+			border-radius: 20px;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 30px;
+			background-image: url("../images/movie_box.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: black;
+
+			  
+		}
+		#accommodation_box{
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 25px 35px;
+			border-radius: 20px;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 30px;
+			background-image: url("../images/accommodation_box.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: black;
+		}
+		#restaurant_box{
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 25px 35px;
+			border-radius: 20px;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 30px;
+			background-image: url("../images/restaurant_box.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: black;
+		}
+		#festival_box{
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 25px 35px;
+			border-radius: 20px;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 30px;
+			background-image: url("../images/festival_box.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: black;
+		}

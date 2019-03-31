@@ -32,6 +32,16 @@ public class MainController {
 		return "Main/Reg_Link";
 	}
 	
+	//일정표 누르면 나오는 화면
+	@RequestMapping(value="/Schedule",method=RequestMethod.GET)
+	public String sc() {
+		return "Main/Schedule";
+	}
+	//일정표에서 선택하기 화면
+	@RequestMapping(value="/ScheduleSelect",method=RequestMethod.GET)
+	public String scselect() {
+		return "Main/ScheduleSelect";
+	}
 	
 	
 	
