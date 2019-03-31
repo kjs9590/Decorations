@@ -43,3 +43,54 @@
             }
         }).open();
     }
+ var su=1;
+ var su1=1
+ function kind(){
+
+		var nam = document.getElementById("boxKind");
+		nam.style="display:inline";
+	    
+
+		if(su%2==0){
+			nam.style="display:none";
+
+		}
+		su++;
+	}
+	function area(){
+ 
+		var nams = document.getElementById("boxArea");
+
+		nams.style="display:inline";
+   
+		if(su1%2==0){
+			nams.style="display:none";}
+		su1++;
+	}
+	
+	function insert1(i){
+	  
+		var input=document.getElementById("kind");
+		var kinds= document.getElementById("kinds");
+		kinds.innerHTML=i.innerHTML;
+		
+		input.value=i.innerHTML;
+		var nams = document.getElementById("boxKind");
+		
+		nams.style="display:none";
+		su1++;
+	   return kinds.innerHTML;
+	}
+
+	function insert(i){
+	    alert("d")
+		var input=document.getElementById("area");
+		var areas= document.getElementById("areas");
+	  
+		areas.innerHTML=i.innerHTML;
+		input.value=i.innerHTML;
+		var nam = document.getElementById("boxArea");
+		nam.style="display:none"
+			su++;
+		return areas.innerHTML;
+	}

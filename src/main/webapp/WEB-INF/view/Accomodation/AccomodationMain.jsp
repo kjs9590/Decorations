@@ -12,7 +12,7 @@
 	<meta charset="UTF-8">
 	<title>accomodation</title>
 
-	<script src="${pageContext.request.contextPath }/JS/AccomodationMain.js"></script>
+	<script src="${pageContext.request.contextPath }/JS/Accomodation.js"></script>
 	<link href="${pageContext.request.contextPath }/CSS/AccomodationMain.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -36,14 +36,14 @@
 				<div class="mainHeaderSerach">
 					<div class="top">
 						숙소
-						<div class="bottom">리조트</div>
+						<div class="bottom" id="kinds" onclick="kind()">숙박 타입을 선택해주세요</div>
 					</div>
 				</div>
              
 				<div class="mainHeaderSerach">
 					<div class="top">
 						지역
-						<div class="bottom">리조트</div>
+						<div class="bottom" id="areas" onclick="area()">지역을 선택해주세요</div>
 					</div>
 				</div>
 
@@ -66,15 +66,54 @@
 				</div>
 
 				<div class="mainHeaderSerach">
-					<div id="serach">검색</div>
+				   <form action="roomlistsearchs">
+         <div class="first2">
+            <input id="kind" name="area"   value="" type="hidden">
+            <input id="area" name="kind" value="" type="hidden">
+            
+            <button style="height: 91px; width: 112%; background-color: #07c; color: white; font-size:30px; ">숙소검색</button>
+         </div>
+      </form>
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<div id="SearchBox">
-	<div id="boxKind">ddd</div>
-	<div id="boxArea"></div>
+		<div id="boxKind">
+			<ul>
+				<li onclick="insert1(this)">호텔</li>
+				<li onclick="insert1(this)">모텔</li>
+				<li onclick="insert1(this)">펜션</li>
+				<li onclick="insert1(this)">리조트</li>
+			</ul>
+		</div>
+		<div id="boxArea">
+     	<ul class="list" >
+			<li onclick="insert(this)">서울</li>
+			<li onclick="insert(this)">경기</li>
+			<li onclick="insert(this)">인천</li>
+			<li onclick="insert(this)">강원</li>
+			<li onclick="insert(this)">제주</li>
+			<li onclick="insert(this)">대전</li>
+			<li onclick="insert(this)">세종</li>
+		</ul>
+		<ul class="list">
+			<li onclick="insert(this)">충북</li>
+			<li onclick="insert(this)">충남</li>
+			<li onclick="insert(this)">부산</li>
+			<li onclick="insert(this)">울산</li>
+			<li onclick="insert(this)">경남</li>
+			<li onclick="insert(this)">대구</li>
+			<li onclick="insert(this)">경북</li>
+        </ul>
+        
+        	<ul class="list">
+			<li onclick="insert(this)">광주</li>
+			<li onclick="insert(this)">전남</li>
+			<li onclick="insert(this)">전북</li>
+        </ul>
+   </div>
 	</div>
 	<div id="mainContent">
 		<div id="listMention">4가지 종류의 숙소를 골라보세요!</div>
