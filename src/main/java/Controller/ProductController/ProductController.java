@@ -81,8 +81,4 @@ public class ProductController {
 		
 		return "Product/ProductListAjax";
 	}
-	private void add(ProductDTO productDTO) {
-		// TODO Auto-generated method stub
-
-	}
 }
