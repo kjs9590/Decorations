@@ -18,7 +18,7 @@
 	<select id="optionList" resultMap="optionList">
 		SELECT OPTION_NUM, OPTION_PRODUCT, OPTION_PRICE, OPTION_SORTATION
 		FROM OPTIONS
-		ORDER BY OPTION_NUM 
+		ORDER BY OPTION_SORTATION 
 	</select>
 	<resultMap type="OptionDTO" id="optionList">
 		<id column="OPTION_NUM" jdbcType="BIGINT" property="optionNum" />
