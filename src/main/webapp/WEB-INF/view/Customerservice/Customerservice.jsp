@@ -157,7 +157,7 @@
                 </tr>
               </c:forEach>
             </table>
-				<button onclick="location.href='Write'">문의하기</button>
+				<button onclick="location.href='CustomerWrite'">문의하기</button>
             <div class="paging">
                 <ol>
                     <p><a href=""><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/common/btn_page_prev.gif"

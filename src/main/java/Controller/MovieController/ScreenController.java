@@ -57,9 +57,8 @@ public class ScreenController {
 	@RequestMapping(value="/TimeSeat" ,method=RequestMethod.POST)
 	public String TimeSeat(Model model ,@RequestParam(value="time") String time,
 			@RequestParam(value="snum") int snum,@RequestParam(value="tnum") Long tnum) {
-		System.out.println("뭐지");
 	screenRegisterService.movieTimeSeat(time,tnum,snum,model);
-	
+	System.out.println(time+"시간");
 		return "Movie/MovieSeatTime";
 	}
 	

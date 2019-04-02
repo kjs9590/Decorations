@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="Model.*"%>
-<% 	MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
-	ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
+<%    MemberDTO memberDTO = (MemberDTO)session.getAttribute("memberDTO");
+   ChargerDTO chargerDTO =(ChargerDTO)session.getAttribute("chargerDTO");
 %>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
@@ -14,11 +14,11 @@ var oTbl;
 
 function OptionRegister(){
 
-	var url='OptionRegister'
-	    window.name="parentForm";
-	    window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=500");  
-	     
-	    self.close();
+   var url='OptionRegister'
+       window.name="parentForm";
+       window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=600, height=500");  
+        
+       self.close();
 }
 
 </script>
@@ -35,7 +35,7 @@ function OptionRegister(){
                 <li>
                     <ul id="h_menu">
 
-						
+                  
                         <% if( chargerDTO != null){ %>
                         <li><a href="" onclick="OptionRegister()">옵션등록하기</a></li>
                         <li><a href="OptionList">옵션리스트</a></li>
@@ -46,12 +46,12 @@ function OptionRegister(){
                         <li><a href="CLogin"> CHARGER LOGIN </a></li>
                         <li><a href="MemberRegister"> SIGN UP </a></li>
                         <%} %>
-                        <%if(memberDTO!=null || chargerDTO != null){ %>
-                        <li><a href="Logout"> LOGOUT </a></li>
-                        <%} %>
+
                         <%if(chargerDTO != null){ %>
                         <li><a href="memberList"> MEMBERLIST </a></li>
                         <li><a href="Product"> PRODUCT </a></li>
+                        <li><a href="Logout"> LOGOUT </a></li>
+
                         <%} %>
                         
                     </ul>
@@ -68,10 +68,12 @@ function OptionRegister(){
                         <li><a href="CustomerMain"> CUSTOMERSERVICE </a></li>
                      <%} %>
                      <%if(memberDTO != null){ %>
-                        <li><a href=""> SCHEDULE </a></li>
                         <li><a href="MemberInfo"> MY PAGE </a></li>
-                        <li><a href=""> ORDER INFO </a></li>
+                        <li><a href="ScheduleSelect"> DATEPRODUCT </a></li>
                         <li><a href="CustomerMain"> CUSTOMERSERVICE </a></li>
+                     <%} %>
+                     <%if(memberDTO!=null){ %>
+                        <li><a href="Logout"> LOGOUT </a></li>
                      <%} %>
                     </ul>
                 </li>

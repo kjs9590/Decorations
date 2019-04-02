@@ -15,7 +15,6 @@ public class OrderCommand {
 	private String tell;	//예약자 연락처
 	private String option; //옵션번호
 	private int optionPrice; 
-
 	private String optionDate;//예약날짜
 	private String cardName;//카드사명
 	private String [] cardNum;//카드번호

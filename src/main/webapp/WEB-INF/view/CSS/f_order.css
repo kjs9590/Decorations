@@ -13,7 +13,7 @@ a:hover {
 
 .wrap_mypage{
     width: 1000px;
-    margin: 0 auto;
+    margin: 200px auto;
 }
 .page_menu{
     text-align: center;
@@ -49,19 +49,30 @@ a:hover {
 }
 #o_table{
 
-    margin: 0 auto;
+    margin: 15px auto;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 30px; 
+        background-color: white;
+}
+#o_table img{
+	margin-right: 30px;
 }
 .table h2{
     font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+#border{
+	border: solid 1px black;
+    border-radius: 5px;
+    padding: 20px; 
+    background-color: lightgrey;
 }
 #li{
     font-size: 25px;
 }
-#s_num{
-    width:90px;
-    font-size: 20px;
-    font-weight: bold;
-}
+
 #num{
     width:90px;
 }

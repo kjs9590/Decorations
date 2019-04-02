@@ -33,7 +33,7 @@
 			<ul>
 				<li><a href="MemberInfo">내정보보기</a></li>
 				<li><a href="Order">주문내역</a></li>
-				<li><a href="">결제내역</a></li>
+			
 			</ul>
 		</div>
 		<form action="MemberUpdate">

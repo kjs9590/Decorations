@@ -60,5 +60,10 @@ public class OrderRepository {
 		
 		return sqlSession.selectList("OrderMapper.searchOrderAD" ,map);
 	}
+	public PaymentDTO payMent(Long num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("OrderMapper.payMent",num);
+	}
+
 	
 }

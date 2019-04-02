@@ -142,7 +142,7 @@
                
             </div>
             <div class="pay_info">
-                <table>
+                <table style="border: solid 2px;">
                     <tr>
                         <td colspan="3">
                             <p id="info_box">결제</p>

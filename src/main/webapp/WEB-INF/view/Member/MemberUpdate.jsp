@@ -27,7 +27,7 @@
     <script type="text/javascript" src="Dacorations/JS/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="Dacorations/JS/jquery.form.js"></script>    
     
-    <script src="../JS/MemberRegister.js">  </script>
+    <script src="${pageContext.request.contextPath }/JS/MemberRegister.js">  </script>
 </head>
 
 <!-- 헤더 인클루드-->
@@ -92,12 +92,7 @@
 						<input type="text" class="textbox" name="detailAddress" id="sample6_detailAddress" placeholder="   상세주소"> 
 						<input type="text" class="textbox" name="sample6_extraAddress" id="sample6_extraAddress" placeholder="참고항목"></td>
 					</tr>
-					<tr>
-						<th colspan="2">
-							<p>
-								이벤트메일링수신동의여부<input type="checkbox" class="checkbox" name="mailConfrim" value="O">
-							</p>
-						</th>
+					
 					</tr>
 
 				</table>

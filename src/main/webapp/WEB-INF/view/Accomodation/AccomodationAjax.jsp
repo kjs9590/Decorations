@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:forEach items="${list}" var="list">
-<div class="accomodationList"> <img src="./upfile/${list.accmodationImgstore}" />
+<div class="accomodationList"> <img src="Accomodation/upfile/${list.accmodationImgstore}" />
 <div class="detailContent">
     <h1><a href="RoomList?num=${list.accomodationNum}">${list.accomodationName } <b id="c">-${list.accmodationArea }-</b></a></h1>
     <p>주소: ${list.accomodationAdd }</p>  

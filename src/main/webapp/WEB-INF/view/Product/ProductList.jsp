@@ -39,7 +39,7 @@ function list(kind){
 </head>
 
 <body>
-
+	<jsp:include page="../include/header.jsp" />
 	<div class="wrap_product">
 		<p id="p">상품 관리</p>
 
