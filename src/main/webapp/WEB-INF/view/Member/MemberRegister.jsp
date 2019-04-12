@@ -11,14 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Jua|Play" rel="stylesheet">
     <!--폰트-->
     <!--body { font-family: "Jua", sans-serif;} -->
-    <link href="../CSS/MemberRegister.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/CSS/MemberRegister.css" rel="stylesheet" type="text/css">
   
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="Dacorations/JS/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="Dacorations/JS/jquery.form.js"></script>    
     
-    <script src="../JS/MemberRegister.js">
+    <script src="${pageContext.request.contextPath }/JS/MemberRegister.js">
     </script>
 </head>
 

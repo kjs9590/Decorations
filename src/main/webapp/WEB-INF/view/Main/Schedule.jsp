@@ -90,6 +90,7 @@
           <div class="schedule">클릭시 일정생성</div>
         </div>
         <div class="scheduleDate"><input type="button" value="추가" onclick="location.href='ScheduleSelect' "></div>
+        30000원
       </div>
       <div class="scheuleRow">
         <div class="scheduleNum">4</div>
@@ -114,6 +115,7 @@
           <div class="schedule">클릭시 일정생성</div>
         </div>
         <div class="scheduleDate"><input type="button" value="추가" onclick="location.href='ScheduleSelect' "></div>
+      25000원
       </div>
       <div class="scheuleRow">
         <div class="scheduleNum">7</div>
@@ -138,6 +140,7 @@
           <div class="schedule">클릭시 일정생성</div>
         </div>
         <div class="scheduleDate"><input type="button" value="추가" onclick="location.href='ScheduleSelect' "></div>
+      39000원
       </div>
       <div class="scheuleRow">
         <div class="scheduleNum">10</div>
@@ -146,10 +149,11 @@
           <div class="schedule">클릭시 일정생성</div>
         </div>
         <div class="scheduleDate"><input type="button" value="추가" onclick="location.href='ScheduleSelect' "></div>
+        60000원
       </div>
       <div id="total">
         <div id="totalPrice">합계</div>
-        <div id="totalPrices">200000원</div>
+        <div id="totalPrices">154000원</div>
       </div>
       
 
@@ -157,16 +161,20 @@
   
     </div>
     <div class="skinBox">
-        <div class="skintitle">배경테마</div>
+        <div class="skintitle">풍경테마</div>
         <div class="Thema" id="threeThema" onclick="threeThema()"><img src="images/sky.jpg" style="width: 100%; height: 100%;"></div>
     </div>
     <div class="skinBox">
-        <div class="skintitle">짱구테마</div>
+        <div class="skintitle">애니매이션테마</div>
         <div class="Thema" id="twoThema" onclick="twoThema()"><img src="images/create.png" style="width: 100%; height: 100%;"></div>
     </div>
     <div class="skinBox">
-          <div class="skintitle">영웅테마</div>
+          <div class="skintitle">마블시리즈테마</div>
          <div class="Thema" id="oneThema" onclick="oneThema()"><img src="images/hero2.jpg" style="width: 60%; height: 100%;"></div>
+    </div>
+     <div class="skinBox">
+          <div class="skintitle">테마없음</div>
+         <div class="Thema" id="oneThema" onclick="oneThema()"></div>
     </div>
    
   </div>
