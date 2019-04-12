@@ -53,7 +53,7 @@
     <!-- 헤더 인클루드 하지 말기-->
     <div id="wrap_frm">
         <div id="logo_box">
-            <img src="../images/logo.png" id="join_logo" width="300px" height="100px;">
+            <img src="${pageContext.request.contextPath }/images/logo.png" id="join_logo" width="300px" height="100px;">
         </div>
       
         <form method="post" action="MemberJoin" onsubmit="return check()"> 

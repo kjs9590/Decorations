@@ -13,14 +13,14 @@ String seats[];
 <style type="text/css">
 <%if(seat!=null){%>
 <%  for(int i=0; i< seat.size(); i++){
-  seats=seat.get(i).split("_");	%>
+  seats=seat.get(i).split("_");   %>
 #seat_<%=seats[1]%>_<%=seats[2]%>{
-	width:10%; 
-	float:left; 
-	height:20px; 
-	margin:1px; 
-	background-color:red; 
-	border:1px solid #ccc;}
+   width:10%; 
+   float:left; 
+   height:20px; 
+   margin:1px; 
+   background-color:red; 
+   border:1px solid #ccc;}
 
 
 

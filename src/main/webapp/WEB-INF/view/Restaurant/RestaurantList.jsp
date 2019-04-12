@@ -101,7 +101,7 @@
 			<div id="ajax">
 				<c:forEach items="${list}" var="list">
 					<div class="accomodationList">
-						<img src="Restaurant/upfile/${list.restaurantImage }" />
+						<img src="Restaurant/upfile/${list.restaurantImgStore }" />
 						<div class="detailContent">
 							<h3>
 								<a href="RestaurantDetail?num=${list.restaurantNum }">${list.restaurantName }</a>

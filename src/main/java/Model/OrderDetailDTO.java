@@ -11,9 +11,15 @@ public class OrderDetailDTO implements Serializable{
 	private String imgStore;
 	private String productName;
 	private String optionProduct;
+	private int orderNum;
 	
 	
-	
+	public int getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+	}
 	public String getOptionProduct() {
 		return optionProduct;
 	}

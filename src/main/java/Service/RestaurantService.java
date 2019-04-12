@@ -138,7 +138,9 @@ public class RestaurantService {
 		Integer i1;
         
 		Long num=dateProductRepository.dateProductNum();
-		dateProductRepository.dateProduct(num,1,fCommand.getFoodName(),storeFile);
+		System.out.println( num+"평소에 좀 도아주지 아오");
+		dateProductRepository.dateProduct(num,2,fCommand.getFoodName(),storeFile);
+		
 		fdto.setFoodNum(num);
 		i1=restaurantRepository.foodInsert(fdto);
 

@@ -56,7 +56,7 @@
 <!-- Content 시작(내용 첨가) -->
 <div id = "contents">
 <div id="festival_title">${Festivaldetail.getFESTIVALNAME()}</div>
-		<div id="festival_img_box"><img src="Festival/${Festivaldetail.getFESTIVALIMG()}"></div>
+		<div id="festival_img_box"><img src="Product/date/${Festivaldetail.getFESTIVALIMG()}"></div>
 		<form action="OptionMain" method="post">
 		<table id="festival_info">
 			<tr>

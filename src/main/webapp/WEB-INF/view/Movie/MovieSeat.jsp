@@ -49,13 +49,16 @@ margin-bottom: 5%;
 	border:1px solid #ccc;
 }
 #screen{
-border:2px solid black;
+
 height: 150px;
 width: 60.6%;
 float:left; 
 text-align: center;
 padding-top: 10%;
 font-size: 40px;
+border-radius: 3px;
+box-shadow: 0 3px 15px rgba(0, 0, 0, .2);
+background-color: white;
 
 }
  #titel{
@@ -84,11 +87,14 @@ font-size: 40px;
 
 #choiceSeat{
 float:left; 
-border: solid 2px;
-height: 507px;
+
+height: 557px;
 width: 30%;
-margin-top: -300px;
+margin-top: -320px;
 margin-bottom: 5%;
+border-radius: 3px;
+box-shadow: 0 3px 7px rgba(0, 0, 0, .2);
+background-color: white;
 }
 #seatValue{
 height: 120px;
@@ -110,14 +116,11 @@ margin-top: 8%;
 		<%if(mrdto !=null & sdTO !=null ) {%>
 	    	<%for(int i=1; i<=mrdto.getScreenRow(); i++) {%>
 		      <%for(int j=1; j<=mrdto.getScreenColumn(); j++){%>
-		    	
-		    	
+		  	
 		<div class="seats" id="seat_<%=i%>_<%=j%>" onclick="seat(<%=i%>,<%=j%>)"></div>
 		<%a++;} %>
 		<br>
-		<%} %>
-		
-		<%} %>
+		<%} %><%} %>
 	
 	</div>
 	<div id="movieAjax"></div>
@@ -206,7 +209,7 @@ margin-top: 8%;
 					    <input type="date" name="optionCheckin"  style="border: none; color: white;">
 	                    <input type="date" name="optionCheckout" style="border: none; color: white;"> 
 	 
-	 <input type="submit" value="예약하기" style="height: 130px;width: 100%; margin-top: 10%;">
+	 <input type="submit" value="예약하기" style="height: 170px;width: 100%; margin-top: 10%;">
 	</div>
 	 </div>
 	</form>

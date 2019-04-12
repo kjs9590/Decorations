@@ -28,7 +28,7 @@ document.getElementById('scheduleContent').style.backgroundImage = "url('images/
 
 
         //삽입될 Form Tag
-        var frmTag = "<textarea name='content' cols='50' rows='2.1'> ";
+        var frmTag = "<textarea id='boxx' name='content' cols='30' rows='1.1'> ";
         chile.innerHTML = frmTag;
         chile.addEventListener('click', function (evt) {
           event.stopPropagation();

@@ -40,5 +40,12 @@ public class OrderController {
 		
 		return "Order/Order";
 	}
+	@RequestMapping(value="/Payment", method=RequestMethod.GET)
+	public String Payment(Model model,@RequestParam(value="num") Long num) {
+		
+		orderService.payment(model, num);
+		
+		return "Order/payment";
+	}
 	
 }

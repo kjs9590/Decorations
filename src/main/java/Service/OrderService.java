@@ -78,6 +78,9 @@ public class OrderService {
 		  System.out.println(list.size()+"사이즈");
 		model.addAttribute("list",list);
 	}
-
-
+	public void payment(Model model, Long num) {
+		PaymentDTO pdto=orderRepository.payMent(num);
+		
+		model.addAttribute("pdto",pdto);
+}
 }

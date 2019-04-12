@@ -26,7 +26,7 @@ public class OptionRegisterController {
 	@RequestMapping(value="/OptionRegister", method=RequestMethod.POST)
 	public String optionInsert(OptionRegisterCommand command, Model model) {
 		
-		optionService.optionInsert(command,model);
+	
 		
 		
 		return optionService.optionInsert(command,model);

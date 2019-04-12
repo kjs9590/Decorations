@@ -41,7 +41,7 @@
 <!-- 여기까지 노터치(변경하거나 추가하지 마시오) -->
 
 <!-- contents css설정(직접 만든 css를 여기에 올려주세요) 주석 치우고 css/이름만 바꾸면 됨.css -->
-<link href="../CSS/NoticeWrite.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/CSS/NoticeWrite.css" rel="stylesheet" type="text/css">
 <!-- contents js설정(직접 만든 js를 여기에 올려주세요)  주석 치우고 js/이름만 바꾸면 됨.js  -->
 <!-- <script src = "js/sample.js"></script> -->
 
@@ -93,7 +93,7 @@
                     <textarea name="BoardContent" cols="76" rows="15"></textarea>
                 </td>
             </tr>
-       <!--      <tr>
+      <!--       <tr>
                 <td colspan="3" id="tdsub">
                     파일 첨부
                 </td>
@@ -109,7 +109,7 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div> 
 </form:form>
 <!-- Content 끝 -->
 <!-- Footer 시작 -->

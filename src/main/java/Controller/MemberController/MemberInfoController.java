@@ -49,6 +49,6 @@ public class MemberInfoController {
 	public String info_update(MemberUpdateCommand upCommand, Model model ) {
 		
 		memberInfoService.update(upCommand,model);
-		return "Member/MemberUpdate";
+		return "redirect:Main";
 	}
 }

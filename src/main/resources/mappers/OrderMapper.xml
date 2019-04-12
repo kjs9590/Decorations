@@ -46,7 +46,7 @@
 	<select id="searchOrderAD" parameterType="HashMap"
 		resultMap="orderList">
 
-		select r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE,
+		select r.RESERVE_TIME, r.CHEKIN, r.CHEKOUT, r.RESERVE_DATE,o.ORDER_NUM,
 		r.SEATE_NUM,n.OPTION_PRODUCT,d.DATEPRODUCT_IMG,d.DATEPRODUCT_NAME from ORDERS o join ORDERLIST r
 		on(o.ORDER_NUM=r.ORDER_NUM)
 		join DATEPRODUCT D on(r.PRODUCT_NUM=d.PRODUCT_NUM) join OPTIONLIST i on (o.ORDER_NUM=i.ORDER_NUM) join OPTIONS n 
@@ -56,6 +56,27 @@
 
 
 	</select>
+	
+	<select id="payMent" parameterType="Long"
+		resultMap="Payment">
+		select ORDER_NUM, CARD_NUM, PAY_PRICE, CARD_TERM, CARD_NAME from PAYMENT
+		where ORDER_NUM= #{num}
+	</select>
+
+<resultMap type="PaymentDTO" id="Payment">
+		<result column="ORDER_NUM" jdbcType="BIGINT"
+			property="orderNum" />
+		<result column="CARD_NUM" jdbcType="VARCHAR"
+			property="cardNum" />
+		<result column="PAY_PRICE" jdbcType="BIGINT"
+			property="payPrice" />
+		<result column="CARD_TERM" jdbcType="VARCHAR"
+			property="cardTerm" />
+		<result column="CARD_NAME" jdbcType="VARCHAR"
+			property="cardName" />
+		
+	</resultMap>
+	
 <resultMap type="OrderDetailDTO" id="orderList">
 		<id column="RESERVE_TIME" jdbcType="VARCHAR"
 			property="reserveTime" />
@@ -73,5 +94,7 @@
 			property="productName" />
 		<result column="OPTION_PRODUCT" jdbcType="VARCHAR"
 			property="optionProduct" />
+		<result column="ORDER_NUM" jdbcType="BIGINT"
+			property="orderNum" />
 	</resultMap>
 </mapper>

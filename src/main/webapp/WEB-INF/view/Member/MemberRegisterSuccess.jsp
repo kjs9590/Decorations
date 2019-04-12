@@ -13,7 +13,7 @@
     <!--폰트-->
     <!--body { font-family: "Jua", sans-serif;} -->
 
-    <link href="../CSS/success.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/CSS/success.css" rel="stylesheet" type="text/css">
 </head>
 
     <!-- 헤더 인클루드 하지 말기-->
@@ -21,7 +21,7 @@
     <div class="wrap_success">
         <a href="">
             <div id="logo">
-                <img src="../images/logo.png" alt="" width="100%" height="300px">
+                <img src="${pageContext.request.contextPath }/images/logo.png" alt="" width="100%" height="300px">
             </div>
         </a><br>
         <div class="success_box">

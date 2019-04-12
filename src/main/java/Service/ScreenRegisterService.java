@@ -100,7 +100,7 @@ return null;
 		model.addAttribute("sdTO", sdTO);
 		dDto.setProductNum(sdTO.get(0).getProductNum());
 		model.addAttribute("dDto", dDto);
-		
+		System.out.println(sdTO.size()+"제발");
 		model.addAttribute("num",num);
 		model.addAttribute("tnum",tnum);
 	}
@@ -109,7 +109,7 @@ return null;
 	
 		Long dNum=theaterRegisterRepository.movieTimeSeat(time,tnum,snum);
 		List<String> List=orderRepository.orderSeat(dNum);
-		
+		System.out.println(List.size()+"사이즈");
 	model.addAttribute("List", List);
 	model.addAttribute("dNum",dNum);
 	}

@@ -17,7 +17,12 @@
 <link href="${pageContext.request.contextPath }/CSS/main.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/CSS/jquery-sakura.css"
 	rel="stylesheet">
-<style></style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+	crossorigin="anonymous"></script>
 
 
 <script
@@ -63,21 +68,13 @@ function slide(id, dir, n)
 			<div id="mainimg">
 				<img src="images/cherry-blossom.jpg" alt="main" width="100%"
 					height="800px" id="m_img">
-				<div id="plan" onclick="location.href=''">
-					<h2>DATECORATION</h2>
-					<div>
-						<a href="#">make a plan</a>
-					</div>
-					<div id="plan_table">
-						<a href="Schedule"><img src="images/Schedule.JPG" alt="plan_table"></a>
-					</div>
-				</div>
+			
 			</div>
 
 		</div>
 		<div id="movie">
 			<div class="wrap_movie">
-				<div class="main_img"><a href="TheaterMain"><img src="${pageContext.request.contextPath }/images/hotel.jpg" alt=""
+				<div class="main_img"><a href="TheaterMain"><img src="${pageContext.request.contextPath }/images/movie_image6.jpg" alt=""
 				width="600" height="500"></a></div>
 				<div class="main_list">
 				<ul id="slideShow">
@@ -85,7 +82,7 @@ function slide(id, dir, n)
 					<li>
 					<div class="listContent">
 						<div id="img_box">
-							<img src="Movie/upfile1/${fn:split(list.movieStoreimg,'-')[0]}" />
+							<img src="Product/date/${fn:split(list.movieStoreimg,'-')[0]}" />
 						</div>
 						<div class="mention" style="line-height: 2em">
 							<h2>${list.movieTitel}</h2>

@@ -1,4 +1,4 @@
-body { 
+ body { 
     font-family: "Jua", sans-serif;
 }
 
@@ -35,3 +35,56 @@ body {
     width: 100px;
     height: 30px;
 }
+
+/* #contents {
+			width: 700px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+        #board_title{
+			width: 700px;
+			float: left;
+			font-size: 40px;
+			margin: 30px 0px;
+			border-bottom: 5px solid midnightblue;
+            font-family: 'Do Hyeon', sans-serif;
+		}
+        #board_subject{
+			width: 540px;
+			float: left;
+			margin: 20px 0px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 20px;
+		}
+		#board_subject > input{
+			width: 450px;
+			height: 30px;
+            margin: 0px 0px 0px 38px;
+		}
+        #board_category{
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 20px;
+        }
+        #board_category > select{
+            width: 300px;
+            height: 30px;
+        }
+
+        #board_write{
+			width: 1080px;
+			float: left;
+		}
+
+		#board_end{
+			width: 1080px;
+            margin: 30px 230px;
+			float: left;
+			text-align: center;
+		}
+		#board_end > button{
+			width: 100px;
+            float: left;
+			height: 50px;
+			margin: 0px 10px;
+			font-size: 20px;
+		} */

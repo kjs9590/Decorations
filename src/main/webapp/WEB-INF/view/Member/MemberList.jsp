@@ -34,7 +34,7 @@
 				<td id="name">회원 이름</td>
 				<td id="id">회원 아이디</td>
 				<td id="email">회원 이메일</td>
-				<td id="gender">회원 성별</td>
+				<td id="gender">성별</td>
 				<td id="phone">회원 연락처</td>
 				<td id="addr">회원 지역</td>
 				<td id="agree">메일수신</td>

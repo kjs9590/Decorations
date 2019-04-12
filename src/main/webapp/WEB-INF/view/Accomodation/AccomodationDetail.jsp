@@ -130,10 +130,7 @@
 				</div>
 				<script type="text/javascript">
 				function plz(plz) {
-					
-					alert(plz)
 					document.getElementById("x").value=plz;
-					alert(document.getElementById("x").value)
 					document.getElementById('frm').submit()
 				}
 				</script>

@@ -4,10 +4,7 @@
     
 <%@page import="Model.MovieRegisterDTO,Model.DateMovieDTO,Model.ChargerDTO,java.util.*"%>    
 <% ChargerDTO Charge = (ChargerDTO)session.getAttribute("chargerDTO");%>    
-<%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto");%>
-<%Long tnum=(Long)request.getAttribute("num"); %>		
-
-
+<%List <DateMovieDTO> mrdto=(List)request.getAttribute("dMdto"); %>
 
 <!DOCTYPE html>
 <html>
@@ -53,8 +50,8 @@
                 <div class="movieMention"><h4>상영관 등록</h4>
                 <form action="ScreenRagister" method="post" enctype="multipart/form-data">
                 <h5><input type="text" placeholder="상영관 이름" name="screenName"></h5>
-                <h5> <input type="number"placeholder="행" name="screenRow" style="width: 40px;">
-                <input type="number"placeholder="열" name="screenColum" style="width: 40px; margin-left: -2px;"></h5>
+                <h5> <input type="number"placeholder="행" name="screenRow" style="width: 37px;">
+                <input type="number"placeholder="열" name="screenColum" style="width: 37px; margin-left: -2px;"></h5>
                 <h5><select name="screenKind" style="height: 25px;">
                 <option>상영관 종류</option>
                 <option>일반상영관</option>
@@ -73,9 +70,9 @@
                 </form>
                 </div>
          </div>
-       
+          
              <c:forEach items="${sList}" var="sList">
-                <div class=screen_list><img src=" Movie/upfile2/${sList.screenStoreimg }" >
+                <div class=screen_list><img src="Movie/upfile2/${sList.screenStoreimg }" >
                 <div class="movieMention"><h4>${sList.screenName} </h4>
                 <h5>${sList.screenKind}</h5>
                 <h5>좌석수: ${sList.screenRow*sList.screenColumn }석</h5>
@@ -94,14 +91,14 @@
            <div id=nowplaying>
              <%if(mrdto!=null){
             	 for(int i=0; i<mrdto.size(); i++){
-
+            		 String time[]=mrdto.get(i).getMovieStart().split("시");
             		 String img[]=mrdto.get(i).getMovieStoreimg().split("-");
             	 %>
-                <div class=screen_list><img src="Product/date/<%=img[0] %>" >
+                <div class=screen_list><img src="Movie/upfile1/<%=img[0] %>" >
                 <div class="movieMention"><h4><%=mrdto.get(i).getScreenName() %></h4>
-                 <h3><a href="MovieSeatChoice?no1=<%=mrdto.get(i).getMovieNum() %>&no2=<%=mrdto.get(i).getScreenColumn()%>&no22=<%=mrdto.get(i).getScreenRow()%>&no3=<%=mrdto.get(i).getMoviePrice() %>&no4=<%=img[0]%>&no5=<%=mrdto.get(i).getScreenNum()%>&no6=<%=mrdto.get(i).getMovieTitel() %>&no7=<%=mrdto.get(i).getScreenName()%>&no8=<%=tnum%>"><%=mrdto.get(i).getMovieTitel() %></a> </h3><br><br>
+                 <h3><%=mrdto.get(i).getMovieTitel() %> </h3><br><br>
                 <h5><%=mrdto.get(i).getScreenKind()%> +<%=mrdto.get(i).getScreenPlus() %>원</h5>
-             
+                <h5 style="color: blue;"><%=time[0]%>시 <%=time[1]%>분</h5>
               
                 </div>
            </div>
@@ -112,18 +109,14 @@
         <%} %>
         </fieldset>
         </div>
-<script type="text/javascript">1
-function Register(no1,no2){ 
-	
-	var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
+<script type="text/javascript">
+function Register(no1,no2){
+		var url='/Dacorations/MovieRegisterIntoScreen?no1='+no1+'&no2='+no2;
 		      window.name="parentForm";
 		      window.open(url, "childForm","toolbar=no, location=no,status=no,menubar=no, scrollbars=no,resizable=no,width=680, height=870");  
 		     
 		      self.close();
 	}
-	
-	
-
 </script>
 </body>
 </html>

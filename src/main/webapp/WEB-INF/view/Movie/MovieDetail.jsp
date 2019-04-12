@@ -41,7 +41,7 @@
 		<div id=title>영화상세</div>
 		<div id=info>
 			<div id="movie_imgbox">
-				<div id="movie_img"><img src="Movie/upfile1/<%=img[0] %>"></div>
+				<div id="movie_img"><img src="Product/date/<%=img[0] %>"></div>
 			</div>
 			<div id="movie_infobox">
 				<div class="movie_info">
@@ -63,17 +63,17 @@
 			<%=mRdto.getMovieInform()%>
 		</div>
 		<div class="cut_img">
-		    <div id="mainImg"><img src="Movie/upfile1/<%=img[0] %>" id="imgchange"></div>
+		    <div id="mainImg"><img src="Product/date/<%=img[0] %>" id="imgchange"></div>
 			<div id=cut_subject>스틸컷</div>
 			<%for(int i=0; i<img.length; i++){ %>
-			<div id=cut_mainimg ><img src="Movie/upfile1/<%=img[i] %>" onclick="imgChange(this.src)"></div>
+			<div id=cut_mainimg ><img src="Product/date/<%=img[i] %>" onclick="imgChange(this.src)"></div>
 			<%} %>
 		</div>
 		<script type="text/javascript">
 		
 		 function imgChange(a){
 			 var img=a.split("/");
-			document.getElementById("imgchange").src="Movie/upfile1/"+img[6];
+			document.getElementById("imgchange").src="Product/date/"+img[6];
 			   }
 		</script>
 	</div>

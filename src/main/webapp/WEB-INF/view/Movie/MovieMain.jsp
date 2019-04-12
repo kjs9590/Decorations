@@ -56,13 +56,13 @@ if(session.getAttribute("chargerDTO") != null){
     </div>
      <div class="theraterSerch">
       <div id="therater">영화관 찾기</div>
-      <h3>영화관 종류: <select style="height: 30px; width: 50%;" id="TheaterKind">
+      <h3 style="margin-left:11%;">영화관 종류: <select style="height: 30px; width: 50%; " id="TheaterKind">
           <option>영화관을 선택해주세요</option>
           <option>메가박스</option>
           <option>롯데시네마</option>
           <option>CGV</option>
     </select></h3>
-    <h3>영화관 지역: <select style="height: 30px; width: 50%;" onchange="area(this.value)">
+    <h3 style="margin-left:11%;">영화관 지역: <select style="height: 30px; width: 50%; " onchange="area(this.value)">
             <option>지역을선택해주세요</option>  
             <option>서울</option>  
             <option>경기</option>  
@@ -84,8 +84,8 @@ if(session.getAttribute("chargerDTO") != null){
       </select></h3>
      
       <div id="movieAjax">
-      <h3>영화관 선택:
-       <select style="height: 30px; width: 50%;">
+      <h3 style="margin-left:11%;">영화관 선택:
+       <select style="height: 30px; width: 50%; ">
             <option>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</option>  
            
       </select></h3></div>
@@ -134,7 +134,7 @@ if(session.getAttribute("chargerDTO") != null){
             	for(int i=0; i<mrdto.size(); i++){
                 img=mrdto.get(i).getMovieStoreimg().split("-");
             	%>
-            <div class=movie_list><img src="Movie/upfile1/<%=img[0] %>" >
+            <div class=movie_list><img src="Product/date/<%=img[0] %>" >
             <div class="movieMention"><div style="border-bottom: 1px solid #dedede; height:32px;  margin-top: 3%;"><h2><a href="movieDetail?no=<%=mrdto.get(i).getMovieNum()%>&img=<%=img[0]%>"><%=mrdto.get(i).getMovieTitel() %></a>
             <span style="border-radius:75px; height: 70px; width: 45px; background-color: blue; color: white;">상영중</span>
             </h2></div>

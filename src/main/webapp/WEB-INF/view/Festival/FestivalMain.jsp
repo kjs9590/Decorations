@@ -92,7 +92,7 @@ function areaClick(area){
 				<c:forEach items="${Festivallist}" var="festivallist">
 					<div class="festival_infobox">
 						<div id="festival_infoview">
-							<img src="Festival/${festivallist.getFESTIVALIMG()}">
+							<img src="Product/date/${festivallist.getFESTIVALIMG()}">
 						</div>
 						<div id="festival_info">
 							<p id="info">

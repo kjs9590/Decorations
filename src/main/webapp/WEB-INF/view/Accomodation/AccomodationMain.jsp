@@ -122,8 +122,8 @@
 			<div class="accmodation">
 				<img src="${pageContext.request.contextPath }/images/hotel.jpg"><a href="AccomodationListEach?kind=호텔">호텔</a>
 			    <p>
-				<%if(accomodationCount.get(1).getCount()!=null) {%>
-				<%=accomodationCount.get(1).getCount()%><%}else{%>0<% } %>개 호텔</p>
+				<%if(accomodationCount.get(0).getCount()!=null) {%>
+				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 호텔</p>
 			</div>
 		
 			<div class="accmodation">
@@ -132,12 +132,11 @@
 				<%if(accomodationCount.get(3).getCount()!=null) {%>
 				<%=accomodationCount.get(3).getCount()%><%}else{%>0<% } %>개 모텔</p>
 			</div>
-			
 			<div class="accmodation">
 				<img src="${pageContext.request.contextPath }/images/pension.jpg"><a href="AccomodationListEach?kind=펜션" >펜션</a>
 				  <p>
-				<%if(accomodationCount.get(0).getCount()!=null) {%>
-				<%=accomodationCount.get(0).getCount()%><%}else{%>0<% } %>개 펜션</p>
+				<%if(accomodationCount.get(1).getCount()!=null) {%>
+				<%=accomodationCount.get(1).getCount()%><%}else{%>0<% } %>개 펜션</p>
 			</div>
 			
 			<div class="accmodation">
